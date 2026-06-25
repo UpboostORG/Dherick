@@ -10,249 +10,181 @@ export default function GeneratePdf() {
     const { jsPDF } = await import("jspdf");
     const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
     const W = 210;
-    const margin = 15;
-    const contentW = W - margin * 2;
+    const m = 15;
+    const cw = W - m * 2;
     let y = 20;
 
-    function checkPage(needed: number) {
-      if (y + needed > 275) { doc.addPage(); y = 20; }
+    function pg(n: number) { if (y + n > 275) { doc.addPage(); y = 20; } }
+
+    function h1(t: string) {
+      pg(12);
+      doc.setFontSize(16); doc.setFont("helvetica", "bold"); doc.setTextColor(31, 27, 22);
+      doc.text(t, m, y);
+      y += 2; doc.setDrawColor(224, 168, 107); doc.setLineWidth(0.5);
+      doc.line(m, y, m + 40, y); y += 8;
     }
 
-    function heading(text: string) {
-      checkPage(15);
-      doc.setFontSize(18);
-      doc.setFont("helvetica", "bold");
-      doc.setTextColor(31, 27, 22);
-      doc.text(text, margin, y);
-      y += 3;
-      doc.setDrawColor(224, 168, 107);
-      doc.setLineWidth(0.5);
-      doc.line(margin, y, margin + 50, y);
-      y += 10;
+    function h2(t: string) {
+      pg(8); doc.setFontSize(11); doc.setFont("helvetica", "bold"); doc.setTextColor(31, 27, 22);
+      doc.text(t, m, y); y += 6;
     }
 
-    function subheading(text: string) {
-      checkPage(10);
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "bold");
-      doc.setTextColor(31, 27, 22);
-      doc.text(text, margin, y);
-      y += 7;
+    function row(label: string, value: string) {
+      pg(6); doc.setFontSize(9);
+      doc.setFont("helvetica", "bold"); doc.setTextColor(120, 110, 100); doc.text(label, m, y);
+      doc.setFont("helvetica", "normal"); doc.setTextColor(31, 27, 22);
+      const lines = doc.splitTextToSize(value, cw - 45);
+      doc.text(lines, m + 45, y);
+      y += lines.length * 4.5 + 1;
     }
 
-    function line(label: string, value: string) {
-      checkPage(7);
-      doc.setFontSize(9);
-      doc.setFont("helvetica", "bold");
-      doc.setTextColor(140, 129, 120);
-      doc.text(label, margin, y);
-      doc.setFont("helvetica", "normal");
-      doc.setTextColor(31, 27, 22);
-      doc.text(value, margin + 45, y);
-      y += 5.5;
-    }
+    function sep() { y += 2; pg(4); doc.setDrawColor(200, 190, 180); doc.setLineWidth(0.15); doc.line(m, y, W - m, y); y += 5; }
 
-    function text(t: string, size = 9) {
-      checkPage(7);
-      doc.setFontSize(size);
-      doc.setFont("helvetica", "normal");
-      doc.setTextColor(92, 83, 73);
-      const lines = doc.splitTextToSize(t, contentW);
-      doc.text(lines, margin, y);
-      y += lines.length * 4.5;
-    }
-
-    function separator() {
-      y += 3;
-      checkPage(5);
-      doc.setDrawColor(212, 196, 176);
-      doc.setLineWidth(0.2);
-      doc.line(margin, y, W - margin, y);
-      y += 6;
-    }
-
-    // ---- COVER ----
-    doc.setFillColor(31, 27, 22);
-    doc.rect(0, 0, W, 297, "F");
-    doc.setTextColor(224, 168, 107);
-    doc.setFontSize(11);
-    doc.setFont("helvetica", "normal");
-    doc.text("PLANEJAMENTO", W / 2, 80, { align: "center" });
-    doc.setFontSize(32);
-    doc.setFont("helvetica", "bold");
-    doc.text("Volta ao Mundo", W / 2, 100, { align: "center" });
-    doc.setFontSize(14);
-    doc.setFont("helvetica", "normal");
-    doc.setTextColor(168, 154, 140);
-    doc.text("Dherick Prado Abreu · 2026", W / 2, 115, { align: "center" });
-    doc.setFontSize(10);
-    doc.setTextColor(140, 129, 120);
+    // CAPA
+    doc.setFillColor(31, 27, 22); doc.rect(0, 0, W, 297, "F");
+    doc.setTextColor(224, 168, 107); doc.setFontSize(10); doc.setFont("helvetica", "normal");
+    doc.text("PLANEJAMENTO DE VIAGEM", W / 2, 85, { align: "center" });
+    doc.setFontSize(28); doc.setFont("helvetica", "bold");
+    doc.text("Volta ao Mundo 2026", W / 2, 100, { align: "center" });
+    doc.setFontSize(12); doc.setTextColor(160, 150, 140); doc.setFont("helvetica", "normal");
+    doc.text("Dherick Prado Abreu", W / 2, 112, { align: "center" });
+    doc.setFontSize(9); doc.setTextColor(120, 110, 100);
     doc.text(`Gerado em ${new Date().toLocaleDateString("pt-BR")}`, W / 2, 200, { align: "center" });
 
-    // ---- DADOS PESSOAIS ----
-    doc.addPage();
-    y = 20;
-    heading("Dados Pessoais");
-    line("Nome", trip.documents.personal.name);
-    line("Nascimento", trip.documents.personal.birth);
-    line("CPF", trip.documents.personal.cpf);
-    line("CIN válida até", trip.documents.personal.cinValid);
-    line("E-mail", trip.documents.personal.email);
-    line("Telefone", trip.documents.personal.phone);
-    separator();
+    // DADOS PESSOAIS
+    doc.addPage(); y = 20;
+    h1("Dados Pessoais");
+    row("Nome", trip.documents.personal.name);
+    row("Nascimento", trip.documents.personal.birth);
+    row("CPF", trip.documents.personal.cpf);
+    row("CIN válida até", trip.documents.personal.cinValid);
+    row("E-mail", trip.documents.personal.email);
+    row("Telefone", trip.documents.personal.phone);
+    sep();
 
-    // ---- ROTA ----
-    heading("Rota");
-    const routeStr = trip.route.map((r) => `${r.code} (${r.city})`).join(" → ");
-    text(routeStr, 10);
-    separator();
+    // ROTA
+    h1("Rota");
+    doc.setFontSize(10); doc.setFont("helvetica", "normal"); doc.setTextColor(31, 27, 22);
+    doc.text(trip.route.map((r) => r.code).join(" → "), m, y);
+    y += 5;
+    doc.setFontSize(8); doc.setTextColor(120, 110, 100);
+    doc.text(trip.route.map((r) => `${r.code} = ${r.city}`).join("  ·  "), m, y);
+    y += 5;
+    sep();
 
-    // ---- ROTEIRO ----
-    heading("Roteiro Completo");
+    // ROTEIRO
+    h1("Roteiro");
     trip.itinerary.forEach((item) => {
-      checkPage(14);
-      doc.setFontSize(9);
-      doc.setFont("helvetica", "bold");
-      doc.setTextColor(140, 129, 120);
-      doc.text(item.date, margin, y);
-      doc.setTextColor(31, 27, 22);
+      pg(10);
+      doc.setFontSize(9); doc.setFont("helvetica", "bold"); doc.setTextColor(31, 27, 22);
       const title = item.from && item.to ? `${item.from} → ${item.to}` : item.place || "";
-      doc.text(title, margin + 25, y);
-      doc.setFont("helvetica", "normal");
-      doc.setTextColor(224, 168, 107);
-      doc.text(`[${item.tag}]`, margin + 70, y);
-      y += 4.5;
-      doc.setTextColor(92, 83, 73);
-      const detailLines = doc.splitTextToSize(item.detail, contentW - 25);
-      doc.text(detailLines, margin + 25, y);
-      y += detailLines.length * 4 + 3;
-    });
-    separator();
-
-    // ---- PASSAGENS ----
-    heading("Passagens Aéreas");
-    subheading("Confirmadas");
-    trip.flights.confirmed.forEach((f) => {
-      checkPage(12);
-      line(`${f.from} → ${f.to}`, `${f.airline} · ${f.date} · ${f.time} · Ref: ${f.ref}`);
-    });
-    y += 3;
-    subheading("A Comprar");
-    trip.flights.toBuy.forEach((f) => {
-      checkPage(8);
-      line(`${f.from} → ${f.to}`, `${f.note} [${f.priority}]`);
-    });
-    separator();
-
-    // ---- HOSPEDAGEM ----
-    heading("Hospedagem");
-    subheading("Confirmada");
-    trip.accommodation.confirmed.forEach((h) => {
-      line("Hotel", `${h.city} — ${h.name}`);
-      line("Endereço", h.address);
-      line("Check-in", h.checkIn);
-      line("Check-out", h.checkOut);
-      line("Confirmação", h.confirmation);
-      line("PIN", h.pin);
-      line("Telefone", h.tel);
-      text(h.note);
-      y += 3;
-    });
-    subheading("A Reservar");
-    trip.accommodation.toBook.forEach((h) => {
-      line(h.city, `${h.dates} [${h.priority}]`);
-    });
-    separator();
-
-    // ---- DOCUMENTOS & VISTOS ----
-    heading("Documentos & Vistos");
-    line("Passaporte", "Emitido ✓");
-    trip.documents.docs.forEach((d) => { text("✓ " + d); });
-    y += 3;
-    subheading("Vistos por País");
-    trip.documents.visas.forEach((v) => {
-      checkPage(10);
-      line(v.country, `${v.rule} · ${v.cost} [${v.tag}]`);
-    });
-    separator();
-
-    // ---- VACINAS ----
-    heading("Vacinação");
-    line("Obrigatória", trip.vaccines.required.name);
-    text(trip.vaccines.required.detail);
-    y += 3;
-    subheading("Em Dia");
-    trip.vaccines.upToDate.forEach((v) => { line(v.name, v.date); });
-    subheading("Recomendadas");
-    trip.vaccines.recommended.forEach((v) => { line(v.name, v.reason); });
-    separator();
-
-    // ---- FINANCEIRO ----
-    heading("Orçamento");
-    line("Total disponível", `US$ ${trip.budget.total.toLocaleString()}`);
-    trip.budget.distribution.forEach((d) => {
-      line(d.destination, `US$ ${d.amount}`);
-    });
-    y += 3;
-    subheading("Câmbio");
-    trip.budget.currencies.forEach((c) => {
-      line(`${c.code} (${c.name})`, `${c.rate} por 1 ${c.code}`);
-    });
-    separator();
-
-    // ---- CHECKLIST ----
-    heading("Checklist");
-    const done = trip.checklist.filter((c) => c.done).length;
-    text(`${done}/${trip.checklist.length} concluído (${Math.round((done / trip.checklist.length) * 100)}%)`);
-    y += 2;
-    trip.checklist.forEach((item) => {
-      checkPage(6);
-      doc.setFontSize(9);
-      doc.setFont("helvetica", "normal");
-      doc.setTextColor(31, 27, 22);
-      const mark = item.done ? "☑" : "☐";
-      doc.text(`${mark} ${item.text}`, margin, y);
-      doc.setTextColor(140, 129, 120);
-      doc.text(`[${item.done ? "OK" : item.priority}]`, W - margin - 15, y);
+      doc.text(`${item.date}  ${title}`, m, y);
+      doc.setFont("helvetica", "normal"); doc.setTextColor(224, 168, 107);
+      doc.text(item.tag, W - m, y, { align: "right" });
       y += 5;
     });
-    separator();
+    sep();
 
-    // ---- COMPRAS MÊS A MÊS ----
-    heading("Compras Mês a Mês");
+    // PASSAGENS
+    h1("Passagens Aéreas");
+    h2("Confirmadas");
+    trip.flights.confirmed.forEach((f) => {
+      pg(6);
+      row(`${f.from} → ${f.to}`, `${f.airline} · ${f.date} · ${f.time} · Ref: ${f.ref}`);
+    });
+    h2("A Comprar");
+    trip.flights.toBuy.forEach((f) => {
+      row(`${f.from} → ${f.to}`, `[${f.priority}]`);
+    });
+    sep();
+
+    // HOSPEDAGEM
+    h1("Hospedagem");
+    h2("Confirmada");
+    trip.accommodation.confirmed.forEach((h) => {
+      row("Hotel", `${h.city} — ${h.name}`);
+      row("Endereço", h.address);
+      row("Check-in/out", `${h.checkIn} → ${h.checkOut}`);
+      row("Confirmação", h.confirmation);
+      row("PIN / Tel", `${h.pin} · ${h.tel}`);
+      y += 2;
+    });
+    h2("A Reservar");
+    trip.accommodation.toBook.forEach((h) => {
+      row(h.city, `${h.dates} [${h.priority}]`);
+    });
+    sep();
+
+    // DOCUMENTOS & VISTOS
+    h1("Documentos & Vistos");
+    row("Passaporte", "Emitido ✓");
+    trip.documents.docs.forEach((d) => {
+      pg(5); doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(31, 27, 22);
+      doc.text(`✓ ${d}`, m, y); y += 4.5;
+    });
+    y += 2; h2("Vistos");
+    trip.documents.visas.forEach((v) => {
+      row(v.country, `${v.cost} · ${v.tag}`);
+    });
+    sep();
+
+    // VACINAS
+    h1("Vacinas");
+    row("Obrigatória", trip.vaccines.required.name);
+    trip.vaccines.upToDate.forEach((v) => { row(v.name, v.date); });
+    trip.vaccines.recommended.forEach((v) => { row(v.name, `Recomendada`); });
+    sep();
+
+    // ORÇAMENTO
+    h1("Orçamento");
+    row("Total", `US$ ${trip.budget.total.toLocaleString()}`);
+    trip.budget.distribution.forEach((d) => { row(d.destination, `US$ ${d.amount}`); });
+    y += 2; h2("Câmbio");
+    trip.budget.currencies.forEach((c) => { row(c.code, `${c.rate} por 1 ${c.code}`); });
+    sep();
+
+    // CHECKLIST
+    h1("Checklist");
+    const done = trip.checklist.filter((c) => c.done).length;
+    doc.setFontSize(9); doc.setFont("helvetica", "bold"); doc.setTextColor(31, 27, 22);
+    doc.text(`${done}/${trip.checklist.length} (${Math.round((done / trip.checklist.length) * 100)}%)`, m, y);
+    y += 6;
+    trip.checklist.forEach((item) => {
+      pg(5); doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(31, 27, 22);
+      doc.text(`${item.done ? "✓" : "○"} ${item.text}`, m, y);
+      if (!item.done) { doc.setTextColor(200, 100, 80); doc.text(item.priority, W - m, y, { align: "right" }); }
+      y += 4.5;
+    });
+    sep();
+
+    // COMPRAS MÊS A MÊS
+    h1("Compras Mês a Mês");
     trip.monthlyPurchases.forEach((month) => {
-      subheading(month.month);
-      text(month.note);
+      h2(month.month);
       month.items.forEach((item) => {
-        checkPage(6);
-        const mark = item.done ? "☑" : "☐";
-        doc.setFontSize(9);
-        doc.setFont("helvetica", "normal");
-        doc.setTextColor(31, 27, 22);
-        doc.text(`${mark} ${item.text}`, margin, y);
-        doc.setTextColor(224, 168, 107);
-        doc.text(item.cost, W - margin - 20, y);
-        y += 5;
+        pg(5); doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(31, 27, 22);
+        doc.text(`${item.done ? "✓" : "○"} ${item.text}`, m, y);
+        doc.setTextColor(224, 168, 107); doc.text(item.cost, W - m, y, { align: "right" });
+        y += 4.5;
       });
-      y += 3;
+      y += 2;
     });
 
-    // ---- UPLOADED DOCS ----
+    // DOCS ANEXADOS
     const stored = JSON.parse(localStorage.getItem("__uploaded_docs") || "{}");
     const hasUploads = Object.values(stored).some((arr: any) => arr && arr.length > 0);
     if (hasUploads) {
-      doc.addPage();
-      y = 20;
-      heading("Documentos Anexados");
+      doc.addPage(); y = 20;
+      h1("Documentos Anexados");
       Object.entries(stored).forEach(([section, docs]: [string, any]) => {
         if (!docs || docs.length === 0) return;
-        subheading(section.charAt(0).toUpperCase() + section.slice(1));
+        h2(section.charAt(0).toUpperCase() + section.slice(1));
         docs.forEach((d: any) => {
-          checkPage(10);
-          line("Arquivo", d.name);
+          pg(8); row("Arquivo", d.name);
           if (d.text) {
-            const preview = d.text.substring(0, 300) + (d.text.length > 300 ? "..." : "");
-            text(preview);
+            doc.setFontSize(7); doc.setFont("helvetica", "normal"); doc.setTextColor(100, 90, 80);
+            const preview = doc.splitTextToSize(d.text.substring(0, 200), cw);
+            doc.text(preview, m, y); y += preview.length * 3.5;
           }
           y += 2;
         });
