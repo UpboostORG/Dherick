@@ -2,7 +2,268 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Bundled Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dherick</title>
+
+  <!-- LOGIN OVERLAY -->
+  <style id="__login_styles">
+    #__login_overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #1F1B16;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #__login_overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #__login_box {
+      width: 90%;
+      max-width: 400px;
+      padding: 40px 32px;
+      background: #2A2520;
+      border-radius: 16px;
+      border: 1px solid rgba(224, 168, 107, 0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+    #__login_logo {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+    }
+    #__login_title {
+      color: #E0A86B;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    #__login_subtitle {
+      color: #8C8178;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    #__login_form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .__login_input_group {
+      position: relative;
+      text-align: left;
+    }
+    .__login_input_group label {
+      display: block;
+      color: #A89A8C;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .__login_input {
+      width: 100%;
+      padding: 14px 16px;
+      background: #1F1B16;
+      border: 1px solid rgba(224, 168, 107, 0.2);
+      border-radius: 10px;
+      color: #F0E6D8;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .__login_input:focus {
+      border-color: #E0A86B;
+    }
+    .__login_input::placeholder {
+      color: #5C5349;
+    }
+    #__login_btn {
+      margin-top: 8px;
+      padding: 14px;
+      background: linear-gradient(135deg, #E0A86B, #C4924F);
+      border: none;
+      border-radius: 10px;
+      color: #1F1B16;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    #__login_btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(224, 168, 107, 0.3);
+    }
+    #__login_btn:active {
+      transform: translateY(0);
+    }
+    #__login_error {
+      color: #E06B6B;
+      font-size: 13px;
+      min-height: 20px;
+      margin-top: 4px;
+    }
+    #__login_toggle {
+      margin-top: 16px;
+      text-align: center;
+    }
+    #__login_toggle span {
+      color: #8C8178;
+      font-size: 13px;
+    }
+    #__login_toggle a {
+      color: #E0A86B;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    #__login_toggle a:hover {
+      text-decoration: underline;
+    }
+    .__password_toggle {
+      position: absolute;
+      right: 14px;
+      top: 38px;
+      background: none;
+      border: none;
+      color: #8C8178;
+      cursor: pointer;
+      font-size: 13px;
+      padding: 4px;
+    }
+    @media (max-width: 480px) {
+      #__login_box {
+        padding: 32px 24px;
+        border-radius: 12px;
+      }
+      #__login_title { font-size: 20px; }
+    }
+  </style>
+  <script>
+    (function() {
+      var LOGIN_STYLES = document.getElementById('__login_styles').textContent;
+      var LOGIN_HTML = '<div id="__login_overlay">' +
+        '<div id="__login_box">' +
+          '<svg id="__login_logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
+            '<circle cx="50" cy="50" r="22" fill="none" stroke="#E0A86B" stroke-width="2.4"></circle>' +
+            '<ellipse cx="50" cy="50" rx="9" ry="22" fill="none" stroke="#E0A86B" stroke-width="2.4"></ellipse>' +
+            '<line x1="28" y1="50" x2="72" y2="50" stroke="#E0A86B" stroke-width="2.4"></line>' +
+          '</svg>' +
+          '<h1 id="__login_title">Bem-vindo</h1>' +
+          '<p id="__login_subtitle">Entre com suas credenciais</p>' +
+          '<form id="__login_form">' +
+            '<div class="__login_input_group"><label for="__login_email">Email</label>' +
+            '<input class="__login_input" type="email" id="__login_email" placeholder="seu@email.com" autocomplete="email"></div>' +
+            '<div class="__login_input_group"><label for="__login_pass">Senha</label>' +
+            '<input class="__login_input" type="password" id="__login_pass" placeholder="••••••••" autocomplete="current-password">' +
+            '<button type="button" class="__password_toggle">Mostrar</button></div>' +
+            '<button type="submit" id="__login_btn">Entrar</button>' +
+            '<div id="__login_error"></div>' +
+          '</form>' +
+          '<div id="__login_toggle"><span id="__login_toggle_text">Não tem conta? </span><a id="__login_toggle_link">Criar conta</a></div>' +
+        '</div></div>';
+
+      function injectLogin() {
+        if (localStorage.getItem('__logged_in') === 'true') return;
+        if (document.getElementById('__login_overlay')) return;
+
+        var style = document.createElement('style');
+        style.textContent = LOGIN_STYLES;
+        document.head.appendChild(style);
+
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = LOGIN_HTML;
+        document.body.appendChild(wrapper.firstChild);
+
+        var overlay = document.getElementById('__login_overlay');
+        var form = document.getElementById('__login_form');
+        var emailInput = document.getElementById('__login_email');
+        var passInput = document.getElementById('__login_pass');
+        var errorEl = document.getElementById('__login_error');
+        var toggleLink = document.getElementById('__login_toggle_link');
+        var toggleText = document.getElementById('__login_toggle_text');
+        var titleEl = document.getElementById('__login_title');
+        var subtitleEl = document.getElementById('__login_subtitle');
+        var btnEl = document.getElementById('__login_btn');
+        var isSignup = false;
+
+        var USERS_KEY = '__dherick_users';
+        function getUsers() {
+          try { return JSON.parse(localStorage.getItem(USERS_KEY)) || {}; } catch(e) { return {}; }
+        }
+        function saveUsers(users) {
+          localStorage.setItem(USERS_KEY, JSON.stringify(users));
+        }
+
+        toggleLink.addEventListener('click', function() {
+          isSignup = !isSignup;
+          if (isSignup) {
+            titleEl.textContent = 'Criar Conta';
+            subtitleEl.textContent = 'Preencha seus dados para começar';
+            btnEl.textContent = 'Criar Conta';
+            toggleText.textContent = 'Já tem conta? ';
+            toggleLink.textContent = 'Entrar';
+          } else {
+            titleEl.textContent = 'Bem-vindo';
+            subtitleEl.textContent = 'Entre com suas credenciais';
+            btnEl.textContent = 'Entrar';
+            toggleText.textContent = 'Não tem conta? ';
+            toggleLink.textContent = 'Criar conta';
+          }
+          errorEl.textContent = '';
+        });
+
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var email = emailInput.value.trim();
+          var pass = passInput.value;
+          if (!email || !pass) { errorEl.textContent = 'Preencha todos os campos'; return; }
+          if (pass.length < 4) { errorEl.textContent = 'Senha deve ter pelo menos 4 caracteres'; return; }
+          var users = getUsers();
+          if (isSignup) {
+            if (users[email]) { errorEl.textContent = 'Email já cadastrado'; return; }
+            users[email] = pass;
+            saveUsers(users);
+            localStorage.setItem('__logged_in', 'true');
+            localStorage.setItem('__logged_user', email);
+            overlay.classList.add('hidden');
+          } else {
+            if (!users[email]) { errorEl.textContent = 'Email não encontrado'; return; }
+            if (users[email] !== pass) { errorEl.textContent = 'Senha incorreta'; return; }
+            localStorage.setItem('__logged_in', 'true');
+            localStorage.setItem('__logged_user', email);
+            overlay.classList.add('hidden');
+          }
+        });
+
+        document.querySelectorAll('.__password_toggle').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var input = this.parentElement.querySelector('input');
+            if (input.type === 'password') { input.type = 'text'; this.textContent = 'Ocultar'; }
+            else { input.type = 'password'; this.textContent = 'Mostrar'; }
+          });
+        });
+      }
+
+      // Watch for bundler replaceWith — re-inject after DOM rebuild
+      var observer = new MutationObserver(function() {
+        if (document.body && !document.getElementById('__login_overlay')) {
+          injectLogin();
+        }
+      });
+      observer.observe(document.documentElement || document, { childList: true, subtree: true });
+
+      // Also try on DOMContentLoaded and load
+      document.addEventListener('DOMContentLoaded', injectLogin);
+      window.addEventListener('load', injectLogin);
+    })();
+  </script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #faf9f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
