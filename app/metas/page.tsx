@@ -13,7 +13,9 @@ export default function Metas() {
     const remainingBRL = remaining * exchangeRate;
     const departureDate = new Date("2026-09-24");
     const now = new Date();
-    const daysLeft = Math.max(1, Math.ceil((departureDate.getTime() - now.getTime()) / 86400000));
+    const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const startFrom = nextMonth > departureDate ? now : nextMonth;
+    const daysLeft = Math.max(1, Math.ceil((departureDate.getTime() - startFrom.getTime()) / 86400000));
     const weeksLeft = Math.max(1, Math.ceil(daysLeft / 7));
     const monthsLeft = Math.max(0.1, daysLeft / 30);
     const pct = Math.round((invested / totalUSD) * 100);

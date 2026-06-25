@@ -202,15 +202,6 @@ export const trip = {
 
   monthlyPurchases: [
     {
-      month: "Junho 2026",
-      note: "Travar o básico e começar a guardar",
-      items: [
-        { text: "Seguro viagem internacional (longa duração)", cost: "~R$ 600", done: false },
-        { text: "Reservar hospedagem Dubai (25-30/09 · 5 noites)", cost: "~US$ 500", done: false },
-        { text: "Começar a comprar dólares em espécie (aos poucos)", cost: "~US$ 300", done: false },
-      ],
-    },
-    {
       month: "Julho 2026",
       note: "Fechar hospedagens do Egito e de Atenas",
       items: [
