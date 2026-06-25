@@ -1,4 +1,6 @@
+"use client";
 import { trip } from "@/data/trip";
+import PdfUpload from "@/components/PdfUpload";
 
 export default function Passagens() {
   return (
@@ -48,6 +50,8 @@ export default function Passagens() {
           </div>
         ))}
       </div>
+
+      <PdfUpload section="passagens" onExtracted={(data) => console.log("Extracted flight data:", data)} />
     </div>
   );
 }

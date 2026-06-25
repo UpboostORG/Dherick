@@ -1,5 +1,6 @@
 import { trip } from "@/data/trip";
 import Countdown from "@/components/Countdown";
+import GeneratePdf from "@/components/GeneratePdf";
 
 export default function Home() {
   const done = trip.checklist.filter((c) => c.done).length;
@@ -9,6 +10,9 @@ export default function Home() {
 
   return (
     <div className="space-y-6">
+      <div className="flex justify-end">
+        <GeneratePdf />
+      </div>
       <Countdown target={trip.departureDate} />
 
       {/* Stats */}

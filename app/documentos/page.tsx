@@ -1,4 +1,6 @@
+"use client";
 import { trip } from "@/data/trip";
+import PdfUpload from "@/components/PdfUpload";
 
 export default function Documentos() {
   const d = trip.documents;
@@ -83,6 +85,8 @@ export default function Documentos() {
           </tbody>
         </table>
       </div>
+
+      <PdfUpload section="documentos" onExtracted={(data) => console.log("Extracted doc data:", data)} />
     </div>
   );
 }

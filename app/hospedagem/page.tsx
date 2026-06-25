@@ -1,4 +1,6 @@
+"use client";
 import { trip } from "@/data/trip";
+import PdfUpload from "@/components/PdfUpload";
 
 export default function Hospedagem() {
   const confirmed = trip.accommodation.confirmed;
@@ -64,6 +66,8 @@ export default function Hospedagem() {
           </div>
         ))}
       </div>
+
+      <PdfUpload section="hospedagem" onExtracted={(data) => console.log("Extracted hotel data:", data)} />
     </div>
   );
 }

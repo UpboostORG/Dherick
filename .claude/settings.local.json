@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(vercel --version)",
+      "Bash(git init *)",
+      "Bash(gh auth *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(gh repo *)",
+      "Bash(vercel --yes)",
+      "Bash(vercel --yes --name dherick-site)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\Dhérick\\\\Desktop\\\\Dherick\\\\.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git push *)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "mcp__Claude_in_Chrome__computer"
+    ]
+  }
+}
