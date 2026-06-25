@@ -156,17 +156,16 @@
             '<line x1="28" y1="50" x2="72" y2="50" stroke="#E0A86B" stroke-width="2.4"></line>' +
           '</svg>' +
           '<h1 id="__login_title">Bem-vindo</h1>' +
-          '<p id="__login_subtitle">Entre com suas credenciais</p>' +
+          '<p id="__login_subtitle">Acesso restrito</p>' +
           '<form id="__login_form">' +
-            '<div class="__login_input_group"><label for="__login_email">Email</label>' +
-            '<input class="__login_input" type="email" id="__login_email" placeholder="seu@email.com" autocomplete="email"></div>' +
+            '<div class="__login_input_group"><label for="__login_user">Usuário</label>' +
+            '<input class="__login_input" type="text" id="__login_user" placeholder="seu usuário" autocomplete="username"></div>' +
             '<div class="__login_input_group"><label for="__login_pass">Senha</label>' +
             '<input class="__login_input" type="password" id="__login_pass" placeholder="••••••••" autocomplete="current-password">' +
             '<button type="button" class="__password_toggle">Mostrar</button></div>' +
             '<button type="submit" id="__login_btn">Entrar</button>' +
             '<div id="__login_error"></div>' +
           '</form>' +
-          '<div id="__login_toggle"><span id="__login_toggle_text">Não tem conta? </span><a id="__login_toggle_link">Criar conta</a></div>' +
         '</div></div>';
 
       function injectLogin() {
@@ -183,63 +182,21 @@
 
         var overlay = document.getElementById('__login_overlay');
         var form = document.getElementById('__login_form');
-        var emailInput = document.getElementById('__login_email');
+        var userInput = document.getElementById('__login_user');
         var passInput = document.getElementById('__login_pass');
         var errorEl = document.getElementById('__login_error');
-        var toggleLink = document.getElementById('__login_toggle_link');
-        var toggleText = document.getElementById('__login_toggle_text');
-        var titleEl = document.getElementById('__login_title');
-        var subtitleEl = document.getElementById('__login_subtitle');
-        var btnEl = document.getElementById('__login_btn');
-        var isSignup = false;
 
-        var USERS_KEY = '__dherick_users';
-        function getUsers() {
-          try { return JSON.parse(localStorage.getItem(USERS_KEY)) || {}; } catch(e) { return {}; }
-        }
-        function saveUsers(users) {
-          localStorage.setItem(USERS_KEY, JSON.stringify(users));
-        }
-
-        toggleLink.addEventListener('click', function() {
-          isSignup = !isSignup;
-          if (isSignup) {
-            titleEl.textContent = 'Criar Conta';
-            subtitleEl.textContent = 'Preencha seus dados para começar';
-            btnEl.textContent = 'Criar Conta';
-            toggleText.textContent = 'Já tem conta? ';
-            toggleLink.textContent = 'Entrar';
-          } else {
-            titleEl.textContent = 'Bem-vindo';
-            subtitleEl.textContent = 'Entre com suas credenciais';
-            btnEl.textContent = 'Entrar';
-            toggleText.textContent = 'Não tem conta? ';
-            toggleLink.textContent = 'Criar conta';
-          }
-          errorEl.textContent = '';
-        });
+        var VALID_USER = 'dherickabreu';
+        var VALID_PASS = 'Dk360@123';
 
         form.addEventListener('submit', function(e) {
           e.preventDefault();
-          var email = emailInput.value.trim();
+          var user = userInput.value.trim();
           var pass = passInput.value;
-          if (!email || !pass) { errorEl.textContent = 'Preencha todos os campos'; return; }
-          if (pass.length < 4) { errorEl.textContent = 'Senha deve ter pelo menos 4 caracteres'; return; }
-          var users = getUsers();
-          if (isSignup) {
-            if (users[email]) { errorEl.textContent = 'Email já cadastrado'; return; }
-            users[email] = pass;
-            saveUsers(users);
-            localStorage.setItem('__logged_in', 'true');
-            localStorage.setItem('__logged_user', email);
-            overlay.classList.add('hidden');
-          } else {
-            if (!users[email]) { errorEl.textContent = 'Email não encontrado'; return; }
-            if (users[email] !== pass) { errorEl.textContent = 'Senha incorreta'; return; }
-            localStorage.setItem('__logged_in', 'true');
-            localStorage.setItem('__logged_user', email);
-            overlay.classList.add('hidden');
-          }
+          if (!user || !pass) { errorEl.textContent = 'Preencha todos os campos'; return; }
+          if (user !== VALID_USER || pass !== VALID_PASS) { errorEl.textContent = 'Usuário ou senha incorretos'; return; }
+          localStorage.setItem('__logged_in', 'true');
+          overlay.classList.add('hidden');
         });
 
         document.querySelectorAll('.__password_toggle').forEach(function(btn) {
