@@ -1,140 +1,170 @@
 "use client";
 
-const points = [
-  { code: "CGB", city: "Cuiabá", x: 170, y: 245, active: false },
-  { code: "GRU", city: "São Paulo", x: 185, y: 260, active: false },
-  { code: "DXB", city: "Dubai", x: 420, y: 165, active: true },
-  { code: "CAI", city: "Cairo", x: 370, y: 155, active: true },
-  { code: "ATH", city: "Atenas", x: 360, y: 135, active: true },
-  { code: "IST", city: "Istambul", x: 370, y: 128, active: true },
-  { code: "SKP", city: "Skopje", x: 355, y: 130, active: true },
+import { useEffect, useRef } from "react";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+const destinations = [
+  { code: "CGB", city: "Cuiabá", lat: -15.601, lng: -56.097, active: false },
+  { code: "GRU", city: "São Paulo", lat: -23.432, lng: -46.470, active: false },
+  { code: "DXB", city: "Dubai", lat: 25.253, lng: 55.365, active: true },
+  { code: "CAI", city: "Cairo", lat: 30.044, lng: 31.235, active: true },
+  { code: "ATH", city: "Atenas", lat: 37.936, lng: 23.947, active: true },
+  { code: "IST", city: "Istambul", lat: 41.015, lng: 28.979, active: true },
+  { code: "SKP", city: "Skopje", lat: 41.997, lng: 21.431, active: true },
 ];
 
-const routes = [
-  [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6],
-];
+const routeOrder = [0, 1, 2, 3, 4, 5, 6];
 
 export default function WorldMap() {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstance = useRef<L.Map | null>(null);
+
+  useEffect(() => {
+    if (!mapRef.current || mapInstance.current) return;
+
+    const map = L.map(mapRef.current, {
+      center: [25, 10],
+      zoom: 2.5,
+      minZoom: 2,
+      maxZoom: 6,
+      zoomControl: false,
+      attributionControl: false,
+      scrollWheelZoom: false,
+    });
+
+    L.control.zoom({ position: "bottomright" }).addTo(map);
+
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+      { subdomains: "abcd", maxZoom: 19 }
+    ).addTo(map);
+
+    const routeCoords = routeOrder.map((i) =>
+      L.latLng(destinations[i].lat, destinations[i].lng)
+    );
+    L.polyline(routeCoords, {
+      color: "#E0A86B",
+      weight: 2.5,
+      opacity: 0.7,
+      dashArray: "8 6",
+    }).addTo(map);
+
+    destinations.forEach((d, i) => {
+      const isActive = d.active;
+      const activeIdx = destinations.filter((x, j) => x.active && j <= i).length;
+
+      const icon = L.divIcon({
+        className: "",
+        html: `<div style="
+          position:relative;
+          width:${isActive ? 28 : 18}px;
+          height:${isActive ? 28 : 18}px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        ">
+          ${isActive ? `<div style="
+            position:absolute;
+            inset:0;
+            border-radius:50%;
+            border:2px solid #E0A86B;
+            opacity:0.4;
+            animation:pulse-ring 2s ease-out infinite;
+          "></div>` : ""}
+          <div style="
+            width:${isActive ? 14 : 10}px;
+            height:${isActive ? 14 : 10}px;
+            border-radius:50%;
+            background:${isActive ? "#E0A86B" : "#8C8178"};
+            border:2px solid #1F1B16;
+            position:relative;
+            z-index:2;
+          "></div>
+          ${isActive ? `<div style="
+            position:absolute;
+            top:-8px;
+            right:-8px;
+            width:18px;
+            height:18px;
+            border-radius:50%;
+            background:#E0A86B;
+            color:#1F1B16;
+            font-size:10px;
+            font-weight:700;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            z-index:3;
+          ">${activeIdx}</div>` : ""}
+        </div>`,
+        iconSize: [isActive ? 28 : 18, isActive ? 28 : 18],
+        iconAnchor: [isActive ? 14 : 9, isActive ? 14 : 9],
+      });
+
+      L.marker([d.lat, d.lng], { icon })
+        .addTo(map)
+        .bindTooltip(
+          `<strong>${d.code}</strong> — ${d.city}`,
+          {
+            className: "map-tooltip",
+            direction: "top",
+            offset: [0, -16],
+          }
+        );
+    });
+
+    mapInstance.current = map;
+
+    return () => {
+      map.remove();
+      mapInstance.current = null;
+    };
+  }, []);
+
   return (
-    <div className="bg-bg-dark rounded-xl p-4 sm:p-6 overflow-hidden">
-      <div className="flex justify-between items-center mb-3">
-        <h2 className="text-gold text-sm font-medium tracking-wide uppercase">Mapa da rota</h2>
+    <div className="rounded-xl overflow-hidden border border-warm-200/20">
+      <div className="bg-bg-dark px-4 py-3 flex justify-between items-center">
+        <h2 className="text-gold text-sm font-medium tracking-wide uppercase">
+          Mapa da rota
+        </h2>
         <div className="flex gap-3 text-[10px] text-warm-500">
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-gold inline-block" /> Destino</span>
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-warm-500 inline-block" /> Escala</span>
+          <span className="flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-gold inline-block" /> Destino
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-warm-500 inline-block" /> Escala
+          </span>
         </div>
       </div>
-      <svg viewBox="0 0 600 340" className="w-full" xmlns="http://www.w3.org/2000/svg">
-        {/* Simplified world map continents */}
-        <g fill="#2a2520" stroke="#3d3630" strokeWidth="0.5">
-          {/* North America */}
-          <path d="M30,60 L60,30 L120,25 L160,40 L170,70 L155,100 L140,120 L120,130 L100,125 L85,135 L70,120 L50,100 L30,90 Z" />
-          {/* Central America */}
-          <path d="M85,135 L100,125 L120,130 L115,150 L105,165 L95,170 L80,160 L75,145 Z" />
-          {/* South America */}
-          <path d="M120,170 L145,165 L175,180 L195,210 L200,240 L195,265 L180,285 L165,295 L150,290 L140,270 L135,250 L130,220 L120,195 Z" />
-          {/* Europe */}
-          <path d="M290,30 L320,25 L350,30 L370,40 L385,55 L380,75 L370,90 L355,100 L340,110 L325,120 L310,115 L295,100 L285,80 L280,60 L285,45 Z" />
-          {/* UK */}
-          <path d="M275,50 L285,45 L290,55 L282,65 L275,60 Z" />
-          {/* Africa */}
-          <path d="M300,130 L330,125 L360,130 L385,140 L400,160 L405,190 L395,220 L380,250 L360,270 L340,280 L320,275 L305,260 L295,235 L290,210 L285,180 L290,155 Z" />
-          {/* Middle East */}
-          <path d="M385,120 L410,115 L435,130 L445,155 L435,170 L415,175 L400,165 L390,145 Z" />
-          {/* India */}
-          <path d="M445,130 L470,120 L490,140 L485,170 L470,195 L455,200 L445,185 L440,160 Z" />
-          {/* Russia/Central Asia */}
-          <path d="M350,30 L400,15 L450,10 L500,15 L540,25 L560,40 L555,60 L540,75 L510,80 L480,75 L450,70 L420,65 L400,55 L385,45 L370,40 Z" />
-          {/* East Asia */}
-          <path d="M480,75 L510,80 L540,90 L555,100 L560,120 L550,135 L530,140 L510,130 L495,120 L485,105 L480,90 Z" />
-          {/* Southeast Asia */}
-          <path d="M495,145 L520,140 L540,150 L545,170 L530,185 L510,180 L500,165 Z" />
-          {/* Japan */}
-          <path d="M555,85 L565,80 L570,90 L565,105 L558,100 Z" />
-          {/* Australia */}
-          <path d="M500,240 L540,230 L570,240 L580,260 L570,280 L545,290 L520,285 L505,270 L500,255 Z" />
-          {/* Indonesia */}
-          <path d="M490,195 L510,190 L530,195 L520,205 L500,205 Z" />
-        </g>
-
-        {/* Route lines */}
-        {routes.map(([from, to], i) => (
-          <line
-            key={i}
-            x1={points[from].x}
-            y1={points[from].y}
-            x2={points[to].x}
-            y2={points[to].y}
-            stroke="#E0A86B"
-            strokeWidth="1.5"
-            strokeDasharray="6 3"
-            opacity="0.6"
-          />
-        ))}
-
-        {/* Route arcs for long distances */}
-        <path
-          d={`M ${points[1].x} ${points[1].y} Q 300 80 ${points[2].x} ${points[2].y}`}
-          fill="none"
-          stroke="#E0A86B"
-          strokeWidth="1.5"
-          strokeDasharray="6 3"
-          opacity="0.6"
-        />
-
-        {/* Points */}
-        {points.map((p, i) => (
-          <g key={i}>
-            {/* Pulse ring for active destinations */}
-            {p.active && (
-              <circle cx={p.x} cy={p.y} r="8" fill="none" stroke="#E0A86B" strokeWidth="1" opacity="0.3">
-                <animate attributeName="r" values="6;12;6" dur="3s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" />
-              </circle>
-            )}
-            {/* Point */}
-            <circle
-              cx={p.x}
-              cy={p.y}
-              r={p.active ? 4 : 3}
-              fill={p.active ? "#E0A86B" : "#8C8178"}
-              stroke="#1F1B16"
-              strokeWidth="1.5"
-            />
-            {/* Label */}
-            <text
-              x={p.x}
-              y={p.y - 8}
-              textAnchor="middle"
-              fill={p.active ? "#E0A86B" : "#8C8178"}
-              fontSize="8"
-              fontFamily="monospace"
-              fontWeight="bold"
-            >
-              {p.code}
-            </text>
-          </g>
-        ))}
-
-        {/* Order numbers along route */}
-        {points.filter(p => p.active).map((p, i) => (
-          <g key={`num-${i}`}>
-            <circle cx={p.x + 10} cy={p.y + 2} r="6" fill="#E0A86B" />
-            <text x={p.x + 10} y={p.y + 5} textAnchor="middle" fill="#1F1B16" fontSize="7" fontWeight="bold">
-              {i + 1}
-            </text>
-          </g>
-        ))}
-      </svg>
-
-      {/* Legend */}
-      <div className="flex flex-wrap gap-3 mt-3 justify-center">
-        {points.filter(p => p.active).map((p, i) => (
-          <span key={i} className="text-[11px] text-warm-400">
-            <span className="text-gold font-bold">{i + 1}</span> {p.city}
-          </span>
-        ))}
-      </div>
+      <div ref={mapRef} style={{ height: 420, width: "100%" }} />
+      <style jsx global>{`
+        @keyframes pulse-ring {
+          0% { transform: scale(1); opacity: 0.4; }
+          70% { transform: scale(1.6); opacity: 0; }
+          100% { transform: scale(1); opacity: 0; }
+        }
+        .map-tooltip {
+          background: #1F1B16 !important;
+          color: #E0A86B !important;
+          border: 1px solid #3d3630 !important;
+          border-radius: 8px !important;
+          padding: 4px 10px !important;
+          font-size: 12px !important;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+        }
+        .map-tooltip::before {
+          border-top-color: #1F1B16 !important;
+        }
+        .leaflet-control-zoom a {
+          background: #1F1B16 !important;
+          color: #E0A86B !important;
+          border-color: #3d3630 !important;
+        }
+        .leaflet-control-zoom a:hover {
+          background: #2a2520 !important;
+        }
+      `}</style>
     </div>
   );
 }

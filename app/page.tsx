@@ -10,70 +10,69 @@ export default function Home() {
   const pending = trip.checklist.filter((c) => !c.done && (c.priority === "ALTA" || c.priority === "CRÍTICA"));
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="flex justify-end">
         <GeneratePdf />
       </div>
       <Countdown target={trip.departureDate} />
 
       {/* Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl border border-warm-200/40 p-5">
-          <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Prontidão</p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="bg-white rounded-xl border border-warm-200/30 p-4 shadow-sm">
+          <p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase">Prontidão</p>
           <p className="text-3xl font-light text-gold mt-1">{pct}%</p>
-          <p className="text-sm text-warm-400">{done} de {total} itens prontos</p>
+          <p className="text-xs text-warm-400">{done} de {total} itens prontos</p>
         </div>
-        <div className="bg-white rounded-xl border border-warm-200/40 p-5">
-          <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Pendências Críticas</p>
+        <div className="bg-white rounded-xl border border-warm-200/30 p-4 shadow-sm">
+          <p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase">Pendências Críticas</p>
           <p className="text-3xl font-light text-bg-dark mt-1">{trip.checklist.filter(c => c.priority === "CRÍTICA").length}</p>
-          <p className="text-sm text-warm-400">exigem ação imediata</p>
+          <p className="text-xs text-warm-400">exigem ação imediata</p>
         </div>
-        <div className="bg-white rounded-xl border border-warm-200/40 p-5">
-          <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Países na Rota</p>
+        <div className="bg-white rounded-xl border border-warm-200/30 p-4 shadow-sm">
+          <p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase">Países na Rota</p>
           <p className="text-3xl font-light text-bg-dark mt-1">6</p>
-          <p className="text-sm text-warm-400">EAU · Egito · Grécia · Turquia · Macedônia</p>
+          <p className="text-xs text-warm-400">EAU · Egito · Grécia · Turquia · Macedônia</p>
         </div>
       </div>
 
       {/* World Map */}
       <WorldMap />
 
-      {/* Route */}
-      <div className="bg-white rounded-xl border border-warm-200/40 p-6">
-        <h2 className="text-xl font-serif mb-4">A rota</h2>
-        <div className="flex flex-wrap items-center gap-2">
-          {trip.route.map((r, i) => (
-            <div key={r.code} className="flex items-center gap-2">
-              <div className="text-center">
-                <span className="inline-block px-3 py-1.5 border border-warm-200 rounded-lg text-sm font-semibold">
+      {/* Route + Pending side by side on desktop */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-3">
+        <div className="lg:col-span-2 bg-white rounded-xl border border-warm-200/30 p-5 shadow-sm">
+          <h2 className="text-lg font-serif mb-3">A rota</h2>
+          <div className="space-y-2">
+            {trip.route.map((r, i) => (
+              <div key={r.code} className="flex items-center gap-2">
+                <span className="inline-block w-10 text-center px-2 py-1 border border-warm-200/60 rounded text-xs font-semibold bg-bg">
                   {r.code}
                 </span>
-                <p className="text-[11px] text-warm-400 mt-1">{r.city}</p>
+                <span className="text-xs text-warm-400">{r.city}</span>
+                {i < trip.route.length - 1 && <span className="text-warm-300 ml-auto text-xs">→</span>}
               </div>
-              {i < trip.route.length - 1 && <span className="text-warm-300">→</span>}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Pending */}
-      <div className="bg-white rounded-xl border border-warm-200/40 p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-serif">Próximas pendências</h2>
-          <a href="/checklist" className="text-sm text-gold hover:underline">Ver tudo →</a>
-        </div>
-        <div className="space-y-3">
-          {pending.slice(0, 6).map((item, i) => (
-            <div key={i} className="flex items-center justify-between py-3 px-4 bg-bg rounded-lg">
-              <div className="flex items-center gap-3">
-                <span className={`w-2 h-2 rounded-full ${item.priority === "CRÍTICA" ? "bg-red-600" : "bg-red-400"}`} />
-                <span className="text-sm">{item.text}</span>
+        <div className="lg:col-span-3 bg-white rounded-xl border border-warm-200/30 p-5 shadow-sm">
+          <div className="flex justify-between items-center mb-3">
+            <h2 className="text-lg font-serif">Próximas pendências</h2>
+            <a href="/checklist" className="text-xs text-gold hover:underline">Ver tudo →</a>
+          </div>
+          <div className="space-y-2">
+            {pending.slice(0, 6).map((item, i) => (
+              <div key={i} className="flex items-center justify-between py-2.5 px-3 bg-bg rounded-lg">
+                <div className="flex items-center gap-2">
+                  <span className={`w-1.5 h-1.5 rounded-full ${item.priority === "CRÍTICA" ? "bg-red-600" : "bg-red-400"}`} />
+                  <span className="text-xs">{item.text}</span>
+                </div>
+                <span className={`text-[10px] font-medium px-2 py-0.5 rounded ${
+                  item.priority === "CRÍTICA" ? "text-red-700 bg-red-100" : "text-red-500 bg-red-50"
+                }`}>{item.priority}</span>
               </div>
-              <span className={`text-xs font-medium px-2 py-1 rounded ${
-                item.priority === "CRÍTICA" ? "text-red-700 bg-red-100" : "text-red-500 bg-red-50"
-              }`}>{item.priority}</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

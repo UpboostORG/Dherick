@@ -20,8 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <LoginGuard>
           <Sidebar />
-          <main className="lg:ml-64 min-h-screen p-6 pt-16 lg:pt-6 lg:p-10 max-w-5xl">
-            {children}
+          <main className="lg:ml-64 min-h-screen px-4 py-5 pt-14 lg:pt-5 lg:px-8 lg:py-6">
+            <div className="max-w-[1100px]">
+              {children}
+            </div>
           </main>
         </LoginGuard>
       </body>
