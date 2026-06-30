@@ -1,13 +1,17 @@
+"use client";
+import dynamic from "next/dynamic";
 import { trip } from "@/data/trip";
 import Countdown from "@/components/Countdown";
 import GeneratePdf from "@/components/GeneratePdf";
-import WorldMap from "@/components/WorldMap";
+import { useChecklistStats } from "@/hooks/useChecklist";
+
+const WorldMap = dynamic(() => import("@/components/WorldMap"), { ssr: false });
 
 export default function Home() {
-  const done = trip.checklist.filter((c) => c.done).length;
-  const total = trip.checklist.length;
-  const pct = Math.round((done / total) * 100);
-  const pending = trip.checklist.filter((c) => !c.done && (c.priority === "ALTA" || c.priority === "CRÍTICA"));
+  const { done, total, pct, pending, loaded } = useChecklistStats();
+  const criticalCount = pending.filter(c => c.priority === "CRÍTICA").length;
+
+  if (!loaded) return null;
 
   return (
     <div className="space-y-4">
@@ -25,7 +29,7 @@ export default function Home() {
         </div>
         <div className="bg-white rounded-xl border border-warm-200/30 p-4 shadow-sm">
           <p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase">Pendências Críticas</p>
-          <p className="text-3xl font-light text-bg-dark mt-1">{trip.checklist.filter(c => c.priority === "CRÍTICA").length}</p>
+          <p className="text-3xl font-light text-bg-dark mt-1">{criticalCount}</p>
           <p className="text-xs text-warm-400">exigem ação imediata</p>
         </div>
         <div className="bg-white rounded-xl border border-warm-200/30 p-4 shadow-sm">
@@ -61,17 +65,21 @@ export default function Home() {
             <a href="/checklist" className="text-xs text-gold hover:underline">Ver tudo →</a>
           </div>
           <div className="space-y-2">
-            {pending.slice(0, 6).map((item, i) => (
-              <div key={i} className="flex items-center justify-between py-2.5 px-3 bg-bg rounded-lg">
-                <div className="flex items-center gap-2">
-                  <span className={`w-1.5 h-1.5 rounded-full ${item.priority === "CRÍTICA" ? "bg-red-600" : "bg-red-400"}`} />
-                  <span className="text-xs">{item.text}</span>
+            {pending.length === 0 ? (
+              <p className="text-sm text-green-600 py-4 text-center">Tudo em dia!</p>
+            ) : (
+              pending.slice(0, 6).map((item, i) => (
+                <div key={i} className="flex items-center justify-between py-2.5 px-3 bg-bg rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-full ${item.priority === "CRÍTICA" ? "bg-red-600" : "bg-red-400"}`} />
+                    <span className="text-xs">{item.text}</span>
+                  </div>
+                  <span className={`text-[10px] font-medium px-2 py-0.5 rounded ${
+                    item.priority === "CRÍTICA" ? "text-red-700 bg-red-100" : "text-red-500 bg-red-50"
+                  }`}>{item.priority}</span>
                 </div>
-                <span className={`text-[10px] font-medium px-2 py-0.5 rounded ${
-                  item.priority === "CRÍTICA" ? "text-red-700 bg-red-100" : "text-red-500 bg-red-50"
-                }`}>{item.priority}</span>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>

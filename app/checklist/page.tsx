@@ -1,52 +1,13 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
-import { trip } from "@/data/trip";
+import { useState } from "react";
+import { useChecklist } from "@/hooks/useChecklist";
 
 type Filter = "Todos" | "Pendentes" | "Críticos" | "Altas" | "Concluídos";
 
-const STORAGE_KEY = "checklist-state";
-
-function loadChecklist() {
-  if (typeof window === "undefined") return trip.checklist;
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return trip.checklist;
-    const parsed = JSON.parse(saved);
-    const base = trip.checklist.map((item) => {
-      const match = parsed.find((s: { text: string }) => s.text === item.text);
-      return match ? { ...item, done: match.done } : item;
-    });
-    const custom = parsed.filter(
-      (s: { text: string; custom?: boolean }) =>
-        s.custom && !trip.checklist.some((t) => t.text === s.text)
-    );
-    return [...base, ...custom];
-  } catch {
-    return trip.checklist;
-  }
-}
-
 export default function Checklist() {
-  const [items, setItems] = useState(trip.checklist);
+  const { items, loaded, toggle, addItem } = useChecklist();
   const [filter, setFilter] = useState<Filter>("Todos");
   const [newItem, setNewItem] = useState("");
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setItems(loadChecklist());
-    setLoaded(true);
-  }, []);
-
-  const save = useCallback((updated: typeof items) => {
-    setItems(updated);
-    const toSave = updated.map((item) => ({
-      text: item.text,
-      done: item.done,
-      priority: item.priority,
-      custom: !trip.checklist.some((t) => t.text === item.text),
-    }));
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
-  }, []);
 
   const done = items.filter((c) => c.done).length;
   const total = items.length;
@@ -69,15 +30,9 @@ export default function Checklist() {
     Concluídos: items.filter((i) => i.done).length,
   };
 
-  function toggle(idx: number) {
-    const updated = items.map((item, i) => i === idx ? { ...item, done: !item.done } : item);
-    save(updated);
-  }
-
-  function addItem() {
+  function handleAdd() {
     if (!newItem.trim()) return;
-    const updated = [...items, { text: newItem.trim(), done: false, priority: "MÉDIA" as const }];
-    save(updated);
+    addItem(newItem);
     setNewItem("");
   }
 
@@ -93,7 +48,6 @@ export default function Checklist() {
         <span className="text-sm text-warm-400 font-mono mt-2 sm:mt-0">{done}/{total} · {pct}%</span>
       </div>
 
-      {/* Filters */}
       <div className="flex flex-wrap gap-2 mb-4">
         {(["Todos", "Pendentes", "Críticos", "Altas", "Concluídos"] as Filter[]).map((f) => (
           <button
@@ -110,21 +64,19 @@ export default function Checklist() {
         ))}
       </div>
 
-      {/* Add new */}
       <div className="flex gap-2 mb-6">
         <input
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && addItem()}
+          onKeyDown={(e) => e.key === "Enter" && handleAdd()}
           placeholder="Adicionar um item ao checklist..."
           className="flex-1 px-4 py-3 border border-warm-200/40 rounded-xl text-sm outline-none focus:border-gold"
         />
-        <button onClick={addItem} className="px-5 py-3 bg-bg-dark text-white rounded-xl text-sm font-medium hover:bg-bg-dark/90">
+        <button onClick={handleAdd} className="px-5 py-3 bg-bg-dark text-white rounded-xl text-sm font-medium hover:bg-bg-dark/90">
           Adicionar
         </button>
       </div>
 
-      {/* Items */}
       <div className="space-y-2">
         {filtered.map((item) => {
           const realIdx = items.indexOf(item);

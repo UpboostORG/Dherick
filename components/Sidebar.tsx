@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useChecklistStats } from "@/hooks/useChecklist";
 
 const links = [
   { href: "/", label: "Visão geral" },
@@ -25,6 +26,7 @@ const links = [
 export default function Sidebar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { done, total, pct } = useChecklistStats();
 
   return (
     <>
@@ -88,12 +90,12 @@ export default function Sidebar() {
         <div className="p-4 border-t border-warm-200/30">
           <div className="flex justify-between text-xs text-warm-400 mb-1">
             <span className="font-medium uppercase tracking-wider">Progresso</span>
-            <span>11/29</span>
+            <span>{done}/{total}</span>
           </div>
           <div className="h-1.5 bg-warm-200/30 rounded-full overflow-hidden">
-            <div className="h-full bg-gold rounded-full" style={{ width: "38%" }} />
+            <div className="h-full bg-gold rounded-full transition-all" style={{ width: `${pct}%` }} />
           </div>
-          <p className="text-[11px] text-warm-400 mt-1">38% concluído</p>
+          <p className="text-[11px] text-warm-400 mt-1">{pct}% concluído</p>
         </div>
       </aside>
     </>

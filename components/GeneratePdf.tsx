@@ -143,13 +143,26 @@ export default function GeneratePdf() {
     trip.budget.currencies.forEach((c) => { row(c.code, `${c.rate} por 1 ${c.code}`); });
     sep();
 
-    // CHECKLIST
+    // CHECKLIST (from localStorage)
     h1("Checklist");
-    const done = trip.checklist.filter((c) => c.done).length;
+    let checklistItems = trip.checklist;
+    try {
+      const saved = localStorage.getItem("checklist-state");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        checklistItems = trip.checklist.map((item) => {
+          const match = parsed.find((s: any) => s.text === item.text);
+          return match ? { ...item, done: match.done } : item;
+        });
+        const custom = parsed.filter((s: any) => s.custom && !trip.checklist.some((t) => t.text === s.text));
+        checklistItems = [...checklistItems, ...custom];
+      }
+    } catch {}
+    const chkDone = checklistItems.filter((c) => c.done).length;
     doc.setFontSize(9); doc.setFont("helvetica", "bold"); doc.setTextColor(31, 27, 22);
-    doc.text(`${done}/${trip.checklist.length} (${Math.round((done / trip.checklist.length) * 100)}%)`, m, y);
+    doc.text(`${chkDone}/${checklistItems.length} (${Math.round((chkDone / checklistItems.length) * 100)}%)`, m, y);
     y += 6;
-    trip.checklist.forEach((item) => {
+    checklistItems.forEach((item) => {
       pg(5); doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(31, 27, 22);
       doc.text(`${item.done ? "✓" : "○"} ${item.text}`, m, y);
       if (!item.done) { doc.setTextColor(200, 100, 80); doc.text(item.priority, W - m, y, { align: "right" }); }
