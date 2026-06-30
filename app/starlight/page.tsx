@@ -1,4 +1,12 @@
+"use client";
+import { useChecklist } from "@/hooks/useChecklist";
+
 export default function Starlight() {
+  const { items, loaded } = useChecklist();
+  const ticketDone = items.some((i) => i.done && i.text.includes("STARLIGHT"));
+
+  if (!loaded) return null;
+
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Festival STARLIGHT</h1>
@@ -30,31 +38,55 @@ export default function Starlight() {
       </div>
 
       {/* Ingresso */}
-      <div className="bg-red-50 rounded-xl border-2 border-red-200/50 p-5 mb-6">
-        <div className="flex items-start gap-2">
-          <span className="text-lg">🎫</span>
-          <div>
-            <h3 className="font-semibold text-red-800">Ingresso — PRIORIDADE CRÍTICA</h3>
-            <p className="text-sm text-red-700 mt-1">
-              Ingressos esgotam rápido. Compre o quanto antes pelo site oficial.
-            </p>
-            <div className="mt-3 space-y-2 text-sm">
-              <div className="flex justify-between py-1 border-b border-red-200/30">
-                <span className="text-red-700">Site oficial</span>
-                <span className="font-mono text-red-800">starlightfestival.com</span>
-              </div>
-              <div className="flex justify-between py-1 border-b border-red-200/30">
-                <span className="text-red-700">Preço estimado</span>
-                <span className="font-mono text-red-800">US$ 150–300+</span>
-              </div>
-              <div className="flex justify-between py-1">
-                <span className="text-red-700">Tipo</span>
-                <span className="font-mono text-red-800">GA / VIP disponíveis</span>
+      {ticketDone ? (
+        <div className="bg-green-50 rounded-xl border-2 border-green-200/50 p-5 mb-6">
+          <div className="flex items-start gap-2">
+            <span className="text-lg">🎫</span>
+            <div>
+              <h3 className="font-semibold text-green-800">Ingresso — COMPRADO ✓</h3>
+              <p className="text-sm text-green-700 mt-1">
+                Ingresso garantido! Confira os detalhes no seu e-mail de confirmação.
+              </p>
+              <div className="mt-3 space-y-2 text-sm">
+                <div className="flex justify-between py-1 border-b border-green-200/30">
+                  <span className="text-green-700">Site oficial</span>
+                  <span className="font-mono text-green-800">starlightfestival.com</span>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span className="text-green-700">Status</span>
+                  <span className="font-mono text-green-800">Confirmado</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="bg-red-50 rounded-xl border-2 border-red-200/50 p-5 mb-6">
+          <div className="flex items-start gap-2">
+            <span className="text-lg">🎫</span>
+            <div>
+              <h3 className="font-semibold text-red-800">Ingresso — PRIORIDADE CRÍTICA</h3>
+              <p className="text-sm text-red-700 mt-1">
+                Ingressos esgotam rápido. Compre o quanto antes pelo site oficial.
+              </p>
+              <div className="mt-3 space-y-2 text-sm">
+                <div className="flex justify-between py-1 border-b border-red-200/30">
+                  <span className="text-red-700">Site oficial</span>
+                  <span className="font-mono text-red-800">starlightfestival.com</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-red-200/30">
+                  <span className="text-red-700">Preço estimado</span>
+                  <span className="font-mono text-red-800">US$ 150–300+</span>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span className="text-red-700">Tipo</span>
+                  <span className="font-mono text-red-800">GA / VIP disponíveis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Como chegar */}
       <h2 className="text-xl font-serif mb-4">Como chegar em Gizé saindo do Cairo</h2>
