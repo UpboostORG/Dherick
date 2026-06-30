@@ -1,17 +1,28 @@
 "use client";
 import { trip } from "@/data/trip";
 import PdfUpload from "@/components/PdfUpload";
+import { useChecklist } from "@/hooks/useChecklist";
 
 export default function Hospedagem() {
+  const { items, loaded } = useChecklist();
   const confirmed = trip.accommodation.confirmed;
   const toBook = trip.accommodation.toBook;
   const tips = trip.accommodation.hostelTips;
+
+  function isBooked(city: string) {
+    return items.some((i) => i.done && i.text.toLowerCase().includes("hostel") && i.text.toLowerCase().includes(city.toLowerCase()));
+  }
+
+  const pendingToBook = toBook.filter((h) => !isBooked(h.city.split(" ")[0]));
+  const doneToBook = toBook.filter((h) => isBooked(h.city.split(" ")[0]));
+
+  if (!loaded) return null;
 
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Hospedagem</h1>
       <p className="text-sm text-warm-400 mb-8">
-        {confirmed.length} confirmada · {toBook.length} hostels a reservar
+        {confirmed.length + doneToBook.length} confirmada{confirmed.length + doneToBook.length > 1 ? "s" : ""} · {pendingToBook.length} hostel{pendingToBook.length !== 1 ? "s" : ""} a reservar
       </p>
 
       {confirmed.map((h, i) => (
@@ -49,31 +60,60 @@ export default function Hospedagem() {
         </div>
       ))}
 
-      <p className="text-[11px] font-medium tracking-[1.5px] text-red-500 uppercase mb-4 mt-8">Hostels a Reservar</p>
-      <div className="space-y-3 mb-10">
-        {toBook.map((h, i) => (
-          <div key={i} className="bg-white rounded-xl border border-warm-200/40 p-5">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-semibold">{h.city}</p>
-                <p className="text-sm text-warm-400">{h.dates}</p>
+      {/* Marked as done in checklist */}
+      {doneToBook.length > 0 && (
+        <>
+          <p className="text-[11px] font-medium tracking-[1.5px] text-green-600 uppercase mb-4 mt-8">Marcados como Reservados</p>
+          <div className="space-y-3 mb-10">
+            {doneToBook.map((h, i) => (
+              <div key={i} className="bg-white rounded-xl border border-green-200/60 p-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold">{h.city}</p>
+                    <p className="text-sm text-warm-400">{h.dates}</p>
+                  </div>
+                  <span className="text-xs font-medium text-green-700 bg-green-50 px-3 py-1.5 rounded-lg">
+                    Reservado ✓
+                  </span>
+                </div>
+                {h.estimate && (
+                  <p className="text-xs text-green-600 mt-2 font-mono">{h.estimate}</p>
+                )}
               </div>
-              <span className={`text-xs font-medium px-3 py-1.5 rounded-lg ${
-                h.priority === "URGENTE" ? "text-red-700 bg-red-50" :
-                h.priority === "FALTA" ? "text-red-500 bg-red-50" :
-                "text-amber-600 bg-amber-50"
-              }`}>
-                {h.priority}
-              </span>
-            </div>
-            {h.estimate && (
-              <p className="text-xs text-green-600 mt-2 font-mono">{h.estimate}</p>
-            )}
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
 
-      {/* Hostel recommendations */}
+      {/* Still pending */}
+      {pendingToBook.length > 0 && (
+        <>
+          <p className="text-[11px] font-medium tracking-[1.5px] text-red-500 uppercase mb-4 mt-8">Hostels a Reservar</p>
+          <div className="space-y-3 mb-10">
+            {pendingToBook.map((h, i) => (
+              <div key={i} className="bg-white rounded-xl border border-warm-200/40 p-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold">{h.city}</p>
+                    <p className="text-sm text-warm-400">{h.dates}</p>
+                  </div>
+                  <span className={`text-xs font-medium px-3 py-1.5 rounded-lg ${
+                    h.priority === "URGENTE" ? "text-red-700 bg-red-50" :
+                    h.priority === "FALTA" ? "text-red-500 bg-red-50" :
+                    "text-amber-600 bg-amber-50"
+                  }`}>
+                    {h.priority}
+                  </span>
+                </div>
+                {h.estimate && (
+                  <p className="text-xs text-green-600 mt-2 font-mono">{h.estimate}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
       <h2 className="text-xl font-serif mb-4">Hostels recomendados por destino</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         {tips.map((t, i) => (
