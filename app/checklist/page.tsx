@@ -1,13 +1,52 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { trip } from "@/data/trip";
 
 type Filter = "Todos" | "Pendentes" | "Críticos" | "Altas" | "Concluídos";
+
+const STORAGE_KEY = "checklist-state";
+
+function loadChecklist() {
+  if (typeof window === "undefined") return trip.checklist;
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return trip.checklist;
+    const parsed = JSON.parse(saved);
+    const base = trip.checklist.map((item) => {
+      const match = parsed.find((s: { text: string }) => s.text === item.text);
+      return match ? { ...item, done: match.done } : item;
+    });
+    const custom = parsed.filter(
+      (s: { text: string; custom?: boolean }) =>
+        s.custom && !trip.checklist.some((t) => t.text === s.text)
+    );
+    return [...base, ...custom];
+  } catch {
+    return trip.checklist;
+  }
+}
 
 export default function Checklist() {
   const [items, setItems] = useState(trip.checklist);
   const [filter, setFilter] = useState<Filter>("Todos");
   const [newItem, setNewItem] = useState("");
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setItems(loadChecklist());
+    setLoaded(true);
+  }, []);
+
+  const save = useCallback((updated: typeof items) => {
+    setItems(updated);
+    const toSave = updated.map((item) => ({
+      text: item.text,
+      done: item.done,
+      priority: item.priority,
+      custom: !trip.checklist.some((t) => t.text === item.text),
+    }));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+  }, []);
 
   const done = items.filter((c) => c.done).length;
   const total = items.length;
@@ -16,7 +55,7 @@ export default function Checklist() {
   const filtered = items.filter((item) => {
     if (filter === "Todos") return true;
     if (filter === "Pendentes") return !item.done;
-    if (filter === "Críticos") return !item.done && item.priority === "ALTA";
+    if (filter === "Críticos") return !item.done && (item.priority === "CRÍTICA" || item.priority === "ALTA");
     if (filter === "Altas") return item.priority === "ALTA";
     if (filter === "Concluídos") return item.done;
     return true;
@@ -25,20 +64,24 @@ export default function Checklist() {
   const counts: Record<Filter, number> = {
     Todos: items.length,
     Pendentes: items.filter((i) => !i.done).length,
-    Críticos: 0,
+    Críticos: items.filter((i) => !i.done && (i.priority === "CRÍTICA" || i.priority === "ALTA")).length,
     Altas: items.filter((i) => i.priority === "ALTA").length,
     Concluídos: items.filter((i) => i.done).length,
   };
 
   function toggle(idx: number) {
-    setItems((prev) => prev.map((item, i) => i === idx ? { ...item, done: !item.done } : item));
+    const updated = items.map((item, i) => i === idx ? { ...item, done: !item.done } : item);
+    save(updated);
   }
 
   function addItem() {
     if (!newItem.trim()) return;
-    setItems((prev) => [...prev, { text: newItem.trim(), done: false, priority: "MÉDIA" }]);
+    const updated = [...items, { text: newItem.trim(), done: false, priority: "MÉDIA" as const }];
+    save(updated);
     setNewItem("");
   }
+
+  if (!loaded) return null;
 
   return (
     <div>
@@ -83,10 +126,10 @@ export default function Checklist() {
 
       {/* Items */}
       <div className="space-y-2">
-        {filtered.map((item, i) => {
+        {filtered.map((item) => {
           const realIdx = items.indexOf(item);
           return (
-            <div key={i} className={`flex items-center justify-between py-3.5 px-4 bg-white rounded-xl border border-warm-200/40 ${item.done ? "opacity-60" : ""}`}>
+            <div key={realIdx} className={`flex items-center justify-between py-3.5 px-4 bg-white rounded-xl border border-warm-200/40 ${item.done ? "opacity-60" : ""}`}>
               <label className="flex items-center gap-3 cursor-pointer flex-1">
                 <input
                   type="checkbox"
@@ -98,6 +141,7 @@ export default function Checklist() {
               </label>
               <span className={`text-xs font-medium px-2 py-1 rounded ml-2 whitespace-nowrap ${
                 item.done ? "text-green-600 bg-green-50" :
+                item.priority === "CRÍTICA" ? "text-red-700 bg-red-100" :
                 item.priority === "ALTA" ? "text-red-500 bg-red-50" :
                 item.priority === "MÉDIA" ? "text-amber-600 bg-amber-50" :
                 "text-warm-400 bg-warm-200/30"
