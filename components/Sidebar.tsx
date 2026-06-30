@@ -11,10 +11,12 @@ const links = [
   { href: "/hospedagem", label: "Hospedagem" },
   { href: "/documentos", label: "Documentos" },
   { href: "/vacinas", label: "Vacinas" },
-  { href: "/checklist", label: "Checklist", badge: 18 },
+  { href: "/checklist", label: "Checklist" },
+  { href: "/bagagem", label: "Bagagem" },
   { href: "/financeiro", label: "Financeiro" },
   { href: "/metas", label: "Metas de investimento" },
   { href: "/compras", label: "Compras mês a mês" },
+  { href: "/emergencia", label: "Emergências" },
 ];
 
 export default function Sidebar() {
@@ -75,9 +77,6 @@ export default function Sidebar() {
                   <span className={`w-1.5 h-1.5 rounded-full ${active ? "bg-gold" : "bg-warm-300"}`} />
                   {link.label}
                 </span>
-                {link.badge && (
-                  <span className="text-xs text-gold font-medium">{link.badge}</span>
-                )}
               </Link>
             );
           })}

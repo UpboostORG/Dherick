@@ -20,6 +20,17 @@ export default function Vacinas() {
         </div>
       </div>
 
+      {/* Timing alert */}
+      <div className="bg-amber-50 rounded-xl border border-amber-200/50 p-5 mb-6">
+        <div className="flex items-start gap-2">
+          <span className="text-lg">⏰</span>
+          <div>
+            <h3 className="font-semibold text-amber-800">Prazo para vacinação</h3>
+            <p className="text-sm text-amber-700 mt-1">{v.timingAlert}</p>
+          </div>
+        </div>
+      </div>
+
       {/* Up to date + Recommended */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div className="bg-white rounded-xl border border-warm-200/40 p-5">

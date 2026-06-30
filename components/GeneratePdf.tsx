@@ -170,6 +170,26 @@ export default function GeneratePdf() {
       y += 2;
     });
 
+    // CONTATOS DE EMERGÊNCIA
+    h1("Contatos de Emergência");
+    trip.emergencyContacts.forEach((c) => {
+      pg(6);
+      row(c.country, `Embaixada: ${c.embassy} · Emerg: ${c.emergency} · Polícia: ${c.police} · Amb: ${c.ambulance}`);
+    });
+    sep();
+
+    // BAGAGEM
+    h1("Bagagem");
+    Object.entries(trip.packingList).forEach(([cat, items]) => {
+      h2(cat);
+      (items as string[]).forEach((item) => {
+        pg(4); doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(31, 27, 22);
+        doc.text(`○ ${item}`, m, y); y += 4;
+      });
+      y += 2;
+    });
+    sep();
+
     // DOCS ANEXADOS
     const stored = JSON.parse(localStorage.getItem("__uploaded_docs") || "{}");
     const hasUploads = Object.values(stored).some((arr: any) => arr && arr.length > 0);

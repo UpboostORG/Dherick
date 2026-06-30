@@ -3,6 +3,7 @@ import { trip } from "@/data/trip";
 export default function Financeiro() {
   const b = trip.budget;
   const distributed = b.distribution.reduce((s, d) => s + d.amount, 0);
+  const hs = b.hostelSavings;
 
   return (
     <div>
@@ -31,6 +32,20 @@ export default function Financeiro() {
         </div>
       </div>
 
+      {/* Hostel savings card */}
+      <div className="bg-green-50 rounded-xl border border-green-200/50 p-5 mb-6">
+        <div className="flex items-start gap-2">
+          <span className="text-lg">🏠</span>
+          <div>
+            <h3 className="font-semibold text-green-800">Economia com hostels: ~US$ {hs.saved.toLocaleString()}</h3>
+            <p className="text-sm text-green-700 mt-1">
+              Total hospedagem em hostels: ~US$ {hs.hostelTotal} (contra ~US$ {hs.hotelTotal.toLocaleString()}+ em hotéis).
+              Dinheiro extra para passeios, balão da Capadócia, ferry nas ilhas, etc.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Distribution */}
       <div className="bg-white rounded-xl border border-warm-200/40 overflow-hidden mb-6">
         {b.distribution.map((d, i) => (
@@ -50,7 +65,7 @@ export default function Financeiro() {
       <div className="bg-white rounded-xl border-l-4 border-l-gold p-5 mb-6">
         <p className="font-semibold mb-2">Meta: viajar com tudo pago ✈</p>
         <p className="text-sm text-warm-400">
-          A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 3.000 ficam livres só para o dia a dia. O que ainda falta propagar:
+          A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 3.000 ficam livres só para o dia a dia. O que ainda falta:
         </p>
         <div className="flex flex-wrap gap-2 mt-3">
           {b.pending.map((p, i) => (

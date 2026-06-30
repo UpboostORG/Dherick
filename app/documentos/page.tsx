@@ -9,6 +9,24 @@ export default function Documentos() {
       <h1 className="text-3xl font-serif mb-1">Documentos &amp; vistos</h1>
       <p className="text-sm text-warm-400 mb-8">Passaporte em mãos · foco agora nos vistos</p>
 
+      {/* Onward Ticket Alert */}
+      <div className="bg-amber-50 rounded-xl border border-amber-200/50 p-5 mb-6">
+        <div className="flex items-start gap-2">
+          <span className="text-lg">⚠️</span>
+          <div>
+            <h3 className="font-semibold text-amber-800">Prova de saída do país (Onward Ticket)</h3>
+            <p className="text-sm text-amber-700 mt-1">
+              Dubai (EAU) e países Schengen (Grécia) podem exigir na imigração uma passagem de saída do país.
+              Com retorno ao Brasil em aberto, você pode ser questionado.
+            </p>
+            <p className="text-sm text-amber-800 font-medium mt-2">
+              Solução: Tenha em mãos a passagem DXB → CAI (já confirmada) ao entrar em Dubai,
+              e a passagem Grécia → Turquia ao entrar na Grécia.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Passport */}
       <div className="bg-green-50 rounded-xl border border-green-200/50 p-6 mb-6">
         <div className="flex items-start gap-2">
