@@ -1,30 +1,57 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { trip } from "@/data/trip";
 
-export default function Compras() {
-  const [months, setMonths] = useState(
-    trip.monthlyPurchases.map((m) => ({
+const STORAGE_KEY = "compras-state";
+
+function loadMonths() {
+  if (typeof window === "undefined") return trip.monthlyPurchases;
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return trip.monthlyPurchases;
+    const parsed: Record<string, boolean[]> = JSON.parse(saved);
+    return trip.monthlyPurchases.map((m) => ({
       ...m,
-      items: m.items.map((item) => ({ ...item })),
-    }))
-  );
+      items: m.items.map((item, i) => ({
+        ...item,
+        done: parsed[m.month]?.[i] ?? item.done,
+      })),
+    }));
+  } catch {
+    return trip.monthlyPurchases;
+  }
+}
+
+export default function Compras() {
+  const [months, setMonths] = useState(trip.monthlyPurchases.map((m) => ({ ...m, items: m.items.map((item) => ({ ...item })) })));
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setMonths(loadMonths().map((m) => ({ ...m, items: m.items.map((item) => ({ ...item })) })));
+    setLoaded(true);
+  }, []);
 
   function toggle(monthIdx: number, itemIdx: number) {
-    setMonths((prev) =>
-      prev.map((m, mi) =>
+    setMonths((prev) => {
+      const updated = prev.map((m, mi) =>
         mi === monthIdx
           ? { ...m, items: m.items.map((item, ii) => (ii === itemIdx ? { ...item, done: !item.done } : item)) }
           : m
-      )
-    );
+      );
+      const toSave: Record<string, boolean[]> = {};
+      updated.forEach((m) => { toSave[m.month] = m.items.map((i) => i.done); });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+      return updated;
+    });
   }
+
+  if (!loaded) return null;
 
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Compras mês a mês</h1>
       <p className="text-sm text-warm-400 mb-8">
-        Plano para chegar com tudo pago — marque o que já comprou · clique nos textos para editar
+        Plano para chegar com tudo pago — marque o que já comprou
       </p>
 
       <div className="space-y-6">

@@ -1,15 +1,26 @@
+"use client";
 import { trip } from "@/data/trip";
+import { useChecklist } from "@/hooks/useChecklist";
 
 export default function Vacinas() {
   const v = trip.vaccines;
+  const { items, loaded } = useChecklist();
+
+  function isVaccineDone(name: string) {
+    return items.some((i) => i.done && i.text.toLowerCase().includes(name.toLowerCase()));
+  }
+
+  const allRecommendedDone = v.recommended.every((vax) => isVaccineDone(vax.name.split(" ")[0]));
+
+  if (!loaded) return null;
+
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Vacinação</h1>
       <p className="text-sm text-warm-400 mb-8">
-        1 obrigatória (em dia) + {v.recommended.length} recomendadas · o resto é opcional
+        1 obrigatória (em dia) + {v.recommended.length} recomendadas
       </p>
 
-      {/* Required */}
       <div className="bg-green-50 rounded-xl border border-green-200/50 p-6 mb-6">
         <div className="flex items-start gap-2">
           <span className="w-3 h-3 rounded-full bg-green-500 mt-1" />
@@ -20,18 +31,18 @@ export default function Vacinas() {
         </div>
       </div>
 
-      {/* Timing alert */}
-      <div className="bg-amber-50 rounded-xl border border-amber-200/50 p-5 mb-6">
-        <div className="flex items-start gap-2">
-          <span className="text-lg">⏰</span>
-          <div>
-            <h3 className="font-semibold text-amber-800">Prazo para vacinação</h3>
-            <p className="text-sm text-amber-700 mt-1">{v.timingAlert}</p>
+      {!allRecommendedDone && (
+        <div className="bg-amber-50 rounded-xl border border-amber-200/50 p-5 mb-6">
+          <div className="flex items-start gap-2">
+            <span className="text-lg">⏰</span>
+            <div>
+              <h3 className="font-semibold text-amber-800">Prazo para vacinação</h3>
+              <p className="text-sm text-amber-700 mt-1">{v.timingAlert}</p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
-      {/* Up to date + Recommended */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div className="bg-white rounded-xl border border-warm-200/40 p-5">
           <p className="text-[11px] font-medium tracking-[1.5px] text-warm-500 uppercase mb-3">Em dia</p>
@@ -44,21 +55,29 @@ export default function Vacinas() {
             </div>
           ))}
         </div>
-        <div className="bg-white rounded-xl border-2 border-red-200/50 p-5">
-          <p className="text-[11px] font-medium tracking-[1.5px] text-red-500 uppercase mb-3">Recomendadas</p>
-          {v.recommended.map((vax, i) => (
-            <div key={i} className="py-2 text-sm border-b border-warm-200/20 last:border-0">
-              <div className="flex justify-between items-center">
-                <span className="font-medium">{vax.name}</span>
-                <span className="text-xs text-red-500 bg-red-50 px-2 py-1 rounded">Recomendada</span>
+        <div className={`bg-white rounded-xl border-2 p-5 ${allRecommendedDone ? "border-green-200/50" : "border-red-200/50"}`}>
+          <p className={`text-[11px] font-medium tracking-[1.5px] uppercase mb-3 ${allRecommendedDone ? "text-green-600" : "text-red-500"}`}>
+            Recomendadas
+          </p>
+          {v.recommended.map((vax, i) => {
+            const done = isVaccineDone(vax.name.split(" ")[0]);
+            return (
+              <div key={i} className="py-2 text-sm border-b border-warm-200/20 last:border-0">
+                <div className="flex justify-between items-center">
+                  <span className="font-medium">{vax.name}</span>
+                  {done ? (
+                    <span className="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">Tomada ✓</span>
+                  ) : (
+                    <span className="text-xs text-red-500 bg-red-50 px-2 py-1 rounded">Recomendada</span>
+                  )}
+                </div>
+                <p className="text-warm-400 text-xs mt-0.5">{vax.reason}</p>
               </div>
-              <p className="text-warm-400 text-xs mt-0.5">{vax.reason}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
-      {/* Note */}
       <div className="bg-bg-dark/5 rounded-xl p-5">
         <p className="text-sm text-warm-400">{v.note}</p>
       </div>

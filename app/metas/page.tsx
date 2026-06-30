@@ -1,9 +1,24 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function Metas() {
   const [exchangeRate, setExchangeRate] = useState(5.20);
   const [invested, setInvested] = useState(1000);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const savedRate = localStorage.getItem("__metas_rate");
+    const savedInv = localStorage.getItem("__metas_invested");
+    if (savedRate) setExchangeRate(Number(savedRate));
+    if (savedInv) setInvested(Number(savedInv));
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!loaded) return;
+    localStorage.setItem("__metas_rate", String(exchangeRate));
+    localStorage.setItem("__metas_invested", String(invested));
+  }, [exchangeRate, invested, loaded]);
   const totalUSD = 3000;
 
   const calc = useMemo(() => {
@@ -31,6 +46,8 @@ export default function Metas() {
     };
   }, [exchangeRate, invested]);
 
+  if (!loaded) return null;
+
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Metas de investimento</h1>
@@ -53,7 +70,7 @@ export default function Metas() {
               />
               {" "}/US$
             </p>
-            <p className="text-xs text-green-400 mt-1">● Cotação automática · atualizada 13:04</p>
+            <p className="text-xs text-warm-400 mt-1">Ajuste a cotação acima se necessário</p>
           </div>
           <div className="text-right">
             <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Já investido</p>

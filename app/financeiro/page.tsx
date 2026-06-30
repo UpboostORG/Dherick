@@ -1,16 +1,29 @@
+"use client";
 import { trip } from "@/data/trip";
+import { useChecklist } from "@/hooks/useChecklist";
 
 export default function Financeiro() {
   const b = trip.budget;
   const distributed = b.distribution.reduce((s, d) => s + d.amount, 0);
   const hs = b.hostelSavings;
+  const { items, loaded } = useChecklist();
+
+  const hostelsPending = items.filter((i) => !i.done && i.text.toLowerCase().includes("hostel")).length;
+  const flightsPending = items.filter((i) => !i.done && i.text.toLowerCase().includes("passagem")).length;
+  const seguroPending = items.some((i) => !i.done && i.text.toLowerCase().includes("seguro"));
+
+  const pendingTags: string[] = [];
+  if (hostelsPending > 0) pendingTags.push(`${hostelsPending} hostel${hostelsPending > 1 ? "s" : ""} a reservar`);
+  if (flightsPending > 0) pendingTags.push(`${flightsPending} passagen${flightsPending > 1 ? "s" : ""} a comprar`);
+  if (seguroPending) pendingTags.push("Seguro viagem");
+
+  if (!loaded) return null;
 
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Orçamento &amp; notas</h1>
       <p className="text-sm text-warm-400 mb-8">Seu dinheiro de gasto, moedas e dicas · ajuste os valores</p>
 
-      {/* Budget header */}
       <div className="bg-bg-dark text-white rounded-xl p-6 mb-6">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
           <div>
@@ -32,7 +45,6 @@ export default function Financeiro() {
         </div>
       </div>
 
-      {/* Hostel savings card */}
       <div className="bg-green-50 rounded-xl border border-green-200/50 p-5 mb-6">
         <div className="flex items-start gap-2">
           <span className="text-lg">🏠</span>
@@ -46,7 +58,6 @@ export default function Financeiro() {
         </div>
       </div>
 
-      {/* Distribution */}
       <div className="bg-white rounded-xl border border-warm-200/40 overflow-hidden mb-6">
         {b.distribution.map((d, i) => (
           <div key={i} className="flex items-center justify-between p-4 border-b border-warm-200/20 last:border-0">
@@ -61,20 +72,23 @@ export default function Financeiro() {
         ))}
       </div>
 
-      {/* Meta */}
       <div className="bg-white rounded-xl border-l-4 border-l-gold p-5 mb-6">
         <p className="font-semibold mb-2">Meta: viajar com tudo pago ✈</p>
         <p className="text-sm text-warm-400">
-          A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 3.000 ficam livres só para o dia a dia. O que ainda falta:
+          A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 3.000 ficam livres só para o dia a dia.
+          {pendingTags.length > 0 ? " O que ainda falta:" : ""}
         </p>
-        <div className="flex flex-wrap gap-2 mt-3">
-          {b.pending.map((p, i) => (
-            <span key={i} className="text-xs text-gold border border-gold/30 px-3 py-1 rounded-full">{p}</span>
-          ))}
-        </div>
+        {pendingTags.length > 0 ? (
+          <div className="flex flex-wrap gap-2 mt-3">
+            {pendingTags.map((p, i) => (
+              <span key={i} className="text-xs text-gold border border-gold/30 px-3 py-1 rounded-full">{p}</span>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-green-600 font-medium mt-3">Tudo reservado e pago! ✓</p>
+        )}
       </div>
 
-      {/* Currencies */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {b.currencies.map((c, i) => (
           <div key={i} className="bg-white rounded-xl border border-warm-200/40 p-4 flex items-center gap-4">
