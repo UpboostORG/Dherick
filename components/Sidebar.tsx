@@ -6,7 +6,10 @@ import { useState } from "react";
 const links = [
   { href: "/", label: "Visão geral" },
   { href: "/roteiro", label: "Roteiro" },
+  { href: "/starlight", label: "★ STARLIGHT" },
   { href: "/passeios", label: "Passeios" },
+  { href: "/transporte", label: "Transporte local" },
+  { href: "/dicas", label: "Dicas culturais" },
   { href: "/passagens", label: "Passagens" },
   { href: "/hospedagem", label: "Hospedagem" },
   { href: "/documentos", label: "Documentos" },

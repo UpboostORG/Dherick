@@ -1,12 +1,13 @@
 import { trip } from "@/data/trip";
 import Countdown from "@/components/Countdown";
 import GeneratePdf from "@/components/GeneratePdf";
+import WorldMap from "@/components/WorldMap";
 
 export default function Home() {
   const done = trip.checklist.filter((c) => c.done).length;
   const total = trip.checklist.length;
   const pct = Math.round((done / total) * 100);
-  const pending = trip.checklist.filter((c) => !c.done && c.priority === "ALTA");
+  const pending = trip.checklist.filter((c) => !c.done && (c.priority === "ALTA" || c.priority === "CRÍTICA"));
 
   return (
     <div className="space-y-6">
@@ -24,7 +25,7 @@ export default function Home() {
         </div>
         <div className="bg-white rounded-xl border border-warm-200/40 p-5">
           <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Pendências Críticas</p>
-          <p className="text-3xl font-light text-bg-dark mt-1">0</p>
+          <p className="text-3xl font-light text-bg-dark mt-1">{trip.checklist.filter(c => c.priority === "CRÍTICA").length}</p>
           <p className="text-sm text-warm-400">exigem ação imediata</p>
         </div>
         <div className="bg-white rounded-xl border border-warm-200/40 p-5">
@@ -33,6 +34,9 @@ export default function Home() {
           <p className="text-sm text-warm-400">EAU · Egito · Grécia · Turquia · Macedônia</p>
         </div>
       </div>
+
+      {/* World Map */}
+      <WorldMap />
 
       {/* Route */}
       <div className="bg-white rounded-xl border border-warm-200/40 p-6">
@@ -59,13 +63,15 @@ export default function Home() {
           <a href="/checklist" className="text-sm text-gold hover:underline">Ver tudo →</a>
         </div>
         <div className="space-y-3">
-          {pending.slice(0, 5).map((item, i) => (
+          {pending.slice(0, 6).map((item, i) => (
             <div key={i} className="flex items-center justify-between py-3 px-4 bg-bg rounded-lg">
               <div className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-red-400" />
+                <span className={`w-2 h-2 rounded-full ${item.priority === "CRÍTICA" ? "bg-red-600" : "bg-red-400"}`} />
                 <span className="text-sm">{item.text}</span>
               </div>
-              <span className="text-xs font-medium text-red-500 bg-red-50 px-2 py-1 rounded">ALTA</span>
+              <span className={`text-xs font-medium px-2 py-1 rounded ${
+                item.priority === "CRÍTICA" ? "text-red-700 bg-red-100" : "text-red-500 bg-red-50"
+              }`}>{item.priority}</span>
             </div>
           ))}
         </div>
