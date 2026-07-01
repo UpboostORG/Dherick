@@ -7,7 +7,7 @@ const statusOverrides: Record<string, { checkText: string; okTag: string }> = {
   "Dubai": { checkText: "Reservar hostel Dubai", okTag: "5 dias · hostel OK" },
   "Cairo": { checkText: "Reservar hostel Cairo", okTag: "hostel OK" },
   "STARLIGHT": { checkText: "Comprar ingressos festival STARLIGHT", okTag: "Ingresso OK" },
-  "Atenas": { checkText: "Reservar hostel Atenas", okTag: "~5 noites · hostel OK" },
+  "Atenas": { checkText: "Reservar hostel Atenas", okTag: "3 noites · hostel OK" },
   "Santorini": { checkText: "Reservar hostel Santorini", okTag: "hostel OK" },
   "Istambul": { checkText: "Reservar hostel Turquia", okTag: "~4 noites · hostel OK" },
   "Capadócia": { checkText: "Reservar hostel Turquia", okTag: "~2 noites · hostel OK" },
