@@ -7,10 +7,16 @@ export default function Passagens() {
   const { items, loaded } = useChecklist();
 
   function isBought(from: string, to: string) {
-    return items.some((i) => i.done && i.text.toLowerCase().includes("passagem") && (
-      i.text.toLowerCase().includes(from.toLowerCase()) ||
-      i.text.toLowerCase().includes(to.toLowerCase().split(" ")[0])
-    ));
+    const f = from.toLowerCase();
+    const t = to.toLowerCase();
+    return items.some((i) => {
+      if (!i.done) return false;
+      const txt = i.text.toLowerCase();
+      if (!txt.includes("passagem")) return false;
+      return (txt.includes(f) && txt.includes(t)) ||
+             txt.includes(`${f}→${t}`) || txt.includes(`${f} → ${t}`) ||
+             txt.includes(`${f}→${t.split(" ")[0]}`) || txt.includes(`${f} → ${t.split(" ")[0]}`);
+    });
   }
 
   const bought = trip.flights.toBuy.filter((f) => isBought(f.from, f.to));

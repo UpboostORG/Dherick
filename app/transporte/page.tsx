@@ -51,7 +51,7 @@ export default function Transporte() {
       ],
     },
     {
-      city: "Ilhas Gregas",
+      city: "Santorini",
       flag: "🇬🇷",
       options: [
         { name: "Ferry entre ilhas", desc: "SeaJets (rápido, caro), Blue Star (lento, barato). Rotas: Atenas↔Santorini, Santorini↔Mykonos.", price: "€ 20-70 por trecho", tip: "ferryhopper.com para comparar e reservar" },

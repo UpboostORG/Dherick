@@ -6,11 +6,12 @@ export default function Vacinas() {
   const v = trip.vaccines;
   const { items, loaded } = useChecklist();
 
-  function isVaccineDone(name: string) {
-    return items.some((i) => i.done && i.text.toLowerCase().includes(name.toLowerCase()));
+  function isVaccineDone(vaccineName: string) {
+    const key = `vacina ${vaccineName}`.toLowerCase();
+    return items.some((i) => i.done && i.text.toLowerCase().includes(key));
   }
 
-  const allRecommendedDone = v.recommended.every((vax) => isVaccineDone(vax.name.split(" ")[0]));
+  const allRecommendedDone = v.recommended.every((vax) => isVaccineDone(vax.name));
 
   if (!loaded) return null;
 
