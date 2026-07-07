@@ -28,8 +28,8 @@ export const trip = {
     { date: "11/10", place: "Giza · STARLIGHT", status: "warning", tag: "Farewell", detail: "Farewell Party — encerramento." },
     { date: "12/10", from: "CAI", to: "ATH", status: "ok", tag: "Voo · OK", detail: "Aegean A3931 · 04h00 → chegada Atenas 06h00" },
     { date: "12-15/10", place: "Atenas", status: "warning", tag: "3 noites · hostel falta", detail: "Acrópole, Plaka, Monastiraki. Hostel a reservar." },
-    { date: "15-19/10", place: "Santorini", status: "warning", tag: "4 noites · hostel falta", detail: "Santorini. Passagem + hostel a reservar (temporada alta!)." },
-    { date: "~19/10 em diante", place: "Istambul", status: "warning", tag: "15+ dias", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Sem data de saída — destino aberto depois." },
+    { date: "15-20/10", place: "Santorini", status: "warning", tag: "5 noites · hostel falta", detail: "Santorini. Passagem + hostel a reservar (temporada alta!)." },
+    { date: "20/10 em diante", place: "Istambul", status: "warning", tag: "15+ dias", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Sem data de saída — destino aberto depois." },
   ],
 
   activities: {
@@ -66,7 +66,8 @@ export const trip = {
     ],
     toBuy: [
       { from: "ATH", to: "Santorini", note: "Voo 15/10 · comprar até ago/26", priority: "ALTA" },
-      { from: "Santorini", to: "Istambul", note: "Voo ~19/10 · comprar até ago/26", priority: "ALTA" },
+      { from: "Santorini", to: "ATH", note: "Voo 20/10 · conexão p/ Istambul · comprar até ago/26", priority: "ALTA" },
+      { from: "ATH", to: "Istambul", note: "Voo 20/10 · mesmo dia da conexão · comprar até ago/26", priority: "ALTA" },
     ],
   },
 
@@ -108,8 +109,8 @@ export const trip = {
     ],
     toBook: [
       { city: "Atenas", dates: "12-15/10 · 3 noites", priority: "FALTA", estimate: "~€ 60 (hostel ~€ 20/noite)" },
-      { city: "Santorini", dates: "15-19/10 · 4 noites", priority: "FALTA", estimate: "~€ 120 (hostel ~€ 30/noite)" },
-      { city: "Istambul", dates: "~19/10 em diante · 15+ dias", priority: "FALTA", estimate: "~US$ 225 (hostel ~US$ 15/noite)" },
+      { city: "Santorini", dates: "15-20/10 · 5 noites", priority: "FALTA", estimate: "~€ 150 (hostel ~€ 30/noite)" },
+      { city: "Istambul", dates: "20/10 em diante · 15+ dias", priority: "FALTA", estimate: "~US$ 225 (hostel ~US$ 15/noite)" },
     ],
     hostelTips: [
       { city: "Dubai", hostels: ["Zostel Dubai (Dubai Marina)", "Backpackers Hostel Dubai"], priceRange: "US$ 20-30/noite" },
@@ -221,10 +222,11 @@ export const trip = {
     { text: "Reservar hostel Cairo (King's Gate Pyramids Horizon)", done: true, priority: "OK" },
     { text: "Reservar hostel Luxor (Happiness Guest House)", done: true, priority: "OK" },
     { text: "✈ Passagem ATH → Santorini · voo 15/10 · comprar até ago/26", done: false, priority: "ALTA" },
-    { text: "✈ Passagem Santorini → Istambul · voo ~19/10 · comprar até ago/26", done: false, priority: "ALTA" },
+    { text: "✈ Passagem Santorini → ATH · voo 20/10 · comprar até ago/26", done: false, priority: "ALTA" },
+    { text: "✈ Passagem ATH → Istambul · voo 20/10 (conexão mesmo dia) · comprar até ago/26", done: false, priority: "ALTA" },
     { text: "🏨 Reservar hostel Atenas · 12-15/10 (3 noites) · reservar até ago/26", done: false, priority: "ALTA" },
-    { text: "🏨 Reservar hostel Santorini · 15-19/10 (4 noites) · reservar até ago/26", done: false, priority: "ALTA" },
-    { text: "🏨 Reservar hostel Istambul · ~19/10 em diante (15+ dias) · reservar até set/26", done: false, priority: "MÉDIA" },
+    { text: "🏨 Reservar hostel Santorini · 15-20/10 (5 noites) · reservar até ago/26", done: false, priority: "ALTA" },
+    { text: "🏨 Reservar hostel Istambul · 20/10 em diante (15+ dias) · reservar até set/26", done: false, priority: "MÉDIA" },
     { text: "🛡 Seguro viagem longa duração (ex: SafetyWing) · contratar até set/26", done: false, priority: "ALTA" },
     { text: "💉 Vacina Hepatite A · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
     { text: "💉 Vacina Febre Tifoide · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
