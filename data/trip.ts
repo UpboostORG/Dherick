@@ -19,7 +19,7 @@ export const trip = {
   itinerary: [
     { date: "24/09", from: "CGB", to: "GRU", status: "ok", tag: "Voo · OK", detail: "GOL G3 1469 · 02h00 → 05h20 · confirmado" },
     { date: "25/09", from: "GRU", to: "DXB", status: "ok", tag: "Voo · OK", detail: "Emirates EK 262 · 01h05 → chegada 23h00 · confirmado" },
-    { date: "25-30/09", place: "Dubai", status: "warning", tag: "5 dias · hostel falta", detail: "Explorar Dubai — Burj Khalifa, Marina, Gold Souk. Hostel ainda não reservado." },
+    { date: "25-30/09", place: "Dubai", status: "ok", tag: "5 dias · hostel OK", detail: "Explorar Dubai — Burj Khalifa, Marina, Gold Souk. Dubai Sea View Hostel, JBR Palm View confirmado." },
     { date: "30/09", from: "DXB", to: "CAI", status: "ok", tag: "Voo · OK", detail: "Kuwait Airways KU672+KU541 · 13h05 → chegada Cairo 18h00" },
     { date: "30/09-05/10", place: "Cairo", status: "ok", tag: "5 noites · OK", detail: "Pirâmides, Museu Egípcio, Khan el-Khalili. King's Gate Pyramids Horizon confirmado (até 12/10)." },
     { date: "05-08/10", place: "Luxor", status: "ok", tag: "3 noites · OK", detail: "Vale dos Reis, Templo de Karnak, Margem Ocidental. Happiness Guest House confirmado." },
@@ -79,6 +79,17 @@ export const trip = {
   accommodation: {
     confirmed: [
       {
+        city: "Dubai",
+        name: "Dubai Sea View Hostel, JBR Palm View",
+        address: "Rimal 6 JBR, Marsa Dubai, Dubai",
+        checkIn: "25/09 · check-in",
+        checkOut: "30/09 · check-out",
+        confirmation: "—",
+        pin: "—",
+        tel: "—",
+        note: "5 noites · JBR Palm View",
+      },
+      {
         city: "Cairo (Giza)",
         name: "King's Gate Pyramids Horizon",
         address: "Al Amira Fadia, Giza, 12512 Cairo · Quarto Deluxe · 4 estrelas Genius",
@@ -102,7 +113,6 @@ export const trip = {
       },
     ],
     toBook: [
-      { city: "Dubai", dates: "25/09 a 30/09 · 5 noites", priority: "URGENTE", estimate: "~US$ 125 (hostel ~US$ 25/noite)" },
       { city: "Atenas", dates: "12-15/10 · 3 noites", priority: "FALTA", estimate: "~€ 60 (hostel ~€ 20/noite)" },
       { city: "Santorini", dates: "15-19/10 · 4 noites", priority: "FALTA", estimate: "~€ 120 (hostel ~€ 30/noite)" },
       { city: "Turquia (Istambul)", dates: "A definir · ~4 noites", priority: "FALTA", estimate: "~US$ 60 (hostel ~US$ 15/noite)" },
@@ -217,7 +227,7 @@ export const trip = {
     { text: "Turquia — isento de visto p/ turismo (até 90 dias)", done: true, priority: "OK" },
     { text: "Entrada Dubai (EAU) — isento, visto na chegada", done: true, priority: "OK" },
     { text: "Comprar ingressos festival STARLIGHT (Pirâmides)", done: false, priority: "CRÍTICA" },
-    { text: "Reservar hostel Dubai (25-30/set)", done: false, priority: "ALTA" },
+    { text: "Reservar hostel Dubai (Dubai Sea View Hostel)", done: true, priority: "OK" },
     { text: "Reservar hostel Cairo (King's Gate Pyramids Horizon)", done: true, priority: "OK" },
     { text: "Reservar hostel Luxor (Happiness Guest House)", done: true, priority: "OK" },
     { text: "Comprar passagem ATH → Santorini", done: false, priority: "ALTA" },
