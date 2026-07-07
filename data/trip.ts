@@ -29,7 +29,7 @@ export const trip = {
     { date: "12/10", from: "CAI", to: "ATH", status: "ok", tag: "Voo · OK", detail: "Aegean A3931 · 04h00 → chegada Atenas 06h00" },
     { date: "12-15/10", place: "Atenas", status: "warning", tag: "3 noites · hostel falta", detail: "Acrópole, Plaka, Monastiraki. Hostel a reservar." },
     { date: "15-19/10", place: "Santorini", status: "warning", tag: "4 noites · hostel falta", detail: "Santorini. Passagem + hostel a reservar (temporada alta!)." },
-    { date: "a definir", place: "Istambul", status: "warning", tag: "~4 noites", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Hostel a definir." },
+    { date: "~19/10 em diante", place: "Istambul", status: "warning", tag: "15+ dias", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Sem data de saída — destino aberto depois." },
   ],
 
   activities: {
@@ -66,8 +66,7 @@ export const trip = {
     ],
     toBuy: [
       { from: "ATH", to: "Santorini", note: "15/10 · voo ou ferry", priority: "ALTA" },
-      { from: "Santorini", to: "Istambul", note: "Após Santorini · voo ou ferry+voo", priority: "ALTA" },
-      { from: "Retorno", to: "ao Brasil", note: "Em aberto — sem data definida", priority: "BAIXA" },
+      { from: "Santorini", to: "Istambul", note: "~19/10 · voo ou ferry+voo", priority: "ALTA" },
     ],
   },
 
@@ -110,7 +109,7 @@ export const trip = {
     toBook: [
       { city: "Atenas", dates: "12-15/10 · 3 noites", priority: "FALTA", estimate: "~€ 60 (hostel ~€ 20/noite)" },
       { city: "Santorini", dates: "15-19/10 · 4 noites", priority: "FALTA", estimate: "~€ 120 (hostel ~€ 30/noite)" },
-      { city: "Turquia (Istambul)", dates: "A definir · ~4 noites", priority: "FALTA", estimate: "~US$ 60 (hostel ~US$ 15/noite)" },
+      { city: "Istambul", dates: "~19/10 em diante · 15+ dias", priority: "FALTA", estimate: "~US$ 225 (hostel ~US$ 15/noite)" },
     ],
     hostelTips: [
       { city: "Dubai", hostels: ["Zostel Dubai (Dubai Marina)", "Backpackers Hostel Dubai"], priceRange: "US$ 20-30/noite" },
