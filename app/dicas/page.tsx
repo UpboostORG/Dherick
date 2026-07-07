@@ -65,7 +65,7 @@ export default function Dicas() {
     {
       country: "Turquia",
       flag: "🇹🇷",
-      dressCode: "Istambul é cosmopolita — roupa casual. Mesquitas (Hagia Sophia, Mesquita Azul): tirar sapatos, cobrir joelhos e ombros. Mulheres: lenço para cabeça (emprestam na entrada). Capadócia: casual, mas casaco à noite.",
+      dressCode: "Istambul é cosmopolita — roupa casual. Mesquitas (Hagia Sophia, Mesquita Azul): tirar sapatos, cobrir joelhos e ombros. Mulheres: lenço para cabeça (emprestam na entrada).",
       tipping: "Restaurante: 5-10%. Guias de tour: TRY 50-100. Hamam (banho turco): TRY 50-100 para o massagista. Táxi: arredonde.",
       scams: [
         "'Amigo brasileiro!' — estranhos que falam português e levam para loja/bar. Ignore",
@@ -81,24 +81,6 @@ export default function Dicas() {
         { local: "Hayır", meaning: "Não" },
         { local: "Ne kadar?", meaning: "Quanto custa?" },
         { local: "Lütfen", meaning: "Por favor" },
-      ],
-    },
-    {
-      country: "Macedônia do Norte",
-      flag: "🇲🇰",
-      dressCode: "Casual. Sem restrições em geral. Em mesquitas de Skopje (bairro Old Bazaar): mesmo padrão — cobrir joelhos/ombros.",
-      tipping: "Arredonde a conta. Restaurante: 10% se o serviço foi bom. Não é obrigatório.",
-      scams: [
-        "Muito seguro para turistas — poucos golpes reportados",
-        "Táxi: sempre peça para ligar o taxímetro ou combine antes",
-        "Câmbio: troque em bancos, não na rua",
-      ],
-      phrases: [
-        { local: "Blagodaram", meaning: "Obrigado" },
-        { local: "Zdravo", meaning: "Olá" },
-        { local: "Da", meaning: "Sim" },
-        { local: "Ne", meaning: "Não" },
-        { local: "Kolku čini?", meaning: "Quanto custa?" },
       ],
     },
   ];

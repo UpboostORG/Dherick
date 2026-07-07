@@ -5,7 +5,7 @@ export default function Passeios() {
     <div>
       <h1 className="text-3xl font-serif mb-1">Passeios</h1>
       <p className="text-sm text-warm-400 mb-8">
-        Ideias por destino — Dubai, Egito, Grécia, Turquia e Macedônia · clique nas descrições para editar
+        Ideias por destino — Dubai, Egito, Grécia e Turquia · clique nas descrições para editar
       </p>
 
       {Object.entries(trip.activities).map(([city, data]) => (

@@ -65,7 +65,7 @@ export default function Financeiro() {
             <h3 className="font-semibold text-green-800">Economia com hostels: ~US$ {hs.saved.toLocaleString()}</h3>
             <p className="text-sm text-green-700 mt-1">
               Total hospedagem em hostels: ~US$ {hs.hostelTotal} (contra ~US$ {hs.hotelTotal.toLocaleString()}+ em hotéis).
-              Dinheiro extra para passeios, balão da Capadócia, ferry em Santorini, etc.
+              Dinheiro extra para passeios, ferry em Santorini, etc.
             </p>
           </div>
         </div>

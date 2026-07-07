@@ -41,16 +41,6 @@ export default function Transporte() {
       ],
     },
     {
-      city: "Capadócia",
-      flag: "🇹🇷",
-      options: [
-        { name: "Tour organizado", desc: "Red Tour e Green Tour cobrem os pontos principais. Guia + transporte + almoço incluídos.", price: "~€ 30-50/dia", tip: "Reserve no hostel — preços melhores que online" },
-        { name: "Aluguel de scooter/ATV", desc: "Para explorar vales e formações por conta própria. Liberdade total.", price: "~€ 15-25/dia", tip: "CNH internacional recomendada" },
-        { name: "A pé", desc: "Trilhas pelos vales (Love Valley, Rose Valley) são incríveis e gratuitas.", price: "Grátis", tip: "Leve água e protetor solar — sol forte" },
-        { name: "Balão", desc: "O passeio icônico. Voo ao nascer do sol sobre as chaminés de fada.", price: "€ 150-250", tip: "Reserve com antecedência — cancela por mau tempo" },
-      ],
-    },
-    {
       city: "Santorini",
       flag: "🇬🇷",
       options: [

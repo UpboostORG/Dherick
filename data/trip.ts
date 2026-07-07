@@ -12,8 +12,7 @@ export const trip = {
     { code: "CAI", city: "Cairo" },
     { code: "ATH", city: "Atenas" },
     { code: "GR", city: "Santorini" },
-    { code: "TR", city: "Turquia" },
-    { code: "MK", city: "Macedônia" },
+    { code: "IST", city: "Istambul" },
   ],
 
   itinerary: [
@@ -30,9 +29,7 @@ export const trip = {
     { date: "12/10", from: "CAI", to: "ATH", status: "ok", tag: "Voo · OK", detail: "Aegean A3931 · 04h00 → chegada Atenas 06h00" },
     { date: "12-15/10", place: "Atenas", status: "warning", tag: "3 noites · hostel falta", detail: "Acrópole, Plaka, Monastiraki. Hostel a reservar." },
     { date: "15-19/10", place: "Santorini", status: "warning", tag: "4 noites · hostel falta", detail: "Santorini. Passagem + hostel a reservar (temporada alta!)." },
-    { date: "a definir", place: "Turquia — Istambul", status: "warning", tag: "~4 noites", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Hostel a definir." },
-    { date: "a definir", place: "Turquia — Capadócia", status: "warning", tag: "~2 noites", detail: "IST → Capadócia (~750km): voo ~1h20 (€30-80) ou ônibus noturno ~10h (€15-25). Balão + vales." },
-    { date: "a definir", place: "Macedônia do Norte", status: "warning", tag: "Opcional", detail: "Skopje, Ohrid. Depende do tempo e orçamento." },
+    { date: "a definir", place: "Istambul", status: "warning", tag: "~4 noites", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Hostel a definir." },
   ],
 
   activities: {
@@ -69,9 +66,7 @@ export const trip = {
     ],
     toBuy: [
       { from: "ATH", to: "Santorini", note: "15/10 · voo ou ferry", priority: "ALTA" },
-      { from: "Grécia", to: "Turquia", note: "Após as ilhas (ex: ATH → IST ou ferry)", priority: "ALTA" },
-      { from: "IST", to: "Capadócia (KYS/NAV)", note: "Voo ~€30-80 ou ônibus noturno ~€15-25", priority: "MÉDIA" },
-      { from: "Turquia", to: "Macedônia do Norte", note: "Após Turquia (se for)", priority: "MÉDIA" },
+      { from: "Santorini", to: "Istambul", note: "Após Santorini · voo ou ferry+voo", priority: "ALTA" },
       { from: "Retorno", to: "ao Brasil", note: "Em aberto — sem data definida", priority: "BAIXA" },
     ],
   },
@@ -116,8 +111,6 @@ export const trip = {
       { city: "Atenas", dates: "12-15/10 · 3 noites", priority: "FALTA", estimate: "~€ 60 (hostel ~€ 20/noite)" },
       { city: "Santorini", dates: "15-19/10 · 4 noites", priority: "FALTA", estimate: "~€ 120 (hostel ~€ 30/noite)" },
       { city: "Turquia (Istambul)", dates: "A definir · ~4 noites", priority: "FALTA", estimate: "~US$ 60 (hostel ~US$ 15/noite)" },
-      { city: "Turquia (Capadócia)", dates: "A definir · ~2 noites", priority: "FALTA", estimate: "~US$ 50 (cave hostel ~US$ 25/noite)" },
-      { city: "Macedônia do Norte", dates: "A definir (se for) · ~3 noites", priority: "PENDENTE", estimate: "~€ 40 (hostel ~€ 13/noite)" },
     ],
     hostelTips: [
       { city: "Dubai", hostels: ["Zostel Dubai (Dubai Marina)", "Backpackers Hostel Dubai"], priceRange: "US$ 20-30/noite" },
@@ -125,8 +118,6 @@ export const trip = {
       { city: "Atenas", hostels: ["Athens Backpackers", "City Circus Athens"], priceRange: "€ 15-22/noite" },
       { city: "Santorini", hostels: ["Anemomilos Hostel", "Caveland Hostel"], priceRange: "€ 25-40/noite" },
       { city: "Istambul", hostels: ["Agora Guesthouse & Hostel", "World House Hostel"], priceRange: "US$ 10-18/noite" },
-      { city: "Capadócia", hostels: ["Shoestring Cave Hostel (dorme em caverna!)"], priceRange: "US$ 15-25/noite" },
-      { city: "Skopje", hostels: ["YouthHostel Skopje", "Hostel Mango"], priceRange: "€ 10-15/noite" },
     ],
   },
 
@@ -235,9 +226,7 @@ export const trip = {
     { text: "Reservar hostel Santorini", done: false, priority: "ALTA" },
     { text: "Comprar passagem Grécia → Turquia", done: false, priority: "ALTA" },
     { text: "Seguro viagem internacional (longa duração)", done: false, priority: "ALTA" },
-    { text: "Reservar hostel Turquia (Istambul + Capadócia)", done: false, priority: "MÉDIA" },
-    { text: "Passagem interna Turquia: IST → Capadócia", done: false, priority: "MÉDIA" },
-    { text: "Definir e reservar Macedônia do Norte", done: false, priority: "MÉDIA" },
+    { text: "Reservar hostel Istambul", done: false, priority: "MÉDIA" },
     { text: "Vacina Hepatite A (recomendada p/ Egito)", done: false, priority: "MÉDIA" },
     { text: "Vacina Febre Tifoide (recomendada p/ Egito)", done: false, priority: "MÉDIA" },
     { text: "eSIM / chip internacional (Airalo)", done: false, priority: "MÉDIA" },
@@ -267,8 +256,7 @@ export const trip = {
       { destination: "Dubai & Abu Dhabi", amount: 450 },
       { destination: "Egito (Cairo + festival)", amount: 500 },
       { destination: "Grécia (Atenas + Santorini)", amount: 550 },
-      { destination: "Turquia (Istambul + Capadócia)", amount: 300 },
-      { destination: "Macedônia / reserva", amount: 200 },
+      { destination: "Istambul", amount: 300 },
     ],
     hostelSavings: {
       hostelTotal: 605,
@@ -314,10 +302,8 @@ export const trip = {
       items: [
         { text: "Passagem ATH → Santorini", cost: "~€ 120", done: false },
         { text: "Reservar hostel Santorini (~5 noites)", cost: "~€ 150", done: false },
-        { text: "Passagem Grécia → Turquia", cost: "~€ 90", done: false },
+        { text: "Passagem Santorini → Istambul", cost: "~€ 90", done: false },
         { text: "Reservar hostel Istambul (~4 noites)", cost: "~US$ 60", done: false },
-        { text: "Reservar cave hostel Capadócia (~2 noites)", cost: "~US$ 50", done: false },
-        { text: "Passagem interna IST → Capadócia", cost: "~€ 50", done: false },
         { text: "eSIM / chip internacional (Airalo)", cost: "~R$ 200", done: false },
         { text: "Comprar dólares em espécie (2ª leva)", cost: "~US$ 150", done: false },
         { text: "Adaptador universal de tomada", cost: "~R$ 60", done: false },
@@ -329,8 +315,6 @@ export const trip = {
       month: "Setembro 2026",
       note: "Últimos ajustes e conferência final",
       items: [
-        { text: "Definir Macedônia do Norte + hostel", cost: "~€ 40", done: false },
-        { text: "Passagem Turquia → Macedônia do Norte (se for)", cost: "~€ 80", done: false },
         { text: "Kit farmácia viagem (remédios, protetor solar)", cost: "~R$ 100", done: false },
         { text: "Comprar moeda local restante (euros, liras)", cost: "~R$ 500", done: false },
         { text: "Cadeado hostel + toalha microfibra + protetor ouvido", cost: "~R$ 80", done: false },
