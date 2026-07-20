@@ -87,6 +87,7 @@ export const trip = {
         pin: "—",
         tel: "—",
         note: "5 noites · JBR Palm View",
+        price: "a confirmar",
       },
       {
         city: "Cairo (Giza)",
@@ -98,6 +99,7 @@ export const trip = {
         pin: "3997",
         tel: "+20 11 31402676",
         note: "12 diárias · 1 adulto · Pagamento no local",
+        price: "a confirmar · paga no local",
       },
       {
         city: "Luxor",
@@ -109,6 +111,7 @@ export const trip = {
         pin: "0392",
         tel: "+20 10 95996392",
         note: "3 diárias · 2 adultos · Quarto Deluxe Double · Non-smoking",
+        price: "a confirmar · paga no local",
       },
     ],
     toBook: [

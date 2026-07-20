@@ -42,6 +42,25 @@ export default function Hospedagem() {
         {confirmed.length + doneToBook.length} confirmada{confirmed.length + doneToBook.length > 1 ? "s" : ""} · {pendingToBook.length} hostel{pendingToBook.length !== 1 ? "s" : ""} a reservar · ✏️ para editar
       </p>
 
+      <div className="bg-bg-dark text-white rounded-xl p-5 mb-8">
+        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">💵 Dinheiro da hospedagem — levar separado dos US$ 3.000</p>
+        <div className="space-y-1.5 text-sm">
+          {confirmed.map((h, i) => (
+            <div key={i} className="flex justify-between gap-3">
+              <span className="text-warm-100">{h.city} · {h.checkIn?.split(" ")[0]} → {h.checkOut?.split(" ")[0]}</span>
+              <span className="font-mono text-gold whitespace-nowrap">{h.price || "a confirmar"}</span>
+            </div>
+          ))}
+          {pendingToBook.map((h, i) => (
+            <div key={i} className="flex justify-between gap-3 opacity-60">
+              <span className="text-warm-100">{h.city} · {h.dates} · a reservar</span>
+              <span className="font-mono whitespace-nowrap">{h.estimate?.split("(")[0].trim()}</span>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-warm-400 mt-3 border-t border-warm-500/30 pt-2">Reservas com pagamento no local: leve o valor em espécie (USD no Egito, EUR na Grécia). Preencha o valor de cada reserva no ✏️ do card para fechar o total.</p>
+      </div>
+
       {confirmed.map((h, i) => {
         if (editConf === i) {
           return (
@@ -57,9 +76,10 @@ export default function Hospedagem() {
                 <div><label className={labelCls}>Confirmação</label><input className={inputCls} value={draftConf.confirmation || ""} onChange={(e) => setDraftConf({ ...draftConf, confirmation: e.target.value })} /></div>
                 <div><label className={labelCls}>Pin</label><input className={inputCls} value={draftConf.pin || ""} onChange={(e) => setDraftConf({ ...draftConf, pin: e.target.value })} /></div>
               </div>
-              <div className="grid grid-cols-2 gap-3 mb-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-3">
                 <div><label className={labelCls}>Telefone</label><input className={inputCls} value={draftConf.tel || ""} onChange={(e) => setDraftConf({ ...draftConf, tel: e.target.value })} /></div>
                 <div><label className={labelCls}>Nota</label><input className={inputCls} value={draftConf.note || ""} onChange={(e) => setDraftConf({ ...draftConf, note: e.target.value })} /></div>
+                <div><label className={labelCls}>Valor a pagar</label><input className={inputCls} placeholder="ex: US$ 180 no local" value={draftConf.price || ""} onChange={(e) => setDraftConf({ ...draftConf, price: e.target.value })} /></div>
               </div>
               <div className="flex gap-2">
                 <button onClick={() => { updateConf(i, draftConf); setEditConf(null); }} className="text-xs bg-gold text-white px-4 py-1.5 rounded-lg font-medium">Salvar</button>
@@ -81,12 +101,13 @@ export default function Hospedagem() {
                 <button onClick={() => { setEditConf(i); setDraftConf({ ...h }); }} className="opacity-0 group-hover:opacity-100 transition-opacity text-warm-400 hover:text-gold text-sm">✏️</button>
               </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mt-4 text-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-6 gap-4 mt-4 text-sm">
               <div><p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase mb-1">Check-in</p><p className="font-mono">{h.checkIn}</p></div>
               <div><p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase mb-1">Check-out</p><p className="font-mono">{h.checkOut}</p></div>
               <div><p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase mb-1">Confirmação</p><p className="font-mono">{h.confirmation}</p></div>
               <div><p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase mb-1">Pin</p><p className="font-mono">{h.pin}</p></div>
               <div><p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase mb-1">Tel</p><p className="font-mono">{h.tel}</p></div>
+              <div><p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase mb-1">Valor</p><p className="font-mono text-gold">{h.price || "—"}</p></div>
             </div>
             <p className="text-xs text-warm-400 mt-4 border-t border-warm-200/30 pt-3">{h.note}</p>
           </div>
@@ -107,9 +128,10 @@ export default function Hospedagem() {
             <div><label className={labelCls}>Confirmação</label><input className={inputCls} value={newConf.confirmation || ""} onChange={(e) => setNewConf({ ...newConf, confirmation: e.target.value })} /></div>
             <div><label className={labelCls}>Pin</label><input className={inputCls} value={newConf.pin || ""} onChange={(e) => setNewConf({ ...newConf, pin: e.target.value })} /></div>
           </div>
-          <div className="grid grid-cols-2 gap-3 mb-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-3">
             <div><label className={labelCls}>Telefone</label><input className={inputCls} value={newConf.tel || ""} onChange={(e) => setNewConf({ ...newConf, tel: e.target.value })} /></div>
             <div><label className={labelCls}>Nota</label><input className={inputCls} value={newConf.note || ""} onChange={(e) => setNewConf({ ...newConf, note: e.target.value })} /></div>
+            <div><label className={labelCls}>Valor a pagar</label><input className={inputCls} placeholder="ex: US$ 180 no local" value={newConf.price || ""} onChange={(e) => setNewConf({ ...newConf, price: e.target.value })} /></div>
           </div>
           <div className="flex gap-2">
             <button onClick={() => { addConf(newConf as Confirmed); setAddingConf(false); setNewConf({}); }} className="text-xs bg-gold text-white px-4 py-1.5 rounded-lg font-medium">Adicionar</button>
