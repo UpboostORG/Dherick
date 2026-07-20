@@ -1,4 +1,5 @@
 const STATUS_STYLES: Record<string, string> = {
+  "INSCRITO ✓": "text-white bg-green-600",
   CONFIRMADO: "text-green-700 bg-green-100",
   RECORRENTE: "text-gold bg-gold/10",
   "A CONFIRMAR": "text-warm-400 bg-warm-200/30",
@@ -12,7 +13,7 @@ export default function Eventos() {
       flag: "🇦🇪",
       period: "25-30/09 · sua janela",
       events: [
-        { name: "AWS Summit Dubai", date: "qua 30/09 · dia inteiro", venue: "Dubai World Trade Centre", price: "GRÁTIS", status: "CONFIRMADO", desc: "Grande evento da Amazon: keynotes, palestras de negócios e IA em inglês, zona de estudantes e networking gigante. ⚠️ É o dia do seu voo (13h05) — dá pra pegar só a manhã. Registre antes, esgota.", link: "https://aws.amazon.com/events/summits/dubai/" },
+        { name: "AWS Summit Dubai", date: "qua 30/09 · 8h-19h", venue: "Dubai World Trade Centre", price: "GRÁTIS", status: "INSCRITO ✓", desc: "Inscrito com o e-mail dherick.sociais@upboostbusiness.com.br. Plano: 8h às ~10h45 (credenciamento + keynote), depois metrô pro DXB (~10 min) pro voo das 13h05.", link: "https://aws.amazon.com/events/summits/dubai/" },
         { name: "TGIS Toastmasters", date: "dom 27/09 · 17h15", venue: "Villa Rotana, Business Bay", price: "Grátis (visitante)", status: "RECORRENTE", desc: "Clube de oratória em inglês com expats — treinar inglês e conhecer profissionais locais.", link: "https://tgis.toastmastersclubs.org/" },
         { name: "JLT Dubai Toastmasters", date: "seg 28/09 · 18h45", venue: "JLT", price: "Grátis (visitante)", status: "RECORRENTE", desc: "Segunda opção de Toastmasters, no polo tech de JLT.", link: "https://jltdubai.toastmastersclubs.org/" },
         { name: "AstroLabs — meetups tech", date: "várias noites/semana", venue: "AstroLabs, JLT (Cluster R)", price: "Grátis", status: "A CONFIRMAR", desc: "O tech-hub mais 'comunidade' de Dubai: talks e meetups de tech/digital. Agenda sai no Luma 2-3 semanas antes.", link: "https://luma.com/astrolabs" },
@@ -70,8 +71,9 @@ export default function Eventos() {
       <div className="bg-bg-dark text-white rounded-xl p-5 mb-8">
         <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-2">Fazer agora (custa €25 no máximo)</p>
         <ul className="text-sm space-y-1.5 text-warm-100">
+          <li className="line-through opacity-60">✓ AWS Summit Dubai — inscrito (30/09)</li>
           <li>1. Comprar ingresso estudante da <strong className="text-gold">PyCon Greece</strong> (€25) — único que sobe de preço</li>
-          <li>2. Registrar grátis: <strong className="text-gold">AWS Summit Dubai</strong> (30/09) e <strong className="text-gold">Techne Alexandria</strong> (visitor pass)</li>
+          <li>2. Registrar grátis no <strong className="text-gold">Techne Alexandria</strong> (visitor pass)</li>
           <li>3. Entrar nos grupos de Meetup/Luma de cada cidade — as agendas de outubro chegam por lá</li>
         </ul>
       </div>

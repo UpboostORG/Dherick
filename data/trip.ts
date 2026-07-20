@@ -225,6 +225,7 @@ export const trip = {
     { text: "Turquia — isento de visto p/ turismo (até 90 dias)", done: true, priority: "OK" },
     { text: "Entrada Dubai (EAU) — isento, visto na chegada", done: true, priority: "OK" },
     { text: "Comprar ingressos festival STARLIGHT (Pirâmides)", done: true, priority: "OK" },
+    { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — sair até 10h45 pro voo", done: true, priority: "OK" },
     { text: "Reservar hostel Dubai (Dubai Sea View Hostel)", done: true, priority: "OK" },
     { text: "Reservar hostel Cairo (King's Gate Pyramids Horizon)", done: true, priority: "OK" },
     { text: "Reservar hostel Luxor (Happiness Guest House)", done: true, priority: "OK" },
