@@ -11,6 +11,7 @@ const links = [
   { href: "/passeios", label: "Passeios" },
   { href: "/transporte", label: "Transporte local" },
   { href: "/dicas", label: "Dicas culturais" },
+  { href: "/eventos", label: "Eventos & Networking" },
   { href: "/passagens", label: "Passagens" },
   { href: "/hospedagem", label: "Hospedagem" },
   { href: "/documentos", label: "Documentos" },
@@ -19,6 +20,7 @@ const links = [
   { href: "/bagagem", label: "Bagagem" },
   { href: "/financeiro", label: "Financeiro" },
   { href: "/metas", label: "Metas de investimento" },
+  { href: "/banco", label: "Banco de emergência" },
   { href: "/compras", label: "Compras mês a mês" },
   { href: "/emergencia", label: "Emergências" },
 ];

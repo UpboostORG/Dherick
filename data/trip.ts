@@ -290,10 +290,16 @@ export const trip = {
     totalUSD: 3000,
     exchangeRate: 5.20,
     totalBRL: 15586,
-    invested: 1000,
-    investedBRL: 5195,
-    remaining: 2000,
-    remainingBRL: 10391,
+    invested: 2200,
+    investedBRL: 11430,
+    remaining: 800,
+    remainingBRL: 4156,
+  },
+
+  emergencyFund: {
+    eur: 530,
+    usd: 500,
+    note: "Reserva separada do orçamento da viagem — só para emergências",
   },
 
   monthlyPurchases: [

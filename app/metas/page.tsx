@@ -3,12 +3,12 @@ import { useState, useEffect, useMemo } from "react";
 
 export default function Metas() {
   const [exchangeRate, setExchangeRate] = useState(5.20);
-  const [invested, setInvested] = useState(1000);
+  const [invested, setInvested] = useState(2200);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const savedRate = localStorage.getItem("__metas_rate");
-    const savedInv = localStorage.getItem("__metas_invested");
+    const savedInv = localStorage.getItem("__metas_invested_v2");
     if (savedRate) setExchangeRate(Number(savedRate));
     if (savedInv) setInvested(Number(savedInv));
     setLoaded(true);
@@ -17,7 +17,7 @@ export default function Metas() {
   useEffect(() => {
     if (!loaded) return;
     localStorage.setItem("__metas_rate", String(exchangeRate));
-    localStorage.setItem("__metas_invested", String(invested));
+    localStorage.setItem("__metas_invested_v2", String(invested));
   }, [exchangeRate, invested, loaded]);
   const totalUSD = 3000;
 
