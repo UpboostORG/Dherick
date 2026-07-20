@@ -72,7 +72,7 @@ export const trip = {
       { from: "JTR", to: "ATH", airline: "Ryanair · FR1237", date: "20/10", time: "00h00 → 00h50", ref: "T8EMHK" },
       { from: "ATH", to: "IST", airline: "Sky Express · GQ670", date: "20/10", time: "07h00 → 08h30", ref: "KPPSWK" },
     ],
-    toBuy: [],
+    toBuy: [] as { from: string; to: string; note: string; priority: string }[],
   },
 
   accommodation: {
