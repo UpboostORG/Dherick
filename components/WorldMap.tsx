@@ -9,12 +9,13 @@ const destinations = [
   { code: "GRU", city: "São Paulo", lat: -23.432, lng: -46.470, active: false },
   { code: "DXB", city: "Dubai", lat: 25.253, lng: 55.365, active: true },
   { code: "CAI", city: "Cairo", lat: 30.044, lng: 31.235, active: true },
+  { code: "LXR", city: "Luxor", lat: 25.687, lng: 32.639, active: true },
   { code: "ATH", city: "Atenas", lat: 37.936, lng: 23.947, active: true },
+  { code: "JTR", city: "Santorini", lat: 36.399, lng: 25.479, active: true },
   { code: "IST", city: "Istambul", lat: 41.015, lng: 28.979, active: true },
-  { code: "SKP", city: "Skopje", lat: 41.997, lng: 21.431, active: true },
 ];
 
-const routeOrder = [0, 1, 2, 3, 4, 5, 6];
+const routeOrder = [0, 1, 2, 3, 4, 3, 5, 6, 5, 7];
 
 export default function WorldMap() {
   const mapRef = useRef<HTMLDivElement>(null);
