@@ -67,8 +67,7 @@ export default function Eventos() {
       flag: "🌍",
       period: "eventos em países vizinhos nas suas datas",
       events: [
-        { name: "AI Everything Abu Dhabi", date: "5-7/10", venue: "ADNEC, Abu Dhabi (EAU)", price: "GRÁTIS até 30/07 (200 vagas!)", status: "URGENTE", desc: "850 empresas de IA, lounge de investidores. Passe visitante early bird GRÁTIS expira 30/07 — registra JÁ mesmo sem decidir. Cai na etapa Egito: voo Cairo→Abu Dhabi ~3h30 (~US$150-250/trecho).", link: "https://visit.aieverythingabudhabi.com/" },
-        { name: "Fintech Forward", date: "7-8/10", venue: "Manama, Bahrein", price: "a confirmar (já foi grátis)", status: "CONFIRMADO", desc: "Principal palco fintech do Golfo (Economist + Banco Central). Voo Cairo→Bahrein ~3h · eVisa ~US$24. Mesma semana do AI Everything — dá pra emendar Abu Dhabi + Bahrein.", link: "https://events.economistenterprise.com/fintechforward/" },
+        { name: "AI Everything Abu Dhabi + Fintech Forward Bahrein", date: "5-8/10", venue: "Abu Dhabi / Manama", price: "grátis, mas + ~US$300-500 de voos", status: "A CONFIRMAR", desc: "Descartados: caem em cima de Luxor e do ônibus do dia 5 — o desvio custaria mais que os eventos valem. O Techne Alexandria (3-4/10) cobre essa semana de graça.", link: "https://aieverythingabudhabi.com" },
         { name: "Cairo ICT — AI in Action", date: "8-11/11", venue: "Cairo (EIEC)", price: "Registro grátis", status: "CONFIRMADO", desc: "30ª edição, tema IA. Você já estará em Istambul (voo ~2h, ~US$150-200 i/v) — só se quiser rever o Egito; o GITEX em dezembro é aposta melhor.", link: "https://cairoict.com/" },
         { name: "Arábia Saudita (Biban, GAIN, LEAP)", date: "vários", venue: "Riyadh", price: "—", status: "CARO", desc: "Risca do plano: brasileiro não tem eVisa direto — visa on arrival só com visto EUA/UK/Schengen já usado. LEAP 2027 (3-6/02) fica pra quando tiver visto.", link: "https://bibanglobal.sa/en" },
       ],

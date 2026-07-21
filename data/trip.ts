@@ -226,7 +226,6 @@ export const trip = {
     { text: "Entrada Dubai (EAU) — isento, visto na chegada", done: true, priority: "OK" },
     { text: "Comprar ingressos festival STARLIGHT (Pirâmides)", done: true, priority: "OK" },
     { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — sair até 10h45 pro voo", done: true, priority: "OK" },
-    { text: "🚨 Registrar passe GRÁTIS do AI Everything Abu Dhabi (5-7/10) · expira 30/07, só 200 vagas · visit.aieverythingabudhabi.com", done: false, priority: "ALTA" },
     { text: "🚨 Inscrever como VOLUNTÁRIO no Web Summit Lisboa (9-12/11, entrada grátis) · vagas fecham meses antes · websummit.com/volunteers", done: false, priority: "ALTA" },
     { text: "📅 Voluntário Slush Helsinki (18-19/11) · inscrições abrem ago-set · slush.org", done: false, priority: "MÉDIA" },
     { text: "Reservar hostel Dubai (Dubai Sea View Hostel)", done: true, priority: "OK" },
