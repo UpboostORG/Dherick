@@ -1,5 +1,6 @@
 const STATUS_STYLES: Record<string, string> = {
   "INSCRITO ✓": "text-white bg-green-600",
+  URGENTE: "text-white bg-red-600",
   CONFIRMADO: "text-green-700 bg-green-100",
   RECORRENTE: "text-gold bg-gold/10",
   "A CONFIRMAR": "text-warm-400 bg-warm-200/30",
@@ -60,6 +61,35 @@ export default function Eventos() {
         { name: "Webrazzi Summit", date: "21/10", venue: "Wyndham Grand Levent", price: "~US$800+", status: "CARO", desc: "A principal conferência tech da Turquia cai 1 dia após sua chegada — mas o preço é corporativo e o conteúdo majoritariamente em turco. Só com ingresso de cortesia/voluntário.", link: "https://webrazzi.com/en/etkinlik/2026/summit/" },
       ],
       note: "O ecossistema de Istambul publica quase tudo no Luma (buscar 'Istanbul') e no Meetup — entrar nos grupos já.",
+    },
+    {
+      country: "Por perto durante a viagem — desvios possíveis",
+      flag: "🌍",
+      period: "eventos em países vizinhos nas suas datas",
+      events: [
+        { name: "AI Everything Abu Dhabi", date: "5-7/10", venue: "ADNEC, Abu Dhabi (EAU)", price: "GRÁTIS até 30/07 (200 vagas!)", status: "URGENTE", desc: "850 empresas de IA, lounge de investidores. Passe visitante early bird GRÁTIS expira 30/07 — registra JÁ mesmo sem decidir. Cai na etapa Egito: voo Cairo→Abu Dhabi ~3h30 (~US$150-250/trecho).", link: "https://visit.aieverythingabudhabi.com/" },
+        { name: "Fintech Forward", date: "7-8/10", venue: "Manama, Bahrein", price: "a confirmar (já foi grátis)", status: "CONFIRMADO", desc: "Principal palco fintech do Golfo (Economist + Banco Central). Voo Cairo→Bahrein ~3h · eVisa ~US$24. Mesma semana do AI Everything — dá pra emendar Abu Dhabi + Bahrein.", link: "https://events.economistenterprise.com/fintechforward/" },
+        { name: "Cairo ICT — AI in Action", date: "8-11/11", venue: "Cairo (EIEC)", price: "Registro grátis", status: "CONFIRMADO", desc: "30ª edição, tema IA. Você já estará em Istambul (voo ~2h, ~US$150-200 i/v) — só se quiser rever o Egito; o GITEX em dezembro é aposta melhor.", link: "https://cairoict.com/" },
+        { name: "Arábia Saudita (Biban, GAIN, LEAP)", date: "vários", venue: "Riyadh", price: "—", status: "CARO", desc: "Risca do plano: brasileiro não tem eVisa direto — visa on arrival só com visto EUA/UK/Schengen já usado. LEAP 2027 (3-6/02) fica pra quando tiver visto.", link: "https://bibanglobal.sa/en" },
+      ],
+      note: "Vistos: Qatar isento 90 dias · Bahrein eVisa ~US$24 · EAU isento — só a Arábia Saudita é obstáculo.",
+    },
+    {
+      country: "Depois de Istambul — Europa & volta a Dubai",
+      flag: "🗺️",
+      period: "nov-dez/2026 · escolha o próximo destino pelos eventos",
+      events: [
+        { name: "Web Summit Lisboa — VOLUNTÁRIO", date: "9-12/11", venue: "Altice Arena, Lisboa 🇵🇹", price: "GRÁTIS (voluntário) · €895 normal", status: "URGENTE", desc: "Maior evento de tech da Europa (70 mil pessoas). Programa de voluntário = entrada grátis, mas as vagas fecham meses antes — INSCREVER JÁ. Mesmo sem ingresso, Lisboa tem dezenas de side events grátis na semana. Bônus: fala português!", link: "https://websummit.com/volunteers/" },
+        { name: "OpenFest Sofia", date: "7-8/11 (provável)", venue: "Sofia, Bulgária 🇧🇬", price: "GRÁTIS", status: "A CONFIRMAR", desc: "Maior festival open-source da Bulgária. Ônibus Istambul→Sofia €20-30 (7h). ⚠️ Bulgária agora É Schengen — queima dias do visto.", link: "https://www.openfest.org/" },
+        { name: "GoTech World", date: "10-11/11", venue: "Romexpo, Bucareste 🇷🇴", price: "~€25-60", status: "CONFIRMADO", desc: "Maior expo de TI da Europa Central/Oriental: 15 mil pessoas, 11 palcos (IA, cyber, dev). Emenda perfeita depois de Sofia. ⚠️ Romênia também é Schengen.", link: "https://www.gotech.world/" },
+        { name: "DSC Europe — Data Science Conference", date: "16-20/11", venue: "Belgrado, Sérvia 🇷🇸", price: "~€100+ (tem voluntário)", status: "CONFIRMADO", desc: "Maior evento de IA dos Balcãs (3.000 pessoas, 400 palestras, inglês). Sérvia fica FORA do Schengen — não gasta visto. Vale escrever pedindo vaga de voluntário.", link: "https://datasciconference.com/" },
+        { name: "Slush Helsinki — VOLUNTÁRIO", date: "18-19/11", venue: "Helsinque, Finlândia 🇫🇮", price: "GRÁTIS (voluntário) · €395+ normal", status: "A CONFIRMAR", desc: "O evento de founders/VCs mais respeitado da Europa. ~1.700 vagas de voluntário = entrada grátis (inscrições abrem ago-set). Contra: Helsinque cara e gelada em nov. Conflita com DSC Belgrado — escolher um.", link: "https://slush.org/" },
+        { name: "ITU Big Bang + DevFest Istanbul", date: "~fim de nov (a anunciar)", venue: "UNIQ Istanbul", price: "GRÁTIS", status: "A CONFIRMAR", desc: "Ficando em Istambul: o maior demo day da Turquia (prêmios bilionários no palco, grátis) + o maior DevFest da região. Datas 2026 saem em set-out.", link: "https://bigbang.itucekirdek.com/en/" },
+        { name: "Take Off Istanbul", date: "~10-11/12 (provável)", venue: "Istanbul Expo Center", price: "GRÁTIS", status: "A CONFIRMAR", desc: "Summit internacional de startups da TEKNOFEST, em inglês, 250+ investidores de 40 países — participação totalmente gratuita. O melhor evento grátis de dezembro na região.", link: "https://takeoffistanbul.com/en/" },
+        { name: "GITEX Global + Expand North Star", date: "7-11/12", venue: "Expo City Dubai 🇦🇪", price: "~US$160 (passe cobre os dois)", status: "CONFIRMADO", desc: "O maior evento de tech do mundo (200 mil pessoas) + o maior encontro startup×investidor do planeta, juntos pela 1ª vez na Expo City. Voo IST→DXB ~4h30 (~US$150-280), sem visto. O retorno a Dubai com maior valor por dólar.", link: "https://www.gitex.com/gitex-global-2026" },
+        { name: "Web Summit Qatar", date: "31/01-3/02/2027", venue: "Doha, Catar 🇶🇦", price: "~US$100-300 (early bird)", status: "CONFIRMADO", desc: "Se a viagem esticar: 30 mil pessoas, brasileiro isento de visto (90 dias), voo IST→DOH ~4h30. O 'gran finale' possível.", link: "https://qatar.websummit.com/" },
+      ],
+      note: "Estratégia Schengen: seus 90 dias valem pra Grécia, Bulgária, Romênia, Portugal e Finlândia. Turquia, Sérvia, Macedônia, Albânia e UK ficam FORA — use Istambul/Belgrado de base e entre no Schengen só nas semanas de evento.",
     },
   ];
 
