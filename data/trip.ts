@@ -19,7 +19,7 @@ export const trip = {
     { date: "24/09", from: "CGB", to: "GRU", status: "ok", tag: "Voo · OK", detail: "GOL G3 1469 · 02h00 → 05h20 · confirmado" },
     { date: "25/09", from: "GRU", to: "DXB", status: "ok", tag: "Voo · OK", detail: "Emirates EK 262 · 01h05 → chegada 23h00 · confirmado" },
     { date: "25-30/09", place: "Dubai", status: "ok", tag: "5 dias · hostel OK", detail: "Explorar Dubai — Burj Khalifa, Marina, Gold Souk. Dubai Sea View Hostel, JBR Palm View confirmado." },
-    { date: "30/09", from: "DXB", to: "CAI", status: "ok", tag: "Voo · OK", detail: "Kuwait Airways KU672+KU541 · 13h05 → chegada Cairo 18h00" },
+    { date: "30/09", from: "DXB", to: "CAI", status: "ok", tag: "Voo · OK", detail: "Kuwait Airways KU672+KU541 · 13h05 → chegada Cairo 17h45 (remarcado) · conexão 50min no Kuwait T4" },
     { date: "30/09-05/10", place: "Cairo", status: "ok", tag: "5 noites · OK", detail: "Pirâmides, Museu Egípcio, Khan el-Khalili. King's Gate Pyramids Horizon confirmado (até 12/10)." },
     { date: "05/10", from: "CAI", to: "Luxor", status: "ok", tag: "Ônibus · OK", detail: "Go Bus noturno (Nasr City) · 22h50 → chegada 06/10 07h30 · Business Class DD · ref BW5302849 · R$ 123" },
     { date: "05-08/10", place: "Luxor", status: "ok", tag: "3 noites · OK", detail: "Vale dos Reis, Templo de Karnak, Margem Ocidental. Happiness Guest House confirmado. Chegada de ônibus 06/10 de manhã." },
@@ -65,7 +65,7 @@ export const trip = {
     confirmed: [
       { from: "CGB", to: "GRU", airline: "GOL · G3 1469", date: "24/09", time: "02h00 → 05h20", ref: "ELAAQM" },
       { from: "GRU", to: "DXB", airline: "Emirates · EK 262", date: "25/09", time: "01h05 → 23h00", ref: "BYYAHN" },
-      { from: "DXB", to: "CAI", airline: "Kuwait · KU672+KU541", date: "30/09", time: "13h05 → 18h00", ref: "X44YYV" },
+      { from: "DXB", to: "CAI", airline: "Kuwait · KU672+KU541", date: "30/09", time: "13h05 → 17h45", ref: "X44YYV" },
       { from: "CAI", to: "Luxor", airline: "Go Bus · ônibus noturno (Nasr City)", date: "05/10", time: "22h50 → 07h30 (06/10)", ref: "BW5302849" },
       { from: "CAI", to: "ATH", airline: "Aegean · A3931", date: "12/10", time: "04h00 → 06h00", ref: "XZECPY" },
       { from: "ATH", to: "JTR", airline: "Ryanair · FR1232", date: "15/10", time: "06h00 → 06h50", ref: "SVD5SI" },
