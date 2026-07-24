@@ -239,6 +239,7 @@ export const trip = {
     { text: "🏨 Reservar hostel Istambul · 20/10 em diante (15+ dias) · reservar até set/26", done: false, priority: "MÉDIA" },
     { text: "📲 Baixar app Ryanair (cartão de embarque só digital) e fazer login", done: false, priority: "ALTA" },
     { text: "✅ Check-in Ryanair no app · ATH→JTR abre 14/10 06h · JTR→ATH abre 19/10 00h (sem check-in = multa ~€55)", done: false, priority: "ALTA" },
+    { text: "✅ Check-in Sky Express pelo SITE (não tem app) · flights.skyexpress.gr/checkin · abre 18/10 07h · cartão de embarque chega por e-mail (salvar PDF)", done: false, priority: "ALTA" },
     { text: "🧳 Conferir bagagem GOL CGB→GRU (ref ELAAQM) — tarifa básica não inclui despachada 23kg; comprar antecipado se precisar", done: false, priority: "ALTA" },
     { text: "🧳 Conferir bagagem Aegean CAI→ATH (ref XZECPY) — tarifa Light não inclui despachada; comprar antecipado se precisar", done: false, priority: "ALTA" },
     { text: "🧳 Conferir bagagem Emirates GRU→DXB (ref BYYAHN) — Economy costuma incluir 25-30kg; confirmar em Manage Booking", done: false, priority: "MÉDIA" },
