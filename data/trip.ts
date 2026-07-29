@@ -2,7 +2,7 @@ export const trip = {
   title: "Volta ao Mundo",
   owner: "Dherick Prado Abreu",
   year: 2026,
-  departureDate: "2026-09-24T02:00:00",
+  departureDate: "2026-09-24T02:10:00",
   departureFrom: "Cuiabá",
 
   route: [
@@ -16,7 +16,7 @@ export const trip = {
   ],
 
   itinerary: [
-    { date: "24/09", from: "CGB", to: "GRU", status: "ok", tag: "Voo · OK", detail: "GOL G3 1469 · 02h00 → 05h20 · confirmado" },
+    { date: "24/09", from: "CGB", to: "GRU", status: "ok", tag: "Voo · OK", detail: "GOL G3 1469 · 02h10 → 05h25 · remarcado e confirmado" },
     { date: "25/09", from: "GRU", to: "DXB", status: "ok", tag: "Voo · OK", detail: "Emirates EK 262 · 01h05 → chegada 23h00 · confirmado" },
     { date: "25-30/09", place: "Dubai", status: "ok", tag: "5 dias · hostel OK", detail: "Explorar Dubai — Burj Khalifa, Marina, Gold Souk. Dubai Sea View Hostel, JBR Palm View confirmado." },
     { date: "30/09", from: "DXB", to: "CAI", status: "ok", tag: "Voo · OK", detail: "Kuwait Airways KU672+KU541 · 13h05 → chegada Cairo 17h45 · mudança confirmada · conexão 50min no Kuwait T4" },
@@ -63,7 +63,7 @@ export const trip = {
 
   flights: {
     confirmed: [
-      { from: "CGB", to: "GRU", airline: "GOL · G3 1469", date: "24/09", time: "02h00 → 05h20", ref: "ELAAQM" },
+      { from: "CGB", to: "GRU", airline: "GOL · G3 1469", date: "24/09", time: "02h10 → 05h25", ref: "ELAAQM" },
       { from: "GRU", to: "DXB", airline: "Emirates · EK 262", date: "25/09", time: "01h05 → 23h00", ref: "BYYAHN" },
       { from: "DXB", to: "CAI", airline: "Kuwait · KU672+KU541", date: "30/09", time: "13h05 → 17h45", ref: "X44YYV" },
       { from: "CAI", to: "Luxor", airline: "Go Bus · ônibus noturno (Nasr City)", date: "05/10", time: "22h50 → 07h30 (06/10)", ref: "BW5302849" },
