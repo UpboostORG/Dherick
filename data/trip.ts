@@ -314,7 +314,7 @@ export const trip = {
     { text: "🧳 Conferir bagagem Aegean CAI→ATH (XZECPY) no My Booking — ver tarifa e o que inclui; se precisar de mala, comprar online (€13-42) e não no aeroporto (€25-70)", done: false, priority: "ALTA" },
     { text: "💰 Tentar reembolso Smiles do trecho volta GRU→CGB 04/10 (não vou usar) — cancelar SÓ a volta, nunca a reserva inteira · smiles.com.br", done: false, priority: "MÉDIA" },
     { text: "Emirates GRU→DXB (BYYAHN): 2 volumes de 23kg incluídos + mão 7kg — nada a comprar ✓", done: true, priority: "OK" },
-    { text: "🧳 Kuwait DXB→CAI: e-ticket confirma 0PC — SEM despachada! Só mão 7kg (56x46x25) + item pessoal. Decidir: mala ≤7kg na cabine OU comprar bagagem pré-paga no Manage Booking (antecipado << balcão)", done: false, priority: "ALTA" },
+    { text: "🧳 Kuwait DXB→CAI: 0PC, SEM despachada — mão 7kg + item pessoal. Pré-paga custa KWD 38 (~R$650)/23kg até 24h antes. Plano: pesar a mala pronta; ≤7kg = grátis na cabine, senão comprar online", done: false, priority: "ALTA" },
     { text: "💵 Pegar no app do Booking os valores a pagar no local: King's Gate Cairo (12 noites, ref 5446189808) e Happiness Luxor (ref 5285616723) — fecha a conta do dinheiro de hotel", done: false, priority: "ALTA" },
     { text: "🎒 Conferir medidas da mochila pequena (máx 40x20x25cm) — única bagagem grátis nos voos Ryanair", done: false, priority: "MÉDIA" },
     { text: "🧳 Guarda-volumes aeroporto ATH: deixar mala 15/10 ~4h30 (Chegadas, ~€6/dia) · retirar 20/10 00h50 · guardar o recibo na mochila", done: false, priority: "MÉDIA" },
