@@ -63,7 +63,7 @@ export const trip = {
 
   flights: {
     confirmed: [
-      { from: "CGB", to: "GRU", airline: "GOL · G3 1469", date: "24/09", time: "02h10 → 05h25", ref: "ELAAQM" },
+      { from: "CGB", to: "GRU", airline: "GOL · G3 1469 · Light (Smiles)", date: "24/09", time: "02h10 → 05h25", ref: "ELAAQM" },
       { from: "GRU", to: "DXB", airline: "Emirates · EK 262", date: "25/09", time: "01h05 → 23h00", ref: "BYYAHN" },
       { from: "DXB", to: "CAI", airline: "Kuwait · KU672+KU541", date: "30/09", time: "13h05 → 17h45", ref: "X44YYV" },
       { from: "CAI", to: "Luxor", airline: "Go Bus · ônibus noturno (Nasr City)", date: "05/10", time: "22h50 → 07h30 (06/10)", ref: "BW5302849" },
@@ -310,8 +310,9 @@ export const trip = {
     { text: "📲 Baixar app Ryanair (cartão de embarque só digital) e fazer login", done: false, priority: "ALTA" },
     { text: "✅ Check-in Ryanair no app · ATH→JTR abre 14/10 06h · JTR→ATH abre 19/10 00h (sem check-in = multa ~€55)", done: false, priority: "ALTA" },
     { text: "✅ Check-in Sky Express pelo SITE (não tem app) · flights.skyexpress.gr/checkin · abre 18/10 07h · cartão de embarque chega por e-mail (salvar PDF)", done: false, priority: "ALTA" },
-    { text: "🧳 Conferir bagagem GOL CGB→GRU (ref ELAAQM) — tarifa básica não inclui despachada 23kg; comprar antecipado se precisar", done: false, priority: "ALTA" },
-    { text: "🧳 Aegean CAI→ATH (XZECPY): se tarifa GoLight, COMPRAR mala online (€13-42; no aeroporto €25-70) · aegeanair.com My Booking", done: false, priority: "ALTA" },
+    { text: "GOL Light (ELAAQM): mala de rodinha 10kg + mochila vão na cabine — nada a comprar ✓ (emitida via Smiles)", done: true, priority: "OK" },
+    { text: "🧳 Conferir bagagem Aegean CAI→ATH (XZECPY) no My Booking — ver tarifa e o que inclui; se precisar de mala, comprar online (€13-42) e não no aeroporto (€25-70)", done: false, priority: "ALTA" },
+    { text: "💰 Tentar reembolso Smiles do trecho volta GRU→CGB 04/10 (não vou usar) — cancelar SÓ a volta, nunca a reserva inteira · smiles.com.br", done: false, priority: "MÉDIA" },
     { text: "🧳 Conferir bagagem Emirates GRU→DXB (ref BYYAHN) — Economy costuma incluir 25-30kg; confirmar em Manage Booking", done: false, priority: "ALTA" },
     { text: "🧳 Kuwait DXB→CAI (X44YYV): economy padrão inclui 2x23kg — só confirmar franquia no Manage Booking", done: false, priority: "ALTA" },
     { text: "💵 Pegar no app do Booking os valores a pagar no local: King's Gate Cairo (12 noites, ref 5446189808) e Happiness Luxor (ref 5285616723) — fecha a conta do dinheiro de hotel", done: false, priority: "ALTA" },
@@ -322,7 +323,7 @@ export const trip = {
     { text: "💉 Vacina Febre Tifoide · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
     { text: "📱 eSIM / chip internacional (Airalo) · comprar até set/26", done: false, priority: "MÉDIA" },
     { text: "💵 Comprar dólares em espécie · até set/26", done: false, priority: "MÉDIA" },
-    { text: "🎒 Mochila / mala definida", done: false, priority: "BAIXA" },
+    { text: "🎒 Mochila / mala definida (plano: mala pequena de rodinha + mochila)", done: false, priority: "BAIXA" },
     { text: "📋 Lista de roupas e itens", done: false, priority: "BAIXA" },
     { text: "☁ Backup documentos na nuvem", done: false, priority: "BAIXA" },
     { text: "📸 Foto do passaporte no celular", done: false, priority: "BAIXA" },
