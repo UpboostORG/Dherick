@@ -313,7 +313,7 @@ export const trip = {
     { text: "GOL Light (ELAAQM): mala de rodinha 10kg + mochila vão na cabine — nada a comprar ✓ (emitida via Smiles)", done: true, priority: "OK" },
     { text: "🧳 Conferir bagagem Aegean CAI→ATH (XZECPY) no My Booking — ver tarifa e o que inclui; se precisar de mala, comprar online (€13-42) e não no aeroporto (€25-70)", done: false, priority: "ALTA" },
     { text: "💰 Tentar reembolso Smiles do trecho volta GRU→CGB 04/10 (não vou usar) — cancelar SÓ a volta, nunca a reserva inteira · smiles.com.br", done: false, priority: "MÉDIA" },
-    { text: "🧳 Conferir bagagem Emirates GRU→DXB (ref BYYAHN) — Economy costuma incluir 25-30kg; confirmar em Manage Booking", done: false, priority: "ALTA" },
+    { text: "Emirates GRU→DXB (BYYAHN): 2 volumes de 23kg incluídos + mão 7kg — nada a comprar ✓", done: true, priority: "OK" },
     { text: "🧳 Kuwait DXB→CAI (X44YYV): economy padrão inclui 2x23kg — só confirmar franquia no Manage Booking", done: false, priority: "ALTA" },
     { text: "💵 Pegar no app do Booking os valores a pagar no local: King's Gate Cairo (12 noites, ref 5446189808) e Happiness Luxor (ref 5285616723) — fecha a conta do dinheiro de hotel", done: false, priority: "ALTA" },
     { text: "🎒 Conferir medidas da mochila pequena (máx 40x20x25cm) — única bagagem grátis nos voos Ryanair", done: false, priority: "MÉDIA" },
