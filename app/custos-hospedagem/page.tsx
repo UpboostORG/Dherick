@@ -28,9 +28,9 @@ export default function CustosHospedagem() {
   const calc = useMemo(() => {
     const paid = stays.reduce((s, x) => s + x.paidEur, 0);
     const due = stays.reduce((s, x) => s + x.dueEur, 0);
-    const est = stays.reduce((s, x) => s + x.estEur, 0);
     const unknown = stays.filter((x) => x.status === "VALOR PENDENTE").length;
-    return { paid, due, est, unknown, totalTrip: due + est, grand: paid + due + est };
+    const toReserve = stays.filter((x) => x.status === "A RESERVAR").length;
+    return { paid, due, unknown, toReserve };
   }, [stays]);
 
   if (!loaded) return null;
@@ -43,10 +43,10 @@ export default function CustosHospedagem() {
       <p className="text-sm text-warm-400 mb-6">Quanto você já pagou, quanto vai pagar na viagem e o que ainda falta reservar — dinheiro separado dos US$ 3.000</p>
 
       <div className="bg-bg-dark text-white rounded-xl p-6 mb-6">
-        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase">Levar separado para hospedagem</p>
-        <p className="text-4xl font-light text-gold mt-2">€ {calc.totalTrip.toFixed(0)}</p>
+        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase">A pagar no local — comprovantes reais</p>
+        <p className="text-4xl font-light text-gold mt-2">€ {calc.due.toFixed(2)}</p>
         <p className="text-sm text-warm-400 mt-1">
-          ≈ {brl(calc.totalTrip)} · cotação R${" "}
+          ≈ {brl(calc.due)} · cotação R${" "}
           <input
             type="number"
             value={rate}
@@ -56,28 +56,26 @@ export default function CustosHospedagem() {
           />
           {" "}/€
         </p>
-        {calc.unknown > 0 && (
-          <p className="text-xs text-red-300 mt-3 border-t border-warm-500/30 pt-2">
-            ⚠️ Falta o valor de {calc.unknown} reserva{calc.unknown > 1 ? "s" : ""} (Egito) — o total vai subir quando você pegar no Booking
-          </p>
-        )}
+        <div className="text-xs text-warm-400 mt-3 border-t border-warm-500/30 pt-2 space-y-1">
+          {calc.unknown > 0 && (
+            <p className="text-red-300">⚠️ {calc.unknown} reserva{calc.unknown > 1 ? "s" : ""} do Egito sem valor — pegar no app do Booking (o total sobe quando entrar)</p>
+          )}
+          {calc.toReserve > 0 && (
+            <p>{calc.toReserve} estadia{calc.toReserve > 1 ? "s" : ""} ainda sem reserva — sem valor até você reservar</p>
+          )}
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         <div className="bg-white rounded-xl border border-green-200/60 p-5">
-          <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Já pago</p>
+          <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Já pago (sinais)</p>
           <p className="text-2xl font-light text-green-600 mt-2">€ {calc.paid.toFixed(2)}</p>
-          <p className="text-xs text-warm-400 mt-1">{brl(calc.paid)} · sinais no Hostelworld</p>
+          <p className="text-xs text-warm-400 mt-1">{brl(calc.paid)} · Hostelworld (Dubai + Atenas)</p>
         </div>
         <div className="bg-white rounded-xl border-2 border-gold/30 p-5">
           <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">A pagar no local</p>
           <p className="text-2xl font-light text-gold mt-2">€ {calc.due.toFixed(2)}</p>
-          <p className="text-xs text-warm-400 mt-1">{brl(calc.due)} · reservas já feitas</p>
-        </div>
-        <div className="bg-white rounded-xl border border-warm-200/40 p-5">
-          <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Estimado a reservar</p>
-          <p className="text-2xl font-light mt-2">€ {calc.est.toFixed(0)}</p>
-          <p className="text-xs text-warm-400 mt-1">{brl(calc.est)} · Santorini + Istambul</p>
+          <p className="text-xs text-warm-400 mt-1">{brl(calc.due)} · Dubai € 60,78 + Atenas € 42,71</p>
         </div>
       </div>
 
