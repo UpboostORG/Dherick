@@ -302,7 +302,7 @@ export const trip = {
     { text: "Passagem JTR→ATH (Ryanair FR1237 20/10 00h00) comprada · ref T8EMHK", done: true, priority: "OK" },
     { text: "Passagem ATH→IST (Sky Express GQ670 20/10 07h00, joy+ c/ mala 15kg) comprada · ref KPPSWK", done: true, priority: "OK" },
     { text: "Hostel Atenas (12-15/10) Athens Hawks Hostel reservado · ref 294256-579093482 · €42,71 no local", done: true, priority: "OK" },
-    { text: "🚨 Transporte Luxor→Cairo NÃO comprado! Precisa estar em Giza 08/10 até ~12h (Welcome Party STARLIGHT) · opções: voo cedo 08/10 (~1h10) ou trem/ônibus noturno 07/10", done: false, priority: "ALTA" },
+    { text: "🚨 Comprar ônibus noturno Luxor→Cairo (noite de 07/10, Go Bus via 12go, ~R$120-150) — chegada tem que ser antes das ~9h do dia 08 pro Welcome Party às 12h em Giza · mala+mochila no bagageiro grátis", done: false, priority: "ALTA" },
     { text: "📞 Avisar Dubai Sea View Hostel: chegada de madrugada (~00h30 de 25→26/09, voo pousa 23h)", done: false, priority: "MÉDIA" },
     { text: "📞 Confirmar com Dubai Sea View como cobram o restante (€60,78) — Hostelworld mostra 'AED 0 no local'", done: false, priority: "MÉDIA" },
     { text: "🏨 Reservar hostel Santorini · 15-19/10 (4 noites) · reservar até ago/26", done: false, priority: "ALTA" },
@@ -407,7 +407,7 @@ export const trip = {
         { text: "Adaptador universal de tomada", cost: "~R$ 60", done: false },
         { text: "Ingressos Burj Khalifa (online)", cost: "~US$ 40", done: false },
         { text: "Ingressos festival STARLIGHT", cost: "comprados ✓", done: true },
-        { text: "Transporte Luxor→Cairo p/ 08/10 (voo cedo ou noturno 07/10)", cost: "~US$ 50-120", done: false },
+        { text: "Ônibus noturno Luxor→Cairo (noite 07/10, Go Bus/12go)", cost: "~R$ 120-150", done: false },
       ],
     },
     {
