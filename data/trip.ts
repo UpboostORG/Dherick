@@ -311,7 +311,7 @@ export const trip = {
     { text: "✅ Check-in Ryanair no app · ATH→JTR abre 14/10 06h · JTR→ATH abre 19/10 00h (sem check-in = multa ~€55)", done: false, priority: "ALTA" },
     { text: "✅ Check-in Sky Express pelo SITE (não tem app) · flights.skyexpress.gr/checkin · abre 18/10 07h · cartão de embarque chega por e-mail (salvar PDF)", done: false, priority: "ALTA" },
     { text: "GOL Light (ELAAQM): mala de rodinha 10kg + mochila vão na cabine — nada a comprar ✓ (emitida via Smiles)", done: true, priority: "OK" },
-    { text: "🧳 Conferir bagagem Aegean CAI→ATH (XZECPY) no My Booking — ver tarifa e o que inclui; se precisar de mala, comprar online (€13-42) e não no aeroporto (€25-70)", done: false, priority: "ALTA" },
+    { text: "🧳 Aegean CAI→ATH: 0 despachada confirmado, mão 8kg. FALTA saber se é Light ou Flex (buscar XZECPY no Gmail): Flex = mala+mochila na cabine grátis · Light = só 1 volume → comprar despachada 23kg por €46 online", done: false, priority: "ALTA" },
     { text: "💰 Tentar reembolso Smiles do trecho volta GRU→CGB 04/10 (não vou usar) — cancelar SÓ a volta, nunca a reserva inteira · smiles.com.br", done: false, priority: "MÉDIA" },
     { text: "Emirates GRU→DXB (BYYAHN): 2 volumes de 23kg incluídos + mão 7kg — nada a comprar ✓", done: true, priority: "OK" },
     { text: "🧳 Kuwait DXB→CAI: 0PC, SEM despachada — mão 7kg + item pessoal. Pré-paga custa KWD 38 (~R$650)/23kg até 24h antes. Plano: pesar a mala pronta; ≤7kg = grátis na cabine, senão comprar online", done: false, priority: "ALTA" },
