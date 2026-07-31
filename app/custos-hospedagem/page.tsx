@@ -4,6 +4,7 @@ import { trip } from "@/data/trip";
 
 const STATUS_STYLES: Record<string, string> = {
   PARCIAL: "text-gold bg-gold/10",
+  "PAGAR NO LOCAL": "text-gold bg-gold/10",
   "VALOR PENDENTE": "text-red-600 bg-red-50",
   "A RESERVAR": "text-warm-400 bg-warm-200/30",
   PAGO: "text-green-700 bg-green-100",
@@ -12,30 +13,36 @@ const STATUS_STYLES: Record<string, string> = {
 export default function CustosHospedagem() {
   const stays = trip.accommodationCosts.stays;
   const [rate, setRate] = useState(trip.accommodationCosts.eurRate);
+  const [usdRate, setUsdRate] = useState(5.20);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const r = localStorage.getItem("__custos_eurrate");
+    const u = localStorage.getItem("__custos_usdrate");
     if (r) setRate(Number(r));
+    if (u) setUsdRate(Number(u));
     setLoaded(true);
   }, []);
 
   useEffect(() => {
     if (!loaded) return;
     localStorage.setItem("__custos_eurrate", String(rate));
-  }, [rate, loaded]);
+    localStorage.setItem("__custos_usdrate", String(usdRate));
+  }, [rate, usdRate, loaded]);
 
   const calc = useMemo(() => {
     const paid = stays.reduce((s, x) => s + x.paidEur, 0);
     const due = stays.reduce((s, x) => s + x.dueEur, 0);
+    const dueUsd = stays.reduce((s, x) => s + x.dueUsd, 0);
     const unknown = stays.filter((x) => x.status === "VALOR PENDENTE").length;
     const toReserve = stays.filter((x) => x.status === "A RESERVAR").length;
-    return { paid, due, unknown, toReserve };
+    return { paid, due, dueUsd, unknown, toReserve };
   }, [stays]);
 
   if (!loaded) return null;
 
   const brl = (eur: number) => `R$ ${Math.round(eur * rate).toLocaleString()}`;
+  const brlTotal = () => `R$ ${Math.round(calc.due * rate + calc.dueUsd * usdRate).toLocaleString()}`;
 
   return (
     <div>
@@ -44,9 +51,9 @@ export default function CustosHospedagem() {
 
       <div className="bg-bg-dark text-white rounded-xl p-6 mb-6">
         <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase">A pagar no local — comprovantes reais</p>
-        <p className="text-4xl font-light text-gold mt-2">€ {calc.due.toFixed(2)}</p>
+        <p className="text-4xl font-light text-gold mt-2">€ {calc.due.toFixed(2)} + US$ {calc.dueUsd.toFixed(2)}</p>
         <p className="text-sm text-warm-400 mt-1">
-          ≈ {brl(calc.due)} · cotação R${" "}
+          ≈ {brlTotal()} no total · cotações R${" "}
           <input
             type="number"
             value={rate}
@@ -54,7 +61,15 @@ export default function CustosHospedagem() {
             step="0.01"
             className="w-14 bg-warm-500/30 text-white text-center rounded px-1 py-0.5 text-sm font-mono inline"
           />
-          {" "}/€
+          {" "}/€ e R${" "}
+          <input
+            type="number"
+            value={usdRate}
+            onChange={(e) => setUsdRate(Number(e.target.value) || 0)}
+            step="0.01"
+            className="w-14 bg-warm-500/30 text-white text-center rounded px-1 py-0.5 text-sm font-mono inline"
+          />
+          {" "}/US$
         </p>
         <div className="text-xs text-warm-400 mt-3 border-t border-warm-500/30 pt-2 space-y-1">
           {calc.unknown > 0 && (
@@ -74,8 +89,8 @@ export default function CustosHospedagem() {
         </div>
         <div className="bg-white rounded-xl border-2 border-gold/30 p-5">
           <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">A pagar no local</p>
-          <p className="text-2xl font-light text-gold mt-2">€ {calc.due.toFixed(2)}</p>
-          <p className="text-xs text-warm-400 mt-1">{brl(calc.due)} · Dubai € 60,78 + Atenas € 42,71</p>
+          <p className="text-2xl font-light text-gold mt-2">€ {calc.due.toFixed(2)} + US$ {calc.dueUsd.toFixed(2)}</p>
+          <p className="text-xs text-warm-400 mt-1">Dubai € 60,78 + Atenas € 42,71 + Egito US$ 207,10 (Cairo cartão · Luxor SÓ dinheiro)</p>
         </div>
       </div>
 
@@ -111,7 +126,7 @@ export default function CustosHospedagem() {
       <div className="bg-white rounded-xl border-l-4 border-l-gold p-5 mt-6">
         <p className="text-sm font-semibold mb-2">Como levar esse dinheiro</p>
         <ul className="text-sm text-warm-400 space-y-1.5">
-          <li>🇦🇪 Dubai e 🇪🇬 Egito: pagam em <strong className="text-bg-dark">USD em espécie ou AED/EGP</strong> — leve dólares para as diárias do Egito</li>
+          <li>🇪🇬 Egito paga em <strong className="text-bg-dark">USD</strong> (lei p/ estrangeiros): King's Gate US$ 124,20 aceita cartão · <strong className="text-bg-dark">Luxor US$ 82,90 SÓ DINHEIRO — leve ~US$ 85 em espécie</strong></li>
           <li>🇬🇷 Grécia: <strong className="text-bg-dark">euros</strong> — o Athens Hawks cobra € 42,71 no check-in</li>
           <li>Guarde esse valor separado dos US$ 3.000 do dia a dia (é o que a aba de metas controla)</li>
         </ul>
