@@ -1,16 +1,19 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
 
+const TARGET_EUR = 1000;
+const TARGET_USD = 1000;
+
 export default function BancoEmergencia() {
-  const [eur, setEur] = useState(530);
-  const [usd, setUsd] = useState(500);
+  const [eur, setEur] = useState(589);
+  const [usd, setUsd] = useState(584);
   const [eurRate, setEurRate] = useState(5.90);
   const [usdRate, setUsdRate] = useState(5.20);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const e = localStorage.getItem("__banco_eur");
-    const u = localStorage.getItem("__banco_usd");
+    const e = localStorage.getItem("__banco_eur_v2");
+    const u = localStorage.getItem("__banco_usd_v2");
     const er = localStorage.getItem("__banco_eurrate");
     const ur = localStorage.getItem("__banco_usdrate");
     if (e) setEur(Number(e));
@@ -22,8 +25,8 @@ export default function BancoEmergencia() {
 
   useEffect(() => {
     if (!loaded) return;
-    localStorage.setItem("__banco_eur", String(eur));
-    localStorage.setItem("__banco_usd", String(usd));
+    localStorage.setItem("__banco_eur_v2", String(eur));
+    localStorage.setItem("__banco_usd_v2", String(usd));
     localStorage.setItem("__banco_eurrate", String(eurRate));
     localStorage.setItem("__banco_usdrate", String(usdRate));
   }, [eur, usd, eurRate, usdRate, loaded]);
@@ -31,7 +34,12 @@ export default function BancoEmergencia() {
   const calc = useMemo(() => {
     const eurBRL = eur * eurRate;
     const usdBRL = usd * usdRate;
-    return { eurBRL, usdBRL, totalBRL: eurBRL + usdBRL };
+    const faltaEur = Math.max(0, TARGET_EUR - eur);
+    const faltaUsd = Math.max(0, TARGET_USD - usd);
+    const faltaBRL = faltaEur * eurRate + faltaUsd * usdRate;
+    const pctEur = Math.min(100, Math.round((eur / TARGET_EUR) * 100));
+    const pctUsd = Math.min(100, Math.round((usd / TARGET_USD) * 100));
+    return { eurBRL, usdBRL, totalBRL: eurBRL + usdBRL, faltaEur, faltaUsd, faltaBRL, pctEur, pctUsd };
   }, [eur, usd, eurRate, usdRate]);
 
   if (!loaded) return null;
@@ -45,6 +53,16 @@ export default function BancoEmergencia() {
         <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase">Total da reserva</p>
         <p className="text-4xl font-light text-gold mt-2">R$ {Math.round(calc.totalBRL).toLocaleString()}</p>
         <p className="text-sm text-warm-400 mt-1">€ {eur.toLocaleString()} + US$ {usd.toLocaleString()} · convertidos nas cotações abaixo</p>
+        <div className="mt-4 border-t border-warm-500/30 pt-3">
+          <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Meta: € {TARGET_EUR.toLocaleString()} + US$ {TARGET_USD.toLocaleString()}</p>
+          {calc.faltaEur === 0 && calc.faltaUsd === 0 ? (
+            <p className="text-sm text-green-400 mt-1">Meta batida! ✓</p>
+          ) : (
+            <p className="text-sm text-gold mt-1">
+              Faltam: {calc.faltaEur > 0 ? `€ ${calc.faltaEur.toLocaleString()}` : ""}{calc.faltaEur > 0 && calc.faltaUsd > 0 ? " + " : ""}{calc.faltaUsd > 0 ? `US$ ${calc.faltaUsd.toLocaleString()}` : ""} · ≈ R$ {Math.round(calc.faltaBRL).toLocaleString()} a aportar
+            </p>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -70,6 +88,10 @@ export default function BancoEmergencia() {
             />
             {" "}/€
           </p>
+          <div className="h-1.5 bg-warm-200/30 rounded-full overflow-hidden mt-3">
+            <div className="h-full bg-gold rounded-full transition-all" style={{ width: `${calc.pctEur}%` }} />
+          </div>
+          <p className="text-xs text-warm-400 mt-1">{calc.pctEur}% da meta de € {TARGET_EUR.toLocaleString()}{calc.faltaEur > 0 ? ` · faltam € ${calc.faltaEur.toLocaleString()}` : " · batida ✓"}</p>
         </div>
         <div className="bg-white rounded-xl border-2 border-gold/30 p-5">
           <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Dólares</p>
@@ -93,6 +115,10 @@ export default function BancoEmergencia() {
             />
             {" "}/US$
           </p>
+          <div className="h-1.5 bg-warm-200/30 rounded-full overflow-hidden mt-3">
+            <div className="h-full bg-gold rounded-full transition-all" style={{ width: `${calc.pctUsd}%` }} />
+          </div>
+          <p className="text-xs text-warm-400 mt-1">{calc.pctUsd}% da meta de US$ {TARGET_USD.toLocaleString()}{calc.faltaUsd > 0 ? ` · faltam US$ ${calc.faltaUsd.toLocaleString()}` : " · batida ✓"}</p>
         </div>
       </div>
 

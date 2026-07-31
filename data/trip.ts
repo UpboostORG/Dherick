@@ -393,9 +393,11 @@ export const trip = {
   },
 
   emergencyFund: {
-    eur: 530,
-    usd: 500,
-    note: "Reserva separada do orçamento da viagem — só para emergências",
+    eur: 589,
+    usd: 584,
+    targetEur: 1000,
+    targetUsd: 1000,
+    note: "Reserva no Revolut, separada do orçamento da viagem — só para emergências",
   },
 
   monthlyPurchases: [
