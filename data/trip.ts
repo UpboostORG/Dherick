@@ -370,10 +370,26 @@ export const trip = {
     totalUSD: 3000,
     exchangeRate: 5.20,
     totalBRL: 15586,
-    invested: 2200,
-    investedBRL: 11430,
-    remaining: 800,
-    remainingBRL: 4156,
+    invested: 2613,
+    investedBRL: 13575,
+    remaining: 387,
+    remainingBRL: 2011,
+  },
+
+  moneyPlan: {
+    pockets: [
+      { name: "Wise — dia a dia", detail: "US$ 3.000 · o orçamento da viagem inteira", status: "US$ 2.613 juntados · faltam US$ 387", done: false },
+      { name: "Wise — euros da Grécia", detail: "€ 500 · converter DENTRO do Wise uns dias antes de 12/10", status: "a juntar (~R$ 2.950)", done: false },
+      { name: "Nomad — hotéis", detail: "€ 103,49 + US$ 207,10 já reservados (≈ R$ 1.690) · Santorini e Istambul somam aqui quando reservar", status: "a juntar", done: false },
+      { name: "Revolut — reserva de emergência", detail: "€ 530 + US$ 500 · não encostar · cartão físico separado da carteira", status: "pronto ✓", done: true },
+    ],
+    cash: [
+      { label: "US$ 85", desc: "Hotel de Luxor SÓ aceita dinheiro (em dólar) — separar essas notas do resto", tag: "OBRIGATÓRIO" },
+      { label: "US$ 200-300", desc: "Notas novas pra trocar por EGP no dia a dia do Egito — sai dos US$ 3.000, não é dinheiro extra", tag: "SUGERIDO" },
+      { label: "~€ 150", desc: "Grécia: hostel Atenas € 42,71 no local + guarda-volumes (~€ 35) + miudezas de ilha", tag: "SUGERIDO" },
+      { label: "AED · EGP · TRY", desc: "Não comprar no Brasil: dirham é atrelado ao dólar (cartão resolve), libra egípcia e lira troca/saca lá", tag: "NÃO COMPRAR" },
+    ],
+    missingTotal: "~R$ 6.650 fecham os 3 bolsos conhecidos (US$ 387 + € 500 + hotéis reservados) · ainda vão somar: hostels Santorini/Istambul, ônibus Luxor→Cairo (~R$ 150), seguro (~R$ 600) e vacinas",
   },
 
   emergencyFund: {

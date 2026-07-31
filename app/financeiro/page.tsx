@@ -19,7 +19,7 @@ export default function Financeiro() {
 
   const distributed = distribution.reduce((s, d) => s + d.amount, 0);
 
-  const hostelsPending = items.filter((i) => !i.done && i.text.toLowerCase().includes("hostel")).length;
+  const hostelsPending = items.filter((i) => !i.done && i.text.toLowerCase().includes("reservar hostel")).length;
   const flightsPending = items.filter((i) => !i.done && i.text.toLowerCase().includes("passagem")).length;
   const seguroPending = items.some((i) => !i.done && i.text.toLowerCase().includes("seguro"));
 
@@ -56,6 +56,40 @@ export default function Financeiro() {
         <div className="h-1.5 bg-warm-500/30 rounded-full mt-2">
           <div className="h-full bg-gold rounded-full transition-all" style={{ width: `${(distributed / b.total) * 100}%` }} />
         </div>
+      </div>
+
+      <div className="bg-white rounded-xl border-2 border-gold/30 p-5 mb-6">
+        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">Plano de dinheiro — os 4 bolsos</p>
+        <div className="space-y-2">
+          {trip.moneyPlan.pockets.map((p, i) => (
+            <div key={i} className={`flex items-start justify-between gap-3 p-3 rounded-lg ${p.done ? "bg-green-50" : "bg-bg"}`}>
+              <div>
+                <p className="text-sm font-semibold">{p.name}</p>
+                <p className="text-xs text-warm-400 mt-0.5">{p.detail}</p>
+              </div>
+              <span className={`text-xs font-mono whitespace-nowrap ${p.done ? "text-green-700" : "text-gold"}`}>{p.status}</span>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mt-5 mb-3">💵 Dinheiro físico (notas)</p>
+        <div className="space-y-2">
+          {trip.moneyPlan.cash.map((c, i) => (
+            <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-bg">
+              <span className={`text-[10px] font-medium px-2 py-0.5 rounded whitespace-nowrap mt-0.5 ${
+                c.tag === "OBRIGATÓRIO" ? "text-red-700 bg-red-100" :
+                c.tag === "SUGERIDO" ? "text-gold bg-gold/10" :
+                "text-warm-400 bg-warm-200/40"
+              }`}>{c.tag}</span>
+              <div>
+                <p className="text-sm font-mono font-semibold">{c.label}</p>
+                <p className="text-xs text-warm-400">{c.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-xs text-warm-400 mt-4 border-t border-warm-200/30 pt-3">🎯 {trip.moneyPlan.missingTotal}</p>
       </div>
 
       <div className="bg-green-50 rounded-xl border border-green-200/50 p-5 mb-6">
