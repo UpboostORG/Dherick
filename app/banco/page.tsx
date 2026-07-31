@@ -39,7 +39,7 @@ export default function BancoEmergencia() {
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Banco de emergência</h1>
-      <p className="text-sm text-warm-400 mb-8">Reserva separada do orçamento da viagem — só encostar se algo der errado · edite os valores que salva sozinho</p>
+      <p className="text-sm text-warm-400 mb-8">Reserva no Revolut, separada do orçamento da viagem — só encostar se algo der errado · edite os valores que salva sozinho</p>
 
       <div className="bg-bg-dark text-white rounded-xl p-6 mb-6">
         <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase">Total da reserva</p>

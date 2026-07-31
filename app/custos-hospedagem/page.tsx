@@ -128,7 +128,8 @@ export default function CustosHospedagem() {
         <ul className="text-sm text-warm-400 space-y-1.5">
           <li>🇪🇬 Egito paga em <strong className="text-bg-dark">USD</strong> (lei p/ estrangeiros): King's Gate US$ 124,20 aceita cartão · <strong className="text-bg-dark">Luxor US$ 82,90 SÓ DINHEIRO — leve ~US$ 85 em espécie</strong></li>
           <li>🇬🇷 Grécia: <strong className="text-bg-dark">euros</strong> — o Athens Hawks cobra € 42,71 no check-in</li>
-          <li>Guarde esse valor separado dos US$ 3.000 do dia a dia (é o que a aba de metas controla)</li>
+          <li>💳 Divisão dos cartões: dia a dia sai do <strong className="text-bg-dark">Wise (US$ 3.000)</strong> · hotéis saem do <strong className="text-bg-dark">Nomad</strong> · <strong className="text-bg-dark">Revolut</strong> é só a reserva de emergência — não encostar</li>
+          <li>Luxor (US$ 82,90) é o único que exige espécie — nenhum cartão resolve, separa as notas</li>
         </ul>
       </div>
     </div>
