@@ -379,7 +379,7 @@ export const trip = {
     { text: "📞 Avisar Dubai Sea View Hostel: chegada de madrugada (~00h30 de 25→26/09, voo pousa 23h)", done: false, priority: "MÉDIA" },
     { text: "📞 Confirmar com Dubai Sea View como cobram o restante (€60,78) — Hostelworld mostra 'AED 0 no local'", done: false, priority: "MÉDIA" },
     { text: "🏨 Reservar hostel Santorini · 15-18/10 (3 noites) · reservar até ago/26", done: false, priority: "ALTA" },
-    { text: "⭐ Reservar a noite top Santorini · 18-19/10 · cave suite c/ vista da caldera (Imerovigli) · cancelamento grátis pra decidir depois", done: false, priority: "MÉDIA" },
+    { text: "⭐ Reservar a noite top Santorini · 18-19/10 · cave suite c/ vista da caldera (Imerovigli) · OBRIGATÓRIA: o hostel vai só até 18, sem ela você fica sem cama na noite do dia 18", done: false, priority: "ALTA" },
     { text: "🏨 Reservar hostel Istambul · 20/10 em diante (15+ dias) · reservar até set/26", done: false, priority: "MÉDIA" },
     { text: "📲 Baixar app Ryanair (cartão de embarque só digital) e fazer login", done: false, priority: "ALTA" },
     { text: "✅ Check-in Ryanair no app · ATH→JTR abre 14/10 06h · JTR→ATH abre 19/10 00h (sem check-in = multa ~€55)", done: false, priority: "ALTA" },
