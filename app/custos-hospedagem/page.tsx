@@ -85,12 +85,12 @@ export default function CustosHospedagem() {
         <div className="bg-white rounded-xl border border-green-200/60 p-5">
           <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">Já pago (sinais)</p>
           <p className="text-2xl font-light text-green-600 mt-2">€ {calc.paid.toFixed(2)}</p>
-          <p className="text-xs text-warm-400 mt-1">{brl(calc.paid)} · Hostelworld (Dubai + Atenas)</p>
+          <p className="text-xs text-warm-400 mt-1">{brl(calc.paid)} · sinais no Hostelworld (Dubai, Atenas, Caveland)</p>
         </div>
         <div className="bg-white rounded-xl border-2 border-gold/30 p-5">
           <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">A pagar no local</p>
           <p className="text-2xl font-light text-gold mt-2">€ {calc.due.toFixed(2)} + US$ {calc.dueUsd.toFixed(2)}</p>
-          <p className="text-xs text-warm-400 mt-1">Dubai € 60,78 + Atenas € 42,71 + Egito US$ 207,10 (Cairo cartão · Luxor SÓ dinheiro)</p>
+          <p className="text-xs text-warm-400 mt-1">Dubai € 60,78 + Atenas € 42,71 + Caveland € 81,74 + Egito US$ 207,10 · só o Cairo aceita cartão, o resto é dinheiro</p>
         </div>
       </div>
 
@@ -127,7 +127,7 @@ export default function CustosHospedagem() {
         <p className="text-sm font-semibold mb-2">Como levar esse dinheiro</p>
         <ul className="text-sm text-warm-400 space-y-1.5">
           <li>🇪🇬 Egito paga em <strong className="text-bg-dark">USD</strong> (lei p/ estrangeiros): King's Gate US$ 124,20 aceita cartão · <strong className="text-bg-dark">Luxor US$ 82,90 SÓ DINHEIRO — leve ~US$ 85 em espécie</strong></li>
-          <li>🇬🇷 Grécia: <strong className="text-bg-dark">euros</strong> — o Athens Hawks cobra € 42,71 no check-in</li>
+          <li>🇬🇷 Grécia: <strong className="text-bg-dark">euros em espécie</strong> — Athens Hawks € 42,71 + Caveland € 81,74 (valor exato) + € 10 de caução = leve ~€ 220 em notas</li>
           <li>💳 Divisão dos cartões: dia a dia sai do <strong className="text-bg-dark">Wise (US$ 3.000)</strong> · hotéis saem do <strong className="text-bg-dark">Nomad</strong> · <strong className="text-bg-dark">Revolut</strong> é só a reserva de emergência — não encostar</li>
           <li>Luxor (US$ 82,90) é o único que exige espécie — nenhum cartão resolve, separa as notas</li>
         </ul>
