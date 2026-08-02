@@ -255,7 +255,7 @@ export const trip = {
         ref: "—", status: "A RESERVAR",
         totalLabel: "a definir", paidLabel: "—", dueLabel: "—",
         paidEur: 0, dueEur: 0, dueUsd: 0, estEur: 0,
-        note: "Sem reserva ainda — o valor entra aqui quando você reservar",
+        note: "Buscar por vila: Oia (o das cúpulas azuis, mais caro) · Imerovigli (mesma vista, ~30% menos) · Firostefani · filtros: caldera view + cave suite + jacuzzi · conferir no mapa que fica na borda oeste",
       },
       {
         city: "Istambul", name: "hostel a reservar", dates: "20/10 em diante · 15+ noites",
