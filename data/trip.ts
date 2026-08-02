@@ -28,7 +28,7 @@ export const trip = {
     { date: "09-10/10", place: "Giza · STARLIGHT", status: "warning", tag: "Festival", detail: "Festival principal nos dois dias." },
     { date: "11/10", place: "Giza · STARLIGHT", status: "warning", tag: "Farewell", detail: "Farewell Party — encerramento." },
     { date: "12/10", from: "CAI", to: "ATH", status: "ok", tag: "Voo · OK", detail: "Aegean A3931 · 04h00 → chegada Atenas 06h00" },
-    { date: "12-15/10", place: "Atenas", status: "warning", tag: "3 noites · hostel falta", detail: "Acrópole, Plaka, Monastiraki. Hostel a reservar. Dia 15 ~4h30: deixar a MALA no guarda-volumes 24h do aeroporto (piso de Chegadas, ~€6/dia)." },
+    { date: "12-15/10", place: "Atenas", status: "ok", tag: "3 noites · OK", detail: "Acrópole, Plaka, Monastiraki. Athens Hawks Hostel confirmado (25 Menandrou, €42,71 no local). Dia 15 ~4h30: deixar a MALA no guarda-volumes 24h do aeroporto (piso de Chegadas, ~€6/dia)." },
     { date: "15/10", from: "ATH", to: "JTR", status: "ok", tag: "Voo · OK", detail: "Ryanair FR1232 · 06h00 → 06h50 · ref SVD5SI · só mochila de mão (40x20x25) · check-in no app abre 14/10 06h" },
     { date: "15-19/10", place: "Santorini", status: "warning", tag: "4 noites · hostel falta", detail: "Santorini só com a mochila (mala fica em Atenas). Oia, Fira, praias. Hostel a reservar. Dia 19 inteiro livre — aeroporto ~22h30." },
     { date: "20/10", from: "JTR", to: "ATH", status: "ok", tag: "Voo · OK", detail: "Ryanair FR1237 · 00h00 → 00h50 (embarque na noite do dia 19) · ref T8EMHK · check-in no app abre 19/10 00h · chegando: pegar a mala no guarda-volumes e aguardar no aeroporto" },
