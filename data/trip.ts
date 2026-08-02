@@ -366,6 +366,7 @@ export const trip = {
     { text: "Comprar ingressos festival STARLIGHT (Pirâmides)", done: true, priority: "OK" },
     { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — sair de TÁXI às 11h05 (fim da keynote) pro voo das 13h05", done: true, priority: "OK" },
     { text: "✅ Check-in online Kuwait DXB→CAI · abre 29/09 13h05 (24h antes) · perguntar se aceitam cartão de embarque no celular (sem despachada) — se sim, dá pra ficar até o fim da keynote", done: false, priority: "MÉDIA" },
+    { text: "🧳 Dia 30/09: levar mala+mochila pro AWS Summit (não dá pra voltar em JBR) · perguntar pelo cloakroom na retirada do crachá · plano B: Bounce/Radical Storage perto do WTC (~AED 20-30)", done: false, priority: "MÉDIA" },
     { text: "❌ Voluntário Web Summit/Slush: INVIÁVEL — exigem direito de trabalhar em PT/FI (turista BR não tem). Plano B: side events grátis de Lisboa na semana 9-12/11 (Luma/Eventbrite) ou ingresso promocional", done: false, priority: "MÉDIA" },
     { text: "Reservar hostel Dubai (Dubai Sea View Hostel)", done: true, priority: "OK" },
     { text: "Reservar hostel Cairo (King's Gate Pyramids Horizon)", done: true, priority: "OK" },
