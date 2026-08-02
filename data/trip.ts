@@ -60,6 +60,77 @@ export const trip = {
         { name: "Ferrari World (Yas Island)", desc: "Parque temático com a montanha-russa mais rápida do mundo (240 km/h).", tip: "" },
       ],
     },
+    "Cairo": {
+      period: "30/09-05/10 e 08-12/10 · 9 noites",
+      items: [
+        { name: "Pirâmides de Gizé & Esfinge", desc: "As únicas maravilhas antigas ainda de pé — e seu hotel fica do lado. Quéops, Quéfren, Miquerinos e a Esfinge num platô só. Dá pra entrar em pirâmide (ingresso extra).", tip: "Vá às 8h na abertura — sem calor e sem multidão. Ignore os 'guias' do portão" },
+        { name: "Grande Museu Egípcio (GEM)", desc: "O museu novo bilionário ao lado das pirâmides: o tesouro completo de Tutancâmon e milhares de peças numa arquitetura absurda.", tip: "Meio dia fácil — compre online" },
+        { name: "NMEC — múmias reais", desc: "Museu da Civilização Egípcia em Fustat: o salão subterrâneo com as múmias de Ramsés II e outros 20 faraós de verdade.", tip: "Combina com o Cairo Copta (do lado)" },
+        { name: "Khan el-Khalili & rua Al-Muizz", desc: "O bazar histórico do Cairo islâmico: lâmpadas, especiarias, chá de hibisco. A rua Al-Muizz à noite iluminada é um museu a céu aberto grátis.", tip: "Pechinche SEMPRE — comece em 1/3 do preço" },
+        { name: "Cidadela de Saladino & Mesquita de Alabastro", desc: "Fortaleza medieval no alto com a mesquita de Muhammad Ali e a melhor vista panorâmica do Cairo.", tip: "Fim de tarde = luz dourada na cidade" },
+        { name: "Felucca no Nilo ao pôr do sol", desc: "Veleiro tradicional pelo Nilo — o jeito mais barato de ver o Cairo desacelerar. Fecha o barco por hora, direto no cais de Garden City/Zamalek.", tip: "~EGP 300-400/hora o barco inteiro — negocie" },
+        { name: "Cairo Copta", desc: "O bairro cristão mais antigo: Igreja Suspensa, São Sérgio (onde a Sagrada Família teria se abrigado) e sinagoga Ben Ezra.", tip: "Grátis · manhã tranquila" },
+        { name: "Uber é lei", desc: "No Cairo inteiro: só Uber/Careem. Táxi de rua cobra 10x de turista. Corridas saem baratíssimas (EGP 50-150).", tip: "Regra de ouro da cidade" },
+      ],
+    },
+    "Luxor": {
+      period: "06-08/10 · 2 dias inteiros",
+      items: [
+        { name: "Vale dos Reis", desc: "As tumbas dos faraós escavadas na montanha — cores intactas há 3.000 anos. O ingresso base dá direito a 3 tumbas; Tutancâmon e Seti I pagam à parte (Seti I é a mais linda do Egito).", tip: "Vá na abertura (6h) — o vale vira forno às 10h" },
+        { name: "Templo de Hatshepsut & Colossos de Mêmnon", desc: "O templo-rampa da faraó mulher esculpido no paredão de Deir el-Bahari + os dois gigantes de pedra na estrada. Tudo na margem ocidental, perto do seu hotel.", tip: "Emenda com o Vale dos Reis de manhã" },
+        { name: "Templo de Karnak", desc: "O maior complexo religioso do mundo antigo. A sala hipóstila com 134 colunas gigantes é surreal — nenhuma foto prepara.", tip: "2ª manhã · margem oriental (balsa EGP 5)" },
+        { name: "Templo de Luxor à noite", desc: "Iluminado depois do pôr do sol, com a avenida das esfinges apontando pra Karnak. Clima completamente diferente dos templos de dia.", tip: "Aberto até ~21h — perfeito pós-jantar" },
+        { name: "Balão ao amanhecer", desc: "O clássico de Luxor: nascer do sol sobrevoando o Vale dos Reis e o Nilo. Decolagem ~5h da manhã do dia 7.", tip: "~US$ 60-100 · reserve na véspera pelo hotel" },
+        { name: "Margem Ocidental de bike", desc: "Você se hospeda no lado 'vila' de Luxor — alugar bike e pedalar entre plantações e templos é experiência própria.", tip: "EGP 50-100/dia · pergunta no Happiness" },
+      ],
+    },
+    "Alexandria": {
+      period: "Bate-volta 03 ou 04/10 · dia do Techne Summit",
+      items: [
+        { name: "Techne Summit @ Bibliotheca Alexandrina", desc: "Seu evento grátis de startups no prédio mais icônico da cidade — o motivo do bate-volta. A biblioteca em si (herdeira da antiga) vale o passeio: sala de leitura gigante e museus internos.", tip: "Registre o visitor pass antes" },
+        { name: "Cidadela de Qaitbay", desc: "Fortaleza de 1477 construída exatamente onde ficava o Farol de Alexandria (outra maravilha antiga), com o Mediterrâneo batendo nas muralhas.", tip: "Fim de tarde na muralha = ouro" },
+        { name: "Corniche + frutos do mar", desc: "A orla mediterrânea de Alexandria. Almoço de peixe fresco escolhido na banca — tradição local.", tip: "Restaurantes perto de Qaitbay" },
+        { name: "Trem Cairo ↔ Alexandria", desc: "~2h30 de trem confortável. 1ª classe é barata e com ar condicionado.", tip: "Compre no app ENR ou na estação Ramses na véspera" },
+      ],
+    },
+    "Atenas": {
+      period: "12-15/10 · 3 dias",
+      items: [
+        { name: "Acrópole & Partenon", desc: "O símbolo da civilização ocidental no alto da rocha sagrada. Partenon, Erecteion (cariátides) e teatro de Dionísio na subida.", tip: "8h em ponto na abertura — você chega dia 12 às 6h, é o programa perfeito do primeiro dia" },
+        { name: "Museu da Acrópole", desc: "Moderno, construído sobre escavações com piso de vidro. As esculturas originais do Partenon no último andar, de frente pra ele.", tip: "Emenda com a Acrópole" },
+        { name: "Plaka & Anafiotika", desc: "O bairro antigo aos pés da Acrópole: ruelas, tavernas e o mini-bairro de Anafiotika que parece uma ilha grega escondida na cidade.", tip: "Perde-se de propósito — é grátis" },
+        { name: "Ágora Antiga & Templo de Hefesto", desc: "Onde Sócrates filosofava. O Templo de Hefesto é o templo grego mais bem preservado que existe.", tip: "Combo ticket €30 cobre 7 sítios em 5 dias" },
+        { name: "Monastiraki & mercado de pulgas", desc: "Praça vibrante com o mercado, vista da Acrópole e os melhores gyros da cidade (€3-4 resolve o almoço).", tip: "Seu hostel fica a 10 min daqui" },
+        { name: "Colina Licabeto ao pôr do sol", desc: "O ponto mais alto de Atenas — a cidade inteira dourada com a Acrópole no meio. Sobe a pé (~30 min) ou de funicular.", tip: "Melhor pôr do sol da cidade, grátis" },
+        { name: "Troca da guarda no Syntagma", desc: "Os evzones de saiote e pompons fazem a coreografia em frente ao parlamento a cada hora cheia.", tip: "Domingo 11h tem a versão completa" },
+      ],
+    },
+    "Santorini": {
+      period: "15-19/10 · 4 dias",
+      items: [
+        { name: "Trilha Fira → Oia", desc: "10 km pela borda da caldera, com a vista mais famosa da Grécia o caminho inteiro (~3h). O passeio nº 1 da ilha — e grátis.", tip: "Manhã cedo: sombra, vento fresco e termina em Oia pro almoço" },
+        { name: "Pôr do sol em Oia", desc: "O pôr do sol mais fotografado do mundo, sobre as casas brancas e cúpulas azuis. Em outubro a multidão é bem menor.", tip: "Chegue 1h antes e pegue posição no castelo" },
+        { name: "Akrotiri — a Pompeia do Egeu", desc: "Cidade minoica de 3.600 anos preservada pela cinza vulcânica, com prédios de 2 andares e afrescos. Coberta e fresca.", tip: "~€12 · combina com a Red Beach do lado" },
+        { name: "Praias vulcânicas", desc: "Red Beach (falésias vermelhas), Perissa e Perivolos (areia preta). Em outubro o mar ainda está nadável (~23°C).", tip: "Ônibus KTEL €2 até lá" },
+        { name: "Tour de barco na caldera", desc: "Vulcão ativo de Nea Kameni, fontes termais e volta pela caldera. Versões com pôr do sol incluem bebidas.", tip: "€25-40 · ótimo pro dia 19 livre antes do voo" },
+        { name: "Vinícola com vista", desc: "Santorini faz vinho em parreiras enroladas no chão (contra o vento). Degustação de Assyrtiko com vista da caldera no Santo Wines.", tip: "~€15-25 a degustação · pôr do sol" },
+      ],
+    },
+    "Istambul": {
+      period: "20/10 em diante · 15+ dias, sem pressa",
+      items: [
+        { name: "Hagia Sophia", desc: "1.500 anos: catedral bizantina, mesquita otomana, e mesquita de novo. A cúpula que definiu a arquitetura por um milênio.", tip: "Turista visita a galeria superior (~€25) · vista modesta obrigatória" },
+        { name: "Mesquita Azul & Hipódromo", desc: "Os 6 minaretes e o interior de azulejos de Iznik, de frente pra Hagia Sophia. O antigo hipódromo romano vira a praça entre elas.", tip: "Grátis · fora dos horários de oração" },
+        { name: "Palácio Topkapi", desc: "A casa dos sultões por 400 anos: pátios, tesouro (diamante de 86 quilates), relíquias e vista do Bósforo. O harém paga à parte e vale.", tip: "Meio dia · fecha às terças" },
+        { name: "Cisterna da Basílica", desc: "Floresta subterrânea de 336 colunas romanas na penumbra, com as cabeças de Medusa invertidas. Atmosfera de outro mundo.", tip: "Compre online — fila grande" },
+        { name: "Grand Bazaar & Spice Bazaar", desc: "4.000 lojas no bazar coberto mais antigo do mundo + o mercado de especiarias em Eminönü com montanhas de açafrão e lokum.", tip: "Pechincha esperada · prove lokum de graça" },
+        { name: "Ferry pelo Bósforo → lado asiático", desc: "Atravessar de continente por TRY 30 no ferry público. Kadıköy no lado asiático: mercado de comida, cafés e zero turistas — a Istambul real.", tip: "O melhor 'passeio de barco' é o ferry comum com Istanbulkart" },
+        { name: "Torre & bairro de Gálata", desc: "A torre genovesa com vista 360° + Karaköy embaixo: cafés terceira-onda, galerias e a ponte cheia de pescadores.", tip: "Balık ekmek (sanduíche de peixe) na ponte, ~TRY 150" },
+        { name: "Balat & Fener", desc: "Ladeiras de casas coloridas dos antigos bairros grego e judeu — o cenário mais fotogênico e autêntico pra se perder de manhã.", tip: "Grátis · café da manhã turco por lá" },
+        { name: "Hamam — banho turco", desc: "Ritual de vapor, esfoliação e espuma num prédio otomano de séculos. Sai como gente nova — experiência obrigatória com 15+ dias na cidade.", tip: "Hamams históricos €30-70 · os de bairro bem menos" },
+        { name: "Ilhas dos Príncipes", desc: "Bate-volta de ferry (~1h30): ilhas sem carros, mansões vitorianas e pinheiros — o respiro da megacidade.", tip: "Vá num dia de semana · Istanbulkart" },
+      ],
+    },
   },
 
   flights: {
