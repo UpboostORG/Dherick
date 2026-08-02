@@ -15,7 +15,7 @@ const links = [
   { href: "/passagens", label: "Passagens" },
   { href: "/hospedagem", label: "Hospedagem" },
   { href: "/custos-hospedagem", label: "Custos de hospedagem" },
-  { href: "/regras-hostel", label: "Regras dos hostels" },
+  { href: "/regras-hostel", label: "Regras das hospedagens" },
   { href: "/documentos", label: "Documentos" },
   { href: "/vacinas", label: "Vacinas" },
   { href: "/checklist", label: "Checklist" },

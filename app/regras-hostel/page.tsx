@@ -5,7 +5,7 @@ export default function RegrasHostel() {
 
   return (
     <div>
-      <h1 className="text-3xl font-serif mb-1">Regras dos hostels</h1>
+      <h1 className="text-3xl font-serif mb-1">Regras das hospedagens</h1>
       <p className="text-sm text-warm-400 mb-8">O que ninguém te conta na primeira viagem — regras gerais e as específicas de cada reserva</p>
 
       <div className="bg-bg-dark text-white rounded-xl p-6 mb-8">
