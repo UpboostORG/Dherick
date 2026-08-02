@@ -348,6 +348,7 @@ export const trip = {
         rules: [
           "€ 81,74 em DINHEIRO, valor exato, na chegada + € 10 de caução da chave (devolvida)",
           "Check-in 15h · check-out até 11h30 · sem curfew, sem lockout",
+          "⏰ Você pousa 06h50 e chega ~07h15 — a recepção NÃO é 24h: perguntar antes a que horas abre e se dá pra deixar a mochila cedo",
           "Chegada após o horário da recepção = self check-in automático",
           "Documento obrigatório no check-in",
           "Cancelamento grátis até 11/10 · depois disso, menos de 3 dias antes é cobrado",
@@ -487,6 +488,7 @@ export const trip = {
     { text: "Hostel Atenas (12-15/10) Athens Hawks Hostel reservado · ref 294256-579093482 · €42,71 no local", done: true, priority: "OK" },
     { text: "🚨 Comprar ônibus noturno Luxor→Cairo (noite de 07/10, Go Bus via 12go, ~R$120-150) — chegada tem que ser antes das ~9h do dia 08 pro Welcome Party às 12h em Giza · mala+mochila no bagageiro grátis", done: false, priority: "ALTA" },
     { text: "🚨 AVISAR Dubai Sea View da chegada de madrugada — check-in deles fecha às 23h e seu voo só pousa 23h (chega ~00h30). Recepção é 24h, mas mandar mensagem antes é obrigatório", done: false, priority: "ALTA" },
+    { text: "📞 Perguntar ao Caveland: que horas abre a recepção e se dá pra deixar a mochila às ~7h15 (voo pousa 06h50, check-in só 15h)", done: false, priority: "MÉDIA" },
     { text: "Reservar hostel Santorini · Caveland 15-18/10 confirmado · ref 48096-579168686 · €81,74 em dinheiro na chegada", done: true, priority: "OK" },
     { text: "⭐ Reservar a noite top Santorini · 18-19/10 · cave suite c/ vista da caldera (Imerovigli) · OBRIGATÓRIA: o hostel vai só até 18, sem ela você fica sem cama na noite do dia 18", done: false, priority: "ALTA" },
     { text: "🏨 Reservar hostel Istambul · 20/10 em diante (15+ dias) · reservar até set/26", done: false, priority: "MÉDIA" },
