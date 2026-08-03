@@ -231,7 +231,7 @@ export const trip = {
         ref: "328933-578486941", status: "PARCIAL",
         totalLabel: "€ 89,17", paidLabel: "€ 28,39", dueLabel: "€ 60,78 (~AED 255)",
         paidEur: 28.39, dueEur: 60.78, dueUsd: 0, estEur: 0,
-        note: "Paga na chegada · aceita cartão (Nomad) e dinheiro em USD/AED/EUR · check-in fecha 23h e você chega ~00h30: AVISAR antes",
+        note: "✅ Confirmado com o hostel: check-in a qualquer hora e pagamento no CARTÃO (Nomad) — não precisa de dinheiro aqui",
       },
       {
         city: "Cairo (Giza)", name: "King's Gate Pyramids Horizon", dates: "30/09-12/10 · 12 noites",
@@ -299,8 +299,8 @@ export const trip = {
         city: "Dubai", name: "Dubai Sea View Hostel, JBR",
         dates: "25-30/09 · 5 noites", ref: "328933-578486941",
         rules: [
-          "🚨 Check-in é das 13h às 23h — SEU VOO POUSA 23h DO DIA 25! Você chega ~00h30, fora da janela. Recepção é 24h e não tem curfew, mas AVISE ANTES por mensagem que vai chegar de madrugada",
-          "Pagamento na chegada: aceita dinheiro, cartão de crédito e débito · moedas: USD, AED, EUR e AUD — dá pra pagar no Nomad ou em dólar",
+          "✅ CONFIRMADO com o hostel: check-in a qualquer hora — sua chegada ~00h30 está liberada (a janela 13h-23h do site não se aplica)",
+          "✅ CONFIRMADO: pode pagar no CARTÃO (Nomad) · também aceitam dinheiro em USD, AED, EUR e AUD",
           "Check-out das 5h às 12h ✓ — perfeito pro dia 30 (sai 7h com a mala pro AWS Summit)",
           "Cancelamento: a qualquer momento antes da chegada · no-show ou cancelamento tardio = cobra a 1ª noite",
           "Café da manhã e café inclusos · taxas já incluídas no preço · recepção 24h · sem curfew",
@@ -487,7 +487,7 @@ export const trip = {
     { text: "Passagem ATH→IST (Sky Express GQ670 20/10 07h00, joy+ c/ mala 15kg) comprada · ref KPPSWK", done: true, priority: "OK" },
     { text: "Hostel Atenas (12-15/10) Athens Hawks Hostel reservado · ref 294256-579093482 · €42,71 no local", done: true, priority: "OK" },
     { text: "🚨 Comprar ônibus noturno Luxor→Cairo (noite de 07/10, Go Bus via 12go, ~R$120-150) — chegada tem que ser antes das ~9h do dia 08 pro Welcome Party às 12h em Giza · mala+mochila no bagageiro grátis", done: false, priority: "ALTA" },
-    { text: "🚨 AVISAR Dubai Sea View da chegada de madrugada — check-in deles fecha às 23h e seu voo só pousa 23h (chega ~00h30). Recepção é 24h, mas mandar mensagem antes é obrigatório", done: false, priority: "ALTA" },
+    { text: "Dubai Sea View avisado da chegada de madrugada ✓ — check-in liberado a qualquer hora e pagamento no cartão confirmado", done: true, priority: "OK" },
     { text: "📞 Perguntar ao Caveland: que horas abre a recepção e se dá pra deixar a mochila às ~7h15 (voo pousa 06h50, check-in só 15h)", done: false, priority: "MÉDIA" },
     { text: "Reservar hostel Santorini · Caveland 15-18/10 confirmado · ref 48096-579168686 · €81,74 em dinheiro na chegada", done: true, priority: "OK" },
     { text: "⭐ Reservar a noite top Santorini · 18-19/10 · cave suite c/ vista da caldera (Imerovigli) · OBRIGATÓRIA: o hostel vai só até 18, sem ela você fica sem cama na noite do dia 18", done: false, priority: "ALTA" },
