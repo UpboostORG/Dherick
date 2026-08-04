@@ -293,6 +293,10 @@ export const trip = {
       { title: "Cartão pode ter taxa extra", desc: "Vários hostels cobram 3-5% a mais pra pagar no cartão (o Athens Hawks cobra 5%). Se aceitarem dinheiro, pague em dinheiro." },
       { title: "Janela de check-in ≠ recepção 24h", desc: "Muitos têm horário limite pra dar entrada (ex: até 23h) mesmo com recepção aberta. Chegando fora da janela, avise antes — senão a cama pode ser dada como no-show." },
       { title: "Dormitório pode ter idade máxima", desc: "É comum limitar dormitório misto a 18-40 anos. Você está na faixa, mas confira ao reservar." },
+      { title: "Segurança: o risco real é furto, não violência", desc: "Hostel com milhares de avaliações públicas é lugar vigiado. O risco de verdade é pertence solto em dormitório: valiosos SEMPRE no armário com cadeado, passaporte e cartões com você ou trancados." },
+      { title: "Confie no volume de avaliações", desc: "Nota alta com MUITAS avaliações (500+) = lugar testado por milhares de viajantes. Evite lugares com poucas avaliações ou sem presença online — transparência é a sua segurança." },
+      { title: "Chegadas e saídas de madrugada = táxi", desc: "Em bairro desconhecido, entre 23h e 6h, vale pagar o táxi/Uber em vez de andar com mochila. Ex: saída de Atenas às 4h30 do dia 15 — Uber direto (~€40), não a pé por Omonia." },
+      { title: "Colchão: olhada de 30 segundos", desc: "Ao chegar, levanta o lençol e olha as costuras do colchão — pontinhos pretos = percevejo, troca de cama/quarto na hora. Raro, mas é o perrengue nº 1 evitável." },
     ],
     perHostel: [
       {
@@ -340,6 +344,7 @@ export const trip = {
           "Como chegar do aeroporto: metrô Linha Azul até Syntagma → troca pra Linha Vermelha → 2 estações até Omonia → saída Pan. Tsaldari, reto e vira à esquerda na Menandrou (hostel do lado direito)",
           "Chega dia 12 às 6h da manhã (check-in só 13h): deixa a mochila e vai direto pra Acrópole (abre 8h)",
           "Dia 15: sai ~4h30 da manhã pro aeroporto — avisar que vai sair de madrugada",
+          "🛡 Omonia à noite é a área mais pesada do centro (furtos) — circule por ruas movimentadas, valiosos no cadeado, e na saída das 4h30 vá de TÁXI/Uber (~€40), não a pé",
         ],
       },
       {
