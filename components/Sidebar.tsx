@@ -11,6 +11,7 @@ const links = [
   { href: "/passeios", label: "Passeios" },
   { href: "/transporte", label: "Transporte local" },
   { href: "/dicas", label: "Dicas culturais" },
+  { href: "/fuso", label: "Fuso horário" },
   { href: "/eventos", label: "Eventos & Networking" },
   { href: "/passagens", label: "Passagens" },
   { href: "/hospedagem", label: "Hospedagem" },
