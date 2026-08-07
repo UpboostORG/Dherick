@@ -19,7 +19,7 @@ export const trip = {
     { date: "24/09", from: "CGB", to: "GRU", status: "ok", tag: "Voo · OK", detail: "GOL G3 1469 · 02h10 → 05h25 · remarcado e confirmado" },
     { date: "25/09", from: "GRU", to: "DXB", status: "ok", tag: "Voo · OK", detail: "Emirates EK 262 · 01h05 → chegada 23h00 · confirmado" },
     { date: "25-30/09", place: "Dubai", status: "ok", tag: "5 dias · hostel OK", detail: "Explorar Dubai — Burj Khalifa, Marina, Gold Souk. Dubai Sea View Hostel, JBR Palm View confirmado." },
-    { date: "30/09", from: "DXB", to: "CAI", status: "ok", tag: "Voo · OK", detail: "Kuwait Airways KU672+KU541 · 13h05 → chegada Cairo 17h45 · mudança confirmada · conexão 50min no Kuwait T4 · tarifa 0PC: SEM despachada (mão 7kg)" },
+    { date: "30/09", from: "DXB", to: "CAI", status: "warning", tag: "Voo · A COMPRAR", detail: "🚨 Kuwait Airways CANCELOU os dois trechos (aeroporto do Kuwait opera parcialmente). Reembolso de AED 1.104 pedido em 07/08. Comprar DIRETO DXB→CAI saindo depois das 20h — assim dá pra fazer o AWS Summit inteiro (8h-18h30) e chegar no Cairo de madrugada." },
     { date: "30/09-05/10", place: "Cairo", status: "ok", tag: "5 noites · OK", detail: "Pirâmides, Museu Egípcio, Khan el-Khalili. King's Gate Pyramids Horizon confirmado (até 12/10)." },
     { date: "05/10", from: "CAI", to: "Luxor", status: "ok", tag: "Ônibus · OK", detail: "Go Bus noturno (Nasr City) · 22h50 → chegada 06/10 07h30 · Business Class DD · ref BW5302849 · R$ 123" },
     { date: "05-08/10", place: "Luxor", status: "ok", tag: "3 noites · OK", detail: "Vale dos Reis, Templo de Karnak, Margem Ocidental. Happiness Guest House confirmado. Chegada de ônibus 06/10 de manhã." },
@@ -137,14 +137,15 @@ export const trip = {
     confirmed: [
       { from: "CGB", to: "GRU", airline: "GOL · G3 1469 · Light (Smiles)", date: "24/09", time: "02h10 → 05h25", ref: "ELAAQM" },
       { from: "GRU", to: "DXB", airline: "Emirates · EK 262", date: "25/09", time: "01h05 → 23h00", ref: "BYYAHN" },
-      { from: "DXB", to: "CAI", airline: "Kuwait · KU672+KU541", date: "30/09", time: "13h05 → 17h45", ref: "X44YYV" },
       { from: "CAI", to: "Luxor", airline: "Go Bus · ônibus noturno (Nasr City)", date: "05/10", time: "22h50 → 07h30 (06/10)", ref: "BW5302849" },
       { from: "CAI", to: "ATH", airline: "Aegean · A3931", date: "12/10", time: "04h00 → 06h00", ref: "XZECPY" },
       { from: "ATH", to: "JTR", airline: "Ryanair · FR1232", date: "15/10", time: "06h00 → 06h50", ref: "SVD5SI" },
       { from: "JTR", to: "ATH", airline: "Ryanair · FR1237", date: "20/10", time: "00h00 → 00h50", ref: "T8EMHK" },
       { from: "ATH", to: "IST", airline: "Sky Express · GQ670", date: "20/10", time: "07h00 → 08h30", ref: "KPPSWK" },
     ],
-    toBuy: [] as { from: string; to: string; note: string; priority: string }[],
+    toBuy: [
+      { from: "DXB", to: "CAI", note: "URGENTE · Kuwait cancelou (X44YYV). Comprar DIRETO, 30/09 saindo depois das 20h · EgyptAir (despachada inclusa) ou flydubai (7kg só) · ⚠️ garantir aeroporto DXB, não AUH/SHJ · comprar no site da companhia, não em agência", priority: "URGENTE" },
+    ] as { from: string; to: string; note: string; priority: string }[],
   },
 
   accommodation: {
@@ -524,7 +525,9 @@ export const trip = {
     { text: "CIVP (Febre Amarela) emitido", done: true, priority: "OK" },
     { text: "Passagem CGB→GRU confirmada", done: true, priority: "OK" },
     { text: "Passagem GRU→DXB confirmada", done: true, priority: "OK" },
-    { text: "Passagem DXB→CAI confirmada", done: true, priority: "OK" },
+    { text: "🚨 COMPRAR passagem DXB→CAI (Kuwait cancelou) · direto, 30/09 depois das 20h · conferir que sai do DXB (não AUH/SHJ) · comprar no site da companhia", done: false, priority: "CRÍTICA" },
+    { text: "💰 Reembolso Kuwait AED 1.104 pedido em 07/08 (Opção 1, não voucher) · prazo 30 dias úteis (~18-22/09) · SE NÃO CAIR ATÉ 21/09: abrir chargeback no Visa 5655 ANTES de viajar", done: false, priority: "ALTA" },
+    { text: "📧 Liberar espaço no Gmail (está em 95%) — se lotar, você para de receber cartão de embarque, reservas e o reembolso · one.google.com/storage", done: false, priority: "ALTA" },
     { text: "🚌 Ônibus Cairo→Luxor (Go Bus noturno 05/10) pago · ref BW5302849", done: true, priority: "OK" },
     { text: "Passagem CAI→ATH confirmada", done: true, priority: "OK" },
     { text: "Hotel Cairo (30/09-12/10) King's Gate Pyramids Horizon confirmado", done: true, priority: "OK" },
