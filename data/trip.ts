@@ -527,7 +527,7 @@ export const trip = {
     { text: "CIVP (Febre Amarela) emitido", done: true, priority: "OK" },
     { text: "Passagem CGB→GRU confirmada", done: true, priority: "OK" },
     { text: "Passagem GRU→DXB confirmada", done: true, priority: "OK" },
-    { text: "🚨 COMPRAR passagem DXB→CAI (Kuwait cancelou) · direto, 30/09 depois das 20h · conferir que sai do DXB (não AUH/SHJ) · comprar no site da companhia", done: false, priority: "CRÍTICA" },
+    { text: "🚨 COMPRAR até domingo: EgyptAir MS906 · 30/09 19h00→21h40 direto · tarifa 'Melhor oferta' AED 995 (2 malas de 23kg inclusas) · comprar em egyptair.com, pagar em AED · se tiver pulado pra AED 1.645, espera 2-3 dias (picos duram pouco)", done: false, priority: "CRÍTICA" },
     { text: "💰 Reembolso Kuwait AED 1.104 pedido em 07/08 (Opção 1, não voucher) · prazo 30 dias úteis (~18-22/09) · SE NÃO CAIR ATÉ 21/09: abrir chargeback no Visa 5655 ANTES de viajar", done: false, priority: "ALTA" },
     { text: "📧 Liberar espaço no Gmail (está em 95%) — se lotar, você para de receber cartão de embarque, reservas e o reembolso · one.google.com/storage", done: false, priority: "ALTA" },
     { text: "🚌 Ônibus Cairo→Luxor (Go Bus noturno 05/10) pago · ref BW5302849", done: true, priority: "OK" },
