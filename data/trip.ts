@@ -22,7 +22,8 @@ export const trip = {
     { date: "30/09", from: "DXB", to: "CAI", status: "warning", tag: "Voo · A COMPRAR", detail: "🚨 Kuwait Airways CANCELOU os dois trechos (aeroporto do Kuwait opera parcialmente). Reembolso de AED 1.104 pedido em 07/08. Comprar DIRETO DXB→CAI saindo depois das 20h — assim dá pra fazer o AWS Summit inteiro (8h-18h30) e chegar no Cairo de madrugada." },
     { date: "30/09-05/10", place: "Cairo", status: "ok", tag: "5 noites · OK", detail: "Pirâmides, Museu Egípcio, Khan el-Khalili. King's Gate Pyramids Horizon confirmado (até 12/10)." },
     { date: "05/10", from: "CAI", to: "Luxor", status: "ok", tag: "Ônibus · OK", detail: "Go Bus noturno (Nasr City) · 22h50 → chegada 06/10 07h30 · Business Class DD · ref BW5302849 · R$ 123" },
-    { date: "05-08/10", place: "Luxor", status: "ok", tag: "3 noites · OK", detail: "Vale dos Reis, Templo de Karnak, Margem Ocidental. Happiness Guest House confirmado. Chegada de ônibus 06/10 de manhã." },
+    { date: "06-07/10", place: "Luxor", status: "ok", tag: "2 dias · OK", detail: "Vale dos Reis, Templo de Karnak, Margem Ocidental. Happiness Guest House confirmado (reserva 05-08, você usa a noite de 06→07). Chega de ônibus 06/10 de manhã." },
+    { date: "07/10", from: "Luxor", to: "CAI", status: "ok", tag: "Ônibus · OK", detail: "Go Bus noturno · 23h30 → chegada Cairo (Tahrir) ~08h de 08/10 · ref BW5416971 · € 28,10 pago · ⚠️ chega no Tahrir (centro), não em Nasr City — Uber até Giza ~40 min" },
     { date: "08-12/10", place: "Cairo", status: "ok", tag: "4 noites · OK", detail: "Volta ao Cairo para o STARLIGHT. King's Gate Pyramids Horizon (reserva contínua)." },
     { date: "08/10", place: "Giza · STARLIGHT", status: "warning", tag: "Welcome Party", detail: "Welcome Party do festival a partir das 12h, na Grande Pirâmide." },
     { date: "09-10/10", place: "Giza · STARLIGHT", status: "warning", tag: "Festival", detail: "Festival principal nos dois dias." },
@@ -138,6 +139,7 @@ export const trip = {
       { from: "CGB", to: "GRU", airline: "GOL · G3 1469 · Light (Smiles)", date: "24/09", time: "02h10 → 05h25", ref: "ELAAQM" },
       { from: "GRU", to: "DXB", airline: "Emirates · EK 262", date: "25/09", time: "01h05 → 23h00", ref: "BYYAHN" },
       { from: "CAI", to: "Luxor", airline: "Go Bus · ônibus noturno (Nasr City)", date: "05/10", time: "22h50 → 07h30 (06/10)", ref: "BW5302849" },
+      { from: "Luxor", to: "CAI", airline: "Go Bus · ônibus noturno (chega no Tahrir)", date: "07/10", time: "23h30 → ~08h00 (08/10)", ref: "BW5416971" },
       { from: "CAI", to: "ATH", airline: "Aegean · A3931", date: "12/10", time: "04h00 → 06h00", ref: "XZECPY" },
       { from: "ATH", to: "JTR", airline: "Ryanair · FR1232", date: "15/10", time: "06h00 → 06h50", ref: "SVD5SI" },
       { from: "JTR", to: "ATH", airline: "Ryanair · FR1237", date: "20/10", time: "00h00 → 00h50", ref: "T8EMHK" },
@@ -330,7 +332,7 @@ export const trip = {
           "🚨 SÓ ACEITA DINHEIRO: US$ 82,90 em espécie — nenhum cartão. Separe essas notas antes de sair do Brasil",
           "Você chega dia 06 de manhã (ônibus noturno), não dia 05 — a 1ª noite é no ônibus",
           "Margem Ocidental: fica do lado dos templos, longe do centro. Balsa custa centavos",
-          "Dia 7 à noite: ônibus de volta pro Cairo — checkout dia 7, não dia 8",
+          "Dia 7: ônibus de volta sai 23h30 (ref BW5416971) — checkout dia 7, e use o quarto durante o dia pra banho e descanso antes da viagem",
         ],
       },
       {
@@ -492,7 +494,7 @@ export const trip = {
     { text: "Passagem JTR→ATH (Ryanair FR1237 20/10 00h00) comprada · ref T8EMHK", done: true, priority: "OK" },
     { text: "Passagem ATH→IST (Sky Express GQ670 20/10 07h00, joy+ c/ mala 15kg) comprada · ref KPPSWK", done: true, priority: "OK" },
     { text: "Hostel Atenas (12-15/10) Athens Hawks Hostel reservado · ref 294256-579093482 · €42,71 no local", done: true, priority: "OK" },
-    { text: "🚨 Comprar ônibus noturno Luxor→Cairo (noite de 07/10, Go Bus via 12go, ~R$120-150) — chegada tem que ser antes das ~9h do dia 08 pro Welcome Party às 12h em Giza · mala+mochila no bagageiro grátis", done: false, priority: "ALTA" },
+    { text: "🚌 Ônibus Luxor→Cairo (Go Bus 07/10 23h30) pago · ref BW5416971 · € 28,10 · chega no Tahrir ~08h, Uber até Giza p/ o Welcome Party às 12h", done: true, priority: "OK" },
     { text: "Dubai Sea View avisado da chegada de madrugada ✓ — check-in liberado a qualquer hora e pagamento no cartão confirmado", done: true, priority: "OK" },
     { text: "📞 Perguntar ao Caveland: que horas abre a recepção e se dá pra deixar a mochila às ~7h15 (voo pousa 06h50, check-in só 15h)", done: false, priority: "MÉDIA" },
     { text: "Reservar hostel Santorini · Caveland 15-18/10 confirmado · ref 48096-579168686 · €81,74 em dinheiro na chegada", done: true, priority: "OK" },
@@ -556,7 +558,7 @@ export const trip = {
       { code: "TRY", name: "Turquia", desc: "NÃO comprar no Brasil — saca no ATM em Istambul ou troca USD lá · Istanbulkart e dolmuş são em lira", rate: "R$ 0,11" },
     ],
     meta: "Meta: viajar com tudo pago ✈ — A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 3.000 ficam livres só para o dia a dia.",
-    pending: ["2 hostels a reservar (Santorini, Istambul)", "Transporte Luxor→Cairo (08/10)", "Seguro viagem"],
+    pending: ["Passagem DXB→CAI (Kuwait cancelou)", "2 hospedagens (noite top Santorini, Istambul)", "Seguro viagem"],
   },
 
   investmentGoals: {
@@ -619,7 +621,7 @@ export const trip = {
         { text: "Adaptador universal de tomada", cost: "~R$ 60", done: false },
         { text: "Ingressos Burj Khalifa (online)", cost: "~US$ 40", done: false },
         { text: "Ingressos festival STARLIGHT", cost: "comprados ✓", done: true },
-        { text: "Ônibus noturno Luxor→Cairo (noite 07/10, Go Bus/12go)", cost: "~R$ 120-150", done: false },
+        { text: "Ônibus noturno Luxor→Cairo (Go Bus 07/10)", cost: "€ 28,10 ✓", done: true },
       ],
     },
     {
