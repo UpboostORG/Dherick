@@ -279,6 +279,15 @@ export const trip = {
         note: "Sem reserva ainda — o valor entra aqui quando você reservar",
       },
     ],
+    refundsIncoming: [
+      {
+        name: "Reembolso Kuwait Airways", amountLabel: "AED 1.104 (~US$ 300,61 / ~R$ 1.563)",
+        amountUsd: 300.61,
+        status: "Aguardando · pedido em 07/08, opção reembolso integral aprovada",
+        deadline: "Prazo até 30 dias úteis (~18-22/09) · cobrar ou abrir chargeback até 21/09",
+        note: "Cai no Visa final 5655 (Nomad) → cobre sozinho os US$ 207,10 devidos de Cairo+Luxor e ainda sobra ~US$ 93,51 pro resto dos hotéis",
+      },
+    ],
   },
 
   hostelRules: {

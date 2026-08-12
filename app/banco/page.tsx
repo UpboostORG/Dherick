@@ -9,6 +9,7 @@ export default function BancoEmergencia() {
   const [usd, setUsd] = useState(584);
   const [eurRate, setEurRate] = useState(5.90);
   const [usdRate, setUsdRate] = useState(5.20);
+  const [vendaItens, setVendaItens] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -16,10 +17,12 @@ export default function BancoEmergencia() {
     const u = localStorage.getItem("__banco_usd_v2");
     const er = localStorage.getItem("__banco_eurrate");
     const ur = localStorage.getItem("__banco_usdrate");
+    const v = localStorage.getItem("__banco_venda");
     if (e) setEur(Number(e));
     if (u) setUsd(Number(u));
     if (er) setEurRate(Number(er));
     if (ur) setUsdRate(Number(ur));
+    if (v) setVendaItens(Number(v));
     setLoaded(true);
   }, []);
 
@@ -29,7 +32,8 @@ export default function BancoEmergencia() {
     localStorage.setItem("__banco_usd_v2", String(usd));
     localStorage.setItem("__banco_eurrate", String(eurRate));
     localStorage.setItem("__banco_usdrate", String(usdRate));
-  }, [eur, usd, eurRate, usdRate, loaded]);
+    localStorage.setItem("__banco_venda", String(vendaItens));
+  }, [eur, usd, eurRate, usdRate, vendaItens, loaded]);
 
   const calc = useMemo(() => {
     const eurBRL = eur * eurRate;
@@ -37,10 +41,11 @@ export default function BancoEmergencia() {
     const faltaEur = Math.max(0, TARGET_EUR - eur);
     const faltaUsd = Math.max(0, TARGET_USD - usd);
     const faltaBRL = faltaEur * eurRate + faltaUsd * usdRate;
+    const faltaLiquidaBRL = Math.max(0, faltaBRL - vendaItens);
     const pctEur = Math.min(100, Math.round((eur / TARGET_EUR) * 100));
     const pctUsd = Math.min(100, Math.round((usd / TARGET_USD) * 100));
-    return { eurBRL, usdBRL, totalBRL: eurBRL + usdBRL, faltaEur, faltaUsd, faltaBRL, pctEur, pctUsd };
-  }, [eur, usd, eurRate, usdRate]);
+    return { eurBRL, usdBRL, totalBRL: eurBRL + usdBRL, faltaEur, faltaUsd, faltaBRL, faltaLiquidaBRL, pctEur, pctUsd };
+  }, [eur, usd, eurRate, usdRate, vendaItens]);
 
   if (!loaded) return null;
 
@@ -63,6 +68,25 @@ export default function BancoEmergencia() {
             </p>
           )}
         </div>
+      </div>
+
+      <div className="bg-white rounded-xl border-2 border-gold/30 p-5 mb-6">
+        <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">📦 Venda de itens (monitor, teclado etc.) — a caminho</p>
+        <div className="flex items-center gap-2 mt-2">
+          <span className="text-sm text-warm-400">R$</span>
+          <input
+            type="number"
+            value={vendaItens}
+            onChange={(e) => setVendaItens(Number(e.target.value) || 0)}
+            className="w-32 bg-bg border border-warm-200/60 text-right rounded px-2 py-1 text-2xl font-light font-mono"
+          />
+        </div>
+        <p className="text-xs text-warm-400 mt-2">Ajuste conforme for vendendo — esse valor abate direto do que falta aportar na reserva</p>
+        {vendaItens > 0 && (
+          <p className="text-sm text-green-600 mt-3 border-t border-warm-200/30 pt-3">
+            Falta aportar em dinheiro NOVO: <strong>R$ {Math.round(calc.faltaLiquidaBRL).toLocaleString()}</strong> (já descontados os R$ {vendaItens.toLocaleString()} da venda)
+          </p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">

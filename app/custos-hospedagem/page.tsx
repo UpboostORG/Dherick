@@ -30,6 +30,9 @@ export default function CustosHospedagem() {
     localStorage.setItem("__custos_usdrate", String(usdRate));
   }, [rate, usdRate, loaded]);
 
+  const refunds = trip.accommodationCosts.refundsIncoming || [];
+  const refundUsdTotal = refunds.reduce((s, r) => s + r.amountUsd, 0);
+
   const calc = useMemo(() => {
     const paid = stays.reduce((s, x) => s + x.paidEur, 0);
     const due = stays.reduce((s, x) => s + x.dueEur, 0);
@@ -43,6 +46,13 @@ export default function CustosHospedagem() {
 
   const brl = (eur: number) => `R$ ${Math.round(eur * rate).toLocaleString()}`;
   const brlTotal = () => `R$ ${Math.round(calc.due * rate + calc.dueUsd * usdRate).toLocaleString()}`;
+
+  // Aplica o reembolso primeiro no USD devido, sobra vira crédito em EUR (via ponte BRL)
+  const usdAfterRefund = Math.max(0, calc.dueUsd - refundUsdTotal);
+  const usdSurplus = Math.max(0, refundUsdTotal - calc.dueUsd);
+  const eurSurplusCredit = usdSurplus > 0 ? (usdSurplus * usdRate) / rate : 0;
+  const eurAfterRefund = Math.max(0, calc.due - eurSurplusCredit);
+  const netBrlAfterRefund = Math.round(eurAfterRefund * rate + usdAfterRefund * usdRate);
 
   return (
     <div>
@@ -80,6 +90,29 @@ export default function CustosHospedagem() {
           )}
         </div>
       </div>
+
+      {refunds.length > 0 && (
+        <div className="bg-green-50 rounded-xl border border-green-200/50 p-5 mb-6">
+          <p className="text-[11px] font-medium tracking-[1.5px] text-green-700 uppercase mb-3">💸 Reembolso a caminho — abate o valor dos hotéis</p>
+          {refunds.map((r, i) => (
+            <div key={i} className="mb-3 last:mb-0">
+              <div className="flex justify-between items-start gap-3">
+                <p className="text-sm font-semibold text-green-800">{r.name}</p>
+                <p className="text-sm font-mono text-green-700">{r.amountLabel}</p>
+              </div>
+              <p className="text-xs text-green-700 mt-1">{r.status}</p>
+              <p className="text-xs text-green-700">{r.deadline}</p>
+              <p className="text-xs text-warm-400 mt-1">{r.note}</p>
+            </div>
+          ))}
+          <div className="border-t border-green-200/50 mt-3 pt-3">
+            <p className="text-xs text-warm-400">Dinheiro NOVO que ainda precisa entrar no Nomad, já descontando esse reembolso:</p>
+            <p className="text-lg font-mono text-green-700 mt-1">
+              € {eurAfterRefund.toFixed(2)} + US$ {usdAfterRefund.toFixed(2)} <span className="text-xs text-warm-400">(≈ R$ {netBrlAfterRefund.toLocaleString()})</span>
+            </p>
+          </div>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         <div className="bg-white rounded-xl border border-green-200/60 p-5">
