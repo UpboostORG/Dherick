@@ -43,7 +43,7 @@ export default function Hospedagem() {
       </p>
 
       <div className="bg-bg-dark text-white rounded-xl p-5 mb-8">
-        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">💵 Dinheiro da hospedagem — levar separado dos US$ 3.000</p>
+        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">💵 Dinheiro da hospedagem — levar separado dos US$ 4.000</p>
         <div className="space-y-1.5 text-sm">
           {confirmed.map((h, i) => (
             <div key={i} className="flex justify-between gap-3">

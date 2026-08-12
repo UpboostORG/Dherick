@@ -153,7 +153,7 @@ export default function Financeiro() {
       <div className="bg-white rounded-xl border-l-4 border-l-gold p-5 mb-6">
         <p className="font-semibold mb-2">Meta: viajar com tudo pago ✈</p>
         <p className="text-sm text-warm-400">
-          A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 3.000 ficam livres só para o dia a dia.
+          A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 4.000 ficam livres só para o dia a dia.
           {pendingTags.length > 0 ? " O que ainda falta:" : ""}
         </p>
         {pendingTags.length > 0 ? (

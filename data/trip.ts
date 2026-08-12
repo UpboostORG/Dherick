@@ -537,7 +537,7 @@ export const trip = {
   ],
 
   budget: {
-    total: 3000,
+    total: 4000,
     currency: "USD",
     distribution: [
       { destination: "Dubai & Abu Dhabi", amount: 450 },
@@ -557,34 +557,34 @@ export const trip = {
       { code: "EUR", name: "Grécia", desc: "Cartão aceito em toda parte · cash ~€150: hostel Atenas €42,71 no local + guarda-volumes (~€35) + ilha", rate: "R$ 5,90" },
       { code: "TRY", name: "Turquia", desc: "NÃO comprar no Brasil — saca no ATM em Istambul ou troca USD lá · Istanbulkart e dolmuş são em lira", rate: "R$ 0,11" },
     ],
-    meta: "Meta: viajar com tudo pago ✈ — A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 3.000 ficam livres só para o dia a dia.",
+    meta: "Meta: viajar com tudo pago ✈ — A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 4.000 ficam livres só para o dia a dia.",
     pending: ["Passagem DXB→CAI (Kuwait cancelou)", "2 hospedagens (noite top Santorini, Istambul)", "Seguro viagem"],
   },
 
   investmentGoals: {
-    totalUSD: 3000,
+    totalUSD: 4000,
     exchangeRate: 5.20,
-    totalBRL: 15586,
+    totalBRL: 20800,
     invested: 2613,
-    investedBRL: 13575,
-    remaining: 387,
-    remainingBRL: 2011,
+    investedBRL: 13588,
+    remaining: 1387,
+    remainingBRL: 7212,
   },
 
   moneyPlan: {
     pockets: [
-      { name: "Wise — dia a dia", detail: "US$ 3.000 · o orçamento da viagem inteira", status: "US$ 2.613 juntados · faltam US$ 387", done: false },
-      { name: "Wise — euros da Grécia", detail: "€ 500 · converter DENTRO do Wise uns dias antes de 12/10", status: "a juntar (~R$ 2.950)", done: false },
-      { name: "Nomad — hotéis", detail: "€ 103,49 + US$ 207,10 já reservados (≈ R$ 1.690) · Santorini e Istambul somam aqui quando reservar", status: "a juntar", done: false },
-      { name: "Revolut — reserva de emergência", detail: "€ 530 + US$ 500 · não encostar · cartão físico separado da carteira", status: "pronto ✓", done: true },
+      { name: "Wise — dia a dia", detail: "US$ 4.000 · o orçamento da viagem inteira, hospedagem paga à parte", status: "US$ 2.613 juntados · faltam US$ 1.387", done: false },
+      { name: "Wise — euros da Grécia", detail: "€ 500 · converter DENTRO do Wise uns dias antes de 12/10 (dentro do total de US$ 4.000 acima)", status: "planejar a conversão perto da data", done: false },
+      { name: "Nomad — hotéis", detail: "€ 195,23 + US$ 207,10 já devidos nas reservas (≈ R$ 2.229) · Dubai, Cairo, Luxor, Atenas, Caveland (+€10 caução) · Santorini top e Istambul somam quando reservar", status: "a juntar", done: false },
+      { name: "Revolut — reserva de emergência", detail: "Meta € 1.000 + US$ 1.000 · não encostar · cartão físico separado da carteira", status: "€ 589 + US$ 584 · faltam € 411 + US$ 416", done: false },
     ],
     cash: [
       { label: "US$ 85", desc: "Hotel de Luxor SÓ aceita dinheiro (em dólar) — separar essas notas do resto", tag: "OBRIGATÓRIO" },
-      { label: "US$ 200-300", desc: "Notas novas pra trocar por EGP no dia a dia do Egito — sai dos US$ 3.000, não é dinheiro extra", tag: "SUGERIDO" },
+      { label: "US$ 200-300", desc: "Notas novas pra trocar por EGP no dia a dia do Egito — sai dos US$ 4.000, não é dinheiro extra", tag: "SUGERIDO" },
       { label: "~€ 220", desc: "Grécia EM DINHEIRO: Athens Hawks € 42,71 + Caveland € 81,74 + € 10 caução + guarda-volumes (~€ 35) + miudezas · os dois hostels exigem espécie", tag: "OBRIGATÓRIO" },
       { label: "AED · EGP · TRY", desc: "Não comprar no Brasil: dirham é atrelado ao dólar (cartão resolve), libra egípcia e lira troca/saca lá", tag: "NÃO COMPRAR" },
     ],
-    missingTotal: "~R$ 6.650 fecham os 3 bolsos conhecidos (US$ 387 + € 500 + hotéis reservados) · ainda vão somar: hostels Santorini/Istambul, ônibus Luxor→Cairo (~R$ 150), seguro (~R$ 600) e vacinas",
+    missingTotal: "~R$ 14.030 fecham os 3 bolsos conhecidos: US$ 1.387 dia a dia + € 195,23/US$ 207,10 hotéis + € 411/US$ 416 reserva de emergência · ainda vão somar: noite top Santorini, hostel Istambul, seguro (~R$ 600) e vacinas",
   },
 
   emergencyFund: {

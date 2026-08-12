@@ -47,7 +47,7 @@ export default function CustosHospedagem() {
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Custos de hospedagem</h1>
-      <p className="text-sm text-warm-400 mb-6">Quanto você já pagou, quanto vai pagar na viagem e o que ainda falta reservar — dinheiro separado dos US$ 3.000</p>
+      <p className="text-sm text-warm-400 mb-6">Quanto você já pagou, quanto vai pagar na viagem e o que ainda falta reservar — dinheiro separado dos US$ 4.000</p>
 
       <div className="bg-bg-dark text-white rounded-xl p-6 mb-6">
         <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase">A pagar no local — comprovantes reais</p>
@@ -128,7 +128,7 @@ export default function CustosHospedagem() {
         <ul className="text-sm text-warm-400 space-y-1.5">
           <li>🇪🇬 Egito paga em <strong className="text-bg-dark">USD</strong> (lei p/ estrangeiros): King's Gate US$ 124,20 aceita cartão · <strong className="text-bg-dark">Luxor US$ 82,90 SÓ DINHEIRO — leve ~US$ 85 em espécie</strong></li>
           <li>🇬🇷 Grécia: <strong className="text-bg-dark">euros em espécie</strong> — Athens Hawks € 42,71 + Caveland € 81,74 (valor exato) + € 10 de caução = leve ~€ 220 em notas</li>
-          <li>💳 Divisão dos cartões: dia a dia sai do <strong className="text-bg-dark">Wise (US$ 3.000)</strong> · hotéis saem do <strong className="text-bg-dark">Nomad</strong> · <strong className="text-bg-dark">Revolut</strong> é só a reserva de emergência — não encostar</li>
+          <li>💳 Divisão dos cartões: dia a dia sai do <strong className="text-bg-dark">Wise (US$ 4.000)</strong> · hotéis saem do <strong className="text-bg-dark">Nomad</strong> · <strong className="text-bg-dark">Revolut</strong> é só a reserva de emergência — não encostar</li>
           <li>Luxor (US$ 82,90) é o único que exige espécie — nenhum cartão resolve, separa as notas</li>
         </ul>
       </div>

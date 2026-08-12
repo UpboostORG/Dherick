@@ -127,7 +127,7 @@ export default function BancoEmergencia() {
         <ul className="text-sm text-warm-400 space-y-1.5">
           <li>✅ Emergência médica, voo perdido/cancelado, roubo/perda de cartão, passagem de volta inesperada</li>
           <li>✅ Manter parte em espécie escondida na mala (não tudo junto com a carteira)</li>
-          <li>❌ Não é pra hostel, passeio, festa ou "faltou dinheiro no fim do mês" — isso é o orçamento normal (US$ 3.000)</li>
+          <li>❌ Não é pra hostel, passeio, festa ou "faltou dinheiro no fim do mês" — isso é o orçamento normal (US$ 4.000)</li>
         </ul>
       </div>
     </div>

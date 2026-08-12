@@ -19,7 +19,7 @@ export default function Metas() {
     localStorage.setItem("__metas_rate", String(exchangeRate));
     localStorage.setItem("__metas_invested_v3", String(invested));
   }, [exchangeRate, invested, loaded]);
-  const totalUSD = 3000;
+  const totalUSD = 4000;
 
   const calc = useMemo(() => {
     const totalBRL = totalUSD * exchangeRate;
