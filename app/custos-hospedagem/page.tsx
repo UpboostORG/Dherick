@@ -14,13 +14,16 @@ export default function CustosHospedagem() {
   const stays = trip.accommodationCosts.stays;
   const [rate, setRate] = useState(trip.accommodationCosts.eurRate);
   const [usdRate, setUsdRate] = useState(5.20);
+  const [nomadBalance, setNomadBalance] = useState(280);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const r = localStorage.getItem("__custos_eurrate");
     const u = localStorage.getItem("__custos_usdrate");
+    const n = localStorage.getItem("__custos_nomad_balance");
     if (r) setRate(Number(r));
     if (u) setUsdRate(Number(u));
+    if (n) setNomadBalance(Number(n));
     setLoaded(true);
   }, []);
 
@@ -28,7 +31,8 @@ export default function CustosHospedagem() {
     if (!loaded) return;
     localStorage.setItem("__custos_eurrate", String(rate));
     localStorage.setItem("__custos_usdrate", String(usdRate));
-  }, [rate, usdRate, loaded]);
+    localStorage.setItem("__custos_nomad_balance", String(nomadBalance));
+  }, [rate, usdRate, nomadBalance, loaded]);
 
   const refunds = trip.accommodationCosts.refundsIncoming || [];
   const refundUsdTotal = refunds.reduce((s, r) => s + r.amountUsd, 0);
@@ -47,12 +51,14 @@ export default function CustosHospedagem() {
   const brl = (eur: number) => `R$ ${Math.round(eur * rate).toLocaleString()}`;
   const brlTotal = () => `R$ ${Math.round(calc.due * rate + calc.dueUsd * usdRate).toLocaleString()}`;
 
-  // Aplica o reembolso primeiro no USD devido, sobra vira crédito em EUR (via ponte BRL)
-  const usdAfterRefund = Math.max(0, calc.dueUsd - refundUsdTotal);
-  const usdSurplus = Math.max(0, refundUsdTotal - calc.dueUsd);
+  // Aplica o saldo já guardado na Nomad + o reembolso a caminho, primeiro no USD devido, sobra vira crédito em EUR (via ponte BRL)
+  const usdResources = nomadBalance + refundUsdTotal;
+  const usdAfterRefund = Math.max(0, calc.dueUsd - usdResources);
+  const usdSurplus = Math.max(0, usdResources - calc.dueUsd);
   const eurSurplusCredit = usdSurplus > 0 ? (usdSurplus * usdRate) / rate : 0;
   const eurAfterRefund = Math.max(0, calc.due - eurSurplusCredit);
   const netBrlAfterRefund = Math.round(eurAfterRefund * rate + usdAfterRefund * usdRate);
+  const tudoCoberto = usdAfterRefund === 0 && eurAfterRefund === 0;
 
   return (
     <div>
@@ -91,6 +97,20 @@ export default function CustosHospedagem() {
         </div>
       </div>
 
+      <div className="bg-white rounded-xl border-2 border-gold/30 p-5 mb-6">
+        <p className="text-[11px] font-medium tracking-[1.5px] text-warm-400 uppercase">💳 Saldo já guardado na Nomad (cartão dos hotéis)</p>
+        <div className="flex items-center gap-2 mt-2">
+          <span className="text-sm text-warm-400">US$</span>
+          <input
+            type="number"
+            value={nomadBalance}
+            onChange={(e) => setNomadBalance(Number(e.target.value) || 0)}
+            className="w-32 bg-bg border border-warm-200/60 text-right rounded px-2 py-1 text-2xl font-light font-mono"
+          />
+        </div>
+        <p className="text-xs text-warm-400 mt-2">Ajuste conforme for depositando — esse valor abate direto do que falta pra hospedagem</p>
+      </div>
+
       {refunds.length > 0 && (
         <div className="bg-green-50 rounded-xl border border-green-200/50 p-5 mb-6">
           <p className="text-[11px] font-medium tracking-[1.5px] text-green-700 uppercase mb-3">💸 Reembolso a caminho — abate o valor dos hotéis</p>
@@ -106,10 +126,14 @@ export default function CustosHospedagem() {
             </div>
           ))}
           <div className="border-t border-green-200/50 mt-3 pt-3">
-            <p className="text-xs text-warm-400">Dinheiro NOVO que ainda precisa entrar no Nomad, já descontando esse reembolso:</p>
-            <p className="text-lg font-mono text-green-700 mt-1">
-              € {eurAfterRefund.toFixed(2)} + US$ {usdAfterRefund.toFixed(2)} <span className="text-xs text-warm-400">(≈ R$ {netBrlAfterRefund.toLocaleString()})</span>
-            </p>
+            <p className="text-xs text-warm-400">Dinheiro NOVO que ainda precisa entrar no Nomad, já contando o saldo atual + esse reembolso:</p>
+            {tudoCoberto ? (
+              <p className="text-lg font-mono text-green-700 mt-1">Nada! Já está tudo coberto ✓ (só falta o reembolso cair)</p>
+            ) : (
+              <p className="text-lg font-mono text-green-700 mt-1">
+                € {eurAfterRefund.toFixed(2)} + US$ {usdAfterRefund.toFixed(2)} <span className="text-xs text-warm-400">(≈ R$ {netBrlAfterRefund.toLocaleString()})</span>
+              </p>
+            )}
           </div>
         </div>
       )}
