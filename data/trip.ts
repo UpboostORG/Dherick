@@ -19,7 +19,7 @@ export const trip = {
     { date: "24/09", from: "CGB", to: "GRU", status: "ok", tag: "Voo · OK", detail: "GOL G3 1469 · 02h10 → 05h25 · remarcado e confirmado" },
     { date: "25/09", from: "GRU", to: "DXB", status: "ok", tag: "Voo · OK", detail: "Emirates EK 262 · 01h05 → chegada 23h00 · confirmado" },
     { date: "25-30/09", place: "Dubai", status: "ok", tag: "5 dias · hostel OK", detail: "Explorar Dubai — Burj Khalifa, Marina, Gold Souk. Dubai Sea View Hostel, JBR Palm View confirmado." },
-    { date: "30/09", from: "DXB", to: "CAI", status: "warning", tag: "Voo · A COMPRAR", detail: "🚨 Kuwait Airways CANCELOU os dois trechos (aeroporto do Kuwait opera parcialmente). Reembolso de AED 1.104 pedido em 07/08. Comprar DIRETO DXB→CAI saindo depois das 20h — assim dá pra fazer o AWS Summit inteiro (8h-18h30) e chegar no Cairo de madrugada." },
+    { date: "30/09", from: "DXB", to: "CAI", status: "ok", tag: "Voo · OK", detail: "EgyptAir MS906 · 19h00 → 21h40 · direto · ref YIITAH · 2 malas de 23kg + 1 de mão incluídas · chega no Terminal 3 do Cairo (não T2) — Uber até Giza. Sai do AWS Summit ~16h30 pro aeroporto." },
     { date: "30/09-05/10", place: "Cairo", status: "ok", tag: "5 noites · OK", detail: "Pirâmides, Museu Egípcio, Khan el-Khalili. King's Gate Pyramids Horizon confirmado (até 12/10)." },
     { date: "05/10", from: "CAI", to: "Luxor", status: "ok", tag: "Ônibus · OK", detail: "Go Bus noturno (Nasr City) · 22h50 → chegada 06/10 07h30 · Business Class DD · ref BW5302849 · R$ 123" },
     { date: "06-07/10", place: "Luxor", status: "ok", tag: "2 dias · OK", detail: "Vale dos Reis, Templo de Karnak, Margem Ocidental. Happiness Guest House confirmado (reserva 05-08, você usa a noite de 06→07). Chega de ônibus 06/10 de manhã." },
@@ -138,6 +138,7 @@ export const trip = {
     confirmed: [
       { from: "CGB", to: "GRU", airline: "GOL · G3 1469 · Light (Smiles)", date: "24/09", time: "02h10 → 05h25", ref: "ELAAQM" },
       { from: "GRU", to: "DXB", airline: "Emirates · EK 262", date: "25/09", time: "01h05 → 23h00", ref: "BYYAHN" },
+      { from: "DXB", to: "CAI", airline: "EgyptAir · MS906", date: "30/09", time: "19h00 → 21h40", ref: "YIITAH" },
       { from: "CAI", to: "Luxor", airline: "Go Bus · ônibus noturno (Nasr City)", date: "05/10", time: "22h50 → 07h30 (06/10)", ref: "BW5302849" },
       { from: "Luxor", to: "CAI", airline: "Go Bus · ônibus noturno (chega no Tahrir)", date: "07/10", time: "23h30 → ~08h00 (08/10)", ref: "BW5416971" },
       { from: "CAI", to: "ATH", airline: "Aegean · A3931", date: "12/10", time: "04h00 → 06h00", ref: "XZECPY" },
@@ -145,9 +146,7 @@ export const trip = {
       { from: "JTR", to: "ATH", airline: "Ryanair · FR1237", date: "20/10", time: "00h00 → 00h50", ref: "T8EMHK" },
       { from: "ATH", to: "IST", airline: "Sky Express · GQ670", date: "20/10", time: "07h00 → 08h30", ref: "KPPSWK" },
     ],
-    toBuy: [
-      { from: "DXB", to: "CAI", note: "URGENTE · Kuwait cancelou (X44YYV). Comprar DIRETO, 30/09 saindo depois das 20h · EgyptAir (despachada inclusa) ou flydubai (7kg só) · ⚠️ garantir aeroporto DXB, não AUH/SHJ · comprar no site da companhia, não em agência", priority: "URGENTE" },
-    ] as { from: string; to: string; note: string; priority: string }[],
+    toBuy: [] as { from: string; to: string; note: string; priority: string }[],
   },
 
   accommodation: {
@@ -492,7 +491,8 @@ export const trip = {
     { text: "Turquia — isento de visto p/ turismo (até 90 dias)", done: true, priority: "OK" },
     { text: "Entrada Dubai (EAU) — isento, visto na chegada", done: true, priority: "OK" },
     { text: "Comprar ingressos festival STARLIGHT (Pirâmides)", done: true, priority: "OK" },
-    { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — sair de TÁXI às 11h05 (fim da keynote) pro voo das 13h05", done: true, priority: "OK" },
+    { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — com o voo agora às 19h00, dá pra ficar no evento INTEIRO (8h-18h30) e sair de táxi direto pro aeroporto (~16h30)", done: true, priority: "OK" },
+    { text: "✈️ Passagem DXB→CAI comprada: EgyptAir MS906 30/09 19h00→21h40 · ref YIITAH · 2x23kg + mão inclusos", done: true, priority: "OK" },
     { text: "✅ Check-in online Kuwait DXB→CAI · abre 29/09 13h05 (24h antes) · perguntar se aceitam cartão de embarque no celular (sem despachada) — se sim, dá pra ficar até o fim da keynote", done: false, priority: "MÉDIA" },
     { text: "🧳 Dia 30/09: levar mala+mochila pro AWS Summit (não dá pra voltar em JBR) · perguntar pelo cloakroom na retirada do crachá · plano B: Bounce/Radical Storage perto do WTC (~AED 20-30)", done: false, priority: "MÉDIA" },
     { text: "❌ Voluntário Web Summit/Slush: INVIÁVEL — exigem direito de trabalhar em PT/FI (turista BR não tem). Plano B: side events grátis de Lisboa na semana 9-12/11 (Luma/Eventbrite) ou ingresso promocional", done: false, priority: "MÉDIA" },
@@ -537,7 +537,6 @@ export const trip = {
     { text: "CIVP (Febre Amarela) emitido", done: true, priority: "OK" },
     { text: "Passagem CGB→GRU confirmada", done: true, priority: "OK" },
     { text: "Passagem GRU→DXB confirmada", done: true, priority: "OK" },
-    { text: "🚨 COMPRAR até domingo: EgyptAir MS906 · 30/09 19h00→21h40 direto · tarifa 'Melhor oferta' AED 995 (2 malas de 23kg inclusas) · comprar em egyptair.com, pagar em AED · se tiver pulado pra AED 1.645, espera 2-3 dias (picos duram pouco)", done: false, priority: "CRÍTICA" },
     { text: "💰 Reembolso Kuwait AED 1.104 pedido em 07/08 (Opção 1, não voucher) · prazo 30 dias úteis (~18-22/09) · SE NÃO CAIR ATÉ 21/09: abrir chargeback no Visa 5655 ANTES de viajar", done: false, priority: "ALTA" },
     { text: "📧 Liberar espaço no Gmail (está em 95%) — se lotar, você para de receber cartão de embarque, reservas e o reembolso · one.google.com/storage", done: false, priority: "ALTA" },
     { text: "🚌 Ônibus Cairo→Luxor (Go Bus noturno 05/10) pago · ref BW5302849", done: true, priority: "OK" },
