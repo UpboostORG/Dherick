@@ -289,6 +289,71 @@ export const trip = {
     ],
   },
 
+  checkinGuide: {
+    airlines: [
+      {
+        company: "GOL", ref: "ELAAQM", route: "CGB → GRU · 24/09",
+        hasApp: true, appName: "App GOL (App Store / Google Play)",
+        window: "Abre 48h antes · fecha 1h antes do voo",
+        how: "No app ou site: Check-in → localizador ELAAQM ou CPF → segue as instruções → salva o cartão de embarque no celular",
+        note: "Reserva emitida pelo Smiles (milhas) — check-in é normal, só remarcação/cancelamento que passa pelo Smiles",
+      },
+      {
+        company: "Emirates", ref: "BYYAHN", route: "GRU → DXB · 25/09",
+        hasApp: true, appName: "App Emirates",
+        window: "Abre 48h antes · fecha 90min antes (online) / 60min (app)",
+        how: "App ou emirates.com → Manage Booking → localizador BYYAHN → check-in → cartão de embarque digital",
+        note: "⚠️ Essa reserva é anterior à auditoria detalhada desta conversa — vale abrir o Manage Booking e CONFERIR se o nome está DHERICK / PRADO ABREU certinho antes da viagem",
+      },
+      {
+        company: "EgyptAir", ref: "YIITAH", route: "DXB → CAI · 30/09",
+        hasApp: true, appName: "App EGYPTAIR",
+        window: "Abre 48h antes · fecha 90min antes do voo",
+        how: "App ou egyptair.com → Check-in → localizador YIITAH → cartão de embarque digital",
+        note: "Nome conferido e corrigido nesta conversa: Dherick Prado Abreu ✓",
+      },
+      {
+        company: "Aegean", ref: "XZECPY", route: "CAI → ATH · 12/10",
+        hasApp: true, appName: "App Aegean Airlines",
+        window: "Abre 48h antes · fecha 30min antes do voo",
+        how: "App ou aegeanair.com → My Booking → localizador XZECPY → check-in",
+        note: "Nome no bilhete saiu como 'DHÉRICK' (com acento) — ver auditoria abaixo, risco baixo",
+      },
+      {
+        company: "Ryanair", ref: "SVD5SI + T8EMHK", route: "ATH↔JTR · 15/10 e 20/10",
+        hasApp: true, appName: "App Ryanair (OBRIGATÓRIO — não emitem cartão em papel)",
+        window: "Abre 24h antes de cada voo · fecha 2h antes",
+        how: "App Ryanair → Minhas reservas → check-in de cada trecho separadamente → cartão de embarque só existe no app",
+        note: "⚠️ Sem check-in no app = multa de ~€55 no balcão. Baixar o app com antecedência e fazer login",
+      },
+      {
+        company: "Sky Express", ref: "KPPSWK", route: "ATH → IST · 20/10",
+        hasApp: false, appName: "NÃO tem app — só site",
+        window: "Abre 48h antes",
+        how: "flights.skyexpress.gr/checkin → localizador KPPSWK + sobrenome → cartão de embarque chega por e-mail (salvar o PDF)",
+        note: "Único voo sem app dedicado — depende do e-mail, então mantenha a caixa de entrada com espaço",
+      },
+      {
+        company: "Go Bus (12go)", ref: "BW5302849 (ida) · BW5416971 (volta)", route: "CAI↔Luxor · 05/10 e 07/10",
+        hasApp: false, appName: "Não precisa de app — voucher por e-mail",
+        window: "Confirmação final ~1 dia antes da partida",
+        how: "Mostra o e-mail de confirmação (ou print) + passaporte físico ao motorista/guichê — sem check-in online",
+        note: "⚠️ Ver auditoria de nome abaixo — encontramos problema real nesses dois",
+      },
+    ],
+    nameAudit: [
+      { route: "GOL · CGB→GRU", ref: "ELAAQM", nameOnTicket: "DHERICK PRADO ABREU", status: "OK", note: "Confirmado — bate com o passaporte" },
+      { route: "Emirates · GRU→DXB", ref: "BYYAHN", nameOnTicket: "não verificado nesta conversa", status: "VERIFICAR", note: "Reserva mais antiga — abrir Manage Booking e conferir nome antes da viagem" },
+      { route: "EgyptAir · DXB→CAI", ref: "YIITAH", nameOnTicket: "Dherick Prado Abreu", status: "OK", note: "Corrigido e conferido nesta conversa" },
+      { route: "Go Bus IDA · CAI→Luxor", ref: "BW5302849", nameOnTicket: "Dherick Abreu (sem 'Prado') + nascimento errado (28/09/2004, deveria ser 2006)", status: "CORRIGIR", note: "🚨 Achado real: falta o 'Prado' no sobrenome E a data de nascimento está errada. Risco baixo em ônibus (raramente conferem documento a fundo), mas contate o suporte do 12go pra corrigir — evita qualquer dor de cabeça" },
+      { route: "Go Bus VOLTA · Luxor→CAI", ref: "BW5416971", nameOnTicket: "e-mail de confirmação mostra 'Dherick Prado Abreu' completo, mas o voucher/ticket em si não foi conferido", status: "VERIFICAR", note: "Abre o voucher/PDF do 12go (não só o e-mail de confirmação) e confere o campo do nome do passageiro" },
+      { route: "Aegean · CAI→ATH", ref: "XZECPY", nameOnTicket: "DHÉRICK PRADO ABREU (com acento no É)", status: "BAIXO RISCO", note: "Passaporte brasileiro não usa acento no campo de leitura (MRZ). Sistemas de aeroporto normalmente ignoram acento na comparação — risco bem baixo, mas fique atento no check-in" },
+      { route: "Ryanair · ATH→JTR", ref: "SVD5SI", nameOnTicket: "PRADO ABREU / DHERICK", status: "OK", note: "Preenchido correto nesta conversa" },
+      { route: "Ryanair · JTR→ATH", ref: "T8EMHK", nameOnTicket: "PRADO ABREU / DHERICK", status: "OK", note: "Mesma conta/sessão do trecho anterior" },
+      { route: "Sky Express · ATH→IST", ref: "KPPSWK", nameOnTicket: "DHERICK PRADO ABREU", status: "OK", note: "Confirmado no comprovante" },
+    ],
+  },
+
   hostelRules: {
     universal: [
       { title: "Check-in é à tarde, check-out é cedo", desc: "Padrão: entra 14h-15h, sai até 10h-11h30. Chegou de manhã? Deixa a mochila no guarda-volumes (quase todo hostel tem, grátis) e volta depois." },
@@ -494,7 +559,8 @@ export const trip = {
     { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — com o voo agora às 19h00, dá pra ficar no evento INTEIRO (8h-18h30) e sair de táxi direto pro aeroporto (~16h30)", done: true, priority: "OK" },
     { text: "✈️ Passagem DXB→CAI comprada: EgyptAir MS906 30/09 19h00→21h40 · ref YIITAH · 2x23kg + mão inclusos", done: true, priority: "OK" },
     { text: "💳 DEVOLVER AED 1.025 pra Wise — a Nomad não tinha saldo, pagou a passagem EgyptAir pela Wise. Esse valor estava reservado pros Ray-Ban Meta em Dubai — repor antes de comprar os óculos", done: false, priority: "ALTA" },
-    { text: "✅ Check-in online Kuwait DXB→CAI · abre 29/09 13h05 (24h antes) · perguntar se aceitam cartão de embarque no celular (sem despachada) — se sim, dá pra ficar até o fim da keynote", done: false, priority: "MÉDIA" },
+    { text: "🚨 Corrigir nome no ônibus BW5302849 (Cairo→Luxor) com o suporte do 12go: está 'Dherick Abreu' faltando o 'Prado', e nascimento errado (2004 em vez de 2006)", done: false, priority: "ALTA" },
+    { text: "🟡 Conferir o voucher real (não só o e-mail) do ônibus BW5416971 (Luxor→Cairo) e da reserva Emirates BYYAHN — confirmar nome DHERICK PRADO ABREU certinho", done: false, priority: "MÉDIA" },
     { text: "🧳 Dia 30/09: levar mala+mochila pro AWS Summit (não dá pra voltar em JBR) · perguntar pelo cloakroom na retirada do crachá · plano B: Bounce/Radical Storage perto do WTC (~AED 20-30)", done: false, priority: "MÉDIA" },
     { text: "❌ Voluntário Web Summit/Slush: INVIÁVEL — exigem direito de trabalhar em PT/FI (turista BR não tem). Plano B: side events grátis de Lisboa na semana 9-12/11 (Luma/Eventbrite) ou ingresso promocional", done: false, priority: "MÉDIA" },
     { text: "📱 Agendar safari no deserto com My Dubai Desert Tours pelo WhatsApp +971 54 510 5415 (AED 189) — antes de pagar: pedir licença DTCM, checar Instagram, sinal mínimo + resto em dinheiro no dia, confirmar tudo por escrito", done: false, priority: "ALTA" },
