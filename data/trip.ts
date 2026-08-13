@@ -592,7 +592,7 @@ export const trip = {
     { text: "💉 Vacina Hepatite A · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
     { text: "💉 Vacina Febre Tifoide · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
     { text: "📱 eSIM / chip internacional (Airalo) · comprar até set/26", done: false, priority: "MÉDIA" },
-    { text: "💵 Comprar US$ 500 em espécie · até set/26 · cobre o hotel de Luxor (só cash) + câmbio de EGP no Egito + margem", done: false, priority: "MÉDIA" },
+    { text: "💵 SACAR (não comprar) US$ 500 pela Wise no exterior · dividir ~US$270 em Dubai (set, dentro do limite grátis €250/mês) + resto no Egito (out) · sempre escolher moeda LOCAL no caixa, nunca BRL", done: false, priority: "MÉDIA" },
     { text: "🎒 Mochila / mala definida (plano: mala pequena de rodinha + mochila)", done: false, priority: "BAIXA" },
     { text: "📋 Lista de roupas e itens", done: false, priority: "BAIXA" },
     { text: "☁ Backup documentos na nuvem", done: false, priority: "BAIXA" },
@@ -655,7 +655,7 @@ export const trip = {
       { name: "Revolut — reserva de emergência", detail: "Meta € 1.000 + US$ 1.000 · não encostar · cartão físico separado da carteira", status: "€ 589 + US$ 584 · faltam € 411 + US$ 416", done: false },
     ],
     cash: [
-      { label: "🎯 COMPRAR US$ 500 em espécie", desc: "Cobre com folga: US$ 85 obrigatório do hotel de Luxor (só cash) + câmbio de EGP no dia a dia do Egito + margem de segurança", tag: "OBRIGATÓRIO" },
+      { label: "🎯 SACAR US$ 500 (não comprar em casa de câmbio)", desc: "Câmbio físico no Brasil perde 3-8% de spread + IOF 1,1%. Melhor: saca pela WISE no exterior — até €250/mês grátis no câmbio real. Divide: ~US$270 em Dubai (set) + resto no Egito (out, limite reseta). Cobre o Luxor (só cash) + EGP + margem", tag: "OBRIGATÓRIO" },
       { label: "~€ 220", desc: "Grécia EM DINHEIRO: Athens Hawks € 42,71 + Caveland € 81,74 + € 10 caução + guarda-volumes (~€ 35) + miudezas · os dois hostels exigem espécie", tag: "OBRIGATÓRIO" },
       { label: "AED · EGP · TRY", desc: "Não comprar no Brasil: dirham é atrelado ao dólar (cartão resolve), libra egípcia e lira troca/saca lá", tag: "NÃO COMPRAR" },
     ],
