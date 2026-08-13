@@ -303,7 +303,7 @@ export const trip = {
         hasApp: true, appName: "App Emirates",
         window: "Abre 48h antes · fecha 90min antes (online) / 60min (app)",
         how: "App ou emirates.com → Manage Booking → localizador BYYAHN → check-in → cartão de embarque digital",
-        note: "⚠️ Essa reserva é anterior à auditoria detalhada desta conversa — vale abrir o Manage Booking e CONFERIR se o nome está DHERICK / PRADO ABREU certinho antes da viagem",
+        note: "Nome conferido: sai 'PRADOABREU' junto (sem espaço) — baixo risco, imigração normaliza pelo MRZ do passaporte",
       },
       {
         company: "EgyptAir", ref: "YIITAH", route: "DXB → CAI · 30/09",
@@ -343,7 +343,7 @@ export const trip = {
     ],
     nameAudit: [
       { route: "GOL · CGB→GRU", ref: "ELAAQM", nameOnTicket: "DHERICK PRADO ABREU", status: "OK", note: "Confirmado — bate com o passaporte" },
-      { route: "Emirates · GRU→DXB", ref: "BYYAHN", nameOnTicket: "não verificado nesta conversa", status: "VERIFICAR", note: "Reserva mais antiga — abrir Manage Booking e conferir nome antes da viagem" },
+      { route: "Emirates · GRU→DXB", ref: "BYYAHN", nameOnTicket: "Dherick PRADOABREU (sobrenome junto, sem espaço)", status: "BAIXO RISCO", note: "Conferido: nome completo está lá, só sem espaço entre Prado e Abreu — sistema de reserva compactou. Imigração compara pelo MRZ do passaporte, que normaliza isso. Mesmo tipo de caso do acento na Aegean — não precisa corrigir" },
       { route: "EgyptAir · DXB→CAI", ref: "YIITAH", nameOnTicket: "Dherick Prado Abreu", status: "OK", note: "Corrigido e conferido nesta conversa" },
       { route: "Go Bus IDA · CAI→Luxor", ref: "BW5302849", nameOnTicket: "Dherick Abreu (sem 'Prado') + nascimento errado (28/09/2004, deveria ser 2006)", status: "CORRIGIR", note: "🚨 Achado real: falta o 'Prado' no sobrenome E a data de nascimento está errada. Risco baixo em ônibus (raramente conferem documento a fundo), mas contate o suporte do 12go pra corrigir — evita qualquer dor de cabeça" },
       { route: "Go Bus VOLTA · Luxor→CAI", ref: "BW5416971", nameOnTicket: "e-mail de confirmação mostra 'Dherick Prado Abreu' completo, mas o voucher/ticket em si não foi conferido", status: "VERIFICAR", note: "Abre o voucher/PDF do 12go (não só o e-mail de confirmação) e confere o campo do nome do passageiro" },
@@ -560,7 +560,7 @@ export const trip = {
     { text: "✈️ Passagem DXB→CAI comprada: EgyptAir MS906 30/09 19h00→21h40 · ref YIITAH · 2x23kg + mão inclusos", done: true, priority: "OK" },
     { text: "💳 DEVOLVER AED 1.025 pra Wise — a Nomad não tinha saldo, pagou a passagem EgyptAir pela Wise. Esse valor estava reservado pros Ray-Ban Meta em Dubai — repor antes de comprar os óculos", done: false, priority: "ALTA" },
     { text: "🚨 Corrigir nome no ônibus BW5302849 (Cairo→Luxor) com o suporte do 12go: está 'Dherick Abreu' faltando o 'Prado', e nascimento errado (2004 em vez de 2006)", done: false, priority: "ALTA" },
-    { text: "🟡 Conferir o voucher real (não só o e-mail) do ônibus BW5416971 (Luxor→Cairo) e da reserva Emirates BYYAHN — confirmar nome DHERICK PRADO ABREU certinho", done: false, priority: "MÉDIA" },
+    { text: "🟡 Conferir o voucher real (não só o e-mail) do ônibus BW5416971 (Luxor→Cairo) — confirmar nome DHERICK PRADO ABREU certinho", done: false, priority: "MÉDIA" },
     { text: "🧳 Dia 30/09: levar mala+mochila pro AWS Summit (não dá pra voltar em JBR) · perguntar pelo cloakroom na retirada do crachá · plano B: Bounce/Radical Storage perto do WTC (~AED 20-30)", done: false, priority: "MÉDIA" },
     { text: "❌ Voluntário Web Summit/Slush: INVIÁVEL — exigem direito de trabalhar em PT/FI (turista BR não tem). Plano B: side events grátis de Lisboa na semana 9-12/11 (Luma/Eventbrite) ou ingresso promocional", done: false, priority: "MÉDIA" },
     { text: "📱 Agendar safari no deserto com My Dubai Desert Tours pelo WhatsApp +971 54 510 5415 (AED 189) — antes de pagar: pedir licença DTCM, checar Instagram, sinal mínimo + resto em dinheiro no dia, confirmar tudo por escrito", done: false, priority: "ALTA" },
