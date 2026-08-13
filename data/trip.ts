@@ -592,7 +592,7 @@ export const trip = {
     { text: "💉 Vacina Hepatite A · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
     { text: "💉 Vacina Febre Tifoide · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
     { text: "📱 eSIM / chip internacional (Airalo) · comprar até set/26", done: false, priority: "MÉDIA" },
-    { text: "💵 Comprar dólares em espécie · até set/26 · mínimo US$ 85 SÓ pro hotel de Luxor (só aceita cash) + dia a dia Egito", done: false, priority: "MÉDIA" },
+    { text: "💵 Comprar US$ 500 em espécie · até set/26 · cobre o hotel de Luxor (só cash) + câmbio de EGP no Egito + margem", done: false, priority: "MÉDIA" },
     { text: "🎒 Mochila / mala definida (plano: mala pequena de rodinha + mochila)", done: false, priority: "BAIXA" },
     { text: "📋 Lista de roupas e itens", done: false, priority: "BAIXA" },
     { text: "☁ Backup documentos na nuvem", done: false, priority: "BAIXA" },
@@ -651,16 +651,15 @@ export const trip = {
     pockets: [
       { name: "Wise — dia a dia", detail: "US$ 4.000 · o orçamento da viagem inteira, hospedagem paga à parte", status: "US$ 2.613 juntados · faltam US$ 1.387", done: false },
       { name: "Wise — euros da Grécia", detail: "€ 500 · converter DENTRO do Wise uns dias antes de 12/10 (dentro do total de US$ 4.000 acima)", status: "planejar a conversão perto da data", done: false },
-      { name: "Nomad — hotéis", detail: "€ 195,23 + US$ 207,10 já devidos nas reservas (≈ R$ 2.229) · Dubai, Cairo, Luxor, Atenas, Caveland (+€10 caução) · Santorini top e Istambul somam quando reservar", status: "a juntar", done: false },
+      { name: "Nomad — hotéis", detail: "€ 195,23 + US$ 207,10 devidos (Dubai, Cairo, Luxor, Atenas, Caveland +€10 caução) · coberto pelo saldo atual (US$ 280) + reembolso Kuwait a caminho · Santorini top e Istambul somam quando reservar", status: "coberto ✓ (falta só o reembolso cair)", done: true },
       { name: "Revolut — reserva de emergência", detail: "Meta € 1.000 + US$ 1.000 · não encostar · cartão físico separado da carteira", status: "€ 589 + US$ 584 · faltam € 411 + US$ 416", done: false },
     ],
     cash: [
-      { label: "US$ 85", desc: "Hotel de Luxor SÓ aceita dinheiro (em dólar) — separar essas notas do resto", tag: "OBRIGATÓRIO" },
-      { label: "US$ 200-300", desc: "Notas novas pra trocar por EGP no dia a dia do Egito — sai dos US$ 4.000, não é dinheiro extra", tag: "SUGERIDO" },
+      { label: "🎯 COMPRAR US$ 500 em espécie", desc: "Cobre com folga: US$ 85 obrigatório do hotel de Luxor (só cash) + câmbio de EGP no dia a dia do Egito + margem de segurança", tag: "OBRIGATÓRIO" },
       { label: "~€ 220", desc: "Grécia EM DINHEIRO: Athens Hawks € 42,71 + Caveland € 81,74 + € 10 caução + guarda-volumes (~€ 35) + miudezas · os dois hostels exigem espécie", tag: "OBRIGATÓRIO" },
       { label: "AED · EGP · TRY", desc: "Não comprar no Brasil: dirham é atrelado ao dólar (cartão resolve), libra egípcia e lira troca/saca lá", tag: "NÃO COMPRAR" },
     ],
-    missingTotal: "~R$ 14.030 fecham os 3 bolsos conhecidos: US$ 1.387 dia a dia + € 195,23/US$ 207,10 hotéis + € 411/US$ 416 reserva de emergência · ainda vão somar: noite top Santorini, hostel Istambul, seguro (~R$ 600) e vacinas",
+    missingTotal: "~R$ 11.801 fecham os bolsos que ainda faltam: US$ 1.387 dia a dia + € 411/US$ 416 reserva de emergência · hotéis já cobertos ✓ · ainda vão somar: noite top Santorini, hostel Istambul, seguro (~R$ 600) e vacinas",
   },
 
   emergencyFund: {
