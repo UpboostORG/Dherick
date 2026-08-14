@@ -4,13 +4,14 @@ import { trip } from "@/data/trip";
 import PdfUpload from "@/components/PdfUpload";
 import { useChecklist } from "@/hooks/useChecklist";
 import { useEditableData } from "@/hooks/useEditableData";
+import ResetEdits from "@/components/ResetEdits";
 
 type Confirmed = typeof trip.accommodation.confirmed[0];
 type ToBook = typeof trip.accommodation.toBook[0];
 
 export default function Hospedagem() {
   const { items, loaded: checkLoaded } = useChecklist();
-  const { data: confirmed, loaded: l1, updateItem: updateConf, addItem: addConf, removeItem: removeConf } = useEditableData<Confirmed>("accom-confirmed", trip.accommodation.confirmed);
+  const { data: confirmed, loaded: l1, edited: confEdited, resetSection: resetConf, updateItem: updateConf, addItem: addConf, removeItem: removeConf } = useEditableData<Confirmed>("accom-confirmed", trip.accommodation.confirmed);
   const { data: toBook, loaded: l2, updateItem: updateBook, addItem: addBook, removeItem: removeBook } = useEditableData<ToBook>("accom-tobook", trip.accommodation.toBook);
   const tips = trip.accommodation.hostelTips;
 
@@ -23,12 +24,20 @@ export default function Hospedagem() {
   const [newConf, setNewConf] = useState<Partial<Confirmed>>({});
   const [newBook, setNewBook] = useState<Partial<ToBook>>({});
 
+  // A noite top de Santorini é uma reserva à parte do Caveland. Casar só pela
+  // primeira palavra ("Santorini") fazia o item do Caveland, já reservado,
+  // marcá-la como pronta e sumir com ela da lista de pendências.
   function isBooked(city: string) {
-    return items.some((i) => i.done && i.text.toLowerCase().includes("hostel") && i.text.toLowerCase().includes(city.toLowerCase()));
+    const c = city.toLowerCase();
+    if (c.includes("noite top")) {
+      return items.some((i) => i.done && i.text.toLowerCase().includes("noite top"));
+    }
+    const first = c.split(" ")[0];
+    return items.some((i) => i.done && i.text.toLowerCase().includes("hostel") && i.text.toLowerCase().includes(first));
   }
 
-  const pendingToBook = toBook.filter((h) => !isBooked(h.city.split(" ")[0]));
-  const doneToBook = toBook.filter((h) => isBooked(h.city.split(" ")[0]));
+  const pendingToBook = toBook.filter((h) => !isBooked(h.city));
+  const doneToBook = toBook.filter((h) => isBooked(h.city));
 
   if (!checkLoaded || !l1 || !l2) return null;
 
@@ -38,9 +47,10 @@ export default function Hospedagem() {
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Hospedagem</h1>
-      <p className="text-sm text-warm-400 mb-8">
-        {confirmed.length + doneToBook.length} confirmada{confirmed.length + doneToBook.length > 1 ? "s" : ""} · {pendingToBook.length} hostel{pendingToBook.length !== 1 ? "s" : ""} a reservar · ✏️ para editar
+      <p className="text-sm text-warm-400 mb-4">
+        {confirmed.length + doneToBook.length} confirmada{confirmed.length + doneToBook.length > 1 ? "s" : ""} · {pendingToBook.length} a reservar · ✏️ para editar
       </p>
+      <ResetEdits edited={confEdited} onReset={resetConf} label="a hospedagem" />
 
       <div className="bg-bg-dark text-white rounded-xl p-5 mb-8">
         <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">💵 Dinheiro da hospedagem — levar separado dos US$ 4.000</p>

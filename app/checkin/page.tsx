@@ -67,8 +67,8 @@ export default function CheckIn() {
         <p className="text-sm font-semibold mb-2">O que fazer com as pendências</p>
         <ul className="text-sm text-warm-400 space-y-1.5">
           <li>🚨 <strong className="text-bg-dark">Go Bus ida (BW5302849):</strong> contatar o suporte do 12go pra corrigir nome ("Prado" faltando) e data de nascimento</li>
-          <li>🟡 <strong className="text-bg-dark">Go Bus volta (BW5416971) e Emirates:</strong> conferir o documento/voucher real, não só o e-mail de confirmação</li>
-          <li>ℹ️ <strong className="text-bg-dark">Aegean:</strong> o acento no nome é risco baixo — passaportes não usam acento na leitura, mas fica de olho no check-in</li>
+          <li>🟡 <strong className="text-bg-dark">Go Bus volta (BW5416971):</strong> conferir o voucher/PDF real, não só o e-mail de confirmação</li>
+          <li>ℹ️ <strong className="text-bg-dark">Aegean e Emirates:</strong> acento no nome e sobrenome sem espaço são risco baixo — a imigração compara pelo MRZ do passaporte, que normaliza os dois. Não precisa corrigir</li>
         </ul>
       </div>
     </div>

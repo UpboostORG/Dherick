@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 export default function Countdown({ target }: { target: string }) {
   const [diff, setDiff] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
 
+  // Derivado do próprio target pra não desencontrar do trip.ts (o voo já foi
+  // remarcado uma vez e a data escrita à mão aqui ficou 10 min atrasada).
+  const d = new Date(target);
+  const p = (n: number) => String(n).padStart(2, "0");
+  const departureLabel = `${p(d.getDate())}/${p(d.getMonth() + 1)}/${d.getFullYear()}, ${p(d.getHours())}h${p(d.getMinutes())}`;
+
   useEffect(() => {
     function calc() {
       const now = new Date().getTime();
@@ -45,7 +51,7 @@ export default function Countdown({ target }: { target: string }) {
       <p className="text-sm text-warm-300">
         Para a maior aventura da sua vida — sua <strong className="text-white">primeira viagem pelo mundo.</strong>
       </p>
-      <p className="text-sm text-warm-400">Partida de Cuiabá em 24/09/2026, 02h00.</p>
+      <p className="text-sm text-warm-400">Partida de Cuiabá em {departureLabel}.</p>
     </div>
   );
 }

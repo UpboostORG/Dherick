@@ -3,23 +3,26 @@ import { useState } from "react";
 import { trip } from "@/data/trip";
 import { useChecklist } from "@/hooks/useChecklist";
 import { useEditableData } from "@/hooks/useEditableData";
+import ResetEdits from "@/components/ResetEdits";
 
-const statusOverrides: Record<string, { checkText: string; okTag: string }> = {
+// okTag ausente = mantém a tag original do trip.ts (que já traz a contagem de
+// noites certa). Só define okTag onde a tag original fala de pendência.
+const statusOverrides: Record<string, { checkText: string; okTag?: string }> = {
   "Dubai": { checkText: "Reservar hostel Dubai", okTag: "5 dias · hostel OK" },
-  "Cairo": { checkText: "Reservar hostel Cairo", okTag: "hostel OK" },
+  "Cairo": { checkText: "Reservar hostel Cairo" },
   "Luxor": { checkText: "Reservar hostel Luxor", okTag: "2 dias · OK" },
-  "STARLIGHT": { checkText: "Comprar ingressos festival STARLIGHT", okTag: "Ingresso OK" },
+  "STARLIGHT": { checkText: "Comprar ingressos festival STARLIGHT" },
   "Atenas": { checkText: "Reservar hostel Atenas", okTag: "3 noites · hostel OK" },
   "Santorini": { checkText: "Reservar hostel Santorini", okTag: "3 noites · hostel OK" },
   "Noite top": { checkText: "Reservar a noite top Santorini", okTag: "1 noite top · OK" },
-  "Istambul": { checkText: "Reservar hostel Istambul", okTag: "~4 noites · hostel OK" },
+  "Istambul": { checkText: "Reservar hostel Istambul" },
 };
 
 interface ItineraryItem { date: string; from?: string; to?: string; place?: string; status: string; tag: string; detail: string; }
 
 export default function Roteiro() {
   const { items, loaded: checkLoaded } = useChecklist();
-  const { data: itinerary, loaded: dataLoaded, updateItem, addItem, removeItem } = useEditableData<ItineraryItem>("itinerary", trip.itinerary as ItineraryItem[]);
+  const { data: itinerary, loaded: dataLoaded, edited, resetSection, updateItem, addItem, removeItem } = useEditableData<ItineraryItem>("itinerary", trip.itinerary as ItineraryItem[]);
   const [editIdx, setEditIdx] = useState<number | null>(null);
   const [draft, setDraft] = useState<Partial<ItineraryItem>>({});
   const [adding, setAdding] = useState(false);
@@ -34,7 +37,7 @@ export default function Roteiro() {
     for (const [key, override] of Object.entries(statusOverrides)) {
       if (place.includes(key)) {
         if (isDone(override.checkText)) {
-          return { status: "ok" as const, tag: override.okTag, detail: item.detail.replace(/Hostel ainda não reservado\.?/, "Hostel reservado.").replace(/Hostel a reservar\.?/, "Hostel reservado.").replace(/Hostel a definir\.?/, "Hostel reservado.") };
+          return { status: "ok" as const, tag: override.okTag ?? item.tag, detail: item.detail.replace(/Hostel ainda não reservado\.?/, "Hostel reservado.").replace(/Hostel a reservar\.?/, "Hostel reservado.").replace(/Hostel a definir\.?/, "Hostel reservado.") };
         }
       }
     }
@@ -71,7 +74,8 @@ export default function Roteiro() {
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Roteiro</h1>
-      <p className="text-sm text-warm-400 mb-8">Ida sem volta definida · clique no ✏️ para editar</p>
+      <p className="text-sm text-warm-400 mb-4">Ida sem volta definida · clique no ✏️ para editar</p>
+      <ResetEdits edited={edited} onReset={resetSection} label="o roteiro" />
 
       <div className="relative">
         <div className="absolute left-[72px] top-0 bottom-0 w-px bg-warm-200/40 hidden sm:block" />

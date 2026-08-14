@@ -183,8 +183,8 @@ export default function CustosHospedagem() {
       <div className="bg-white rounded-xl border-l-4 border-l-gold p-5 mt-6">
         <p className="text-sm font-semibold mb-2">Como levar esse dinheiro</p>
         <ul className="text-sm text-warm-400 space-y-1.5">
-          <li>🇪🇬 Egito paga em <strong className="text-bg-dark">USD</strong> (lei p/ estrangeiros): King's Gate US$ 124,20 aceita cartão · <strong className="text-bg-dark">Luxor US$ 82,90 SÓ DINHEIRO — leve ~US$ 85 em espécie</strong></li>
-          <li>🇬🇷 Grécia: <strong className="text-bg-dark">euros em espécie</strong> — Athens Hawks € 42,71 + Caveland € 81,74 (valor exato) + € 10 de caução = leve ~€ 220 em notas</li>
+          <li>🇪🇬 Egito paga em <strong className="text-bg-dark">USD</strong> (lei p/ estrangeiros): King's Gate US$ 124,20 aceita cartão · <strong className="text-bg-dark">Luxor US$ 82,90 SÓ DINHEIRO — sai do saque de US$ 250 feito em Dubai</strong></li>
+          <li>🇬🇷 Grécia: <strong className="text-bg-dark">euros em espécie</strong> — Athens Hawks € 42,71 + Caveland € 81,74 (valor exato) + € 10 de caução ≈ € 135 · <strong className="text-bg-dark">saque de € 250 ao chegar em Atenas</strong> cobre isso + guarda-volumes</li>
           <li>💳 Divisão dos cartões: dia a dia sai do <strong className="text-bg-dark">Wise (US$ 4.000)</strong> · hotéis saem do <strong className="text-bg-dark">Nomad</strong> · <strong className="text-bg-dark">Revolut</strong> é só a reserva de emergência — não encostar</li>
           <li>Luxor (US$ 82,90) é o único que exige espécie — nenhum cartão resolve, separa as notas</li>
         </ul>

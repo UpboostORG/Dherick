@@ -9,7 +9,9 @@ const WorldMap = dynamic(() => import("@/components/WorldMap"), { ssr: false });
 
 export default function Home() {
   const { done, total, pct, pending, loaded } = useChecklistStats();
-  const criticalCount = pending.filter(c => c.priority === "CRÍTICA").length;
+  // Nenhum item do trip.ts usa "CRÍTICA" — só OK/ALTA/MÉDIA/BAIXA. Filtrar só
+  // por CRÍTICA deixava este contador travado em 0 com pendências ALTA abertas.
+  const criticalCount = pending.filter(c => c.priority === "CRÍTICA" || c.priority === "ALTA").length;
 
   if (!loaded) return null;
 
@@ -34,7 +36,7 @@ export default function Home() {
         </div>
         <div className="bg-white rounded-xl border border-warm-200/30 p-4 shadow-sm">
           <p className="text-[10px] font-medium tracking-[1.5px] text-warm-400 uppercase">Países na Rota</p>
-          <p className="text-3xl font-light text-bg-dark mt-1">5</p>
+          <p className="text-3xl font-light text-bg-dark mt-1">4</p>
           <p className="text-xs text-warm-400">EAU · Egito · Grécia · Turquia</p>
         </div>
       </div>

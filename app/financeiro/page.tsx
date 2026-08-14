@@ -19,13 +19,21 @@ export default function Financeiro() {
 
   const distributed = distribution.reduce((s, d) => s + d.amount, 0);
 
-  const hostelsPending = items.filter((i) => !i.done && i.text.toLowerCase().includes("reservar hostel")).length;
-  const flightsPending = items.filter((i) => !i.done && i.text.toLowerCase().includes("passagem")).length;
+  // "noite top" também conta: é uma reserva de verdade que falta, mas o texto
+  // dela não tem a palavra "hostel" (é hotel), então escapava da contagem.
+  const hostelsPending = items.filter((i) => {
+    const t = i.text.toLowerCase();
+    return !i.done && (t.includes("reservar hostel") || t.includes("noite top"));
+  }).length;
+  // Conta só o que realmente falta comprar (trip.flights.toBuy). O filtro antigo
+  // procurava a palavra "passagem" no checklist e pegava o item de devolver a
+  // Wise ("pagou a passagem EgyptAir"), inventando uma passagem pendente.
+  const flightsPending = trip.flights.toBuy.length;
   const seguroPending = items.some((i) => !i.done && i.text.toLowerCase().includes("seguro"));
 
   const pendingTags: string[] = [];
-  if (hostelsPending > 0) pendingTags.push(`${hostelsPending} hostel${hostelsPending > 1 ? "s" : ""} a reservar`);
-  if (flightsPending > 0) pendingTags.push(`${flightsPending} passagen${flightsPending > 1 ? "s" : ""} a comprar`);
+  if (hostelsPending > 0) pendingTags.push(`${hostelsPending} hospedage${hostelsPending > 1 ? "ns" : "m"} a reservar`);
+  if (flightsPending > 0) pendingTags.push(`${flightsPending} passage${flightsPending > 1 ? "ns" : "m"} a comprar`);
   if (seguroPending) pendingTags.push("Seguro viagem");
 
   if (!checkLoaded || !distLoaded) return null;
@@ -59,7 +67,7 @@ export default function Financeiro() {
       </div>
 
       <div className="bg-white rounded-xl border-2 border-gold/30 p-5 mb-6">
-        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">Plano de dinheiro — os 5 bolsos</p>
+        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">Plano de dinheiro — os {trip.moneyPlan.pockets.length} bolsos</p>
         <div className="space-y-2">
           {trip.moneyPlan.pockets.map((p, i) => (
             <div key={i} className={`flex items-start justify-between gap-3 p-3 rounded-lg ${p.done ? "bg-green-50" : "bg-bg"}`}>

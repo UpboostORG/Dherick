@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
+import { trip } from "@/data/trip";
 
 export default function Metas() {
   const [exchangeRate, setExchangeRate] = useState(5.20);
@@ -26,7 +27,7 @@ export default function Metas() {
     const investedBRL = invested * exchangeRate;
     const remaining = totalUSD - invested;
     const remainingBRL = remaining * exchangeRate;
-    const departureDate = new Date("2026-09-24");
+    const departureDate = new Date(trip.departureDate);
     const now = new Date();
     const daysLeft = Math.max(1, Math.ceil((departureDate.getTime() - now.getTime()) / 86400000));
     const weeksLeft = Math.max(1, Math.ceil(daysLeft / 7));

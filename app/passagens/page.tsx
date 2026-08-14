@@ -4,13 +4,14 @@ import { trip } from "@/data/trip";
 import PdfUpload from "@/components/PdfUpload";
 import { useChecklist } from "@/hooks/useChecklist";
 import { useEditableData } from "@/hooks/useEditableData";
+import ResetEdits from "@/components/ResetEdits";
 
 type Confirmed = typeof trip.flights.confirmed[0];
 type ToBuy = typeof trip.flights.toBuy[0];
 
 export default function Passagens() {
   const { items, loaded: checkLoaded } = useChecklist();
-  const { data: confirmed, loaded: l1, updateItem: updateConfirmed, addItem: addConfirmed, removeItem: removeConfirmed } = useEditableData<Confirmed>("flights-confirmed", trip.flights.confirmed);
+  const { data: confirmed, loaded: l1, edited: confEdited, resetSection: resetConfirmed, updateItem: updateConfirmed, addItem: addConfirmed, removeItem: removeConfirmed } = useEditableData<Confirmed>("flights-confirmed", trip.flights.confirmed);
   const { data: toBuy, loaded: l2, updateItem: updateToBuy, addItem: addToBuy, removeItem: removeToBuy } = useEditableData<ToBuy>("flights-tobuy", trip.flights.toBuy);
 
   const [editConf, setEditConf] = useState<number | null>(null);
@@ -46,9 +47,10 @@ export default function Passagens() {
   return (
     <div>
       <h1 className="text-3xl font-serif mb-1">Passagens aéreas</h1>
-      <p className="text-sm text-warm-400 mb-8">
+      <p className="text-sm text-warm-400 mb-4">
         {confirmed.length + bought.length} trecho{confirmed.length + bought.length !== 1 ? "s" : ""} confirmado{confirmed.length + bought.length !== 1 ? "s" : ""} · {pending.length} a comprar · ✏️ para editar
       </p>
+      <ResetEdits edited={confEdited} onReset={resetConfirmed} label="as passagens" />
 
       <p className="text-[11px] font-medium tracking-[1.5px] text-green-700 uppercase mb-4">Confirmadas</p>
       <div className="space-y-3 mb-4">

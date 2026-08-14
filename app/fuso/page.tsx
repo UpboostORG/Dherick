@@ -7,7 +7,7 @@ const PLACES = [
   { city: "Dubai", tz: "Asia/Dubai", flag: "🇦🇪", note: "25-30/09" },
   { city: "Cairo & Luxor", tz: "Africa/Cairo", flag: "🇪🇬", note: "30/09-12/10" },
   { city: "Atenas & Santorini", tz: "Europe/Athens", flag: "🇬🇷", note: "12-20/10" },
-  { city: "Istambul", tz: "Europe/Istanbul", flag: "🇹🇷", note: "20-31/10" },
+  { city: "Istambul", tz: "Europe/Istanbul", flag: "🇹🇷", note: "20/10 em diante" },
 ];
 
 const REF = "America/Sao_Paulo";
