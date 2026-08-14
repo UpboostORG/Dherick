@@ -558,7 +558,7 @@ export const trip = {
     { text: "Comprar ingressos festival STARLIGHT (Pirâmides)", done: true, priority: "OK" },
     { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — com o voo agora às 19h00, dá pra ficar no evento INTEIRO (8h-18h30) e sair de táxi direto pro aeroporto (~16h30)", done: true, priority: "OK" },
     { text: "✈️ Passagem DXB→CAI comprada: EgyptAir MS906 30/09 19h00→21h40 · ref YIITAH · 2x23kg + mão inclusos", done: true, priority: "OK" },
-    { text: "💳 DEVOLVER AED 1.025 pra Wise — a Nomad não tinha saldo, pagou a passagem EgyptAir pela Wise. Esse valor estava reservado pros Ray-Ban Meta em Dubai — repor antes de comprar os óculos", done: false, priority: "ALTA" },
+    { text: "💳 DEVOLVER AED 1.025 pra Wise — a Nomad não tinha saldo, pagou a passagem EgyptAir pela Wise. Esse valor estava reservado pros Ray-Ban Meta em Dubai — repor antes de comprar os óculos (ver Aporte extra · R$ 1.450 abaixo)", done: false, priority: "ALTA" },
     { text: "🚨 Corrigir nome no ônibus BW5302849 (Cairo→Luxor) com o suporte do 12go: está 'Dherick Abreu' faltando o 'Prado', e nascimento errado (2004 em vez de 2006)", done: false, priority: "ALTA" },
     { text: "🟡 Conferir o voucher real (não só o e-mail) do ônibus BW5416971 (Luxor→Cairo) — confirmar nome DHERICK PRADO ABREU certinho", done: false, priority: "MÉDIA" },
     { text: "🧳 Dia 30/09: levar mala+mochila pro AWS Summit (não dá pra voltar em JBR) · perguntar pelo cloakroom na retirada do crachá · plano B: Bounce/Radical Storage perto do WTC (~AED 20-30)", done: false, priority: "MÉDIA" },
@@ -597,6 +597,7 @@ export const trip = {
     { text: "🎯 Aporte 2 de 4 · R$ 3.000 até 29/08", done: false, priority: "MÉDIA" },
     { text: "🎯 Aporte 3 de 4 · R$ 3.000 até 10/09", done: false, priority: "MÉDIA" },
     { text: "🎯 Aporte 4 de 4 · R$ 3.000 até 22/09 (fecha os R$ 12.000, cobre o que falta)", done: false, priority: "MÉDIA" },
+    { text: "🎯 Aporte extra · R$ 1.450 até 10/09 — repõe os AED 1.025 que saíram da Wise pra pagar a EgyptAir (tavam guardados pros óculos)", done: false, priority: "ALTA" },
     { text: "🎒 Mochila / mala definida (plano: mala pequena de rodinha + mochila)", done: false, priority: "BAIXA" },
     { text: "📋 Lista de roupas e itens", done: false, priority: "BAIXA" },
     { text: "☁ Backup documentos na nuvem", done: false, priority: "BAIXA" },
@@ -657,13 +658,14 @@ export const trip = {
       { name: "Wise — euros da Grécia", detail: "€ 500 · converter DENTRO do Wise uns dias antes de 12/10 (dentro do total de US$ 4.000 acima)", status: "planejar a conversão perto da data", done: false },
       { name: "Nomad — hotéis", detail: "€ 195,23 + US$ 207,10 devidos (Dubai, Cairo, Luxor, Atenas, Caveland +€10 caução) · coberto pelo saldo atual (US$ 280) + reembolso Kuwait a caminho · Santorini top e Istambul somam quando reservar", status: "coberto ✓ (falta só o reembolso cair)", done: true },
       { name: "Revolut — reserva de emergência", detail: "Meta € 1.000 + US$ 1.000 · não encostar · cartão físico separado da carteira", status: "€ 589 + US$ 584 · faltam € 411 + US$ 416", done: false },
+      { name: "Wise — repor Ray-Ban Meta", detail: "AED 1.025 (~R$ 1.450) saíram da Wise pra cobrir a EgyptAir quando a Nomad ficou sem saldo — repor antes de comprar os óculos em Dubai", status: "falta repor ~R$ 1.450", done: false },
     ],
     cash: [
       { label: "🎯 SACAR US$ 250 pela Wise, em Dubai (set)", desc: "Câmbio físico no Brasil perde 3-8% de spread + IOF 1,1% — nem cogitar. Um saque só, ainda em Dubai, sai em AED e você já viaja pro Egito com USD/AED em caixa — cobre Luxor (só cash) + EGP + margem. De graça (quota US$250/mês)", tag: "OBRIGATÓRIO" },
       { label: "🎯 SACAR € 250 pela Wise, NA GRÉCIA (não no Egito)", desc: "⚠️ Caixa eletrônico só solta a moeda local do país — no Egito sai EGP, nunca euro físico. Sacar ao chegar em Atenas (12/10): cobre Athens Hawks € 42,71 + Caveland € 81,74 + € 10 caução + guarda-volumes, de graça (quota €250/mês)", tag: "OBRIGATÓRIO" },
       { label: "AED · EGP · TRY", desc: "Não comprar no Brasil: dirham é atrelado ao dólar (cartão resolve), libra egípcia e lira troca/saca lá", tag: "NÃO COMPRAR" },
     ],
-    missingTotal: "~R$ 11.801 fecham os bolsos que ainda faltam: US$ 1.387 dia a dia + € 411/US$ 416 reserva de emergência · hotéis já cobertos ✓ · ainda vão somar: noite top Santorini, hostel Istambul, seguro (~R$ 600) e vacinas",
+    missingTotal: "~R$ 13.251 fecham os bolsos que ainda faltam: US$ 1.387 dia a dia + € 411/US$ 416 reserva de emergência + R$ 1.450 pra repor a Wise (AED 1.025 dos óculos) · hotéis já cobertos ✓ · ainda vão somar: noite top Santorini, hostel Istambul, seguro (~R$ 600) e vacinas",
   },
 
   emergencyFund: {

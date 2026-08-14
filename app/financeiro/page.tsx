@@ -59,7 +59,7 @@ export default function Financeiro() {
       </div>
 
       <div className="bg-white rounded-xl border-2 border-gold/30 p-5 mb-6">
-        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">Plano de dinheiro — os 4 bolsos</p>
+        <p className="text-[11px] font-medium tracking-[2px] text-gold uppercase mb-3">Plano de dinheiro — os 5 bolsos</p>
         <div className="space-y-2">
           {trip.moneyPlan.pockets.map((p, i) => (
             <div key={i} className={`flex items-start justify-between gap-3 p-3 rounded-lg ${p.done ? "bg-green-50" : "bg-bg"}`}>
