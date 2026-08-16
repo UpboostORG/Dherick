@@ -36,7 +36,9 @@ export const trip = {
     { date: "20/10", from: "JTR", to: "ATH", status: "ok", tag: "Voo · OK", detail: "Ryanair FR1237 · 00h00 → 00h50 (embarque na noite do dia 19) · ref T8EMHK · check-in no app abre 19/10 00h · chegando: pegar a mala no guarda-volumes e aguardar no aeroporto" },
     { date: "20/10", from: "ATH", to: "IST", status: "ok", tag: "Voo · OK", detail: "Sky Express GQ670 · 07h00 → 08h30 · ref KPPSWK · tarifa joy+ · mala despachada 15kg + mão 8kg incluídas" },
     { date: "20/10 em diante", place: "Istambul", status: "warning", tag: "15+ dias", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Chega 08h30 no IST — dia inteiro pra se instalar. É aqui que você compra roupa de frio pra Bulgária: a partir do voo do dia 20 acaba o limite de 8kg." },
-    { date: "nov/26 em diante", place: "Sofia · Bulgária ❄", status: "warning", tag: "planejado · a definir", detail: "Ônibus Istambul→Sofia (~9-10h, € 25-35) ou voo (~1h20). Base pra neve: o Vitosha fica na borda da cidade (2.290 m, ônibus urbano + teleférico) e Bansko/Borovets a 1-2h30. ⚠️ Bulgária é Schengen desde 2025 — os dias contam junto com os da Grécia no limite de 90 dias." },
+    { date: "out-nov/26", place: "Turquia · encher o tempo", status: "warning", tag: "~7 semanas", detail: "A neve na Bulgária só serve a partir de meados de dezembro — então sobram ~7 semanas entre Istambul e Bansko. Turquia resolve barato: Capadócia, Pamukkale, costa do Egeu. E não gasta cota Schengen." },
+    { date: "nov-dez/26", place: "Balcãs · Sofia e vizinhos", status: "warning", tag: "a definir", detail: "Ônibus Istambul→Sofia (~9-10h, € 25-35, Metro Turizm/Karat-S). Sofia, Plovdiv, Veliko Tarnovo. 💡 Skopje (Macedônia do Norte) NÃO é Schengen — dá pra intercalar e poupar a cota de 90 dias." },
+    { date: "dez/26", place: "Bansko ❄ · neve e festa", status: "warning", tag: "a definir", detail: "A estação abre meados de dezembro — antes disso os teleféricos estão fechados. Bansko é a estação de esqui mais barata da Europa e a que tem a melhor vida noturna dos Balcãs. ⚠️ Bulgária é Schengen desde 2025: os dias somam com os 8 da Grécia no limite de 90 em 180." },
   ],
 
   activities: {
@@ -116,6 +118,17 @@ export const trip = {
         { name: "Praias vulcânicas", desc: "Red Beach (falésias vermelhas), Perissa e Perivolos (areia preta). Em outubro o mar ainda está nadável (~23°C).", tip: "Ônibus KTEL €2 até lá" },
         { name: "Tour de barco na caldera", desc: "Vulcão ativo de Nea Kameni, fontes termais e volta pela caldera. Versões com pôr do sol incluem bebidas.", tip: "€25-40 · ótimo pro dia 19 livre antes do voo" },
         { name: "Vinícola com vista", desc: "Santorini faz vinho em parreiras enroladas no chão (contra o vento). Degustação de Assyrtiko com vista da caldera no Santo Wines.", tip: "~€15-25 a degustação · pôr do sol" },
+      ],
+    },
+    "Bansko ❄ (Bulgária)": {
+      period: "meados de dez/26 em diante · a estação abre ~15/12",
+      items: [
+        { name: "⚠️ Quando a neve realmente serve", desc: "Vitosha (2.290 m, na borda de Sofia) pega neve solta em novembro, mas os teleféricos só abrem no fim de dezembro. Bansko e Borovets abrem meados de dezembro. Em novembro você até vê neve no alto, mas não tem pista aberta, não tem aluguel de equipamento e não tem festa nenhuma.", tip: "Pra neve + festa: 15/12 em diante. Janeiro e fevereiro são o auge" },
+        { name: "Bansko — a estação mais barata da Europa", desc: "900 a 2.600 m, 75 km de pistas. Passe de esqui ~€ 35-45/dia contra € 60-80 nos Alpes. Aluguel de equipamento completo ~€ 12-18/dia e aula em grupo ~€ 25-40. Hostel a partir de ~€ 10-15 a noite.", tip: "Você não precisa esquiar pra curtir — muita gente vai só pela cidade" },
+        { name: "🎉 A festa que você quer é aqui", desc: "Bansko é conhecida como a estação-festa dos Balcãs: bares de après-ski na base das pistas, cerveja por ~€ 1,50-2, muita galera jovem da Europa toda em viagem barata. É o tipo de lugar que os europeus escolhem justamente por ser barato de beber.", tip: "Ano-novo em Bansko é o pico — reserve com MUITA antecedência" },
+        { name: "Vitosha — a neve mais fácil de alcançar", desc: "Montanha de 2.290 m colada em Sofia: ônibus urbano + teleférico e você está na neve em ~40 min do centro. Não é festa, é passeio de dia — mas é imbatível de preço e conveniência.", tip: "~€ 10-15 o dia todo · bate-volta de Sofia" },
+        { name: "Borovets — meio-termo", desc: "A ~1h15 de Sofia, mais perto que Bansko e com boa vida noturna também, porém menor. Boa opção se quiser fazer bate-volta longo em vez de se mudar pra estação.", tip: "Alternativa se Bansko estiver caro na data" },
+        { name: "🧥 Roupa de frio compra em Istambul", desc: "Sofia em dezembro fica entre -5 °C e 5 °C, e o alto da montanha bem menos. Saindo de Cuiabá, é choque térmico de verdade: casaco, luva, gorro, meia térmica e segunda pele.", tip: "Istambul é barato e tem tudo — e depois de 20/10 acabou o limite de 8kg da Aegean" },
       ],
     },
     "Istambul": {
@@ -551,6 +564,8 @@ export const trip = {
     { text: "📲 Check-in online da EgyptAir no dia 28/09 (abre 48h antes) — com o cartão de embarque no celular você sai do AWS Summit e vai direto pra imigração, sem fila de balcão", done: false, priority: "ALTA" },
     { text: "❄️ Comprar roupa de frio EM ISTAMBUL (casaco, luva, gorro, meia térmica) pra Bulgária — não dá pra comprar no Egito nem na Grécia, e antes do dia 20/10 não cabe nos 8kg da Aegean. Istambul é barato e tem tudo", done: false, priority: "MÉDIA" },
     { text: "🇧🇬 Planejar Sofia: ônibus Istambul→Sofia (~9-10h, € 25-35, Metro Turizm/Karat-S) ou voo. Contar os dias de Schengen junto com os 8 da Grécia (limite 90 em 180)", done: false, priority: "MÉDIA" },
+    { text: "❄️ Neve+festa: Bansko só abre ~15/12 — decidir como preencher as ~7 semanas entre Istambul (20/10) e lá. Turquia (Capadócia, Pamukkale, costa) não gasta cota Schengen e é barata", done: false, priority: "MÉDIA" },
+    { text: "🎉 Se for Bansko no Ano-Novo: reservar hostel com MUITA antecedência — é a semana mais concorrida e cara da temporada", done: false, priority: "BAIXA" },
     { text: "🚨 CONFIRMAR se o guarda-volumes do aeroporto de Atenas é 24h — você precisa retirar a mala entre 00h50 e 07h00 do dia 20/10. Se não for, o plano da mala inteiro muda", done: false, priority: "ALTA" },
     { text: "🚨 Sair do AWS Summit 15h30-16h00 (não 16h30) — o check-in da EgyptAir fecha 17h30 e 16h30 é pico em Dubai. 30 min de margem é pouco demais pra perder o voo", done: false, priority: "ALTA" },
     { text: "Passaporte com 10 anos de validade ✓ — cobre a Turquia (exige 6+ meses na entrada) e a viagem aberta depois", done: true, priority: "OK" },
