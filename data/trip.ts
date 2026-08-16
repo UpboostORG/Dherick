@@ -192,7 +192,7 @@ export const trip = {
         name: "Caveland",
         address: "Karterados village, Santorini (~2 km do aeroporto, 25 min a pé de Fira) · adega do século XVIII · Dormitório misto 10 camas",
         checkIn: "15/10 · 15h",
-        checkOut: "18/10 · até 11h30 (🚨 falta a noite 18→19 — refazer pra OUTUBRO)",
+        checkOut: "18/10 · até 11h30 (🚨 falta onde dormir na noite 18→19)",
         confirmation: "48096-579168686",
         pin: "—",
         tel: "—",
@@ -213,7 +213,7 @@ export const trip = {
       },
     ],
     toBook: [
-      { city: "Santorini — 4ª noite (18→19/10)", dates: "18-19/10 · 1 noite avulsa no Caveland", priority: "PENDENTE", estimate: "€ 43,29 (€ 6,49 depósito + € 38,80 no local) · a 1ª tentativa saiu como agosto e foi cancelada — conferir o mês ao refazer" },
+      { city: "Santorini — 4ª noite (18→19/10)", dates: "18-19/10 · 1 noite só", priority: "PENDENTE", estimate: "~€ 25-40 · Caveland pelo Hostelworld exige mínimo de 2 noites (~R$ 400) — pedir extensão direto com eles, ou 1 noite em Perissa/Kamari" },
       { city: "Istambul", dates: "20/10 em diante · 15+ dias", priority: "FALTA", estimate: "~US$ 225 (hostel ~US$ 15/noite)" },
     ],
     hostelTips: [
@@ -261,7 +261,7 @@ export const trip = {
         ref: "48096-579168686", status: "PARCIAL",
         totalLabel: "€ 89,11 (+ ~€ 43,29 da 4ª noite a refazer)", paidLabel: "US$ 16,34 (€ 7,37 de sinal)", dueLabel: "€ 81,74 + €10 caução",
         paidEur: 7.37, dueEur: 81.74, dueUsd: 0, estEur: 0,
-        note: "🚨 Cobre só 15-18/10. A noite de 18→19/10 (~€ 43,29, ~€ 38,80 em dinheiro no local) precisa ser REFEITA — a tentativa anterior saiu como agosto e foi cancelada. Substitui a antiga 'noite top' na caldera · paga em DINHEIRO na chegada + €10 de caução da chave (devolvida) · café da manhã e guarda-volumes incluídos",
+        note: "🚨 Cobre só 15-18/10. A noite de 18→19/10 ainda não tem onde: o Hostelworld exige mínimo de 2 noites (~R$ 400) pra reserva nova, então o caminho é pedir extensão direto ao Caveland ou dormir 1 noite em Perissa/Kamari · paga em DINHEIRO na chegada + €10 de caução da chave (devolvida) · café da manhã e guarda-volumes incluídos",
       },
       {
         city: "Istambul", name: "hostel a reservar", dates: "20/10 em diante · 15+ noites",
@@ -575,7 +575,8 @@ export const trip = {
     { text: "📞 Perguntar ao King's Gate se dá pra deixar a mala no hotel nos 3 dias em Luxor (05-08/10) — a reserva é contínua nas 12 noites, mas precisa confirmar", done: false, priority: "MÉDIA" },
     { text: "Reservar hostel Santorini · Caveland confirmado 15-18/10 · ref 48096-579168686", done: true, priority: "OK" },
     { text: "Reserva 48096-579459210 (saiu com mês errado, 18-19 de agosto) cancelada ✓ — o € 38,80 da propriedade nunca foi cobrado; o depósito de € 6,49 é taxa do Hostelworld e normalmente não volta", done: true, priority: "OK" },
-    { text: "🚨 REFAZER a 4ª noite no Caveland (18→19/10, ~€ 43,29) — conferir MÊS e ANO na tela antes de pagar (o Hostelworld abre o calendário no mês atual, foi assim que saiu agosto). Sem essa noite você fica sem cama no dia 18 em Santorini", done: false, priority: "ALTA" },
+    { text: "🚨 4ª noite em Santorini (18→19/10) — PLANO A: mandar mensagem pro Caveland pelo Hostelworld/e-mail pedindo pra esticar 1 noite COMO HÓSPEDE JÁ CONFIRMADO. O mínimo de 2 noites (~R$ 400) é regra da plataforma, não do hostel — pra extensão de quem já está lá eles costumam liberar", done: false, priority: "ALTA" },
+    { text: "🛏 PLANO B da noite 18→19/10, se o Caveland não esticar: reservar 1 noite em Perissa ou Kamari (lado das praias, bem mais barato que Fira/Oia em outubro — ~€ 25-40). Ex: Youth Hostel Anna, Stelios Place. Conferir que aceita 1 noite só e que guarda a mochila no dia 19", done: false, priority: "ALTA" },
     { text: "💳 Olhar a fatura do cartão nos próximos dias: confirmar que só saiu o depósito de € 6,49 e que a propriedade (€ 38,80) não cobrou nada por cancelamento em cima da hora", done: false, priority: "MÉDIA" },
     { text: "🏨 Reservar hostel Istambul · 20/10 em diante (15+ dias) · reservar até set/26", done: false, priority: "MÉDIA" },
     { text: "📲 Baixar app Ryanair (cartão de embarque só digital) e fazer login", done: false, priority: "ALTA" },
@@ -896,7 +897,7 @@ export const trip = {
     ],
 
     openQuestions: [
-      { title: "🚨 Refazer a reserva da noite 18→19/10 no Caveland", why: "A primeira tentativa saiu como 18-19 de AGOSTO e já foi cancelada ✓. Enquanto a de outubro não for feita, você continua sem cama na noite do dia 18 em Santorini.", how: "Reservar de novo conferindo MÊS e ANO na tela antes de pagar — o Hostelworld abre o calendário no mês atual, foi assim que saiu agosto." },
+      { title: "🚨 Onde dormir na noite de 18→19/10 em Santorini", why: "O Caveland pelo Hostelworld exige mínimo de 2 noites (~R$ 400) e você só precisa de 1 — não compensa. Enquanto não resolver, essa é a única noite da viagem inteira sem cama nem plano.", how: "1º pedir extensão direto ao Caveland como hóspede já confirmado (o mínimo é regra da plataforma). 2º se não rolar, 1 noite em Perissa/Kamari por ~€ 25-40. Última opção é o aeroporto — mas aí seriam duas noites ruins seguidas, com a do dia 19 já sendo no aeroporto de Atenas." },
       { title: "O que fazer nas 19h40 de escala em Guarulhos?", why: "É o maior tempo parado da viagem e antecede o voo de 14h pra Dubai. Sem plano, você embarca sem dormir.", how: "Decidir entre day-use de hotel com transfer (~R$ 150-300) ou guarda-volumes + um dia em SP." },
       { title: "O guarda-volumes do aeroporto de Atenas funciona 24h?", why: "Você precisa retirar a mala entre 00h50 e 07h00 do dia 20. Se fechar à noite, o plano inteiro da mala quebra.", how: "Confirmar no balcão (fica no piso de Chegadas) antes de deixar a mala no dia 15." },
       { title: "O King's Gate guarda sua mala nos 3 dias em Luxor?", why: "A reserva é contínua nas 12 noites, mas guardar bagagem fora do quarto depende deles.", how: "Perguntar junto com o aviso da chegada tardia — é a mesma ligação." },
