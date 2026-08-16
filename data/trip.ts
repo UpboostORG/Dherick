@@ -192,12 +192,12 @@ export const trip = {
         name: "Caveland",
         address: "Karterados village, Santorini (~2 km do aeroporto, 25 min a pé de Fira) · adega do século XVIII · Dormitório misto 10 camas",
         checkIn: "15/10 · 15h",
-        checkOut: "19/10 · até 11h30 (⚠️ a reserva atual termina 18/10 — pedir a 4ª noite)",
-        confirmation: "48096-579168686",
+        checkOut: "19/10 · até 11h30 (🚨 a 2ª reserva saiu com mês errado — refazer)",
+        confirmation: "48096-579168686 (15-18/10) + 48096-579459210 (18-19/10, MÊS ERRADO)",
         pin: "—",
         tel: "—",
-        note: "4 noites (3 confirmadas + a de 18→19 a pedir) · reserva atual € 89,11 · pago US$ 16,34 · a 4ª noite soma ~€ 29,70 → ~€ 111,44 EM DINHEIRO na chegada + €10 caução · café da manhã e guarda-volumes incluídos · cancelamento grátis até 11/10",
-        price: "~€ 111,44 no local · SÓ dinheiro",
+        note: "4 noites em DUAS reservas separadas · € 89,11 + € 43,29 = € 132,40 · pago US$ 16,34 + € 6,49 · ~€ 120,54 EM DINHEIRO na chegada + €10 caução · 🚨 a reserva da noite 18→19 saiu como AGOSTO, cancelar e refazer pra outubro · café da manhã e guarda-volumes incluídos",
+        price: "~€ 120,54 no local · SÓ dinheiro",
       },
       {
         city: "Atenas",
@@ -213,7 +213,7 @@ export const trip = {
       },
     ],
     toBook: [
-      { city: "Santorini — 4ª noite no Caveland", dates: "18-19/10 · estender a reserva atual", priority: "PENDENTE", estimate: "~€ 29,70 · pedir pelo Hostelworld ou direto no Caveland (ref 48096-579168686)" },
+      { city: "Santorini — noite de 18→19/10", dates: "18-19/10 · 1 noite avulsa", priority: "PENDENTE", estimate: "€ 43,29 (€ 6,49 depósito + € 38,80 no local) · ⚠️ a reserva feita saiu com mês errado (agosto), refazer pra outubro" },
       { city: "Istambul", dates: "20/10 em diante · 15+ dias", priority: "FALTA", estimate: "~US$ 225 (hostel ~US$ 15/noite)" },
     ],
     hostelTips: [
@@ -259,9 +259,9 @@ export const trip = {
       {
         city: "Santorini", name: "Caveland (Karterados)", dates: "15-19/10 · 4 noites",
         ref: "48096-579168686", status: "PARCIAL",
-        totalLabel: "~€ 118,81", paidLabel: "US$ 16,34 (€ 7,37 de sinal + taxa Hostelworld)", dueLabel: "~€ 111,44 + €10 caução",
-        paidEur: 7.37, dueEur: 111.44, dueUsd: 0, estEur: 0,
-        note: "⚠️ A reserva atual cobre só 15-18/10 — falta PEDIR a 4ª noite (18→19), ~€ 29,70. Substitui a antiga 'noite top' na caldera, que foi cancelada · paga em DINHEIRO na chegada, valor exato · +€10 de caução da chave (devolvida) · café da manhã e guarda-volumes incluídos · cancelamento grátis até 11/10",
+        totalLabel: "€ 132,40", paidLabel: "US$ 16,34 + € 6,49 (sinais)", dueLabel: "~€ 120,54 + €10 caução",
+        paidEur: 13.86, dueEur: 120.54, dueUsd: 0, estEur: 0,
+        note: "🚨 São DUAS reservas: 15-18/10 (ref 48096-579168686, € 89,11) + a noite de 18→19/10 (ref 48096-579459210, € 43,29) — e essa segunda SAIU COM MÊS ERRADO (18-19 de agosto). Cancelar e refazer pra outubro · substitui a antiga 'noite top' na caldera · paga em DINHEIRO na chegada + €10 de caução da chave (devolvida) · café da manhã e guarda-volumes incluídos",
       },
       {
         city: "Istambul", name: "hostel a reservar", dates: "20/10 em diante · 15+ noites",
@@ -446,7 +446,7 @@ export const trip = {
   },
 
   documents: {
-    passport: { status: "ok", note: "Passaporte já emitido" },
+    passport: { status: "ok", note: "Emitido, 10 anos de validade — folgado pra Turquia (que exige 6+ meses na entrada) e pra viagem aberta depois de Istambul" },
     personal: {
       name: "Dherick Prado Abreu",
       birth: "28/09/2006 · 19a",
@@ -456,7 +456,7 @@ export const trip = {
       cpf: "080.658.851-95",
     },
     docs: [
-      "Passaporte brasileiro — emitido ✓",
+      "Passaporte brasileiro — emitido ✓ · 10 anos de validade",
       "Carteira de Identidade Nacional (CIN) — válida até 10/04/2034",
       "CPF regular (080.658.851-95)",
     ],
@@ -548,7 +548,7 @@ export const trip = {
     { text: "🚨 RESOLVER as 19h40 de escala em Guarulhos (24/09 05h25 → 25/09 01h05) — day-use de hotel com transfer (~R$ 150-300) ou guarda-volumes + dia em SP. Sem isso você embarca pro voo de 14h pra Dubai sem ter dormido", done: false, priority: "ALTA" },
     { text: "🚨 CONFIRMAR se o guarda-volumes do aeroporto de Atenas é 24h — você precisa retirar a mala entre 00h50 e 07h00 do dia 20/10. Se não for, o plano da mala inteiro muda", done: false, priority: "ALTA" },
     { text: "🚨 Sair do AWS Summit 15h30-16h00 (não 16h30) — o check-in da EgyptAir fecha 17h30 e 16h30 é pico em Dubai. 30 min de margem é pouco demais pra perder o voo", done: false, priority: "ALTA" },
-    { text: "📋 Registrar a validade do passaporte — a Turquia exige 6+ meses válidos na entrada (20/10) e a viagem é aberta depois disso", done: false, priority: "ALTA" },
+    { text: "Passaporte com 10 anos de validade ✓ — cobre a Turquia (exige 6+ meses na entrada) e a viagem aberta depois", done: true, priority: "OK" },
     { text: "🎫 Ter uma passagem de saída da Turquia (barata ou reembolsável) salva no celular — viagem sem volta pode ser barrada no check-in do ATH→IST", done: false, priority: "MÉDIA" },
     { text: "🚕 Pedir ao King's Gate um táxi agendado pra 01h00 do dia 12/10 (voo 04h00) — Uber em Giza de madrugada pode não aparecer", done: false, priority: "MÉDIA" },
     { text: "⚖️ Pesar a mala CHEIA em casa: tem que fechar em 8kg e 55x40x23 (limite da Aegean CAI→ATH, o mais apertado da viagem)", done: false, priority: "MÉDIA" },
@@ -574,7 +574,8 @@ export const trip = {
     { text: "📞 Perguntar ao Caveland: que horas abre a recepção e se dá pra deixar a mochila às ~7h15 (voo pousa 06h50, check-in só 15h)", done: false, priority: "MÉDIA" },
     { text: "📞 Perguntar ao King's Gate se dá pra deixar a mala no hotel nos 3 dias em Luxor (05-08/10) — a reserva é contínua nas 12 noites, mas precisa confirmar", done: false, priority: "MÉDIA" },
     { text: "Reservar hostel Santorini · Caveland confirmado 15-18/10 · ref 48096-579168686", done: true, priority: "OK" },
-    { text: "🚨 PEDIR a 4ª noite no Caveland (18→19/10, ~€ 29,70) pelo Hostelworld ou direto — ref 48096-579168686. A reserva atual acaba 18/10 e a noite top na caldera foi cancelada: sem essa extensão você fica sem cama na noite do dia 18", done: false, priority: "ALTA" },
+    { text: "🚨🚨 RESERVA COM MÊS ERRADO — ref 48096-579459210 saiu como 18-19 de AGOSTO/2026, não outubro. Agosto é AGORA. Cancelar (botão Cancel Booking no Hostelworld) e refazer pra 18-19/10. Quanto antes, menor a chance de perder o depósito de € 6,49", done: false, priority: "ALTA" },
+    { text: "🚨 GARANTIR a noite de 18→19/10 no Caveland (~€ 43,29) — a reserva original acaba 18/10 e a noite top na caldera foi cancelada. Sem essa noite você fica sem cama no dia 18. A tentativa anterior saiu com mês errado", done: false, priority: "ALTA" },
     { text: "🏨 Reservar hostel Istambul · 20/10 em diante (15+ dias) · reservar até set/26", done: false, priority: "MÉDIA" },
     { text: "📲 Baixar app Ryanair (cartão de embarque só digital) e fazer login", done: false, priority: "ALTA" },
     { text: "✅ Check-in Ryanair no app · ATH→JTR abre 14/10 06h · JTR→ATH abre 19/10 00h (sem check-in = multa ~€55)", done: false, priority: "ALTA" },
@@ -634,7 +635,7 @@ export const trip = {
       { code: "AED", name: "Dubai (EAU)", desc: "Quase tudo no cartão (Nomad) · cash mínimo: ~AED 100-200 pra souks/abra/gorjeta — saca no ATM lá, não compra no Brasil", rate: "R$ 1,41" },
       { code: "USD", name: "Egito + reserva universal", desc: "NÃO comprar no Brasil — sai do saque de US$ 250 pela Wise em Dubai. Cobre os US$ 85 do hotel de Luxor (SÓ cash) + o que for trocar por EGP · notas novas e inteiras têm câmbio melhor", rate: "R$ 5,20" },
       { code: "EGP", name: "Egito (dia a dia)", desc: "NÃO comprar no Brasil — troca USD aos poucos no Egito (casas de câmbio/hotel) · comida, entradas, gorjetas (baksheesh)", rate: "R$ 0,11" },
-      { code: "EUR", name: "Grécia", desc: "Cartão aceito em toda parte · cash € 250 (saque Wise ao chegar em Atenas): Athens Hawks €42,71 + Caveland ~€111,44 + €10 caução + guarda-volumes ~€30 = ~€194, sobra de margem", rate: "R$ 5,90" },
+      { code: "EUR", name: "Grécia", desc: "Cartão aceito em toda parte · cash € 250 (saque Wise ao chegar em Atenas): Athens Hawks €42,71 + Caveland €120,54 + €10 caução + guarda-volumes ~€30 = ~€203 · margem curta, mas fecha", rate: "R$ 5,90" },
       { code: "TRY", name: "Turquia", desc: "NÃO comprar no Brasil — saca no ATM em Istambul ou troca USD lá · Istanbulkart e dolmuş são em lira", rate: "R$ 0,11" },
     ],
     meta: "Meta: viajar com tudo pago ✈ — A ideia é deixar passagens, hospedagens e ingressos 100% pagos antes de embarcar — assim os US$ 4.000 ficam livres só para o dia a dia.",
@@ -656,14 +657,14 @@ export const trip = {
       { name: "Wise — dia a dia", detail: "US$ 4.000 · o orçamento da viagem inteira, hospedagem paga à parte", status: "US$ 2.613 juntados · faltam US$ 1.387", done: false },
       { name: "Wise — euros da Grécia", detail: "€ 500 · converter DENTRO do Wise uns dias antes de 12/10 (dentro do total de US$ 4.000 acima)", status: "planejar a conversão perto da data", done: false },
       { name: "Nomad — hotéis (no CARTÃO)", detail: "Só 2 dos 5 aceitam cartão: Dubai € 60,78 + Cairo US$ 124,20 · coberto pelo saldo atual (US$ 280) + reembolso Kuwait a caminho · Santorini top e Istambul somam quando reservar", status: "coberto ✓ (falta só o reembolso cair)", done: true },
-      { name: "Hotéis que só aceitam DINHEIRO", detail: "Luxor US$ 82,90 (sai do saque de Dubai) + Atenas € 42,71 + Caveland ~€ 111,44 (4 noites) + € 10 caução (saem do saque de € 250 em Atenas) · não passa no cartão, não adianta ter saldo na Nomad", status: "coberto pelos 2 saques ✓", done: true },
+      { name: "Hotéis que só aceitam DINHEIRO", detail: "Luxor US$ 82,90 (sai do saque de Dubai) + Atenas € 42,71 + Caveland € 120,54 (4 noites, 2 reservas) + € 10 caução (saem do saque de € 250 em Atenas) · não passa no cartão, não adianta ter saldo na Nomad", status: "coberto pelos 2 saques ✓", done: true },
       { name: "Revolut — reserva de emergência", detail: "Meta € 1.000 + US$ 1.000 · não encostar · cartão físico separado da carteira", status: "€ 589 + US$ 584 · faltam € 411 + US$ 416", done: false },
       { name: "Wise — repor Ray-Ban Meta", detail: "AED 1.025 (~R$ 1.450) saíram da Wise pra cobrir a EgyptAir quando a Nomad ficou sem saldo — vem do Aporte 3 de 4 (10/09), repor antes de comprar os óculos em Dubai", status: "falta repor ~R$ 1.450", done: false },
     ],
     cash: [
       { label: "🎯 SACAR US$ 250 pela Wise, em Dubai (set)", desc: "Câmbio físico no Brasil perde 3-8% de spread + IOF 1,1% — nem cogitar. Um saque só, ainda em Dubai. De graça (quota US$250/mês)", tag: "OBRIGATÓRIO" },
       { label: "⚠️ TROCAR ~US$ 120 dos AED por DÓLAR em Dubai", desc: "O caixa eletrônico solta AED, mas você precisa de dólar EM ESPÉCIE em dois lugares onde nada mais serve: visto do Egito na chegada (US$ 25) + hotel de Luxor (US$ 82,90, só dinheiro). Trocar numa casa de câmbio de Dubai (Al Ansari, Sharaf, nos shoppings) — spread lá é dos menores do mundo e não tem IOF. Peça notas novas e inteiras: o Egito recusa nota rasgada ou antiga", tag: "OBRIGATÓRIO" },
-      { label: "🎯 SACAR € 250 pela Wise, NA GRÉCIA (não no Egito)", desc: "⚠️ Caixa eletrônico só solta a moeda local do país — no Egito sai EGP, nunca euro físico. Sacar ao chegar em Atenas (12/10): cobre Athens Hawks € 42,71 + Caveland ~€ 111,44 (4 noites) + € 10 caução + guarda-volumes ~€ 30 = ~€ 194, de graça (quota €250/mês)", tag: "OBRIGATÓRIO" },
+      { label: "🎯 SACAR € 250 pela Wise, NA GRÉCIA (não no Egito)", desc: "⚠️ Caixa eletrônico só solta a moeda local do país — no Egito sai EGP, nunca euro físico. Sacar ao chegar em Atenas (12/10): cobre Athens Hawks € 42,71 + Caveland € 120,54 (4 noites) + € 10 caução + guarda-volumes ~€ 30 = ~€ 203, de graça (quota €250/mês). Margem ficou curta — se precisar, dá pra pagar algo no cartão", tag: "OBRIGATÓRIO" },
       { label: "AED · EGP · TRY", desc: "Não comprar no Brasil: dirham é atrelado ao dólar (cartão resolve), libra egípcia e lira troca/saca lá", tag: "NÃO COMPRAR" },
     ],
     missingTotal: "~R$ 13.251 fecham os bolsos que ainda faltam: US$ 1.387 dia a dia + € 411/US$ 416 reserva de emergência + R$ 1.450 pra repor a Wise (AED 1.025 dos óculos) · hotéis já cobertos ✓ · ainda vão somar: hostel Istambul, seguro (~R$ 600) e vacinas",
@@ -894,7 +895,7 @@ export const trip = {
     ],
 
     openQuestions: [
-      { title: "Qual a validade do seu passaporte?", why: "A Turquia exige 6+ meses de validade na entrada (20/10), e a viagem é aberta depois disso. Essa data não está registrada em lugar nenhum do site.", how: "Olhar o passaporte e me falar — eu registro aqui." },
+      { title: "🚨 Refazer a reserva da noite 18→19/10 no Caveland", why: "A reserva feita (ref 48096-579459210) saiu como 18-19 de AGOSTO/2026 em vez de outubro — e agosto é agora. Sem corrigir, você fica sem cama na noite do dia 18/10 em Santorini e ainda toma um no-show em agosto.", how: "Cancelar pelo Hostelworld (botão Cancel Booking) e refazer com as datas de OUTUBRO. Conferir o ano e o mês na tela de confirmação antes de pagar." },
       { title: "O que fazer nas 19h40 de escala em Guarulhos?", why: "É o maior tempo parado da viagem e antecede o voo de 14h pra Dubai. Sem plano, você embarca sem dormir.", how: "Decidir entre day-use de hotel com transfer (~R$ 150-300) ou guarda-volumes + um dia em SP." },
       { title: "O guarda-volumes do aeroporto de Atenas funciona 24h?", why: "Você precisa retirar a mala entre 00h50 e 07h00 do dia 20. Se fechar à noite, o plano inteiro da mala quebra.", how: "Confirmar no balcão (fica no piso de Chegadas) antes de deixar a mala no dia 15." },
       { title: "O King's Gate guarda sua mala nos 3 dias em Luxor?", why: "A reserva é contínua nas 12 noites, mas guardar bagagem fora do quarto depende deles.", how: "Perguntar junto com o aviso da chegada tardia — é a mesma ligação." },
