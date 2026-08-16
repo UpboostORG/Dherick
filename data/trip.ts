@@ -35,7 +35,8 @@ export const trip = {
     { date: "19/10", place: "Santorini · último dia", status: "ok", tag: "Dia livre", detail: "Checkout até 11h30, mas o guarda-volumes do Caveland é incluso: larga a mochila lá e usa o dia todo. Pôr do sol de despedida e aeroporto ~22h30 (fica a ~2 km) pro voo das 00h00 do dia 20." },
     { date: "20/10", from: "JTR", to: "ATH", status: "ok", tag: "Voo · OK", detail: "Ryanair FR1237 · 00h00 → 00h50 (embarque na noite do dia 19) · ref T8EMHK · check-in no app abre 19/10 00h · chegando: pegar a mala no guarda-volumes e aguardar no aeroporto" },
     { date: "20/10", from: "ATH", to: "IST", status: "ok", tag: "Voo · OK", detail: "Sky Express GQ670 · 07h00 → 08h30 · ref KPPSWK · tarifa joy+ · mala despachada 15kg + mão 8kg incluídas" },
-    { date: "20/10 em diante", place: "Istambul", status: "warning", tag: "15+ dias", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Chega 08h30 no IST — dia inteiro pra se instalar. Sem data de saída — destino aberto depois." },
+    { date: "20/10 em diante", place: "Istambul", status: "warning", tag: "15+ dias", detail: "Istambul: Hagia Sophia, Bazar, Bósforo. Chega 08h30 no IST — dia inteiro pra se instalar. É aqui que você compra roupa de frio pra Bulgária: a partir do voo do dia 20 acaba o limite de 8kg." },
+    { date: "nov/26 em diante", place: "Sofia · Bulgária ❄", status: "warning", tag: "planejado · a definir", detail: "Ônibus Istambul→Sofia (~9-10h, € 25-35) ou voo (~1h20). Base pra neve: o Vitosha fica na borda da cidade (2.290 m, ônibus urbano + teleférico) e Bansko/Borovets a 1-2h30. ⚠️ Bulgária é Schengen desde 2025 — os dias contam junto com os da Grécia no limite de 90 dias." },
   ],
 
   activities: {
@@ -465,7 +466,8 @@ export const trip = {
       { country: "Egito", rule: "Visto on arrival ou e-visa · exige CIVP de febre amarela (vindo do Brasil)", cost: "USD 25", tag: "ON ARRIVAL" },
       { country: "Grécia (Schengen)", rule: "Sem visto até 90 dias — só passaporte (ETIAS só a partir de 2027)", cost: "grátis", tag: "LIVRE" },
       { country: "Turquia", rule: "Isento p/ turismo — até 90 dias em 180 (entrada gratuita c/ passaporte válido 6+ meses)", cost: "grátis", tag: "ISENTO" },
-      { country: "Macedônia do Norte", rule: "Sem visto até 90 dias — só passaporte", cost: "grátis", tag: "LIVRE" },
+      { country: "Bulgária (Schengen)", rule: "⚠️ Entrou no Schengen em 2025 — os dias somam com os da Grécia no limite de 90 dias em 180. Grécia já usa 8 (12-20/10), sobram ~82", cost: "grátis", tag: "SCHENGEN" },
+    { country: "Macedônia do Norte", rule: "Sem visto até 90 dias — só passaporte (NÃO é Schengen, não consome a cota)", cost: "grátis", tag: "LIVRE" },
     ],
   },
 
@@ -545,7 +547,10 @@ export const trip = {
     { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — evento 8h-18h30, mas o voo é 19h00: fica até ~16h30 e sai de táxi direto pro aeroporto, perdendo só as 2h finais de networking", done: true, priority: "OK" },
     { text: "✈️ Passagem DXB→CAI comprada: EgyptAir MS906 30/09 19h00→21h40 · ref YIITAH · 2x23kg + mão inclusos", done: true, priority: "OK" },
     { text: "💳 DEVOLVER AED 1.025 pra Wise — a Nomad não tinha saldo, pagou a passagem EgyptAir pela Wise. Esse valor estava reservado pros Ray-Ban Meta em Dubai — já incluso no Aporte 3 de 4 (10/09), repor antes de comprar os óculos", done: false, priority: "ALTA" },
-    { text: "🚨 RESOLVER as 19h40 de escala em Guarulhos (24/09 05h25 → 25/09 01h05) — day-use de hotel com transfer (~R$ 150-300) ou guarda-volumes + dia em SP. Sem isso você embarca pro voo de 14h pra Dubai sem ter dormido", done: false, priority: "ALTA" },
+    { text: "🏨 RESERVAR o hotel em SP pras 19h40 de escala (24/09 05h25 → 25/09 22h) — escolher um com SHUTTLE GRÁTIS pro GRU (a maioria em Cumbica tem, 24h): economiza dois Ubers e não depende de app de madrugada", done: false, priority: "ALTA" },
+    { text: "📲 Check-in online da EgyptAir no dia 28/09 (abre 48h antes) — com o cartão de embarque no celular você sai do AWS Summit e vai direto pra imigração, sem fila de balcão", done: false, priority: "ALTA" },
+    { text: "❄️ Comprar roupa de frio EM ISTAMBUL (casaco, luva, gorro, meia térmica) pra Bulgária — não dá pra comprar no Egito nem na Grécia, e antes do dia 20/10 não cabe nos 8kg da Aegean. Istambul é barato e tem tudo", done: false, priority: "MÉDIA" },
+    { text: "🇧🇬 Planejar Sofia: ônibus Istambul→Sofia (~9-10h, € 25-35, Metro Turizm/Karat-S) ou voo. Contar os dias de Schengen junto com os 8 da Grécia (limite 90 em 180)", done: false, priority: "MÉDIA" },
     { text: "🚨 CONFIRMAR se o guarda-volumes do aeroporto de Atenas é 24h — você precisa retirar a mala entre 00h50 e 07h00 do dia 20/10. Se não for, o plano da mala inteiro muda", done: false, priority: "ALTA" },
     { text: "🚨 Sair do AWS Summit 15h30-16h00 (não 16h30) — o check-in da EgyptAir fecha 17h30 e 16h30 é pico em Dubai. 30 min de margem é pouco demais pra perder o voo", done: false, priority: "ALTA" },
     { text: "Passaporte com 10 anos de validade ✓ — cobre a Turquia (exige 6+ meses na entrada) e a viagem aberta depois", done: true, priority: "OK" },
@@ -739,8 +744,8 @@ export const trip = {
       {
         date: "24-25/09", leg: "ESCALA EM GRU · 19h40 parado", depart: "—",
         beThere: "pousa 05h25 do dia 24, embarca 01h05 do dia 25", leaveFrom: "—",
-        margin: "quase 20 horas", risk: "PLANEJAR",
-        note: "🚨 O maior buraco da viagem e não tem nada resolvido nele. 19h40 em Guarulhos antes de um voo de 14h pra Dubai. Chegar no Emirates já detonado é o pior começo possível. Resolva de um jeito: day-use em hotel com transfer perto do GRU (~R$ 150-300, dorme 6-8h) ou guarda-volumes no aeroporto + um dia em SP. Não é opcional — é o que decide como você chega em Dubai.",
+        margin: "quase 20 horas", risk: "OK",
+        note: "✅ RESOLVIDO: vai dormir em hotel em SP. Falta só reservar. Prefira hotel com transfer gratuito pro GRU (a maioria dos de Cumbica tem, shuttle 24h) — assim você não paga Uber duas vezes nem depende de app às 22h. Peça late check-out ou entre pela manhã do dia 24: você chega 05h25 e sai 22h.",
       },
       {
         date: "25/09", leg: "GRU → DXB · Emirates EK 262", depart: "01h05",
@@ -750,9 +755,9 @@ export const trip = {
       },
       {
         date: "30/09", leg: "DXB → CAI · EgyptAir MS906", depart: "19h00",
-        beThere: "16h30 no DXB (check-in FECHA 17h30)", leaveFrom: "sair do AWS Summit 15h30-16h00",
-        margin: "~1h se tudo der certo", risk: "APERTADO",
-        note: "🚨 O plano antigo dizia sair do Summit 16h30 — é arriscado demais. O World Trade Centre fica a 15-20 min do DXB, mas 16h30-17h é pico em Dubai e vira 40 min fácil. O check-in da EgyptAir fecha 90 min antes (17h30): saindo 16h30 você tem 30 min de margem. Saia 15h30-16h00 e perca o encerramento sem dó.",
+        beThere: "~17h00 no DXB", leaveFrom: "sair do AWS Summit 15h30 ✓",
+        margin: "confortável SE for tudo de mão", risk: "OK",
+        note: "✅ Saindo 15h30 resolve. E faça o CHECK-IN ONLINE: abre 48h antes (dia 28/09) no app da EgyptAir — com o cartão de embarque no celular você não pega fila de balcão. ⚠️ Mas atenção: o check-in online NÃO adianta se você for despachar mala — o balcão de bagagem fecha 90 min antes (17h30) do mesmo jeito. Como seu plano é viajar só com mala de mão + mochila, você vai direto pra imigração e o único horário que importa é o portão (~18h30).",
       },
       {
         date: "30/09", leg: "Chegada no Cairo", depart: "pousa 21h40",
@@ -820,6 +825,21 @@ export const trip = {
       { date: "15-19/10", label: "Santorini", level: 1, bed: "Caveland ✓", note: "A parte mais leve da viagem. 4 noites no mesmo lugar." },
       { date: "19-20/10", label: "Voo 00h + noite no aeroporto + voo 7h", level: 5, bed: "NENHUMA cama", note: "Última virada: aeroporto de Santorini às 22h, madrugada em Atenas, Istambul às 8h30. Chega pra descansar de verdade." },
     ],
+
+    baggageChain: {
+      title: "A corrente de bagagem — o elo mais fraco manda em tudo",
+      intro: "Cada trecho tem um limite diferente, e o mais apertado define o que você pode levar do Brasil. A boa notícia: o aperto acaba em 20/10, então roupa de frio se compra em Istambul, não antes.",
+      legs: [
+        { leg: "GOL · CGB→GRU · 24/09", allow: "mala 10kg + mochila na cabine", verdict: "folgado", note: "Tarifa Light do Smiles já cobre." },
+        { leg: "Emirates · GRU→DXB · 25/09", allow: "2 volumes de 23kg despachados + 7kg de mão", verdict: "folgado", note: "O trecho mais generoso da viagem — mas não adianta encher, porque a Aegean depois não deixa." },
+        { leg: "EgyptAir · DXB→CAI · 30/09", allow: "2x23kg despachados + mão", verdict: "folgado", note: "Se você despachar aqui, o balcão fecha 17h30 e o dia do AWS Summit fica apertado. Indo só de mão, você vai direto pra imigração." },
+        { leg: "Go Bus · Cairo↔Luxor", allow: "sem limite rígido", verdict: "folgado", note: "A mala grande fica no King's Gate — você leva só a mochila." },
+        { leg: "🚨 Aegean · CAI→ATH · 12/10", allow: "8kg de mão (55x40x23) + item pessoal · SEM despachada", verdict: "GARGALO", note: "Este é o limite que manda em toda a viagem até aqui. A mala cheia tem que fechar em 8kg. Despachar custa €46 e só dá pra comprar online, antes." },
+        { leg: "🚨 Ryanair · ATH↔JTR · 15 e 20/10", allow: "só mochila 40x20x25 grátis", verdict: "GARGALO", note: "Nem a mala de mão entra. Por isso ela fica no guarda-volumes do aeroporto de Atenas nesses 5 dias — você vai pra Santorini só com a mochila." },
+        { leg: "Sky Express · ATH→IST · 20/10", allow: "15kg despachados + 8kg de mão", verdict: "folgado", note: "🎉 Aqui a corrente arrebenta: a partir daqui você pode carregar peso de verdade. É o marco pra comprar roupa de frio em Istambul." },
+      ],
+      conclusion: "Resumo: até 12/10 tudo tem que caber em 8kg de mão. De 15 a 20/10 a mala dorme em Atenas e você anda só com a mochila. De 20/10 em diante, sem aperto — e é exatamente aí que entra a Bulgária, o frio e o casaco.",
+    },
 
     risks: [
       {

@@ -16,7 +16,7 @@ const FATIGUE_COLORS = ["bg-green-400", "bg-green-400", "bg-lime-400", "bg-amber
 const FATIGUE_LABELS: Record<number, string> = { 1: "tranquilo", 2: "leve", 3: "puxado", 4: "pesado", 5: "extremo" };
 
 export default function Logistica() {
-  const { connections, fatigue, risks, openQuestions } = trip.logistics;
+  const { connections, fatigue, risks, openQuestions, baggageChain } = trip.logistics;
 
   const tight = connections.filter((c) => c.risk !== "OK");
   const highRisks = risks.filter((r) => r.severity === "ALTA");
@@ -101,6 +101,27 @@ export default function Logistica() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Bagagem */}
+      <h2 className="text-xl font-serif mb-1">{baggageChain.title}</h2>
+      <p className="text-xs text-warm-400 mb-4">{baggageChain.intro}</p>
+      <div className="bg-white rounded-xl border border-warm-200/40 overflow-hidden mb-4">
+        {baggageChain.legs.map((l, i) => (
+          <div key={i} className={`p-4 border-b border-warm-200/20 last:border-0 ${l.verdict === "GARGALO" ? "bg-red-50/60" : ""}`}>
+            <div className="flex justify-between items-start gap-3">
+              <div className="flex-1">
+                <p className="text-sm font-semibold">{l.leg}</p>
+                <p className="text-xs text-warm-400 mt-0.5 font-mono">{l.allow}</p>
+              </div>
+              <span className={`text-[10px] font-medium px-2 py-0.5 rounded whitespace-nowrap shrink-0 ${l.verdict === "GARGALO" ? "text-red-700 bg-red-100" : "text-green-700 bg-green-100"}`}>{l.verdict}</span>
+            </div>
+            <p className="text-xs text-warm-400 mt-2">{l.note}</p>
+          </div>
+        ))}
+      </div>
+      <div className="bg-bg-dark text-white rounded-xl p-5 mb-10">
+        <p className="text-sm">{baggageChain.conclusion}</p>
       </div>
 
       {/* Riscos */}
