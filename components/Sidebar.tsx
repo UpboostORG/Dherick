@@ -15,6 +15,7 @@ const links = [
   { href: "/eventos", label: "Eventos & Networking" },
   { href: "/passagens", label: "Passagens" },
   { href: "/checkin", label: "Check-in & nomes" },
+  { href: "/logistica", label: "⚠ Logística & riscos" },
   { href: "/hospedagem", label: "Hospedagem" },
   { href: "/custos-hospedagem", label: "Custos de hospedagem" },
   { href: "/regras-hostel", label: "Regras das hospedagens" },
