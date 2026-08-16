@@ -192,12 +192,12 @@ export const trip = {
         name: "Caveland",
         address: "Karterados village, Santorini (~2 km do aeroporto, 25 min a pé de Fira) · adega do século XVIII · Dormitório misto 10 camas",
         checkIn: "15/10 · 15h",
-        checkOut: "19/10 · até 11h30 (🚨 a 2ª reserva saiu com mês errado — refazer)",
-        confirmation: "48096-579168686 (15-18/10) + 48096-579459210 (18-19/10, MÊS ERRADO)",
+        checkOut: "18/10 · até 11h30 (🚨 falta a noite 18→19 — refazer pra OUTUBRO)",
+        confirmation: "48096-579168686",
         pin: "—",
         tel: "—",
-        note: "4 noites em DUAS reservas separadas · € 89,11 + € 43,29 = € 132,40 · pago US$ 16,34 + € 6,49 · ~€ 120,54 EM DINHEIRO na chegada + €10 caução · 🚨 a reserva da noite 18→19 saiu como AGOSTO, cancelar e refazer pra outubro · café da manhã e guarda-volumes incluídos",
-        price: "~€ 120,54 no local · SÓ dinheiro",
+        note: "3 noites confirmadas (15-18/10) · € 89,11 · pago US$ 16,34 · €81,74 EM DINHEIRO na chegada + €10 caução · 🚨 falta a noite de 18→19/10 (~€ 43,29): a tentativa anterior saiu com mês errado e foi cancelada · café da manhã e guarda-volumes incluídos · cancelamento grátis até 11/10",
+        price: "€ 81,74 no local · SÓ dinheiro",
       },
       {
         city: "Atenas",
@@ -213,7 +213,7 @@ export const trip = {
       },
     ],
     toBook: [
-      { city: "Santorini — noite de 18→19/10", dates: "18-19/10 · 1 noite avulsa", priority: "PENDENTE", estimate: "€ 43,29 (€ 6,49 depósito + € 38,80 no local) · ⚠️ a reserva feita saiu com mês errado (agosto), refazer pra outubro" },
+      { city: "Santorini — 4ª noite (18→19/10)", dates: "18-19/10 · 1 noite avulsa no Caveland", priority: "PENDENTE", estimate: "€ 43,29 (€ 6,49 depósito + € 38,80 no local) · a 1ª tentativa saiu como agosto e foi cancelada — conferir o mês ao refazer" },
       { city: "Istambul", dates: "20/10 em diante · 15+ dias", priority: "FALTA", estimate: "~US$ 225 (hostel ~US$ 15/noite)" },
     ],
     hostelTips: [
@@ -259,9 +259,9 @@ export const trip = {
       {
         city: "Santorini", name: "Caveland (Karterados)", dates: "15-19/10 · 4 noites",
         ref: "48096-579168686", status: "PARCIAL",
-        totalLabel: "€ 132,40", paidLabel: "US$ 16,34 + € 6,49 (sinais)", dueLabel: "~€ 120,54 + €10 caução",
-        paidEur: 13.86, dueEur: 120.54, dueUsd: 0, estEur: 0,
-        note: "🚨 São DUAS reservas: 15-18/10 (ref 48096-579168686, € 89,11) + a noite de 18→19/10 (ref 48096-579459210, € 43,29) — e essa segunda SAIU COM MÊS ERRADO (18-19 de agosto). Cancelar e refazer pra outubro · substitui a antiga 'noite top' na caldera · paga em DINHEIRO na chegada + €10 de caução da chave (devolvida) · café da manhã e guarda-volumes incluídos",
+        totalLabel: "€ 89,11 (+ ~€ 43,29 da 4ª noite a refazer)", paidLabel: "US$ 16,34 (€ 7,37 de sinal)", dueLabel: "€ 81,74 + €10 caução",
+        paidEur: 7.37, dueEur: 81.74, dueUsd: 0, estEur: 0,
+        note: "🚨 Cobre só 15-18/10. A noite de 18→19/10 (~€ 43,29, ~€ 38,80 em dinheiro no local) precisa ser REFEITA — a tentativa anterior saiu como agosto e foi cancelada. Substitui a antiga 'noite top' na caldera · paga em DINHEIRO na chegada + €10 de caução da chave (devolvida) · café da manhã e guarda-volumes incluídos",
       },
       {
         city: "Istambul", name: "hostel a reservar", dates: "20/10 em diante · 15+ noites",
@@ -574,8 +574,9 @@ export const trip = {
     { text: "📞 Perguntar ao Caveland: que horas abre a recepção e se dá pra deixar a mochila às ~7h15 (voo pousa 06h50, check-in só 15h)", done: false, priority: "MÉDIA" },
     { text: "📞 Perguntar ao King's Gate se dá pra deixar a mala no hotel nos 3 dias em Luxor (05-08/10) — a reserva é contínua nas 12 noites, mas precisa confirmar", done: false, priority: "MÉDIA" },
     { text: "Reservar hostel Santorini · Caveland confirmado 15-18/10 · ref 48096-579168686", done: true, priority: "OK" },
-    { text: "🚨🚨 RESERVA COM MÊS ERRADO — ref 48096-579459210 saiu como 18-19 de AGOSTO/2026, não outubro. Agosto é AGORA. Cancelar (botão Cancel Booking no Hostelworld) e refazer pra 18-19/10. Quanto antes, menor a chance de perder o depósito de € 6,49", done: false, priority: "ALTA" },
-    { text: "🚨 GARANTIR a noite de 18→19/10 no Caveland (~€ 43,29) — a reserva original acaba 18/10 e a noite top na caldera foi cancelada. Sem essa noite você fica sem cama no dia 18. A tentativa anterior saiu com mês errado", done: false, priority: "ALTA" },
+    { text: "Reserva 48096-579459210 (saiu com mês errado, 18-19 de agosto) cancelada ✓ — o € 38,80 da propriedade nunca foi cobrado; o depósito de € 6,49 é taxa do Hostelworld e normalmente não volta", done: true, priority: "OK" },
+    { text: "🚨 REFAZER a 4ª noite no Caveland (18→19/10, ~€ 43,29) — conferir MÊS e ANO na tela antes de pagar (o Hostelworld abre o calendário no mês atual, foi assim que saiu agosto). Sem essa noite você fica sem cama no dia 18 em Santorini", done: false, priority: "ALTA" },
+    { text: "💳 Olhar a fatura do cartão nos próximos dias: confirmar que só saiu o depósito de € 6,49 e que a propriedade (€ 38,80) não cobrou nada por cancelamento em cima da hora", done: false, priority: "MÉDIA" },
     { text: "🏨 Reservar hostel Istambul · 20/10 em diante (15+ dias) · reservar até set/26", done: false, priority: "MÉDIA" },
     { text: "📲 Baixar app Ryanair (cartão de embarque só digital) e fazer login", done: false, priority: "ALTA" },
     { text: "✅ Check-in Ryanair no app · ATH→JTR abre 14/10 06h · JTR→ATH abre 19/10 00h (sem check-in = multa ~€55)", done: false, priority: "ALTA" },
@@ -657,7 +658,7 @@ export const trip = {
       { name: "Wise — dia a dia", detail: "US$ 4.000 · o orçamento da viagem inteira, hospedagem paga à parte", status: "US$ 2.613 juntados · faltam US$ 1.387", done: false },
       { name: "Wise — euros da Grécia", detail: "€ 500 · converter DENTRO do Wise uns dias antes de 12/10 (dentro do total de US$ 4.000 acima)", status: "planejar a conversão perto da data", done: false },
       { name: "Nomad — hotéis (no CARTÃO)", detail: "Só 2 dos 5 aceitam cartão: Dubai € 60,78 + Cairo US$ 124,20 · coberto pelo saldo atual (US$ 280) + reembolso Kuwait a caminho · Santorini top e Istambul somam quando reservar", status: "coberto ✓ (falta só o reembolso cair)", done: true },
-      { name: "Hotéis que só aceitam DINHEIRO", detail: "Luxor US$ 82,90 (sai do saque de Dubai) + Atenas € 42,71 + Caveland € 120,54 (4 noites, 2 reservas) + € 10 caução (saem do saque de € 250 em Atenas) · não passa no cartão, não adianta ter saldo na Nomad", status: "coberto pelos 2 saques ✓", done: true },
+      { name: "Hotéis que só aceitam DINHEIRO", detail: "Luxor US$ 82,90 (sai do saque de Dubai) + Atenas € 42,71 + Caveland € 81,74 + ~€ 38,80 da 4ª noite quando reservar + € 10 caução (saem do saque de € 250 em Atenas) · não passa no cartão, não adianta ter saldo na Nomad", status: "coberto pelos 2 saques ✓", done: true },
       { name: "Revolut — reserva de emergência", detail: "Meta € 1.000 + US$ 1.000 · não encostar · cartão físico separado da carteira", status: "€ 589 + US$ 584 · faltam € 411 + US$ 416", done: false },
       { name: "Wise — repor Ray-Ban Meta", detail: "AED 1.025 (~R$ 1.450) saíram da Wise pra cobrir a EgyptAir quando a Nomad ficou sem saldo — vem do Aporte 3 de 4 (10/09), repor antes de comprar os óculos em Dubai", status: "falta repor ~R$ 1.450", done: false },
     ],
@@ -895,7 +896,7 @@ export const trip = {
     ],
 
     openQuestions: [
-      { title: "🚨 Refazer a reserva da noite 18→19/10 no Caveland", why: "A reserva feita (ref 48096-579459210) saiu como 18-19 de AGOSTO/2026 em vez de outubro — e agosto é agora. Sem corrigir, você fica sem cama na noite do dia 18/10 em Santorini e ainda toma um no-show em agosto.", how: "Cancelar pelo Hostelworld (botão Cancel Booking) e refazer com as datas de OUTUBRO. Conferir o ano e o mês na tela de confirmação antes de pagar." },
+      { title: "🚨 Refazer a reserva da noite 18→19/10 no Caveland", why: "A primeira tentativa saiu como 18-19 de AGOSTO e já foi cancelada ✓. Enquanto a de outubro não for feita, você continua sem cama na noite do dia 18 em Santorini.", how: "Reservar de novo conferindo MÊS e ANO na tela antes de pagar — o Hostelworld abre o calendário no mês atual, foi assim que saiu agosto." },
       { title: "O que fazer nas 19h40 de escala em Guarulhos?", why: "É o maior tempo parado da viagem e antecede o voo de 14h pra Dubai. Sem plano, você embarca sem dormir.", how: "Decidir entre day-use de hotel com transfer (~R$ 150-300) ou guarda-volumes + um dia em SP." },
       { title: "O guarda-volumes do aeroporto de Atenas funciona 24h?", why: "Você precisa retirar a mala entre 00h50 e 07h00 do dia 20. Se fechar à noite, o plano inteiro da mala quebra.", how: "Confirmar no balcão (fica no piso de Chegadas) antes de deixar a mala no dia 15." },
       { title: "O King's Gate guarda sua mala nos 3 dias em Luxor?", why: "A reserva é contínua nas 12 noites, mas guardar bagagem fora do quarto depende deles.", how: "Perguntar junto com o aviso da chegada tardia — é a mesma ligação." },
