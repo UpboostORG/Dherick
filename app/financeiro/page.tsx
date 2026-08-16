@@ -19,11 +19,11 @@ export default function Financeiro() {
 
   const distributed = distribution.reduce((s, d) => s + d.amount, 0);
 
-  // "noite top" também conta: é uma reserva de verdade que falta, mas o texto
-  // dela não tem a palavra "hostel" (é hotel), então escapava da contagem.
+  // A 4ª noite do Caveland também conta: é uma reserva de verdade que falta,
+  // mas o texto dela não começa com "reservar hostel", então escapava.
   const hostelsPending = items.filter((i) => {
     const t = i.text.toLowerCase();
-    return !i.done && (t.includes("reservar hostel") || t.includes("noite top"));
+    return !i.done && (t.includes("reservar hostel") || t.includes("4ª noite"));
   }).length;
   // Conta só o que realmente falta comprar (trip.flights.toBuy). O filtro antigo
   // procurava a palavra "passagem" no checklist e pegava o item de devolver a

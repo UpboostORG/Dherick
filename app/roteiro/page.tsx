@@ -13,8 +13,9 @@ const statusOverrides: Record<string, { checkText: string; okTag?: string }> = {
   "Luxor": { checkText: "Reservar hostel Luxor", okTag: "2 dias · OK" },
   "STARLIGHT": { checkText: "Comprar ingressos festival STARLIGHT" },
   "Atenas": { checkText: "Reservar hostel Atenas", okTag: "3 noites · hostel OK" },
-  "Santorini": { checkText: "Reservar hostel Santorini", okTag: "3 noites · hostel OK" },
-  "Noite top": { checkText: "Reservar a noite top Santorini", okTag: "1 noite top · OK" },
+  // Só vira OK quando a 4ª noite for pedida — a reserva atual acaba 18/10 e
+  // deixa a noite do dia 18 descoberta.
+  "Santorini": { checkText: "4ª noite no Caveland", okTag: "4 noites · hostel OK" },
   "Istambul": { checkText: "Reservar hostel Istambul" },
 };
 

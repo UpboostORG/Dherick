@@ -24,13 +24,13 @@ export default function Hospedagem() {
   const [newConf, setNewConf] = useState<Partial<Confirmed>>({});
   const [newBook, setNewBook] = useState<Partial<ToBook>>({});
 
-  // A noite top de Santorini é uma reserva à parte do Caveland. Casar só pela
-  // primeira palavra ("Santorini") fazia o item do Caveland, já reservado,
-  // marcá-la como pronta e sumir com ela da lista de pendências.
+  // A 4ª noite de Santorini é uma extensão à parte da reserva do Caveland.
+  // Casar só pela primeira palavra ("Santorini") fazia o item do Caveland, já
+  // reservado, marcá-la como pronta e sumir com ela da lista de pendências.
   function isBooked(city: string) {
     const c = city.toLowerCase();
-    if (c.includes("noite top")) {
-      return items.some((i) => i.done && i.text.toLowerCase().includes("noite top"));
+    if (c.includes("4ª noite")) {
+      return items.some((i) => i.done && i.text.toLowerCase().includes("4ª noite"));
     }
     const first = c.split(" ")[0];
     return items.some((i) => i.done && i.text.toLowerCase().includes("hostel") && i.text.toLowerCase().includes(first));
