@@ -573,6 +573,9 @@ export const trip = {
     { text: "🚕 Pedir ao King's Gate um táxi agendado pra 01h00 do dia 12/10 (voo 04h00) — Uber em Giza de madrugada pode não aparecer", done: false, priority: "MÉDIA" },
     { text: "⚖️ Pesar a mala CHEIA em casa: tem que fechar em 8kg e 55x40x23 (limite da Aegean CAI→ATH, o mais apertado da viagem)", done: false, priority: "MÉDIA" },
     { text: "🎈 Decidir o balão em Luxor (dia 07/10, ~US$ 60-100, acorda 4h) — é o mesmo dia que termina em ônibus noturno. Se for, reservar pelo hotel na véspera e dormir de tarde", done: false, priority: "MÉDIA" },
+    { text: "🚨 VPN INSTALADA E TESTADA antes de entrar no Egito — o país BLOQUEIA chamadas de voz/vídeo do WhatsApp, Skype, FaceTime e Messenger em todas as operadoras. Texto e áudio funcionam, chamada não. Sem VPN você fica 12 dias sem conseguir fazer reunião", done: false, priority: "ALTA" },
+    { text: "📶 Plano de internet do Egito: o celular é MAIS RÁPIDO que o wi-fi fixo lá (móvel ~35 Mbps e 5G ~65 Mbps no Cairo, contra ~20 Mbps de banda larga). Comprar eSIM com bom pacote de dados e usar roteamento pelo celular como principal, não como reserva", done: false, priority: "ALTA" },
+    { text: "🕵️ Conferir no Booking se a reserva 5446189808 tem CANCELAMENTO GRÁTIS e até quando — decidir se mantém as 12 noites em Giza ou divide a estadia (Giza só nos dias do festival, resto em Zamalek/Maadi pra trabalhar)", done: false, priority: "ALTA" },
     { text: "🚨 AVISAR o King's Gate (+20 11 31402676) que você chega ~23h30 do dia 30/09 — o check-in fecha 23h e o EgyptAir só pousa 21h40. Sem esse aviso a reserva pode virar no-show", done: false, priority: "ALTA" },
     { text: "🚨 Corrigir nome no ônibus BW5302849 (Cairo→Luxor) com o suporte do 12go: está 'Dherick Abreu' faltando o 'Prado', e nascimento errado (2004 em vez de 2006)", done: false, priority: "ALTA" },
     { text: "📋 Conferir a data real no CIVP impresso — o site tinha 28/05/2026 num lugar e 18/05/2026 em outro. Corrigir pra data certa", done: false, priority: "MÉDIA" },
@@ -922,6 +925,18 @@ export const trip = {
         severity: "MÉDIA",
         what: "Viagem sem data de volta: companhia aérea ou imigração podem exigir passagem de saída no check-in do ATH→IST.",
         mitigation: "Ter uma passagem barata de saída (ou reserva reembolsável) guardada no celular antes do dia 20.",
+      },
+      {
+        title: "Ficar sem conseguir trabalhar no Egito (12 dias)",
+        severity: "ALTA",
+        what: "O Egito bloqueia chamada de voz e vídeo de WhatsApp, Skype, FaceTime e Messenger em TODAS as operadoras — é bloqueio nacional, não do hotel. Texto e áudio passam; reunião não. Além disso, a banda larga do país é lenta (~20 Mbps na melhor operadora) e wi-fi de pousada barata em Giza é notoriamente instável.",
+        mitigation: "VPN instalada e TESTADA antes de embarcar (não dá pra baixar direito já lá dentro). E usar dados móveis como internet principal: no Egito o celular é mais rápido que o wi-fi fixo (~35 Mbps, 5G ~65 no Cairo).",
+      },
+      {
+        title: "Nota 9,8 do hotel do Cairo não é confiável",
+        severity: "ALTA",
+        what: "O King's Gate Pyramids Horizon tem 9,8/10 com só 41 avaliações. Os 'irmãos' dele, mesma operação e mesma rua, têm nota bem menor quanto MAIS avaliações acumulam: o Majestic 8,4 e o pyramids INN 7,1 com 95. Quanto mais gente passa, mais a nota cai — sinal clássico de listagem nova com avaliação inflada. Some-se que a região tem casos documentados de hotel mandando cancelar a reserva do Booking e pagar em dinheiro, e de troca de hóspede pra outra propriedade do mesmo dono.",
+        mitigation: "Não cancelar a reserva do Booking por pedido do hotel, sob nenhum argumento — é assim que você perde a proteção da plataforma. Nunca passar cartão nem PIN por WhatsApp. Se na chegada disserem que 'mudou de prédio', exigir o que foi reservado ou acionar o Booking na hora.",
       },
       {
         title: "Nome errado no ônibus do Egito",
