@@ -74,7 +74,8 @@ export const trip = {
         { name: "Cidadela de Saladino & Mesquita de Alabastro", desc: "Fortaleza medieval no alto com a mesquita de Muhammad Ali e a melhor vista panorâmica do Cairo.", tip: "Fim de tarde = luz dourada na cidade" },
         { name: "Felucca no Nilo ao pôr do sol", desc: "Veleiro tradicional pelo Nilo — o jeito mais barato de ver o Cairo desacelerar. Fecha o barco por hora, direto no cais de Garden City/Zamalek.", tip: "~EGP 300-400/hora o barco inteiro — negocie" },
         { name: "Cairo Copta", desc: "O bairro cristão mais antigo: Igreja Suspensa, São Sérgio (onde a Sagrada Família teria se abrigado) e sinagoga Ben Ezra.", tip: "Grátis · manhã tranquila" },
-        { name: "Uber é lei", desc: "No Cairo inteiro: só Uber/Careem. Táxi de rua cobra 10x de turista. Corridas saem baratíssimas (EGP 50-150).", tip: "Regra de ouro da cidade" },
+        { name: "Uber é lei", desc: "No Cairo inteiro: só Uber/Careem. Táxi de rua cobra 10x de turista. Corridas saem baratíssimas (EGP 50-150), mesmo atravessando a cidade.", tip: "Regra de ouro da cidade" },
+        { name: "💻 Onde trabalhar de verdade", desc: "Coworking com fibra de 100-200 Mbps e GERADOR (resolve queda de luz e wi-fi fraco de uma vez). Mais perto de Giza: Comma Coworking, na rua Mossadaq, Dokki (~10-14 km). Downtown tem o Consoleya (EGP 250/dia) e o GrEEK Campus; Maadi tem o MQR (EGP 200/dia), mas fica a 20-25 km.", tip: "⚠️ No trânsito do Cairo, Giza→Maadi leva 45-75 min. Dokki é o único que compensa ir e voltar no mesmo dia" },
       ],
     },
     "Luxor": {
@@ -574,7 +575,10 @@ export const trip = {
     { text: "⚖️ Pesar a mala CHEIA em casa: tem que fechar em 8kg e 55x40x23 (limite da Aegean CAI→ATH, o mais apertado da viagem)", done: false, priority: "MÉDIA" },
     { text: "🎈 Decidir o balão em Luxor (dia 07/10, ~US$ 60-100, acorda 4h) — é o mesmo dia que termina em ônibus noturno. Se for, reservar pelo hotel na véspera e dormir de tarde", done: false, priority: "MÉDIA" },
     { text: "🚨 VPN INSTALADA E TESTADA antes de entrar no Egito — o país BLOQUEIA chamadas de voz/vídeo do WhatsApp, Skype, FaceTime e Messenger em todas as operadoras. Texto e áudio funcionam, chamada não. Sem VPN você fica 12 dias sem conseguir fazer reunião", done: false, priority: "ALTA" },
-    { text: "📶 Plano de internet do Egito: o celular é MAIS RÁPIDO que o wi-fi fixo lá (móvel ~35 Mbps e 5G ~65 Mbps no Cairo, contra ~20 Mbps de banda larga). Comprar eSIM com bom pacote de dados e usar roteamento pelo celular como principal, não como reserva", done: false, priority: "ALTA" },
+    { text: "📶 COMPRAR chip Vodafone ou Orange no aeroporto do Cairo na chegada — 30 GB por ~EGP 500 (US$ 10) ou 47 GB por ~EGP 450. Levar o PASSAPORTE FÍSICO (registro é obrigatório por lei, leva até 1h). Esse chip é a sua internet PRINCIPAL, não reserva: rotear pro notebook", done: false, priority: "ALTA" },
+    { text: "📱 Manter um eSIM internacional (Airalo, ~US$ 34-47) como 2ª linha — além de redundância, chamada de WhatsApp às vezes funciona pelo eSIM mesmo bloqueada no chip local, porque o tráfego sai por gateway internacional. Não é garantido, mas é barato testar", done: false, priority: "MÉDIA" },
+    { text: "🧪 TESTAR no 1º dia no Egito qual plataforma de reunião passa: Zoom, Google Meet e Teams costumam funcionar (empresas e universidades egípcias usam), o bloqueio mira app de consumidor (WhatsApp, FaceTime, Messenger). Agendar reunião importante só no que você confirmou funcionando", done: false, priority: "ALTA" },
+    { text: "🔌 Levar power bank e contar com queda de luz de ~1h — reportagem de ago/2026 lista o HARAM (seu bairro) entre as áreas com corte por pico de demanda. Sua janela (fim de set/out) já é fora do pico do verão, mas o roteador da pousada cai junto com a luz", done: false, priority: "MÉDIA" },
     { text: "🕵️ Conferir no Booking se a reserva 5446189808 tem CANCELAMENTO GRÁTIS e até quando — decidir se mantém as 12 noites em Giza ou divide a estadia (Giza só nos dias do festival, resto em Zamalek/Maadi pra trabalhar)", done: false, priority: "ALTA" },
     { text: "🚨 AVISAR o King's Gate (+20 11 31402676) que você chega ~23h30 do dia 30/09 — o check-in fecha 23h e o EgyptAir só pousa 21h40. Sem esse aviso a reserva pode virar no-show", done: false, priority: "ALTA" },
     { text: "🚨 Corrigir nome no ônibus BW5302849 (Cairo→Luxor) com o suporte do 12go: está 'Dherick Abreu' faltando o 'Prado', e nascimento errado (2004 em vez de 2006)", done: false, priority: "ALTA" },
@@ -929,8 +933,8 @@ export const trip = {
       {
         title: "Ficar sem conseguir trabalhar no Egito (12 dias)",
         severity: "ALTA",
-        what: "O Egito bloqueia chamada de voz e vídeo de WhatsApp, Skype, FaceTime e Messenger em TODAS as operadoras — é bloqueio nacional, não do hotel. Texto e áudio passam; reunião não. Além disso, a banda larga do país é lenta (~20 Mbps na melhor operadora) e wi-fi de pousada barata em Giza é notoriamente instável.",
-        mitigation: "VPN instalada e TESTADA antes de embarcar (não dá pra baixar direito já lá dentro). E usar dados móveis como internet principal: no Egito o celular é mais rápido que o wi-fi fixo (~35 Mbps, 5G ~65 no Cairo).",
+        what: "Dois problemas separados. (1) BLOQUEIO: o Egito bloqueia chamada de voz/vídeo de WhatsApp, FaceTime, Messenger, Viber e Skype desde 2017, por inspeção profunda de pacote — vale em todas as operadoras. A Freedom House confirma que o bloqueio seguia em vigor até 2025 e não há fonte confirmando que caiu. Texto e áudio gravado passam. (2) VELOCIDADE REAL: a média nacional é boa (banda larga ~90 Mbps, móvel ~56 Mbps), mas isso é fibra de Zamalek, Maadi e New Cairo. Nazlet El-Semman é bairro popular denso e pousada de US$ 10 ali roda em ADSL velho ou um roteador 4G compartilhado — nômades digitais relatam ~5 Mbps de experiência real no Cairo.",
+        mitigation: "Chip local Vodafone/Orange como internet PRINCIPAL (30 GB por ~US$ 10, 5G já cobre Giza) + eSIM internacional de 2ª linha + VPN instalada e testada ANTES de embarcar. Reunião importante só em Zoom/Meet/Teams, testados no 1º dia. Pra dia de call decisiva, coworking em Dokki (Comma) é o mais perto de Giza: ~EGP 200-300 o dia + Uber.",
       },
       {
         title: "Nota 9,8 do hotel do Cairo não é confiável",
