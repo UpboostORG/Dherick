@@ -14,13 +14,13 @@ export default function CustosHospedagem() {
   const stays = trip.accommodationCosts.stays;
   const [rate, setRate] = useState(trip.accommodationCosts.eurRate);
   const [usdRate, setUsdRate] = useState(5.20);
-  const [nomadBalance, setNomadBalance] = useState(280);
+  const [nomadBalance, setNomadBalance] = useState(290);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const r = localStorage.getItem("__custos_eurrate");
     const u = localStorage.getItem("__custos_usdrate");
-    const n = localStorage.getItem("__custos_nomad_balance");
+    const n = localStorage.getItem("__custos_nomad_balance_v2");
     if (r) setRate(Number(r));
     if (u) setUsdRate(Number(u));
     if (n) setNomadBalance(Number(n));
@@ -31,7 +31,7 @@ export default function CustosHospedagem() {
     if (!loaded) return;
     localStorage.setItem("__custos_eurrate", String(rate));
     localStorage.setItem("__custos_usdrate", String(usdRate));
-    localStorage.setItem("__custos_nomad_balance", String(nomadBalance));
+    localStorage.setItem("__custos_nomad_balance_v2", String(nomadBalance));
   }, [rate, usdRate, nomadBalance, loaded]);
 
   const refunds = trip.accommodationCosts.refundsIncoming || [];

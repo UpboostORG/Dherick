@@ -4,12 +4,12 @@ import { trip } from "@/data/trip";
 
 export default function Metas() {
   const [exchangeRate, setExchangeRate] = useState(5.20);
-  const [invested, setInvested] = useState(2613);
+  const [invested, setInvested] = useState(3033);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const savedRate = localStorage.getItem("__metas_rate");
-    const savedInv = localStorage.getItem("__metas_invested_v3");
+    const savedInv = localStorage.getItem("__metas_invested_v4");
     if (savedRate) setExchangeRate(Number(savedRate));
     if (savedInv) setInvested(Number(savedInv));
     setLoaded(true);
@@ -18,7 +18,7 @@ export default function Metas() {
   useEffect(() => {
     if (!loaded) return;
     localStorage.setItem("__metas_rate", String(exchangeRate));
-    localStorage.setItem("__metas_invested_v3", String(invested));
+    localStorage.setItem("__metas_invested_v4", String(invested));
   }, [exchangeRate, invested, loaded]);
   const totalUSD = 4000;
 
