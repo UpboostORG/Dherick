@@ -775,6 +775,53 @@ export const trip = {
     },
   ],
 
+  medication: {
+    intro: "Regra que vale em TODO lugar: receita brasileira não é aceita em farmácia estrangeira pra remédio controlado. Em nenhum país da sua rota. Onde precisar comprar, precisa de receita de médico local.",
+    verdict: "O Venvanse não funciona em lugar nenhum do seu roteiro: proibido nos Emirados, Narcótico Classe 1 no Egito, e nem sequer registrado na Turquia. Não é questão de conseguir autorização — é que ele não existe legalmente pra você em nenhuma dessas fronteiras.",
+    countries: [
+      {
+        country: "🇦🇪 Emirados (25-30/09)",
+        lisdex: "PROIBIDO importar, em qualquer circunstância",
+        methyl: "Permitido COM autorização prévia (ede.gov.ae, grátis, 4 semanas antes, até 3 meses de remédio)",
+        atomox: "Livre — não é controlado",
+        buy: "Não tente comprar como turista",
+        penalty: "Multa mínima AED 100.000 + mínimo 2 anos de prisão por controlado não declarado",
+      },
+      {
+        country: "🇪🇬 Egito (30/09-12/10)",
+        lisdex: "Narcótico Classe 1 (Lei 182/1960) — confisco, detenção e processo MESMO com receita estrangeira",
+        methyl: "Importar exige autorização da embaixada com 2 meses de antecedência (prazo que você não tem)",
+        atomox: "Livre — e é a que tem estoque confiável lá (Strattera / Attencare)",
+        buy: "Psiquiatra particular no Cairo: EGP 500-1.500 (US$ 10-30), tem quem fale inglês em hospital privado. Concerta falta com frequência",
+        penalty: "Processo criminal por narcótico classe 1",
+      },
+      {
+        country: "🇬🇷 Grécia (12-20/10)",
+        lisdex: "Controlado · Schengen exige receita + relatório médico traduzido",
+        methyl: "Disponível (Ritalina e Concerta), controlado",
+        atomox: "Livre",
+        buy: "Dá pra ir direto a psiquiatra particular, sem encaminhamento. MAS você só tem 3 dias em Atenas e depois Santorini, que é ilha pequena com pouco especialista — janela ruim pra iniciar tratamento",
+        penalty: "—",
+      },
+      {
+        country: "🇹🇷 Turquia (20/10 em diante)",
+        lisdex: "NÃO É REGISTRADO nem vendido no país — não existe substituto local",
+        methyl: "Disponível, mas exige 'kırmızı reçete' (receita vermelha) de psiquiatra TURCO. Farmácia não aceita receita estrangeira",
+        atomox: "Livre",
+        buy: "✅ MELHOR LUGAR DA ROTA pra resolver de vez: você fica 15+ dias, Istambul tem hospital privado acessível e barato, e psiquiatra em hospital universitário ou privado. Agende com antecedência — não tem atendimento por ordem de chegada",
+        penalty: "Porte de controlado sem receita local tem responsabilidade criminal",
+      },
+    ],
+    rules: [
+      "Sempre na embalagem ORIGINAL, com a etiqueta da farmácia legível",
+      "Sempre na bagagem de MÃO — nunca despachada, nunca em porta-comprimidos",
+      "Receita e relatório médico IMPRESSOS junto, com menos de 3 meses e carimbo da clínica",
+      "Relatório com o nome GENÉRICO (lisdexanfetamina, metilfenidato, atomoxetina), não só a marca",
+      "Levar só a quantidade da viagem — excesso é interpretado como tráfico",
+      "Na dúvida numa fronteira: DECLARE. Declarar com papel na mão é problema administrativo; não declarar é crime",
+    ],
+  },
+
   logistics: {
     // Regra usada: doméstico 1h30 · internacional 2h30-3h · low-cost europeu só
     // com mão 2h. "Folga" = quanto sobra depois do check-in fechar.
