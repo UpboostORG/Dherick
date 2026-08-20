@@ -27,6 +27,33 @@ export default function Remedio() {
         <p className="text-sm">{m.intro}</p>
       </div>
 
+      <div className="bg-white rounded-xl border-2 border-gold/30 p-5 mb-8">
+        <p className="font-semibold text-sm mb-3">{m.brazilExit.title}</p>
+        <ul className="text-xs text-warm-400 space-y-2">
+          {m.brazilExit.points.map((p, i) => (
+            <li key={i} className="flex gap-2">
+              <span className="text-gold shrink-0">•</span>
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <h2 className="text-xl font-serif mb-1">Respostas que faltam — por escrito</h2>
+      <p className="text-xs text-warm-400 mb-4">Fontes oficiais se contradizem nesses pontos. Só carta oficial resolve.</p>
+      <div className="space-y-3 mb-8">
+        {m.pendingAnswers.map((q, i) => (
+          <div key={i} className="bg-white rounded-xl border border-warm-200/40 p-4">
+            <div className="flex justify-between items-start gap-3 mb-1">
+              <p className="text-sm font-semibold">{q.what}</p>
+              <span className="text-[10px] font-medium px-2 py-0.5 rounded whitespace-nowrap shrink-0 text-gold bg-gold/10">{q.when}</span>
+            </div>
+            <p className="text-xs text-warm-400">{q.why}</p>
+            <p className="text-xs text-bg-dark mt-1.5 font-mono break-all">{q.who}</p>
+          </div>
+        ))}
+      </div>
+
       <h2 className="text-xl font-serif mb-4">País por país</h2>
       <div className="space-y-4 mb-8">
         {m.countries.map((c, i) => (
