@@ -572,6 +572,10 @@ export const trip = {
     { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — evento 8h-18h30, mas o voo é 19h00: fica até ~16h30 e sai de táxi direto pro aeroporto, perdendo só as 2h finais de networking", done: true, priority: "OK" },
     { text: "✈️ Passagem DXB→CAI comprada: EgyptAir MS906 30/09 19h00→21h40 · ref YIITAH · 2x23kg + mão inclusos", done: true, priority: "OK" },
     { text: "💳 AED 1.025 devolvidos pra Wise ✓ — hoje tem AED 1.600 lá, o que já cobre os Ray-Ban Meta na Amazon.ae (~AED 1.537). Dívida da EgyptAir quitada", done: true, priority: "OK" },
+    { text: "🚨🚨 VENVANSE NÃO ENTRA NOS EMIRADOS — lisdexanfetamina é PROIBIDA de importar em qualquer circunstância, nem com receita, nem com autorização prévia. Não existe permissão possível pra ela. Levar sem declarar dá multa mínima de AED 100.000 (~US$ 27 mil) e MÍNIMO 2 ANOS DE PRISÃO. Não é deportação, é cadeia", done: false, priority: "ALTA" },
+    { text: "🚨 MÉDICO ESTA SEMANA: (1) refazer a receita perdida · (2) conversar sobre trocar o Venvanse pelo CONCERTA (metilfenidato) durante a viagem — o Concerta É permitido nos Emirados com autorização prévia, a lisdexanfetamina não · (3) pedir relatório em papel timbrado com diagnóstico, nome genérico, dose e duração", done: false, priority: "ALTA" },
+    { text: "🚨 PEDIR a autorização no ede.gov.ae (Emirates Drug Establishment) — é GRÁTIS, mas exige 4 SEMANAS de antecedência. Prazo real: até ~28/08. Libera até 3 meses de remédio pra visitante. Receita e relatório precisam ter menos de 3 meses e carimbo da clínica", done: false, priority: "ALTA" },
+    { text: "💊 Remédio SEMPRE na caixa original com etiqueta da farmácia, na bagagem de MÃO, junto da receita e do relatório impressos. Nunca na mala despachada, nunca solto em porta-comprimidos", done: false, priority: "ALTA" },
     { text: "🏨 RESERVAR o hotel em SP pras 19h40 de escala (24/09 05h25 → 25/09 22h) — escolher um com SHUTTLE GRÁTIS pro GRU (a maioria em Cumbica tem, 24h): economiza dois Ubers e não depende de app de madrugada", done: false, priority: "ALTA" },
     { text: "📲 Check-in online da EgyptAir no dia 28/09 (abre 48h antes) — com o cartão de embarque no celular você sai do AWS Summit e vai direto pra imigração, sem fila de balcão", done: false, priority: "ALTA" },
     { text: "❄️ Comprar roupa de frio EM ISTAMBUL (casaco, luva, gorro, meia térmica) pra Bulgária — não dá pra comprar no Egito nem na Grécia, e antes do dia 20/10 não cabe nos 8kg da Aegean. Istambul é barato e tem tudo", done: false, priority: "MÉDIA" },
@@ -881,6 +885,12 @@ export const trip = {
     },
 
     risks: [
+      {
+        title: "🚨 Levar Venvanse pros Emirados = prisão, não deportação",
+        severity: "ALTA",
+        what: "A lisdexanfetamina (Venvanse/Vyvanse/Elvanse) é PROIBIDA de importar nos Emirados Árabes em qualquer circunstância — não é caso de 'precisa de autorização', é banida mesmo. Não existe permissão que a libere. A pena por não declarar substância controlada é multa mínima de AED 100.000 (~US$ 27 mil) e no mínimo 2 anos de prisão. O Concerta (metilfenidato) é diferente: esse é permitido, mas só COM autorização prévia do Emirates Drug Establishment, pedida com 4 semanas de antecedência.",
+        mitigation: "Médico esta semana pra refazer a receita e avaliar trocar pro Concerta durante a viagem. Depois, autorização grátis no ede.gov.ae até ~28/08. Remédio na caixa original, bagagem de mão, com receita e relatório médico impressos. Sem receita e sem autorização, não embarque com nada disso.",
+      },
       {
         title: "Perder o voo pro Cairo por causa do AWS Summit",
         severity: "ALTA",
