@@ -18,7 +18,7 @@ export default function Remedio() {
       <p className="text-sm text-warm-400 mb-6">O que pode entrar em cada país, onde dá pra comprar e o que fazer na alfândega</p>
 
       <div className="bg-red-50 border-l-4 border-l-red-500 rounded-xl p-5 mb-4">
-        <p className="text-sm font-semibold text-red-800 mb-1">⚠️ O Venvanse não serve pra esta viagem</p>
+        <p className="text-sm font-semibold text-red-800 mb-1">⚠️ O problema é o Egito, não os Emirados</p>
         <p className="text-xs text-warm-400">{m.verdict}</p>
       </div>
 
@@ -65,7 +65,7 @@ export default function Remedio() {
       </div>
 
       <h2 className="text-xl font-serif mb-4">Como carregar</h2>
-      <div className="bg-white rounded-xl border-l-4 border-l-gold p-5">
+      <div className="bg-white rounded-xl border-l-4 border-l-gold p-5 mb-8">
         <ul className="text-sm text-warm-400 space-y-2">
           {m.rules.map((r, i) => (
             <li key={i} className="flex gap-2">
@@ -74,6 +74,23 @@ export default function Remedio() {
             </li>
           ))}
         </ul>
+      </div>
+
+      <h2 className="text-xl font-serif mb-1">Fontes oficiais</h2>
+      <p className="text-xs text-warm-400 mb-4">Guarde offline — serve pra mostrar num balcão se alguém questionar</p>
+      <div className="bg-white rounded-xl border border-warm-200/40 overflow-hidden">
+        {m.sources.map((s, i) => (
+          <a
+            key={i}
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-4 border-b border-warm-200/20 last:border-0 hover:bg-warm-200/10 transition-colors"
+          >
+            <p className="text-sm text-bg-dark">{s.label} <span className="text-gold">↗</span></p>
+            <p className="text-[10px] text-warm-400 font-mono break-all mt-0.5">{s.url}</p>
+          </a>
+        ))}
       </div>
     </div>
   );

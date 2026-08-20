@@ -572,10 +572,11 @@ export const trip = {
     { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — evento 8h-18h30, mas o voo é 19h00: fica até ~16h30 e sai de táxi direto pro aeroporto, perdendo só as 2h finais de networking", done: true, priority: "OK" },
     { text: "✈️ Passagem DXB→CAI comprada: EgyptAir MS906 30/09 19h00→21h40 · ref YIITAH · 2x23kg + mão inclusos", done: true, priority: "OK" },
     { text: "💳 AED 1.025 devolvidos pra Wise ✓ — hoje tem AED 1.600 lá, o que já cobre os Ray-Ban Meta na Amazon.ae (~AED 1.537). Dívida da EgyptAir quitada", done: true, priority: "OK" },
-    { text: "🚨🚨 VENVANSE NÃO ENTRA NEM NOS EMIRADOS NEM NO EGITO. Nos EAU a lisdexanfetamina é proibida de importar em qualquer circunstância (multa mínima AED 100.000 + mínimo 2 anos de prisão). No Egito ela é Narcótico Classe 1 pela Lei 182/1960 — confisco, detenção e PROCESSO mesmo com receita estrangeira válida. Dois dos seus primeiros três países", done: false, priority: "ALTA" },
-    { text: "🚨 MÉDICO ESTA SEMANA — levar 3 perguntas: (1) refazer a receita perdida · (2) ATOMOXETINA (Strattera) serve pro meu caso? Ela NÃO é substância controlada em lugar nenhum do mundo, então viaja sem autorização e é vendida no Egito, Grécia e Turquia · (3) se atomoxetina não servir, Concerta é viável? ⚠️ Atomoxetina leva 4-6 SEMANAS pra fazer efeito — se for trocar, tem que começar AGORA pra estar funcionando dia 24/09", done: false, priority: "ALTA" },
-    { text: "🚨 SE for de Concerta: autorização grátis no ede.gov.ae pros Emirados, 4 semanas de antecedência (prazo ~28/08). ⚠️ Pro EGITO o pedido é na embaixada egípcia e eles pedem 2 MESES de antecedência — você não tem esse prazo, então Concerta no Egito provavelmente não dá tempo de legalizar", done: false, priority: "ALTA" },
-    { text: "💊 PLANO B no Egito: consulta com psiquiatra particular no Cairo custa EGP 500-1.500 (US$ 10-30) e tem quem fale inglês nos hospitais privados. Receita estrangeira NÃO vale em farmácia egípcia pra controlado — precisa de receita local. Atomoxetina (Strattera/Attencare) é a que tem estoque confiável lá; Concerta falta com frequência", done: false, priority: "MÉDIA" },
+    { text: "✅ EMIRADOS liberados: a lista oficial dos EAU permite lisdexanfetamina (item 143) E metilfenidato (item 167) com documentação. Não estão entre os proibidos. Basta receita + relatório médico originais e DECLARAR na alfândega", done: true, priority: "OK" },
+    { text: "🚨🚨 O EGITO É O PROBLEMA — o guia oficial do Ministério da Saúde egípcio diz que substâncias das Tabelas 1 e 3 não podem ser levadas 'mesmo que permitidas no país de origem'. Metilfenidato está nominalmente na Tabela 1, e lisdexanfetamina cai no rodapé que abrange derivados. NÃO EXISTE autorização possível. Precedente: turista britânica pegou 3 anos por tramadol da mesma tabela", done: false, priority: "ALTA" },
+    { text: "🚨 MÉDICO ESTA SEMANA — 3 perguntas: (1) refazer a receita perdida (serve também pra ANVISA, que controla SAIR do Brasil com A3) · (2) o que fazer nos 12 dias de Egito? Atomoxetina, bupropiona, guanfacina e clonidina NÃO estão na Tabela 1 egípcia — alguma serve como ponte? · (3) pedir relatório em papel timbrado com diagnóstico, nome genérico, dose e duração", done: false, priority: "ALTA" },
+    { text: "📧 ESCREVER pra Embaixada do Egito em Brasília, em português e inglês, citando 'lisdexanfetamina' e 'metilfenidato' nominalmente, e pedir resposta POR ESCRITO. Uma recusa escrita também é informação útil. Faça agora — 5 semanas é pouco", done: false, priority: "ALTA" },
+    { text: "🇦🇪 PEDIR a autorização no ede.gov.ae mesmo sendo opcional — é grátis e sai em ~1 dia útil, e elimina discussão na alfândega. ⚠️ O login pede UAE PASS (que costuma exigir Emirates ID) — se travar, escreva pra info@ede.gov.ae ou ligue 800 33784. Teste isso cedo, não na véspera", done: false, priority: "MÉDIA" },
     { text: "💊 Remédio SEMPRE na caixa original com etiqueta da farmácia, na bagagem de MÃO, junto da receita e do relatório impressos. Nunca na mala despachada, nunca solto em porta-comprimidos", done: false, priority: "ALTA" },
     { text: "🏨 RESERVAR o hotel em SP pras 19h40 de escala (24/09 05h25 → 25/09 22h) — escolher um com SHUTTLE GRÁTIS pro GRU (a maioria em Cumbica tem, 24h): economiza dois Ubers e não depende de app de madrugada", done: false, priority: "ALTA" },
     { text: "📲 Check-in online da EgyptAir no dia 28/09 (abre 48h antes) — com o cartão de embarque no celular você sai do AWS Summit e vai direto pra imigração, sem fila de balcão", done: false, priority: "ALTA" },
@@ -777,23 +778,23 @@ export const trip = {
 
   medication: {
     intro: "Regra que vale em TODO lugar: receita brasileira não é aceita em farmácia estrangeira pra remédio controlado. Em nenhum país da sua rota. Onde precisar comprar, precisa de receita de médico local.",
-    verdict: "O Venvanse não funciona em lugar nenhum do seu roteiro: proibido nos Emirados, Narcótico Classe 1 no Egito, e nem sequer registrado na Turquia. Não é questão de conseguir autorização — é que ele não existe legalmente pra você em nenhuma dessas fronteiras.",
+    verdict: "O problema NÃO são os Emirados — é o EGITO. A lista oficial dos EAU permite tanto lisdexanfetamina quanto metilfenidato com documentação. Já o documento oficial do Ministério da Saúde egípcio diz que substâncias das Tabelas 1 e 3 'não podem ser levadas por viajantes ao Egito, mesmo que seu uso seja permitido no país de origem' — e o metilfenidato está nominalmente na Tabela 1. Não existe rota de autorização pro Egito.",
     countries: [
       {
         country: "🇦🇪 Emirados (25-30/09)",
-        lisdex: "PROIBIDO importar, em qualquer circunstância",
-        methyl: "Permitido COM autorização prévia (ede.gov.ae, grátis, 4 semanas antes, até 3 meses de remédio)",
+        lisdex: "PERMITIDO com documentação — item 143 da lista oficial, 'allowed w/ docs'. NÃO está na categoria de proibidos (essa tem LSD, MDMA, heroína)",
+        methyl: "PERMITIDO com documentação — item 167 da mesma lista",
         atomox: "Livre — não é controlado",
-        buy: "Não tente comprar como turista",
-        penalty: "Multa mínima AED 100.000 + mínimo 2 anos de prisão por controlado não declarado",
+        buy: "Autorização prévia no ede.gov.ae é OPCIONAL e grátis (sai em ~1 dia útil). Sem ela também entra, desde que você DECLARE na alfândega com receita e relatório originais. Máximo 3 meses de remédio. ⚠️ O login pede UAE PASS, que normalmente exige Emirates ID — se travar, escreva pra info@ede.gov.ae ou ligue 800 33784, e teste isso cedo",
+        penalty: "Se não declarar: 3 meses de prisão ou AED 20.000-100.000 (Decreto-Lei 30/2021). Com papel na mão, é rotina",
       },
       {
-        country: "🇪🇬 Egito (30/09-12/10)",
-        lisdex: "Narcótico Classe 1 (Lei 182/1960) — confisco, detenção e processo MESMO com receita estrangeira",
-        methyl: "Importar exige autorização da embaixada com 2 meses de antecedência (prazo que você não tem)",
-        atomox: "Livre — e é a que tem estoque confiável lá (Strattera / Attencare)",
-        buy: "Psiquiatra particular no Cairo: EGP 500-1.500 (US$ 10-30), tem quem fale inglês em hospital privado. Concerta falta com frequência",
-        penalty: "Processo criminal por narcótico classe 1",
+        country: "🇪🇬 Egito (30/09-12/10) 🚨",
+        lisdex: "Não é nomeada, MAS a Tabela 1 tem rodapé que abrange 'todos os isômeros, éteres e ésteres' — e lisdexanfetamina vira dexanfetamina no corpo, que ESTÁ na lista. Leitura conservadora: proibida",
+        methyl: "PROIBIDO — 'Methylphenidate' está nominalmente na Tabela 1 do Anexo I. O documento oficial diz que não pode ser levado 'mesmo que permitido no país de origem'. Não há rota de autorização",
+        atomox: "Livre — não aparece na Tabela 1. Bupropiona, guanfacina e clonidina também não",
+        buy: "Metilfenidato existe no Egito, mas exige receita especial carimbada pela autoridade antidrogas, só em farmácias designadas, e falta cronicamente. Não é obtenível por turista em 12 dias",
+        penalty: "🚨 PRECEDENTE REAL: Laura Plummer, turista britânica, pegou 3 ANOS de pena por levar 290 comprimidos de tramadol (mesma Tabela 1) alegando uso pessoal. Cumpriu ~14 meses até indulto presidencial",
       },
       {
         country: "🇬🇷 Grécia (12-20/10)",
@@ -805,7 +806,7 @@ export const trip = {
       },
       {
         country: "🇹🇷 Turquia (20/10 em diante)",
-        lisdex: "NÃO É REGISTRADO nem vendido no país — não existe substituto local",
+        lisdex: "Fonte comercial diz que não é registrada no país — ⚠️ ainda NÃO confirmado em fonte oficial turca",
         methyl: "Disponível, mas exige 'kırmızı reçete' (receita vermelha) de psiquiatra TURCO. Farmácia não aceita receita estrangeira",
         atomox: "Livre",
         buy: "✅ MELHOR LUGAR DA ROTA pra resolver de vez: você fica 15+ dias, Istambul tem hospital privado acessível e barato, e psiquiatra em hospital universitário ou privado. Agende com antecedência — não tem atendimento por ordem de chegada",
@@ -819,6 +820,15 @@ export const trip = {
       "Relatório com o nome GENÉRICO (lisdexanfetamina, metilfenidato, atomoxetina), não só a marca",
       "Levar só a quantidade da viagem — excesso é interpretado como tráfico",
       "Na dúvida numa fronteira: DECLARE. Declarar com papel na mão é problema administrativo; não declarar é crime",
+      "🇧🇷 Do lado brasileiro também tem regra: a Portaria 344/98 da ANVISA controla SAIR do país com medicamento A3. A receita nova precisa servir também pra isso — pergunte ao médico e confira no site da ANVISA",
+      "Documentos em inglês (ou com tradução). Não confirmei se os EAU exigem tradução juramentada — vale perguntar direto ao EDE",
+    ],
+    sources: [
+      { label: "Lista oficial de controlados dos EAU (PDF)", url: "https://assets.u.ae/api/public/content/7344def481c54a4684aa3a2d1968a4f5?v=6018e94e" },
+      { label: "Portal do governo dos EAU — drogas e medicamentos controlados", url: "https://u.ae/en/information-and-services/health-and-fitness/drugs-and-controlled-medicines" },
+      { label: "Autorização de importação pessoal (EDE)", url: "https://www.ede.gov.ae/en/w/issue-of-permit-to-import-medicines-for-personal-use" },
+      { label: "Guia oficial do Ministério da Saúde do Egito (PDF)", url: "https://egyptconsulatesydney.com/wp-content/uploads/2024/07/Traveling-to-Egypt-With-Medications.pdf" },
+      { label: "Orientação do governo britânico — Egito, saúde", url: "https://www.gov.uk/foreign-travel-advice/egypt/health" },
     ],
   },
 
@@ -934,10 +944,10 @@ export const trip = {
 
     risks: [
       {
-        title: "🚨 Venvanse nos Emirados ou no Egito = processo criminal",
+        title: "🚨 Levar estimulante pro Egito = risco de anos de prisão",
         severity: "ALTA",
-        what: "Nos EAU a lisdexanfetamina é proibida de importar em qualquer circunstância — não é 'precisa de autorização', é banida, e não existe permissão que a libere. Pena por controlado não declarado: multa mínima AED 100.000 e no mínimo 2 anos de prisão. No Egito ela é Narcótico Classe 1 (Lei 182/1960): confisco, detenção e processo MESMO com receita estrangeira válida. São os dois primeiros destinos da viagem.",
-        mitigation: "A saída mais limpa é a ATOMOXETINA (Strattera): não é substância controlada em nenhum país, então atravessa fronteira sem autorização e é vendida no Egito (Attencare), Grécia e Turquia. Contrapartida: leva 4-6 semanas pra fazer efeito e é remédio diferente — decisão do médico, não sua nem minha. Se for de Concerta, precisa da autorização do ede.gov.ae pros EAU (4 semanas) e o Egito pede 2 meses via embaixada, prazo que já não cabe.",
+        what: "Os Emirados estão OK: a lista oficial permite lisdexanfetamina e metilfenidato com receita e relatório, declarando na alfândega. O Egito é o oposto — o guia oficial do Ministério da Saúde diz que substâncias das Tabelas 1 e 3 não podem ser levadas por viajantes 'mesmo que seu uso seja permitido no país de origem'. Metilfenidato está nominalmente nessa tabela; lisdexanfetamina cai no rodapé que abrange derivados (ela vira dexanfetamina no corpo, que está na lista). Não existe rota de autorização — e a orientação britânica registra que, no Egito, droga ilegal mesmo em pouca quantidade pode dar prisão perpétua ou pena de morte.",
+        mitigation: "Não levar estimulante pro Egito, ponto. Fale com o médico sobre uma ponte não controlada pros 12 dias — atomoxetina, bupropiona, guanfacina e clonidina não aparecem na Tabela 1 egípcia. E escreva pra embaixada egípcia pedindo posição por escrito. Pros Emirados, leve receita e relatório originais e declare na chegada.",
       },
       {
         title: "Perder o voo pro Cairo por causa do AWS Summit",
