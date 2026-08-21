@@ -673,6 +673,7 @@ export const trip = {
     { text: "Passagem CGB→GRU confirmada", done: true, priority: "OK" },
     { text: "Passagem GRU→DXB confirmada", done: true, priority: "OK" },
     { text: "💰 Reembolso Kuwait AED 1.104 pedido em 07/08 · em 20/08 ainda não caiu, mas isso é NORMAL: passaram só ~9 dos 30 dias úteis. Prazo real ~18/09", done: false, priority: "MÉDIA" },
+    { text: "📌 ACHAR e anotar aqui o LOCALIZADOR da reserva cancelada da Kuwait (6 letras, no e-mail de confirmação original) — nunca foi registrado, e o banco vai pedir se você precisar abrir chargeback em 21/09", done: false, priority: "ALTA" },
     { text: "📧 COBRAR o Kuwait: responder NA MESMA THREAD do pedido original (preserva o histórico do caso) e colocar customer-relations@kuwaitairways.com em cópia. Pedir número de protocolo do reembolso — é o que transforma a conversa em documento pro chargeback. Alternativas: WhatsApp +965 1802050 · tel +965 24345555 ramal 171 (24h)", done: false, priority: "MÉDIA" },
     { text: "⚠️ NÃO citar a regra de '7 dias úteis' do site da Kuwait ao cobrar — ela vale só pra voos de e para os EUA. O seu é DXB→CAI, então o prazo é mesmo os 30 dias úteis que te informaram", done: true, priority: "OK" },
     { text: "🚨 SE O REEMBOLSO NÃO CAIR ATÉ 21/09: abrir chargeback no Visa final 5655 ANTES de embarcar dia 24/09. Depois de viajar fica muito mais difícil resolver — e o prazo do reembolso (~18/09) foi calculado de propósito pra sobrar essa margem", done: false, priority: "ALTA" },
