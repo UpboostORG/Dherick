@@ -510,7 +510,7 @@ export const trip = {
       { name: "Febre Tifoide", reason: "Egito — água/alimentos" },
     ],
     note: "Hep A e Tifoide não são obrigatórias, mas o Egito tem risco alto por água/alimentos — vale tomar numa clínica de viajantes ~2 semanas antes. Fora isso, evite água de torneira e gelo no Egito.",
-    timingAlert: "Tome Hepatite A e Febre Tifoide até ~16/09 para ter 2+ semanas de imunidade antes de entrar no Egito (30/09). Procure uma clínica de viajantes em Cuiabá.",
+    timingAlert: "Você decidiu não tomar Hepatite A e Febre Tifoide. Nenhuma das duas é exigida pra entrar em país nenhum da rota — a única obrigatória é Febre Amarela, e essa você tem ✓. Se mudar de ideia, o prazo é ~16/09 (2 semanas antes do Egito). Sem as vacinas, o cuidado com água e comida no Egito passa a ser sua única proteção.",
   },
 
   emergencyContacts: [
@@ -651,8 +651,8 @@ export const trip = {
     { text: "🎒 Conferir medidas da mochila pequena (máx 40x20x25cm) — única bagagem grátis nos voos Ryanair", done: false, priority: "MÉDIA" },
     { text: "🧳 Guarda-volumes aeroporto ATH: deixar mala 15/10 ~4h30 (Chegadas, ~€6/dia) · retirar 20/10 00h50 · guardar o recibo na mochila", done: false, priority: "MÉDIA" },
     { text: "🛡 Seguro viagem longa duração (ex: SafetyWing) · contratar até set/26", done: false, priority: "ALTA" },
-    { text: "💉 Vacina Hepatite A · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
-    { text: "💉 Vacina Febre Tifoide · tomar até meados de set/26 (2 sem antes do Egito)", done: false, priority: "MÉDIA" },
+    { text: "💉 Hepatite A e Febre Tifoide — decidido NÃO tomar. Nenhuma é exigida pra entrar em país nenhum da rota; a obrigatória (Febre Amarela) você já tem ✓. Se mudar de ideia, o prazo é ~16/09", done: true, priority: "OK" },
+    { text: "🚰 Como você não vai se vacinar, redobrar o cuidado no Egito: NADA de água de torneira, gelo, salada crua, fruta sem casca ou comida de rua parada. Água em garrafa lacrada, sempre — é por aí que Hepatite A e Tifoide entram", done: false, priority: "ALTA" },
     { text: "📱 eSIM / chip internacional (Airalo) · comprar até set/26", done: false, priority: "MÉDIA" },
     { text: "💵 SACAR pela Wise, só 2 vezes: US$250 em Dubai (set) + €250 NA GRÉCIA (out, ao chegar em Atenas 12/10 — só lá sai euro de verdade) · ambos de graça · sempre moeda LOCAL no caixa", done: false, priority: "MÉDIA" },
     { text: "💵 EM DUBAI, antes de ir pro Egito: trocar ~US$ 120 dos AED por DÓLAR em espécie numa casa de câmbio (Al Ansari/Sharaf). Sem isso você não paga o visto do Egito (US$25) nem o hotel de Luxor (US$82,90, só cash) — o caixa eletrônico só solta AED. Peça notas novas e sem rasgo", done: false, priority: "ALTA" },
@@ -754,10 +754,9 @@ export const trip = {
       items: [
         { text: "Consulta médica: receita nova + justificativa Art. 43 §1º + relatório pra carregar", cost: "consulta", done: false },
         { text: "Comprar o remédio com a receita nova (quantidade pra cobrir até Istambul, ~8 semanas)", cost: "a definir", done: false },
-        { text: "Tradução juramentada do relatório médico (PT → EN, e turco se der)", cost: "~R$ 150-300", done: false },
-        { text: "Apostilamento do relatório em cartório (exigência da Bulgária)", cost: "~R$ 60-100", done: false },
-        { text: "⚠️ Vacina Hepatite A — checar antes se sai de graça no SUS/CRIE", cost: "~R$ 150-250", done: false },
-        { text: "⚠️ Vacina Febre Tifoide", cost: "~R$ 150-200", done: false },
+        { text: "Tradução do relatório médico pro INGLÊS — serve em Emirados, Grécia e Turquia", cost: "~R$ 150-300", done: false },
+        { text: "🇧🇬 Apostilar o relatório em cartório — SÓ a Bulgária exige (documento de 'autoridade competente', carta do médico não basta). Emirados, Grécia e Turquia não pedem. Fazer agora só porque não dá pra apostilar documento brasileiro estando lá fora. Se cortar a Bulgária do roteiro, corta isso também", cost: "~R$ 60-100", done: false },
+        { text: "💉 Vacinas Hepatite A e Febre Tifoide — VOCÊ DECIDIU NÃO TOMAR. Registrado. Nenhuma das duas é exigida pra entrar em país nenhum da rota (a única obrigatória é Febre Amarela, que você já tem ✓). O risco que sobra é ficar doente e parar de trabalhar, não ser barrado", cost: "—", done: true },
         { text: "Kit farmácia (antidiarreico, reidratante, antibiótico intestinal, protetor 50+, repelente, analgésico)", cost: "~R$ 100", done: false },
       ],
     },
@@ -774,7 +773,7 @@ export const trip = {
       month: "🎒 EQUIPAMENTO — comprar até 15/09",
       items: [
         { text: "eSIM Airalo (2ª linha de internet + possível saída pro bloqueio de chamada no Egito)", cost: "~R$ 200", done: false },
-        { text: "Adaptador universal de tomada", cost: "~R$ 60", done: false },
+        { text: "Adaptador universal de tomada — já tem ✓", cost: "R$ 0", done: true },
         { text: "Cadeado de armário (o item mais importante do hostel — o armário existe, o cadeado não)", cost: "~R$ 40", done: false },
         { text: "Toalha de microfibra + protetor de ouvido + máscara de dormir", cost: "~R$ 80", done: false },
         { text: "Imprimir: passaporte, CIVP, seguro, reservas, receita e relatório médico", cost: "~R$ 20", done: false },
