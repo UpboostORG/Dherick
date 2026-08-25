@@ -17,6 +17,10 @@ export default function Remedio() {
       <h1 className="text-3xl font-serif mb-1">Remédio & fronteiras</h1>
       <p className="text-sm text-warm-400 mb-6">O que pode entrar em cada país, onde dá pra comprar e o que fazer na alfândega</p>
 
+      <div className="bg-warm-200/30 border border-warm-300/40 rounded-xl p-5 mb-4">
+        <p className="text-sm text-warm-400">{m.parked}</p>
+      </div>
+
       <div className="bg-red-50 border-l-4 border-l-red-500 rounded-xl p-5 mb-4">
         <p className="text-sm font-semibold text-red-800 mb-1">⚠️ O problema é o Egito, não os Emirados</p>
         <p className="text-xs text-warm-400">{m.verdict}</p>

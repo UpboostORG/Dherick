@@ -565,6 +565,7 @@ export const trip = {
   },
 
   checklist: [
+    { text: "💊 REMÉDIO — adiado por decisão sua: sem receita, e vai resolver depois. ⚠️ A ÚNICA regra que importa agora: NÃO levar remédio controlado na mala sem receita. Sem levar, não há problema legal nenhum; levar sem papel nos Emirados é prisão (mínimo 2 anos), não deportação. Se mudar de ideia, a aba 'Remédio & fronteiras' tem tudo pronto", done: true, priority: "OK" },
     { text: "Passaporte emitido", done: true, priority: "OK" },
     { text: "Turquia — isento de visto p/ turismo (até 90 dias)", done: true, priority: "OK" },
     { text: "Entrada Dubai (EAU) — isento, visto na chegada", done: true, priority: "OK" },
@@ -572,23 +573,7 @@ export const trip = {
     { text: "🎤 Inscrito no AWS Summit Dubai 30/09 grátis (e-mail dherick.sociais@) — evento 8h-18h30, mas o voo é 19h00: fica até ~16h30 e sai de táxi direto pro aeroporto, perdendo só as 2h finais de networking", done: true, priority: "OK" },
     { text: "✈️ Passagem DXB→CAI comprada: EgyptAir MS906 30/09 19h00→21h40 · ref YIITAH · 2x23kg + mão inclusos", done: true, priority: "OK" },
     { text: "💳 AED 1.025 devolvidos pra Wise ✓ — hoje tem AED 1.600 lá, o que já cobre os Ray-Ban Meta na Amazon.ae (~AED 1.537). Dívida da EgyptAir quitada", done: true, priority: "OK" },
-    { text: "✅ EMIRADOS liberados: a lista oficial dos EAU permite lisdexanfetamina (item 143) E metilfenidato (item 167) com documentação. Não estão entre os proibidos. Basta receita + relatório médico originais e DECLARAR na alfândega", done: true, priority: "OK" },
-    { text: "🚨🚨 O EGITO É O PROBLEMA — o guia oficial do Ministério da Saúde egípcio diz que substâncias das Tabelas 1 e 3 não podem ser levadas 'mesmo que permitidas no país de origem'. Metilfenidato está nominalmente na Tabela 1, e lisdexanfetamina cai no rodapé que abrange derivados. NÃO EXISTE autorização possível. Precedente: turista britânica pegou 3 anos por tramadol da mesma tabela", done: false, priority: "ALTA" },
-    { text: "🚨 MÉDICO ESTA SEMANA — pedir TRÊS documentos (a farmácia fica com a receita amarela, então só ela não basta): (1) a NR-A pra comprar · (2) a JUSTIFICATIVA do Art. 43 §1º com CID F90.x e posologia, que é o que permite levar mais de 30 dias · (3) relatório separado pra carregar, em português E inglês, com CID, nome genérico, dose diária, quantidade total e duração da viagem", done: false, priority: "ALTA" },
-    { text: "🚨 PERGUNTAR ao médico o que fazer nos 12 dias de Egito — atomoxetina, bupropiona, guanfacina e clonidina NÃO estão na Tabela 1 egípcia. Alguma serve de ponte?", done: false, priority: "ALTA" },
-    { text: "📜 APOSTILAR (cartório) o relatório médico em português e inglês — a Bulgária exige documento de 'autoridade competente', não basta carta do médico, e apostila é o equivalente prático. Brasil, Grécia, Turquia, Bulgária e Macedônia são todos signatários da Apostila de Haia", done: false, priority: "ALTA" },
-    { text: "✅ TURQUIA liberada — a ficha oficial que a Turquia mandou pro INCB lista SÓ cannabis como proibida pra viajante. Pode levar metilfenidato e lisdexanfetamina, declarando na alfândega, em quantidade pro tempo de estadia (não existe limite de 30/90 dias, isso é invenção de site)", done: true, priority: "OK" },
-    { text: "🇬🇷 ATENAS É SUA REDE DE SEGURANÇA (12-15/10) — se algo der errado no Egito (acabar, ser confiscado, perder), dá pra conseguir receita grega SÓ COM PASSAPORTE desde julho/2024, e o Concerta é estoque normal de farmácia lá. Prescrevem psiquiatra, neurologista ou psiquiatra infantil. Você paga 100%. É a última parada antes de Istambul", done: false, priority: "MÉDIA" },
-    { text: "📞 CONFIRMAR antes de contar com a Grécia: ligar pra um consultório de psiquiatria em Atenas e perguntar se o Concerta está marcado como prescritível a paciente estrangeiro no sistema eletrônico. Essa marcação é por produto e não é publicada", done: false, priority: "BAIXA" },
-    { text: "🎯 ESTABELECER TRATAMENTO EM ISTAMBUL — é o melhor lugar da rota: você fica 15+ dias, e a Genelge 2017/1 do TİTCK garante que paciente SEM CPF turco recebe receita vermelha em formulário de papel. Marcar consulta pelo 'yabancı hasta birimi' de hospital privado assim que chegar (20/10). SÓ PSIQUIATRA prescreve — neurologista não pode. ~₺2.500-6.000 a consulta", done: false, priority: "ALTA" },
-    { text: "🇹🇷 Levar pra consulta em Istambul: passaporte + relatório do médico brasileiro traduzido + receitas anteriores. O psiquiatra vai querer histórico — é o gargalo real, não a burocracia", done: false, priority: "MÉDIA" },
-    { text: "📄 Traduzir a carta médica TAMBÉM PRO TURCO — recomendação da embaixada americana, porque fiscal de alfândega turco pode não ler inglês", done: false, priority: "MÉDIA" },
-    { text: "📧 MACEDÔNIA DO NORTE — escrever pra info@malmed.gov.mk perguntando como obter o certificado exigido pela alfândega. Não existe procedimento publicado, e sem ele o trecho fica inviável", done: false, priority: "ALTA" },
-    { text: "📧 ANVISA — perguntar em med.controlados@anvisa.gov.br se a justificativa do Art. 43 §1º permite exportar MAIS de 30 dias. A ANVISA informou 30 dias ao INCB, e isso não bate com a justificativa. Define quanto você pode legalmente tirar do país", done: false, priority: "ALTA" },
     { text: "🚨 DECIDIR sobre a Macedônia do Norte: a lei de lá (Art. 45) limita a 7 DIAS de remédio, não 30 — e o país não tem metilfenidato nem lisdexanfetamina em registro nenhum, só atomoxetina. Ou o trecho vira uma janela real de 7 dias, ou sai do roteiro", done: false, priority: "ALTA" },
-    { text: "📧 ESCREVER pra Embaixada do Egito em Brasília, em português e inglês, citando 'lisdexanfetamina' e 'metilfenidato' nominalmente, e pedir resposta POR ESCRITO. Uma recusa escrita também é informação útil. Faça agora — 5 semanas é pouco", done: false, priority: "ALTA" },
-    { text: "🇦🇪 PEDIR a autorização no ede.gov.ae mesmo sendo opcional — é grátis e sai em ~1 dia útil, e elimina discussão na alfândega. ⚠️ O login pede UAE PASS (que costuma exigir Emirates ID) — se travar, escreva pra info@ede.gov.ae ou ligue 800 33784. Teste isso cedo, não na véspera", done: false, priority: "MÉDIA" },
-    { text: "💊 Remédio SEMPRE na caixa original com etiqueta da farmácia, na bagagem de MÃO, junto da receita e do relatório impressos. Nunca na mala despachada, nunca solto em porta-comprimidos", done: false, priority: "ALTA" },
     { text: "🏨 RESERVAR o hotel em SP pras 19h40 de escala (24/09 05h25 → 25/09 22h) — escolher um com SHUTTLE GRÁTIS pro GRU (a maioria em Cumbica tem, 24h): economiza dois Ubers e não depende de app de madrugada", done: false, priority: "ALTA" },
     { text: "📲 Check-in online da EgyptAir no dia 28/09 (abre 48h antes) — com o cartão de embarque no celular você sai do AWS Summit e vai direto pra imigração, sem fila de balcão", done: false, priority: "ALTA" },
     { text: "❄️ Comprar roupa de frio EM ISTAMBUL (casaco, luva, gorro, meia térmica) pra Bulgária — não dá pra comprar no Egito nem na Grécia, e antes do dia 20/10 não cabe nos 8kg da Aegean. Istambul é barato e tem tudo", done: false, priority: "MÉDIA" },
@@ -678,7 +663,6 @@ export const trip = {
     { text: "⚠️ MARGEM APERTADA: o prazo deles (~17/09) vence só 7 dias antes de você embarcar (24/09). E feriado no Kuwait empurra a data pra frente. Se passar de 21/09 sem cair, abra o chargeback — não espere 'mais uns dias'", done: false, priority: "ALTA" },
     { text: "📌 Reserva cancelada da Kuwait: ref X44YYV · e-ticket 229-2118323345 · passageiro Dherick Prado Abreu · Visa final 5655 · AED 1.104 · pedido em 07/08 ✓ (é isso que o banco vai pedir no chargeback)", done: true, priority: "OK" },
     { text: "📧 COBRAR o Kuwait: responder NA MESMA THREAD do pedido original (preserva o histórico do caso) e colocar customer-relations@kuwaitairways.com em cópia. Pedir número de protocolo do reembolso — é o que transforma a conversa em documento pro chargeback. Alternativas: WhatsApp +965 1802050 · tel +965 24345555 ramal 171 (24h)", done: false, priority: "MÉDIA" },
-    { text: "⚠️ NÃO citar a regra de '7 dias úteis' do site da Kuwait ao cobrar — ela vale só pra voos de e para os EUA. O seu é DXB→CAI, então o prazo é mesmo os 30 dias úteis que te informaram", done: true, priority: "OK" },
     { text: "🚨 SE O REEMBOLSO NÃO CAIR ATÉ 21/09: abrir chargeback no Visa final 5655 (ref X44YYV · e-ticket 229-2118323345) ANTES de embarcar dia 24/09. Depois de viajar fica muito mais difícil resolver — e o prazo do reembolso (~18/09) foi calculado de propósito pra sobrar essa margem", done: false, priority: "ALTA" },
     { text: "📧 Liberar espaço no Gmail (está em 95%) — se lotar, você para de receber cartão de embarque, reservas e o reembolso · one.google.com/storage", done: false, priority: "ALTA" },
     { text: "🚌 Ônibus Cairo→Luxor (Go Bus noturno 05/10) pago · ref BW5302849", done: true, priority: "OK" },
@@ -751,15 +735,12 @@ export const trip = {
 
   monthlyPurchases: [
     {
-      month: "💊 SAÚDE — o que trava tudo",
-      note: "Prazo real é ~16/09 pras vacinas (2 semanas antes do Egito). E a consulta do remédio precisa ser esta semana",
+      month: "💊 SAÚDE",
+      note: "Remédio e vacinas saíram da lista por decisão sua — sobrou só o kit de farmácia, que fica ainda mais importante sem as vacinas",
       items: [
-        { text: "Consulta médica: receita nova + justificativa Art. 43 §1º + relatório pra carregar", cost: "consulta", done: false },
-        { text: "Comprar o remédio com a receita nova (quantidade pra cobrir até Istambul, ~8 semanas)", cost: "a definir", done: false },
-        { text: "Tradução do relatório médico pro INGLÊS — serve em Emirados, Grécia e Turquia", cost: "~R$ 150-300", done: false },
-        { text: "🇧🇬 Apostilar o relatório em cartório — SÓ a Bulgária exige (documento de 'autoridade competente', carta do médico não basta). Emirados, Grécia e Turquia não pedem. Fazer agora só porque não dá pra apostilar documento brasileiro estando lá fora. Se cortar a Bulgária do roteiro, corta isso também", cost: "~R$ 60-100", done: false },
-        { text: "💉 Vacinas Hepatite A e Febre Tifoide — VOCÊ DECIDIU NÃO TOMAR. Registrado. Nenhuma das duas é exigida pra entrar em país nenhum da rota (a única obrigatória é Febre Amarela, que você já tem ✓). O risco que sobra é ficar doente e parar de trabalhar, não ser barrado", cost: "—", done: true },
-        { text: "Kit farmácia (antidiarreico, reidratante, antibiótico intestinal, protetor 50+, repelente, analgésico)", cost: "~R$ 100", done: false },
+        { text: "💊 Remédio controlado — ADIADO, sem receita por enquanto. Se mudar de ideia: consulta + receita + tradução + apostila voltam pra cá (~R$ 210-400 de papelada, fora o remédio)", cost: "—", done: true },
+        { text: "💉 Vacinas Hepatite A e Febre Tifoide — decidido NÃO tomar. Nenhuma é exigida pra entrar em país nenhum da rota; a obrigatória (Febre Amarela) você já tem ✓", cost: "—", done: true },
+        { text: "Kit farmácia (antidiarreico, reidratante, antibiótico intestinal, protetor 50+, repelente, analgésico) — sua única proteção no Egito agora", cost: "~R$ 100", done: false },
       ],
     },
     {
@@ -809,6 +790,7 @@ export const trip = {
   ],
 
   medication: {
+    parked: "📌 ADIADO — você decidiu não levar remédio por enquanto, e sem receita. Esta página fica aqui como referência pronta se mudar de ideia. A única coisa que vale AGORA: nunca colocar controlado na mala sem receita. Sem levar, não existe problema legal nenhum.",
     intro: "Regra que vale em TODO lugar: receita brasileira não é aceita em farmácia estrangeira pra remédio controlado. Em nenhum país da sua rota. Onde precisar comprar, precisa de receita de médico local — e lisdexanfetamina não existe pra vender em NENHUM dos quatro países depois do Egito. Planeje carregar o estoque inteiro.",
     brazilExit: {
       title: "🇧🇷 O lado brasileiro — a Portaria 344/98 da ANVISA",
