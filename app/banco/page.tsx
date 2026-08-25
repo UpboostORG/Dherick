@@ -5,16 +5,16 @@ const TARGET_EUR = 1000;
 const TARGET_USD = 1000;
 
 export default function BancoEmergencia() {
-  const [eur, setEur] = useState(678);
-  const [usd, setUsd] = useState(687);
+  const [eur, setEur] = useState(744);
+  const [usd, setUsd] = useState(754);
   const [eurRate, setEurRate] = useState(5.90);
   const [usdRate, setUsdRate] = useState(5.20);
   const [vendaItens, setVendaItens] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const e = localStorage.getItem("__banco_eur_v3");
-    const u = localStorage.getItem("__banco_usd_v3");
+    const e = localStorage.getItem("__banco_eur_v4");
+    const u = localStorage.getItem("__banco_usd_v4");
     const er = localStorage.getItem("__banco_eurrate");
     const ur = localStorage.getItem("__banco_usdrate");
     const v = localStorage.getItem("__banco_venda");
@@ -28,8 +28,8 @@ export default function BancoEmergencia() {
 
   useEffect(() => {
     if (!loaded) return;
-    localStorage.setItem("__banco_eur_v3", String(eur));
-    localStorage.setItem("__banco_usd_v3", String(usd));
+    localStorage.setItem("__banco_eur_v4", String(eur));
+    localStorage.setItem("__banco_usd_v4", String(usd));
     localStorage.setItem("__banco_eurrate", String(eurRate));
     localStorage.setItem("__banco_usdrate", String(usdRate));
     localStorage.setItem("__banco_venda", String(vendaItens));
