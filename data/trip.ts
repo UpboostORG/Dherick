@@ -228,7 +228,7 @@ export const trip = {
       },
     ],
     toBook: [
-      { city: "Cairo — Downtown · HOTEL", dates: "30/09-06/10 · 6 diárias", priority: "PENDENTE", estimate: "~R$ 700-1.000 · CRITÉRIO: recepção 24h (chegada ~23h30 do dia 30) + banheiro NO QUARTO + nota com VOLUME REAL de avaliações (100+) + cancelamento grátis. ⚠️ Wi-fi de hotel NÃO é critério eliminatório — nenhum hotel de R$ 120 a diária no Cairo tem internet de trabalho. A internet vem do chip 5G e do coworking. Nota 10 com 4 avaliações é ausência de histórico, não qualidade — mesmo perfil das casas de golpe de Giza. Verificar vaga na PÁGINA DO HOTEL: a lista de busca mostra hotel sem quarto, e o filtro de banheiro privativo pega o hotel, não o quarto" },
+      { city: "Cairo — Downtown · HOTEL", dates: "30/09-06/10 · 6 diárias", priority: "PENDENTE", estimate: "Meramees Hotel R$ 1.158 (9,1 · funcionários 9,7) ou New Panorama Palace R$ 716 (8,2 · com elevador) · ambos Downtown, recepção 24h, banheiro no quarto, cancelamento grátis. ZAMALEK FOI DESCARTADO: o hotel mais barato de lá custa R$ 2.262 as 6 diárias e o resto passa de R$ 3.000 — bairro bonito, mas 3x o preço por 6 noites de trabalho" },
       { city: "Santorini — 4ª noite (18→19/10)", dates: "18-19/10 · 1 noite só", priority: "PENDENTE", estimate: "~€ 25-40 · Caveland pelo Hostelworld exige mínimo de 2 noites (~R$ 400) — pedir extensão direto com eles, ou 1 noite em Perissa/Kamari" },
       { city: "Istambul", dates: "20/10 em diante · 15+ dias", priority: "FALTA", estimate: "~US$ 225 (hostel ~US$ 15/noite)" },
     ],
@@ -252,11 +252,11 @@ export const trip = {
         note: "✅ Confirmado com o hostel: check-in a qualquer hora e pagamento no CARTÃO (Nomad) — não precisa de dinheiro aqui",
       },
       {
-        city: "Cairo — Downtown", name: "HOTEL a definir (não hostel)", dates: "30/09-06/10 · 6 diárias",
+        city: "Cairo — Downtown", name: "MERAMEES HOTEL ou New Panorama Palace", dates: "30/09-06/10 · 6 diárias",
         ref: "a reservar", status: "A RESERVAR",
-        totalLabel: "~R$ 700-1.000", paidLabel: "—", dueLabel: "a reservar",
+        totalLabel: "R$ 716 a R$ 1.158", paidLabel: "—", dueLabel: "a reservar",
         paidEur: 0, dueEur: 0, dueUsd: 0, estEur: 0,
-        note: "🚨 ÚLTIMA PEÇA DO EGITO EM ABERTO e sua única cama da noite de 30/09 (o King's Gate vai ser cancelado). CRITÉRIO CORRIGIDO: recepção 24h + banheiro no quarto + 100 ou mais avaliações + cancelamento grátis. Wi-fi de hotel saiu da lista de requisitos — hotel barato do Cairo entrega 5-15 Mbps e a internet de trabalho vem do chip 5G (20-50 Mbps) e do coworking. 🏆 Candidato mais forte: NEW PANORAMA PALACE, 42 Talaat Harb — 8,2 com 204 avaliações, recepção 24h, elevador, R$ 716 as 6 diárias no Quarto Individual Standard (banheiro no quarto), cancelamento grátis até 28/09 e sem pagar nada até 26/09. Wi-fi dele é 5,5, e tudo bem. 💡 Checkout dia 06 e não 05: a diária extra segura quarto e banho até sair pro Go Bus às 21h do dia 05",
+        note: "🚨 ÚLTIMA PEÇA DO EGITO e sua única cama da noite de 30/09 (o King's Gate vai ser cancelado). 🏆 MERAMEES HOTEL, 32 Sabry Abo Alam — 9,1 com 139 avaliações, FUNCIONÁRIOS 9,7, limpeza 9,2, custo-benefício 9,2, localização 9,6, recepção 24h, café da manhã 'excepcional', perto do Tahrir E da estação do Go Bus. Quarto de 20 m² com banheiro NO QUARTO: R$ 1.007 + R$ 151 = R$ 1.158, cancelamento grátis até 30/09 18h, sem pré-pagamento. Não tem elevador listado. 💰 Alternativa barata: NEW PANORAMA PALACE, 42 Talaat Harb — 8,2 com 204 avaliações, recepção 24h, COM elevador, Quarto Individual Standard R$ 550 + R$ 166 = R$ 716, cancelamento grátis até 28/09. ⚠️ Nos dois, o quarto barato do site é de BANHEIRO COMPARTILHADO — conferir antes de fechar",
       },
       {
         city: "Giza", name: "Life Pyramids Inn", dates: "08-12/10 · 4 noites",
@@ -602,7 +602,7 @@ export const trip = {
     { text: "💵 Life Pyramids Inn: US$ 160,49 EM DINHEIRO, em dólar. A própria confirmação diz que por lei egípcia estrangeiro paga em moeda estrangeira, não em EGP — não adianta perguntar. Sai do saque de US$ 400 em Dubai", done: false, priority: "ALTA" },
     { text: "🚕 No check-in do dia 08 avisar o Life Pyramids que você sai 01h da madrugada do dia 12 (voo 04h) e PEDIR TÁXI AGENDADO — Uber em Giza a essa hora pode não aparecer. Hóspedes relatam que eles preparam café da manhã embalado pra quem sai cedo", done: false, priority: "ALTA" },
     { text: "❌ CANCELAR o King's Gate (ref 5446189808) — LIBERADO: o Life Pyramids já está confirmado. Cancelamento é grátis. Fazer pelo próprio Booking, não por telefone. ⚠️ Depois disso você fica SEM CAMA no dia 30/09 até reservar o hotel do Downtown", done: false, priority: "CRÍTICA" },
-    { text: "🏨 RESERVAR HOTEL NO DOWNTOWN pra 30/09-06/10 (6 diárias) — última peça do Egito e sua única cama do dia 30. Critério: recepção 24h + banheiro no quarto + 100+ avaliações + cancelamento grátis. NÃO eliminar por wi-fi baixo (a internet vem do chip 5G e do coworking) e NÃO cair em nota 10 com 4 avaliações. Candidato: New Panorama Palace, 42 Talaat Harb, R$ 716", done: false, priority: "CRÍTICA" },
+    { text: "🏨 RESERVAR HOTEL NO DOWNTOWN pra 30/09-06/10 — última peça do Egito e sua única cama do dia 30. 🏆 MERAMEES HOTEL (32 Sabry Abo Alam): 9,1 com 139 avaliações, funcionários 9,7, quarto de 20 m² com banheiro no quarto por R$ 1.158, cancelamento grátis até 30/09 18h. 💰 Ou NEW PANORAMA PALACE (42 Talaat Harb): 8,2 com 204 avaliações, com elevador, R$ 716. ⚠️ Nos dois, o quarto barato anunciado é de banheiro COMPARTILHADO", done: false, priority: "CRÍTICA" },
     { text: "🧳 Durante Luxor (05-08/10) a mala fica no seu quarto do Landmark — reservando as 8 noites, não depende de favor de ninguém", done: false, priority: "MÉDIA" },
     { text: "🚨 Ao reservar o hotel do Downtown, avisar no pedido especial que você chega ~23h30 do dia 30/09 (EgyptAir pousa 21h40 + imigração + visto + Uber). Sem esse aviso a reserva pode virar no-show", done: false, priority: "ALTA" },
     { text: "🚨 Corrigir nome no ônibus BW5302849 (Cairo→Luxor) com o suporte do 12go: está 'Dherick Abreu' faltando o 'Prado', e nascimento errado (2004 em vez de 2006)", done: false, priority: "ALTA" },
@@ -783,7 +783,7 @@ export const trip = {
       month: "🏨 HOSPEDAGEM — já cabe na sobra da Nomad",
       note: "Não precisa de aporte novo: a Nomad tem ~US$ 480 sobrando (US$ 290 + US$ 300 do reembolso, contra ~US$ 110 devidos no cartão)",
       items: [
-        { text: "HOTEL no Downtown do Cairo (30/09-06/10 · 6 diárias) — recepção 24h obrigatória", cost: "~R$ 700-1.400", done: false },
+        { text: "HOTEL no Downtown do Cairo (30/09-06/10) — Meramees ou New Panorama, recepção 24h", cost: "R$ 716 a R$ 1.158", done: false },
         { text: "4ª noite no Caveland ou Perissa (18-19/10)", cost: "~€ 43", done: false },
         { text: "Hostel Istambul — só as 3-4 primeiras noites", cost: "~US$ 60", done: false },
         { text: "Life Pyramids Inn (Giza, 08-12/10) reservado — pagar US$ 160,49 em dinheiro no check-in", cost: "US$ 160,49 ✓ reservado", done: true },
