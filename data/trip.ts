@@ -340,7 +340,7 @@ export const trip = {
         hasApp: true, appName: "App Ryanair (OBRIGATÓRIO — não emitem cartão em papel)",
         window: "Abre 24h antes de cada voo · fecha 2h antes",
         how: "App Ryanair → Minhas reservas → check-in de cada trecho separadamente → cartão de embarque só existe no app",
-        note: "✅ PRIORITY E BAGAGEM DE CABINE 10KG JÁ COMPRADOS NOS 2 TRECHOS — 2× US$ 29 (US$ 58 no total), pagos no cartão Nomad. Aparece como 'Priority and 10 kg Cabin Baggage · PURCHASED' na reserva. 🚨 SE TENTAREM COBRAR DE NOVO NO PORTÃO: abrir a reserva no app e mostrar o status PURCHASED, e o e-mail de confirmação. Não pagar duas vezes. ⚠️ Sem check-in no app = multa no balcão: baixar o app e logar com antecedência",
+        note: "✅ COMPROVANTE — Priority & 2 bagagens de cabine comprados nos DOIS trechos, pagos no Visa Debit final 5655. IDA: FR1232 · SVD5SI · ATH→JTR · 15/10/2026 · 06h00→06h50 · € 23,17 (e-mail cobra 6% de conversão de moeda). VOLTA: FR1237 · T8EMHK · JTR→ATH · 20/10/2026 · 00h00→00h50 · mesmo pacote. Passageiro: DHERICK PRADO ABREU ✓ bate com o passaporte. Total cobrado no cartão ~US$ 58. 🚨 SE COBRAREM DE NOVO NO PORTÃO: mostrar o e-mail de confirmação e o status na reserva. Não pagar duas vezes. ⚠️ Ryanair NÃO aceita mais cartão de embarque impresso — só o app",
       },
       {
         company: "Sky Express", ref: "KPPSWK", route: "ATH → IST · 20/10",
