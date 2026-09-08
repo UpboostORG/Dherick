@@ -675,7 +675,7 @@ export const trip = {
     { text: "🧳 Em Santorini você LEVA A MOCHILA (com o notebook) e deixa só a MALA no guarda-volumes de Atenas — 1 volume, ~€30 pelos 5 dias em vez de €60. Notebook nunca fica guardado", done: false, priority: "MÉDIA" },
     { text: "💰 Perguntar a TARIFA POR PERÍODO do guarda-volumes de Atenas — 5 dias corridos costuma sair bem menos que 5 × a diária de ~€6. Confirmar na mesma conversa se atende 24h", done: false, priority: "MÉDIA" },
     { text: "🧳 Guarda-volumes aeroporto ATH: deixar SÓ A MALA 15/10 ~4h30 (Chegadas, ~€6/dia, 1 volume) · retirar 20/10 00h50 · guardar o recibo na mochila", done: false, priority: "MÉDIA" },
-    { text: "🛡 Seguro viagem longa duração (ex: SafetyWing) · contratar até set/26", done: false, priority: "ALTA" },
+    { text: "🛡 ASSINAR O GENKI TRAVELER com início em 24/09 — ~€ 52,50/mês (R$ 310), cobertura médica de € 1.000.000, franquia de € 50 POR CASO (não por recibo). Aceita brasileiro sem restrição de nacionalidade ou residência: declara o Brasil como país de origem. ⚠️ Se a cotação real passar de R$ 350/mês, reavaliar", done: false, priority: "ALTA" },
     { text: "💉 Hepatite A e Febre Tifoide — decidido NÃO tomar. Nenhuma é exigida pra entrar em país nenhum da rota; a obrigatória (Febre Amarela) você já tem ✓. Se mudar de ideia, o prazo é ~16/09", done: true, priority: "OK" },
     { text: "🚰 Como você não vai se vacinar, redobrar o cuidado no Egito: NADA de água de torneira, gelo, salada crua, fruta sem casca ou comida de rua parada. Água em garrafa lacrada, sempre — é por aí que Hepatite A e Tifoide entram", done: false, priority: "ALTA" },
     { text: "📱 eSIM / chip internacional (Airalo) · comprar até set/26", done: false, priority: "MÉDIA" },
@@ -750,6 +750,7 @@ export const trip = {
 
   moneyPlan: {
     pockets: [
+      { name: "🛡 SEGURO — Genki Traveler, assinatura mensal", detail: "DECIDIDO depois de comparar três: MTA 40 Mundo (R$ 712 por 91 dias, US$ 40.000 de cobertura), SafetyWing Essential (R$ 313-350/mês, US$ 250.000) e GENKI TRAVELER (~R$ 310/mês, € 1.000.000). 🎯 O que decidiu não foi preço nem teto, foram DUAS coisas: (1) FORMATO — apólice brasileira é período fechado e normalmente não pode ser comprada nem renovada de fora do Brasil. 24/09 + 91 dias vence em 24/12, com você esquiando em Bansko, que abre 15/12. Ficaria sem seguro na montanha e sem como comprar outro. (2) COMO PAGA — internação hospitalar no Genki é PAGAMENTO DIRETO ao hospital via Emergency Assistance, sem franquia; só consulta e farmácia são por reembolso. Você não precisa adiantar o dinheiro do que é caro, o que importa porque sua reserva inteira é R$ 11.100. ⚠️ Ainda não verificado: os € 52,50 são preço 'a partir de', e o Genki é novo comparado a Assist Card e Coris (subscrito pela Squarelife, de Liechtenstein). Esqui coberto só NA PISTA e DE CAPACETE — vale pra qualquer seguradora", status: "a assinar · ~R$ 310/mês, fora dos aportes", done: false },
       { name: "🎯 META GERAL — R$ 35.000 seus ao embarcar", detail: "Soma tudo que continua sendo SEU no dia 24/09, depois de descontar o que já vai embora (Ray-Ban R$ 2.868 + espécie dos hotéis R$ 3.555 + hospedagem no cartão R$ 2.060 = R$ 8.483). Composição: Wise dia a dia US$ 4.048 + € 400 digitais + Revolut € 1.000/US$ 1.000 + a folga da Nomad. 💡 Desses R$ 35.000, R$ 23.400 são livres pra viver e R$ 11.100 ficam no Revolut atrás do muro da emergência", status: "✅ NO ALVO — R$ 35.000 projetados, desde que os 3 aportes restantes aconteçam", done: true },
       { name: "Wise — dia a dia", detail: "US$ 4.000 · o orçamento da viagem inteira, hospedagem paga à parte", status: "✅ META BATIDA — US$ 4.048 (US$ 48 de folga)", done: true },
       { name: "Wise — dinheiro físico (SEPARADO)", detail: "US$ 400 + € 250 pra sacar em Dubai e Atenas · aporte próprio de R$ 3.555 em 20/09, FORA dos US$ 4.000 · converter os euros dentro do Wise uns dias antes de 12/10", status: "faltam R$ 3.555", done: false },
@@ -768,7 +769,7 @@ export const trip = {
       { label: "ℹ️ Esse dinheiro é SEPARADO dos US$ 4.000", desc: "Aporte próprio de R$ 2.775 em 20/09, pra que os US$ 4.000 fiquem inteiros pro dia a dia. Os saques cobrem os hotéis que só aceitam cash (Luxor US$ 82,90 · Atenas € 42,71 · Caveland € 130,54) e ainda sobram ~US$ 167 pro Egito e ~€ 77 pra Grécia", tag: "SUGERIDO" },
       { label: "AED · EGP · TRY", desc: "Não comprar no Brasil: dirham é atrelado ao dólar (cartão resolve), libra egípcia e lira troca/saca lá", tag: "NÃO COMPRAR" },
     ],
-    missingTotal: "~R$ 8.221 em 3 aportes rumo à META GERAL de R$ 35.000 seus ao embarcar: R$ 2.306 (15/09) + R$ 3.555 (20/09) + R$ 2.360 (22/09). ✅ FECHADOS: Wise dia a dia US$ 4.048, Ray-Ban AED 2.034 e Nomad US$ 454 — esta última já cobre a hospedagem sozinha, sem depender do reembolso da Kuwait. O que falta: € 225/US$ 188 do Revolut (R$ 2.306) + US$ 400/€ 250 em espécie (R$ 3.555) + € 400 digitais na Wise (R$ 2.360). 💡 Quando o reembolso da Kuwait cair, sobram US$ 357 na Nomad — dá pra abater R$ 1.100 de um aporte seguinte. Fora dos aportes fica só o seguro (~R$ 330/mês)",
+    missingTotal: "~R$ 8.221 em 3 aportes rumo à META GERAL de R$ 35.000 seus ao embarcar: R$ 2.306 (15/09) + R$ 3.555 (20/09) + R$ 2.360 (22/09). ✅ FECHADOS: Wise dia a dia US$ 4.048, Ray-Ban AED 2.034 e Nomad US$ 454 — esta última já cobre a hospedagem sozinha, sem depender do reembolso da Kuwait. O que falta: € 225/US$ 188 do Revolut (R$ 2.306) + US$ 400/€ 250 em espécie (R$ 3.555) + € 400 digitais na Wise (R$ 2.360). 💡 Quando o reembolso da Kuwait cair, sobram US$ 357 na Nomad — dá pra abater R$ 1.100 de um aporte seguinte. Fora dos aportes fica só o seguro (Genki Traveler, ~R$ 310/mês)",
   },
 
   emergencyFund: {
@@ -793,7 +794,7 @@ export const trip = {
       month: "🛡 SEGURO — atenção, é MENSAL",
       note: "Viagem sem data de volta = seguro é assinatura, não compra única. Só o 1º mês entra no orçamento de partida",
       items: [
-        { text: "SafetyWing Nomad Insurance — plano Essential, faixa até 39 anos: ~US$ 63 a cada 4 semanas", cost: "~R$ 330/mês", done: false },
+        { text: "Genki Traveler — assinatura mensal, € 1.000.000 de cobertura médica, franquia € 50 por caso", cost: "~R$ 310/mês", done: false },
         { text: "💡 Avaliar o plano Standard (~US$ 81/mês): inclui consulta e cobertura de receita — relevante pro seu caso. ⚠️ Conferir se TDAH entra como pré-existente (costuma ser excluído)", cost: "~R$ 425/mês", done: false },
         { text: "Contratar ANTES de embarcar (dá pra contratar já viajando, mas não vale arriscar)", cost: "—", done: false },
       ],
