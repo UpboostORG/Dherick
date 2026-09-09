@@ -342,7 +342,7 @@ export const trip = {
       {
         company: "Aegean", ref: "XZECPY", route: "CAI → ATH · 12/10",
         hasApp: true, appName: "App Aegean Airlines",
-        window: "Abre 48h antes · fecha 30min antes do voo",
+        window: "Check-in abre 10/10 às 04h (48h antes) — conferido na reserva em 08/09",
         how: "App ou aegeanair.com → My Booking → localizador XZECPY → check-in",
         note: "Nome no bilhete saiu como 'DHÉRICK' (com acento) — ver auditoria abaixo, risco baixo",
       },
